@@ -1,0 +1,2105 @@
+{
+  "summary": {
+    "project": "Noda Time",
+    "target_version": "3.3.3",
+    "contracts_total": 120,
+    "replay_passed": 120,
+    "mutant_rejected": 120,
+    "verified": 120,
+    "failed": 0
+  },
+  "results": [
+    {
+      "name": "calendar_iso_has_stable_id",
+      "version": "1.0.0",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "id: expected ISO__mutant__, got ISO",
+      "actual": {
+        "id": "ISO"
+      },
+      "expected": {
+        "id": "ISO"
+      }
+    },
+    {
+      "name": "calendar_coptic_has_stable_id",
+      "version": "1.0.0",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "id: expected Coptic__mutant__, got Coptic",
+      "actual": {
+        "id": "Coptic"
+      },
+      "expected": {
+        "id": "Coptic"
+      }
+    },
+    {
+      "name": "calendar_julian_has_stable_id",
+      "version": "1.0.0",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "id: expected Julian__mutant__, got Julian",
+      "actual": {
+        "id": "Julian"
+      },
+      "expected": {
+        "id": "Julian"
+      }
+    },
+    {
+      "name": "calendar_islamicbcl_has_stable_id",
+      "version": "1.0.0",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "id: expected Hijri Astronomical-Base16__mutant__, got Hijri Astronomical-Base16",
+      "actual": {
+        "id": "Hijri Astronomical-Base16"
+      },
+      "expected": {
+        "id": "Hijri Astronomical-Base16"
+      }
+    },
+    {
+      "name": "calendar_for_id_roundtrips_iso",
+      "version": "1.0.0",
+      "capability": "calendar.lookup",
+      "replay": "calendar_for_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "calendar: expected ISO__mutant__, got ISO",
+      "actual": {
+        "calendar": "ISO"
+      },
+      "expected": {
+        "calendar": "ISO"
+      }
+    },
+    {
+      "name": "calendar_ids_include_iso",
+      "version": "1.0.0",
+      "capability": "calendar.lookup",
+      "replay": "calendar_ids",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "ISO__mutant__ not contained in ISO,Persian Simple,Persian Arithmetic,Persian Algorithmic,Hebrew Civil,Hebrew Scriptural,Gregorian,Coptic,Badi,Julian,Um Al Qura,Hijri Civil-Indian,Hijri Civil-Base15,Hijri Civil-Base16,Hijri Civil-HabashAlHasib,Hijri Astronomical-Indian,Hijri Astronomical-Base15,Hijri Astronomical-Base16,Hijri Astronomical-HabashAlHasib",
+      "actual": {
+        "ids": "ISO,Persian Simple,Persian Arithmetic,Persian Algorithmic,Hebrew Civil,Hebrew Scriptural,Gregorian,Coptic,Badi,Julian,Um Al Qura,Hijri Civil-Indian,Hijri Civil-Base15,Hijri Civil-Base16,Hijri Civil-HabashAlHasib,Hijri Astronomical-Indian,Hijri Astronomical-Base15,Hijri Astronomical-Base16,Hijri Astronomical-HabashAlHasib"
+      },
+      "expected": {
+        "contains": "ISO"
+      }
+    },
+    {
+      "name": "local_date_calendar_pattern_includes_calendar_id",
+      "version": "1.0.0",
+      "capability": "local-date.format.calendar",
+      "replay": "format_local_date_calendar",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2012-11-07 (ISO)__mutant__, got 2012-11-07 (ISO)",
+      "actual": {
+        "text": "2012-11-07 (ISO)"
+      },
+      "expected": {
+        "text": "2012-11-07 (ISO)"
+      }
+    },
+    {
+      "name": "local_time_fraction_accepts_comma_separator",
+      "version": "1.0.0",
+      "capability": "local-time.parse.fraction-separator",
+      "replay": "parse_local_time",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:56.789__mutant__, got 12:34:56.789",
+      "actual": {
+        "time": "12:34:56.789"
+      },
+      "expected": {
+        "time": "12:34:56.789"
+      }
+    },
+    {
+      "name": "local_datetime_fraction_accepts_comma_separator",
+      "version": "1.0.0",
+      "capability": "local-datetime.parse.fraction-separator",
+      "replay": "parse_local_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2012-11-07T12:34:56.789__mutant__, got 2012-11-07T12:34:56.789",
+      "actual": {
+        "local": "2012-11-07T12:34:56.789"
+      },
+      "expected": {
+        "local": "2012-11-07T12:34:56.789"
+      }
+    },
+    {
+      "name": "local_datetime_roundtrip_pattern_preserves_calendar",
+      "version": "1.0.0",
+      "capability": "local-datetime.format.calendar",
+      "replay": "format_local_datetime_calendar",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "ISO__mutant__ not contained in ISO",
+      "actual": {
+        "text": "2012-11-07T01:02:03 (ISO)",
+        "contains": "ISO"
+      },
+      "expected": {
+        "contains": "ISO"
+      }
+    },
+    {
+      "name": "iso_weekyear_week_day_creates_expected_date",
+      "version": "1.0.0-rc1",
+      "capability": "week-year.creation",
+      "replay": "weekyear_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2019-12-30__mutant__, got 2019-12-30",
+      "actual": {
+        "date": "2019-12-30"
+      },
+      "expected": {
+        "date": "2019-12-30"
+      }
+    },
+    {
+      "name": "negative_absolute_year_parses",
+      "version": "1.0.0-rc1",
+      "capability": "local-date.parse.signed-year",
+      "replay": "parse_local_date_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "year: expected 0, got -1",
+      "actual": {
+        "year": "-1",
+        "month": "1",
+        "day": "2",
+        "date": "-0001-01-02"
+      },
+      "expected": {
+        "year": -1,
+        "month": 1,
+        "day": 2
+      }
+    },
+    {
+      "name": "tzdb_source_exposes_aliases",
+      "version": "1.0.0-rc1",
+      "capability": "timezone.metadata.aliases",
+      "replay": "tzdb_aliases",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "GB__mutant__ not contained in Europe/Belfast,Europe/Guernsey,Europe/Isle_of_Man,Europe/Jersey,GB,GB-Eire",
+      "actual": {
+        "ids": "Europe/Belfast,Europe/Guernsey,Europe/Isle_of_Man,Europe/Jersey,GB,GB-Eire"
+      },
+      "expected": {
+        "contains": "GB"
+      }
+    },
+    {
+      "name": "tzdb_source_exposes_canonical_map",
+      "version": "1.0.0-rc1",
+      "capability": "timezone.metadata.aliases",
+      "replay": "tzdb_canonical_map",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical: expected Etc/UTC__mutant__, got Etc/UTC",
+      "actual": {
+        "canonical": "Etc/UTC"
+      },
+      "expected": {
+        "canonical": "Etc/UTC"
+      }
+    },
+    {
+      "name": "tzdb_source_exposes_windows_mapping",
+      "version": "1.0.0-rc1",
+      "capability": "timezone.metadata.windows",
+      "replay": "windows_mapping",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "Europe/London__mutant__ not contained in Europe/London",
+      "actual": {
+        "ids": "Europe/London",
+        "contains": "Europe/London"
+      },
+      "expected": {
+        "contains": "Europe/London"
+      }
+    },
+    {
+      "name": "tzdb_source_exposes_zone_locations",
+      "version": "1.0.0-rc1",
+      "capability": "timezone.metadata.locations",
+      "replay": "zone_locations",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "country: expected GB__mutant__, got GB",
+      "actual": {
+        "country": "GB"
+      },
+      "expected": {
+        "country": "GB"
+      }
+    },
+    {
+      "name": "tzdb_source_version_is_exposed",
+      "version": "1.0.0-rc1",
+      "capability": "timezone.metadata.version",
+      "replay": "tzdb_version",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "2026c (mapping: 48.2) does not match __never_matches__",
+      "actual": {
+        "value": "2026c (mapping: 48.2)"
+      },
+      "expected": {
+        "matches": "\\\\d{4}[a-z].*"
+      }
+    },
+    {
+      "name": "local_datetime_24_hour_rolls_to_next_day",
+      "version": "1.0.0-rc1",
+      "capability": "local-datetime.parse.24-hour",
+      "replay": "parse_local_datetime_24",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2013-03-29T00:00:00__mutant__, got 2013-03-29T00:00:00",
+      "actual": {
+        "local": "2013-03-29T00:00:00"
+      },
+      "expected": {
+        "local": "2013-03-29T00:00:00"
+      }
+    },
+    {
+      "name": "instant_from_unix_ticks_roundtrips",
+      "version": "1.0.0-rc1",
+      "capability": "instant.factory.unix",
+      "replay": "instant_from_unix",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected 1970-01-01T00:02:03.456789Z__mutant__, got 1970-01-01T00:02:03.456789Z",
+      "actual": {
+        "iso": "1970-01-01T00:02:03.456789Z"
+      },
+      "expected": {
+        "iso": "1970-01-01T00:02:03.456789Z"
+      }
+    },
+    {
+      "name": "instant_from_unix_milliseconds_roundtrips",
+      "version": "1.0.0-rc1",
+      "capability": "instant.factory.unix",
+      "replay": "instant_from_unix",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected 1970-01-02T10:17:36.789Z__mutant__, got 1970-01-02T10:17:36.789Z",
+      "actual": {
+        "iso": "1970-01-02T10:17:36.789Z"
+      },
+      "expected": {
+        "iso": "1970-01-02T10:17:36.789Z"
+      }
+    },
+    {
+      "name": "local_time_from_milliseconds_since_midnight",
+      "version": "1.0.0-rc1",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:56.789__mutant__, got 12:34:56.789",
+      "actual": {
+        "time": "12:34:56.789"
+      },
+      "expected": {
+        "time": "12:34:56.789"
+      }
+    },
+    {
+      "name": "local_time_from_seconds_since_midnight",
+      "version": "1.0.0-rc1",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:56__mutant__, got 12:34:56",
+      "actual": {
+        "time": "12:34:56"
+      },
+      "expected": {
+        "time": "12:34:56"
+      }
+    },
+    {
+      "name": "local_datetime_in_utc_keeps_local_fields",
+      "version": "1.0.0-rc1",
+      "capability": "local-datetime.conversion.utc",
+      "replay": "local_datetime_in_utc",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "instant: expected 2013-03-28T12:00:00Z__mutant__, got 2013-03-28T12:00:00Z",
+      "actual": {
+        "instant": "2013-03-28T12:00:00Z"
+      },
+      "expected": {
+        "instant": "2013-03-28T12:00:00Z"
+      }
+    },
+    {
+      "name": "local_datetime_with_offset_uses_supplied_offset",
+      "version": "1.0.0-rc1",
+      "capability": "local-datetime.conversion.offset",
+      "replay": "local_datetime_with_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "instant: expected 2013-03-28T10:00:00Z__mutant__, got 2013-03-28T10:00:00Z",
+      "actual": {
+        "instant": "2013-03-28T10:00:00Z",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "instant": "2013-03-28T10:00:00Z",
+        "offset": "+02:00"
+      }
+    },
+    {
+      "name": "offset_datetime_preserves_local_and_offset",
+      "version": "1.0.0-beta2",
+      "capability": "offset-datetime.core",
+      "replay": "offset_datetime_create",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2012-08-04T12:00:00__mutant__, got 2012-08-04T12:00:00",
+      "actual": {
+        "local": "2012-08-04T12:00:00",
+        "offset": "+02:30"
+      },
+      "expected": {
+        "local": "2012-08-04T12:00:00",
+        "offset": "+02:30"
+      }
+    },
+    {
+      "name": "offset_pattern_general_with_z_prints_z_for_zero",
+      "version": "1.0.0-beta2",
+      "capability": "offset.pattern.zero",
+      "replay": "format_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected Z__mutant__, got Z",
+      "actual": {
+        "text": "Z"
+      },
+      "expected": {
+        "text": "Z"
+      }
+    },
+    {
+      "name": "period_zero_fields_are_omitted",
+      "version": "1.0.0-beta2",
+      "capability": "period.format.zero-omission",
+      "replay": "format_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected P2M__mutant__, got P2M",
+      "actual": {
+        "text": "P2M"
+      },
+      "expected": {
+        "text": "P2M"
+      }
+    },
+    {
+      "name": "duration_epsilon_is_one_nanosecond",
+      "version": "1.0.0-beta2",
+      "capability": "duration.constant.epsilon",
+      "replay": "duration_constant",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "nanoseconds: expected 2, got 1",
+      "actual": {
+        "nanoseconds": "1"
+      },
+      "expected": {
+        "nanoseconds": 1
+      }
+    },
+    {
+      "name": "offset_datetime_instant_comparer_ignores_local_offset_difference",
+      "version": "1.1.0",
+      "capability": "offset-datetime.compare.instant",
+      "replay": "offset_datetime_compare",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "comparison: expected 1, got 0",
+      "actual": {
+        "comparison": "0"
+      },
+      "expected": {
+        "comparison": 0
+      }
+    },
+    {
+      "name": "offset_datetime_local_comparer_uses_local_time",
+      "version": "1.1.0",
+      "capability": "offset-datetime.compare.local",
+      "replay": "offset_datetime_compare",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "comparison: expected 2, got 1",
+      "actual": {
+        "comparison": "1"
+      },
+      "expected": {
+        "comparison": 1
+      }
+    },
+    {
+      "name": "duration_pattern_parses_iso_seconds",
+      "version": "1.2.0",
+      "capability": "duration.pattern.parse",
+      "replay": "parse_duration_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected 62004, got 62003",
+      "actual": {
+        "millis": "62003"
+      },
+      "expected": {
+        "millis": 62003
+      }
+    },
+    {
+      "name": "duration_default_string_is_descriptive",
+      "version": "1.2.0",
+      "capability": "duration.format.default",
+      "replay": "format_duration_default",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "0:00:00:01.5__mutant__ not contained in 0:00:00:01.5",
+      "actual": {
+        "text": "0:00:00:01.5",
+        "contains": "0:00:00:01.5"
+      },
+      "expected": {
+        "contains": "0:00:00:01.5"
+      }
+    },
+    {
+      "name": "offset_datetime_pattern_parses_embedded_offset",
+      "version": "1.2.0",
+      "capability": "offset-datetime.pattern.parse",
+      "replay": "parse_offset_datetime_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "instant: expected 2013-11-16T10:00:00Z__mutant__, got 2013-11-16T10:00:00Z",
+      "actual": {
+        "instant": "2013-11-16T10:00:00Z",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "instant": "2013-11-16T10:00:00Z",
+        "offset": "+02:00"
+      }
+    },
+    {
+      "name": "zoned_datetime_pattern_parses_embedded_zone_id",
+      "version": "1.2.0",
+      "capability": "zoned-datetime.pattern.parse",
+      "replay": "parse_zoned_datetime_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "zone": "Europe/London",
+        "local": "2013-11-16T12:00:00"
+      },
+      "expected": {
+        "zone": "Europe/London",
+        "local": "2013-11-16T12:00:00"
+      }
+    },
+    {
+      "name": "local_datetime_general_iso_pattern_outputs_t_separator",
+      "version": "1.2.0",
+      "capability": "local-datetime.pattern.general",
+      "replay": "format_local_datetime_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2013-11-16T12:34:56__mutant__, got 2013-11-16T12:34:56",
+      "actual": {
+        "text": "2013-11-16T12:34:56"
+      },
+      "expected": {
+        "text": "2013-11-16T12:34:56"
+      }
+    },
+    {
+      "name": "local_datetime_full_roundtrip_contains_calendar",
+      "version": "1.2.0",
+      "capability": "local-datetime.pattern.full-roundtrip",
+      "replay": "format_local_datetime_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "ISO__mutant__ not contained in 2013-11-16T12:34:56.000000000 (ISO)",
+      "actual": {
+        "text": "2013-11-16T12:34:56.000000000 (ISO)",
+        "contains": "2013-11-16T12:34:56.000000000 (ISO)"
+      },
+      "expected": {
+        "contains": "ISO"
+      }
+    },
+    {
+      "name": "five_digit_year_formats_without_ambiguity",
+      "version": "1.2.0",
+      "capability": "local-date.format.large-year",
+      "replay": "format_large_year_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected -9998-06-07__mutant__, got -9998-06-07",
+      "actual": {
+        "text": "-9998-06-07"
+      },
+      "expected": {
+        "text": "-9998-06-07"
+      }
+    },
+    {
+      "name": "instant_min_label_can_be_replaced",
+      "version": "1.2.0",
+      "capability": "instant.pattern.minmax-label",
+      "replay": "instant_minmax_label",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected START__mutant__, got START",
+      "actual": {
+        "text": "START"
+      },
+      "expected": {
+        "text": "START"
+      }
+    },
+    {
+      "name": "instant_with_offset_converts_to_offset_datetime",
+      "version": "1.2.0",
+      "capability": "instant.conversion.offset",
+      "replay": "instant_with_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2013-11-16T14:00:00__mutant__, got 2013-11-16T14:00:00",
+      "actual": {
+        "local": "2013-11-16T14:00:00",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "local": "2013-11-16T14:00:00",
+        "offset": "+02:00"
+      }
+    },
+    {
+      "name": "offset_datetime_with_calendar_changes_calendar_not_instant",
+      "version": "1.2.0",
+      "capability": "offset-datetime.calendar",
+      "replay": "offset_datetime_with_calendar",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "offset": "+00:00",
+        "calendar": "Julian"
+      },
+      "expected": {
+        "offset": "+00:00",
+        "calendar": "Julian"
+      }
+    },
+    {
+      "name": "interval_contains_instant_inside",
+      "version": "1.2.0",
+      "capability": "interval.contains.instant",
+      "replay": "interval_contains",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "contains: expected False, got true",
+      "actual": {
+        "contains": "true"
+      },
+      "expected": {
+        "contains": true
+      }
+    },
+    {
+      "name": "zoned_datetime_exposes_calendar",
+      "version": "1.2.0",
+      "capability": "zoned-datetime.calendar",
+      "replay": "zoned_datetime_calendar",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "calendar: expected Julian__mutant__, got Julian",
+      "actual": {
+        "calendar": "Julian"
+      },
+      "expected": {
+        "calendar": "Julian"
+      }
+    },
+    {
+      "name": "zoned_datetime_get_zone_interval_returns_interval_name",
+      "version": "1.2.0",
+      "capability": "zoned-datetime.zone-interval",
+      "replay": "zoned_zone_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "name: expected BST__mutant__, got BST",
+      "actual": {
+        "name": "BST"
+      },
+      "expected": {
+        "name": "BST"
+      }
+    },
+    {
+      "name": "persiansimple_calendar_month_one_has_31_days",
+      "version": "1.3.0",
+      "capability": "calendar.persian",
+      "replay": "calendar_days_in_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 32, got 31",
+      "actual": {
+        "days": "31"
+      },
+      "expected": {
+        "days": 31
+      }
+    },
+    {
+      "name": "persianarithmetic_calendar_month_one_has_31_days",
+      "version": "1.3.0",
+      "capability": "calendar.persian",
+      "replay": "calendar_days_in_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 32, got 31",
+      "actual": {
+        "days": "31"
+      },
+      "expected": {
+        "days": 31
+      }
+    },
+    {
+      "name": "persianastronomical_calendar_month_one_has_31_days",
+      "version": "1.3.0",
+      "capability": "calendar.persian",
+      "replay": "calendar_days_in_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 32, got 31",
+      "actual": {
+        "days": "31"
+      },
+      "expected": {
+        "days": 31
+      }
+    },
+    {
+      "name": "hebrewcivil_calendar_month_one_has_30_days",
+      "version": "1.3.0",
+      "capability": "calendar.hebrew",
+      "replay": "calendar_days_in_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 31, got 30",
+      "actual": {
+        "days": "30"
+      },
+      "expected": {
+        "days": 30
+      }
+    },
+    {
+      "name": "hebrewscriptural_calendar_month_one_has_30_days",
+      "version": "1.3.0",
+      "capability": "calendar.hebrew",
+      "replay": "calendar_days_in_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 31, got 30",
+      "actual": {
+        "days": "30"
+      },
+      "expected": {
+        "days": 30
+      }
+    },
+    {
+      "name": "local_date_at_local_time_combines_fields",
+      "version": "1.3.0",
+      "capability": "local-date.combine",
+      "replay": "local_date_at_time",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2014-06-27T12:34:56__mutant__, got 2014-06-27T12:34:56",
+      "actual": {
+        "local": "2014-06-27T12:34:56"
+      },
+      "expected": {
+        "local": "2014-06-27T12:34:56"
+      }
+    },
+    {
+      "name": "local_time_on_local_date_combines_fields",
+      "version": "1.3.0",
+      "capability": "local-date.combine",
+      "replay": "local_time_on_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2014-06-27T12:34:56__mutant__, got 2014-06-27T12:34:56",
+      "actual": {
+        "local": "2014-06-27T12:34:56"
+      },
+      "expected": {
+        "local": "2014-06-27T12:34:56"
+      }
+    },
+    {
+      "name": "offset_datetime_with_offset_preserves_instant",
+      "version": "1.3.0",
+      "capability": "offset-datetime.with-offset",
+      "replay": "offset_datetime_with_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2014-06-27T14:00:00__mutant__, got 2014-06-27T14:00:00",
+      "actual": {
+        "local": "2014-06-27T14:00:00",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "local": "2014-06-27T14:00:00",
+        "offset": "+02:00"
+      }
+    },
+    {
+      "name": "zoned_datetime_reports_dst_in_london_summer",
+      "version": "1.3.0",
+      "capability": "zoned-datetime.dst",
+      "replay": "zoned_is_dst",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "is_dst: expected False, got true",
+      "actual": {
+        "is_dst": "true"
+      },
+      "expected": {
+        "is_dst": true
+      }
+    },
+    {
+      "name": "offset_datetime_rfc3339_pattern_roundtrips",
+      "version": "1.3.0",
+      "capability": "offset-datetime.pattern.rfc3339",
+      "replay": "format_offset_datetime_rfc3339",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2014-06-27T12:34:56+02:00__mutant__, got 2014-06-27T12:34:56+02:00",
+      "actual": {
+        "text": "2014-06-27T12:34:56+02:00"
+      },
+      "expected": {
+        "text": "2014-06-27T12:34:56+02:00"
+      }
+    },
+    {
+      "name": "zoned_pattern_g_parses_era_when_provider_supplied",
+      "version": "1.3.0",
+      "capability": "zoned-datetime.pattern.era",
+      "replay": "parse_zoned_era_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "zone": "Europe/London",
+        "year": "2014"
+      },
+      "expected": {
+        "zone": "Europe/London",
+        "year": 2014
+      }
+    },
+    {
+      "name": "interval_to_string_uses_iso_interval",
+      "version": "1.3.0",
+      "capability": "interval.format.iso",
+      "replay": "format_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2014-06-27T12:00:00Z/2014-06-27T13:00:00Z__mutant__, got 2014-06-27T12:00:00Z/2014-06-27T13:00:00Z",
+      "actual": {
+        "text": "2014-06-27T12:00:00Z/2014-06-27T13:00:00Z"
+      },
+      "expected": {
+        "text": "2014-06-27T12:00:00Z/2014-06-27T13:00:00Z"
+      }
+    },
+    {
+      "name": "moscow_pre_2014_uses_correct_offset",
+      "version": "1.3.1",
+      "capability": "timezone.bcl-russian-history",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +04:00__mutant__, got +04:00",
+      "actual": {
+        "offset": "+04:00"
+      },
+      "expected": {
+        "offset": "+04:00"
+      }
+    },
+    {
+      "name": "bcl_timezone_wrappers_compare_by_underlying_zone",
+      "version": "1.3.1",
+      "capability": "timezone.bcl-equality",
+      "replay": "zone_equality",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "equals: expected False, got true",
+      "actual": {
+        "equals": "true"
+      },
+      "expected": {
+        "equals": true
+      }
+    },
+    {
+      "name": "date_parse_month_zero_returns_failed_parse",
+      "version": "1.3.2",
+      "capability": "local-date.parse.validation",
+      "replay": "parse_result_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "success: expected True, got false",
+      "actual": {
+        "success": "false"
+      },
+      "expected": {
+        "success": false
+      }
+    },
+    {
+      "name": "instant_supports_nanosecond_fraction",
+      "version": "2.0",
+      "capability": "instant.precision.nanosecond",
+      "replay": "instant_nanosecond_fraction",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "nanosecond_of_second: expected 123456790, got 123456789",
+      "actual": {
+        "nanosecond_of_second": "123456789"
+      },
+      "expected": {
+        "nanosecond_of_second": 123456789
+      }
+    },
+    {
+      "name": "duration_supports_nanosecond_component",
+      "version": "2.0",
+      "capability": "duration.precision.nanosecond",
+      "replay": "duration_from_nanoseconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "nanoseconds: expected 123456790, got 123456789",
+      "actual": {
+        "nanoseconds": "123456789"
+      },
+      "expected": {
+        "nanoseconds": 123456789
+      }
+    },
+    {
+      "name": "date_adjuster_end_of_month_moves_to_last_day",
+      "version": "2.0",
+      "capability": "local-date.adjuster",
+      "replay": "date_adjuster",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2017-02-28__mutant__, got 2017-02-28",
+      "actual": {
+        "date": "2017-02-28"
+      },
+      "expected": {
+        "date": "2017-02-28"
+      }
+    },
+    {
+      "name": "annual_date_matches_same_month_day",
+      "version": "2.0",
+      "capability": "annual-date.core",
+      "replay": "annual_date_match",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "matches: expected False, got true",
+      "actual": {
+        "matches": "true"
+      },
+      "expected": {
+        "matches": true
+      }
+    },
+    {
+      "name": "date_interval_contains_end_date_inclusively",
+      "version": "2.0",
+      "capability": "date-interval.contains",
+      "replay": "date_interval_contains",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "contains: expected False, got true",
+      "actual": {
+        "contains": "true"
+      },
+      "expected": {
+        "contains": true
+      }
+    },
+    {
+      "name": "date_interval_length_counts_inclusive_days",
+      "version": "2.0",
+      "capability": "date-interval.length",
+      "replay": "date_interval_length",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 4, got 3",
+      "actual": {
+        "days": "3"
+      },
+      "expected": {
+        "days": 3
+      }
+    },
+    {
+      "name": "week_year_rule_iso_week_one_crosses_year_boundary",
+      "version": "2.0",
+      "capability": "week-year.rule",
+      "replay": "weekyear_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2017-01-08__mutant__, got 2017-01-08",
+      "actual": {
+        "date": "2017-01-08"
+      },
+      "expected": {
+        "date": "2017-01-08"
+      }
+    },
+    {
+      "name": "lenient_resolver_maps_gap_forward",
+      "version": "2.0",
+      "capability": "timezone.resolver.lenient",
+      "replay": "lenient_resolver",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2017-03-26T02:30:00__mutant__, got 2017-03-26T02:30:00",
+      "actual": {
+        "local": "2017-03-26T02:30:00",
+        "offset": "+01:00"
+      },
+      "expected": {
+        "local": "2017-03-26T02:30:00",
+        "offset": "+01:00"
+      }
+    },
+    {
+      "name": "calendar_system_exposes_coptic_property",
+      "version": "2.0",
+      "capability": "calendar.property",
+      "replay": "calendar_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "id: expected Coptic__mutant__, got Coptic",
+      "actual": {
+        "id": "Coptic"
+      },
+      "expected": {
+        "id": "Coptic"
+      }
+    },
+    {
+      "name": "local_date_day_of_week_is_iso_named_value",
+      "version": "2.0",
+      "capability": "local-date.day-of-week",
+      "replay": "local_date_day_of_week",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "day: expected Friday__mutant__, got Friday",
+      "actual": {
+        "day": "Friday"
+      },
+      "expected": {
+        "day": "Friday"
+      }
+    },
+    {
+      "name": "culture_provider_rejects_non_culture_format_provider",
+      "version": "2.0",
+      "capability": "text.culture-validation",
+      "replay": "invalid_format_provider",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw invalid, got invalid",
+      "mutant_reason": "expected throw __no_throw_expected__, got invalid",
+      "actual": {
+        "throws": "invalid",
+        "message": "System.ArgumentException: invalid format provider"
+      },
+      "expected": {
+        "throws": "invalid"
+      }
+    },
+    {
+      "name": "local_date_min_iso_value_has_year_minus_9998",
+      "version": "2.1.0",
+      "capability": "local-date.bounds",
+      "replay": "local_date_bound",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "year: expected -9997, got -9998",
+      "actual": {
+        "year": "-9998",
+        "date": "-9998-01-01"
+      },
+      "expected": {
+        "year": -9998
+      }
+    },
+    {
+      "name": "local_date_max_iso_value_has_year_9999",
+      "version": "2.1.0",
+      "capability": "local-date.bounds",
+      "replay": "local_date_bound",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "year: expected 10000, got 9999",
+      "actual": {
+        "year": "9999",
+        "date": "9999-12-31"
+      },
+      "expected": {
+        "year": 9999
+      }
+    },
+    {
+      "name": "parse_result_success_exposes_value",
+      "version": "2.1.0",
+      "capability": "text.parse-result",
+      "replay": "parse_result_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "success: expected False, got true",
+      "actual": {
+        "success": "true",
+        "date": "2017-07-09"
+      },
+      "expected": {
+        "success": true,
+        "date": "2017-07-09"
+      }
+    },
+    {
+      "name": "timezone_parser_accepts_etc_gmt_minus_12",
+      "version": "1.4.1",
+      "capability": "timezone.parse.prefix",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Etc/GMT-12__mutant__, got Etc/GMT-12",
+      "actual": {
+        "canonical_id": "Etc/GMT-12"
+      },
+      "expected": {
+        "canonical_id": "Etc/GMT-12"
+      }
+    },
+    {
+      "name": "etc_gmt_minus_12_has_positive_12_offset",
+      "version": "1.4.1",
+      "capability": "timezone.parse.prefix",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +12:00__mutant__, got +12:00",
+      "actual": {
+        "offset": "+12:00"
+      },
+      "expected": {
+        "offset": "+12:00"
+      }
+    },
+    {
+      "name": "instant_subtract_duration_checks_lower_bound",
+      "version": "1.4.1",
+      "capability": "instant.bounds",
+      "replay": "instant_minus_duration_bound",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw overflow, got overflow",
+      "mutant_reason": "expected throw __no_throw_expected__, got overflow",
+      "actual": {
+        "throws": "overflow",
+        "message": "System.OverflowException: Operation would overflow range of Instant"
+      },
+      "expected": {
+        "throws": "overflow"
+      }
+    },
+    {
+      "name": "unknown_standard_pattern_error_mentions_percent",
+      "version": "1.4.1",
+      "capability": "text.pattern.error",
+      "replay": "unknown_pattern_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "%__mutant__ not contained in The standard format \"%\" is not valid for the NodaTime.LocalDate type. If the pattern was intended to be a custom format, escape it with a percent sign: \"%%\".",
+      "actual": {
+        "value": "The standard format \"%\" is not valid for the NodaTime.LocalDate type. If the pattern was intended to be a custom format, escape it with a percent sign: \"%%\".",
+        "contains": "The standard format \"%\" is not valid for the NodaTime.LocalDate type. If the pattern was intended to be a custom format, escape it with a percent sign: \"%%\"."
+      },
+      "expected": {
+        "contains": "%"
+      }
+    },
+    {
+      "name": "badi_calendar_has_19_day_months",
+      "version": "2.3.0",
+      "capability": "calendar.badi",
+      "replay": "calendar_days_in_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 20, got 19",
+      "actual": {
+        "days": "19"
+      },
+      "expected": {
+        "days": 19
+      }
+    },
+    {
+      "name": "offset_date_preserves_date_and_offset",
+      "version": "2.3.0",
+      "capability": "offset-date.core",
+      "replay": "offset_date_create",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2018-05-19__mutant__, got 2018-05-19",
+      "actual": {
+        "date": "2018-05-19",
+        "offset": "+03:00"
+      },
+      "expected": {
+        "date": "2018-05-19",
+        "offset": "+03:00"
+      }
+    },
+    {
+      "name": "offset_time_preserves_time_and_offset",
+      "version": "2.3.0",
+      "capability": "offset-time.core",
+      "replay": "offset_time_create",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:56__mutant__, got 12:34:56",
+      "actual": {
+        "time": "12:34:56",
+        "offset": "-03:00"
+      },
+      "expected": {
+        "time": "12:34:56",
+        "offset": "-03:00"
+      }
+    },
+    {
+      "name": "offset_datetime_in_zone_converts_to_zone",
+      "version": "2.3.0",
+      "capability": "offset-datetime.in-zone",
+      "replay": "offset_datetime_in_zone",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2018-05-19T13:00:00__mutant__, got 2018-05-19T13:00:00",
+      "actual": {
+        "local": "2018-05-19T13:00:00",
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "local": "2018-05-19T13:00:00",
+        "zone": "Europe/London"
+      }
+    },
+    {
+      "name": "date_interval_contains_nested_interval",
+      "version": "2.3.0",
+      "capability": "date-interval.contains-interval",
+      "replay": "date_interval_contains_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "contains: expected False, got true",
+      "actual": {
+        "contains": "true"
+      },
+      "expected": {
+        "contains": true
+      }
+    },
+    {
+      "name": "date_interval_intersection_returns_overlap",
+      "version": "2.3.0",
+      "capability": "date-interval.intersection",
+      "replay": "date_interval_intersection",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2018-05-05__mutant__, got 2018-05-05",
+      "actual": {
+        "start": "2018-05-05",
+        "end": "2018-05-10"
+      },
+      "expected": {
+        "start": "2018-05-05",
+        "end": "2018-05-10"
+      }
+    },
+    {
+      "name": "date_interval_union_returns_covering_interval",
+      "version": "2.3.0",
+      "capability": "date-interval.union",
+      "replay": "date_interval_union",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2018-05-01__mutant__, got 2018-05-01",
+      "actual": {
+        "start": "2018-05-01",
+        "end": "2018-05-20"
+      },
+      "expected": {
+        "start": "2018-05-01",
+        "end": "2018-05-20"
+      }
+    },
+    {
+      "name": "date_interval_iteration_is_inclusive",
+      "version": "2.3.0",
+      "capability": "date-interval.iteration",
+      "replay": "date_interval_iterate",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2018-05-01,2018-05-02,2018-05-03__mutant__, got 2018-05-01,2018-05-02,2018-05-03",
+      "actual": {
+        "dates": "2018-05-01,2018-05-02,2018-05-03"
+      },
+      "expected": {
+        "dates": "2018-05-01,2018-05-02,2018-05-03"
+      }
+    },
+    {
+      "name": "annual_date_text_roundtrips_month_day",
+      "version": "2.3.0",
+      "capability": "annual-date.text",
+      "replay": "annual_date_parse_format",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected --05-19__mutant__, got --05-19",
+      "actual": {
+        "text": "--05-19"
+      },
+      "expected": {
+        "text": "--05-19"
+      }
+    },
+    {
+      "name": "local_date_min_method_returns_earlier_date",
+      "version": "2.3.0",
+      "capability": "local-date.minmax",
+      "replay": "local_date_minmax",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2018-05-19__mutant__, got 2018-05-19",
+      "actual": {
+        "date": "2018-05-19"
+      },
+      "expected": {
+        "date": "2018-05-19"
+      }
+    },
+    {
+      "name": "local_time_max_method_returns_later_time",
+      "version": "2.3.0",
+      "capability": "local-time.minmax",
+      "replay": "local_time_minmax",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 13:00:00__mutant__, got 13:00:00",
+      "actual": {
+        "time": "13:00:00"
+      },
+      "expected": {
+        "time": "13:00:00"
+      }
+    },
+    {
+      "name": "local_datetime_deconstruct_exposes_date_and_time",
+      "version": "2.3.0",
+      "capability": "local-datetime.deconstruct",
+      "replay": "local_datetime_deconstruct",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2018-05-19__mutant__, got 2018-05-19",
+      "actual": {
+        "date": "2018-05-19",
+        "time": "12:34:56"
+      },
+      "expected": {
+        "date": "2018-05-19",
+        "time": "12:34:56"
+      }
+    },
+    {
+      "name": "local_time_from_hours_since_midnight",
+      "version": "3.0.0-beta01",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:00:00__mutant__, got 12:00:00",
+      "actual": {
+        "time": "12:00:00"
+      },
+      "expected": {
+        "time": "12:00:00"
+      }
+    },
+    {
+      "name": "local_time_from_minutes_since_midnight",
+      "version": "3.0.0-beta01",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:00__mutant__, got 12:34:00",
+      "actual": {
+        "time": "12:34:00"
+      },
+      "expected": {
+        "time": "12:34:00"
+      }
+    },
+    {
+      "name": "date_adjuster_add_period_applies_month_then_day",
+      "version": "3.0.0-beta01",
+      "capability": "local-date.adjuster.period",
+      "replay": "date_adjuster_add_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-03-01__mutant__, got 2020-03-01",
+      "actual": {
+        "date": "2020-03-01"
+      },
+      "expected": {
+        "date": "2020-03-01"
+      }
+    },
+    {
+      "name": "local_time_roundtrip_o_preserves_nanos",
+      "version": "3.0.0-beta01",
+      "capability": "local-time.pattern.roundtrip",
+      "replay": "format_local_time_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 12:34:56.123456789__mutant__, got 12:34:56.123456789",
+      "actual": {
+        "text": "12:34:56.123456789"
+      },
+      "expected": {
+        "text": "12:34:56.123456789"
+      }
+    },
+    {
+      "name": "local_date_iso_standard_pattern_formats_date",
+      "version": "3.0.0-beta01",
+      "capability": "local-date.pattern.iso",
+      "replay": "format_local_date_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2020-05-22__mutant__, got 2020-05-22",
+      "actual": {
+        "text": "2020-05-22"
+      },
+      "expected": {
+        "text": "2020-05-22"
+      }
+    },
+    {
+      "name": "instant_pattern_template_supplies_missing_date",
+      "version": "3.0.0-beta01",
+      "capability": "instant.pattern.template",
+      "replay": "parse_instant_with_template",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected 2020-05-22T12:34:56Z__mutant__, got 2020-05-22T12:34:56Z",
+      "actual": {
+        "iso": "2020-05-22T12:34:56Z"
+      },
+      "expected": {
+        "iso": "2020-05-22T12:34:56Z"
+      }
+    },
+    {
+      "name": "duration_roundtrip_pattern_preserves_fractional_seconds",
+      "version": "3.0.0-beta01",
+      "capability": "duration.pattern.roundtrip",
+      "replay": "format_duration_roundtrip",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 0:00:00:01.23456789__mutant__, got 0:00:00:01.23456789",
+      "actual": {
+        "text": "0:00:00:01.23456789"
+      },
+      "expected": {
+        "text": "0:00:00:01.23456789"
+      }
+    },
+    {
+      "name": "local_time_general_iso_formats_hh_mm_ss",
+      "version": "3.0.0-beta01",
+      "capability": "local-time.pattern.general",
+      "replay": "format_local_time_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 12:34:56__mutant__, got 12:34:56",
+      "actual": {
+        "text": "12:34:56"
+      },
+      "expected": {
+        "text": "12:34:56"
+      }
+    },
+    {
+      "name": "local_date_month_day_pattern_uses_culture_month_day",
+      "version": "3.0.0-beta01",
+      "capability": "local-date.pattern.month-day",
+      "replay": "format_local_date_pattern",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "May__mutant__ not contained in May 22",
+      "actual": {
+        "text": "May 22",
+        "contains": "May 22"
+      },
+      "expected": {
+        "contains": "May"
+      }
+    },
+    {
+      "name": "period_equality_operators_compare_components",
+      "version": "3.0.0-beta01",
+      "capability": "period.equality",
+      "replay": "period_equals",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "equals: expected False, got true",
+      "actual": {
+        "equals": "true"
+      },
+      "expected": {
+        "equals": true
+      }
+    },
+    {
+      "name": "year_month_comparison_orders_by_year_then_month",
+      "version": "3.0.0-beta01",
+      "capability": "year-month.compare",
+      "replay": "year_month_compare",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "comparison: expected 0, got -1",
+      "actual": {
+        "comparison": "-1"
+      },
+      "expected": {
+        "comparison": -1
+      }
+    },
+    {
+      "name": "year_month_type_converter_roundtrips_text",
+      "version": "3.0.0-beta01",
+      "capability": "year-month.text",
+      "replay": "year_month_parse_format",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2020 May__mutant__, got 2020 May",
+      "actual": {
+        "text": "2020 May"
+      },
+      "expected": {
+        "text": "2020 May"
+      }
+    },
+    {
+      "name": "year_month_to_string_uses_year_and_month_name",
+      "version": "3.1.0",
+      "capability": "year-month.format",
+      "replay": "year_month_parse_format",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2022 April__mutant__, got 2022 April",
+      "actual": {
+        "text": "2022 April"
+      },
+      "expected": {
+        "text": "2022 April"
+      }
+    },
+    {
+      "name": "period_between_year_months_counts_years_and_months",
+      "version": "3.1.0",
+      "capability": "period.between.year-month",
+      "replay": "period_between_year_month",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P2Y2M__mutant__, got P2Y2M",
+      "actual": {
+        "iso": "P2Y2M"
+      },
+      "expected": {
+        "iso": "P2Y2M"
+      }
+    },
+    {
+      "name": "period_days_between_counts_date_difference",
+      "version": "3.1.0",
+      "capability": "period.days-between",
+      "replay": "period_days_between",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 4, got 3",
+      "actual": {
+        "days": "3"
+      },
+      "expected": {
+        "days": 3
+      }
+    },
+    {
+      "name": "local_datetime_min_iso_value_has_min_year",
+      "version": "3.1.0",
+      "capability": "local-datetime.bounds",
+      "replay": "local_datetime_bound",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "year: expected -9997, got -9998",
+      "actual": {
+        "year": "-9998"
+      },
+      "expected": {
+        "year": -9998
+      }
+    },
+    {
+      "name": "local_date_max_iso_value_has_max_year",
+      "version": "3.1.0",
+      "capability": "local-date.bounds",
+      "replay": "local_date_bound",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "year: expected 10000, got 9999",
+      "actual": {
+        "year": "9999",
+        "date": "9999-12-31"
+      },
+      "expected": {
+        "year": 9999
+      }
+    },
+    {
+      "name": "bad_pattern_error_reports_bad_specifier",
+      "version": "3.1.0",
+      "capability": "text.pattern.error",
+      "replay": "bad_pattern_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "Q__mutant__ not contained in The character Q is not a format specifier for this pattern type, and should be quoted to act as a literal. Note that each type of pattern has its own set of valid format specifiers.",
+      "actual": {
+        "value": "The character Q is not a format specifier for this pattern type, and should be quoted to act as a literal. Note that each type of pattern has its own set of valid format specifiers.",
+        "contains": "The character Q is not a format specifier for this pattern type, and should be quoted to act as a literal. Note that each type of pattern has its own set of valid format specifiers."
+      },
+      "expected": {
+        "contains": "Q"
+      }
+    },
+    {
+      "name": "local_datetime_iso_reduced_precision_year_month_parses",
+      "version": "3.2.0",
+      "capability": "local-datetime.pattern.reduced-precision",
+      "replay": "parse_local_datetime_reduced",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2024-10-01T00:00:00__mutant__, got 2024-10-01T00:00:00",
+      "actual": {
+        "local": "2024-10-01T00:00:00"
+      },
+      "expected": {
+        "local": "2024-10-01T00:00:00"
+      }
+    },
+    {
+      "name": "local_datetime_iso_reduced_precision_date_parses",
+      "version": "3.2.0",
+      "capability": "local-datetime.pattern.reduced-precision",
+      "replay": "parse_local_datetime_reduced",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2024-10-13T00:00:00__mutant__, got 2024-10-13T00:00:00",
+      "actual": {
+        "local": "2024-10-13T00:00:00"
+      },
+      "expected": {
+        "local": "2024-10-13T00:00:00"
+      }
+    },
+    {
+      "name": "local_time_iso_hour_minute_parses",
+      "version": "3.2.0",
+      "capability": "local-time.pattern.reduced-precision",
+      "replay": "parse_local_time_reduced",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:00__mutant__, got 12:34:00",
+      "actual": {
+        "time": "12:34:00"
+      },
+      "expected": {
+        "time": "12:34:00"
+      }
+    },
+    {
+      "name": "local_time_iso_hour_only_parses",
+      "version": "3.2.0",
+      "capability": "local-time.pattern.reduced-precision",
+      "replay": "parse_local_time_reduced",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:00:00__mutant__, got 12:00:00",
+      "actual": {
+        "time": "12:00:00"
+      },
+      "expected": {
+        "time": "12:00:00"
+      }
+    },
+    {
+      "name": "two_digit_year_max_value_controls_century_low",
+      "version": "3.2.0",
+      "capability": "local-date.parse.two-digit-year-max",
+      "replay": "parse_two_digit_year_max",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2049-01-02__mutant__, got 2049-01-02",
+      "actual": {
+        "date": "2049-01-02"
+      },
+      "expected": {
+        "date": "2049-01-02"
+      }
+    },
+    {
+      "name": "two_digit_year_max_value_controls_century_high",
+      "version": "3.2.0",
+      "capability": "local-date.parse.two-digit-year-max",
+      "replay": "parse_two_digit_year_max",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 1950-01-02__mutant__, got 1950-01-02",
+      "actual": {
+        "date": "1950-01-02"
+      },
+      "expected": {
+        "date": "1950-01-02"
+      }
+    },
+    {
+      "name": "unparsable_exception_exposes_value",
+      "version": "3.2.0",
+      "capability": "text.parse-error.detail",
+      "replay": "parse_error_detail",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "not-a-date__mutant__ not contained in The value string does not match the required number from the format string \"uuuu\". Value being parsed: '^not-a-date'. (^ indicates error position.)",
+      "actual": {
+        "value": "The value string does not match the required number from the format string \"uuuu\". Value being parsed: '^not-a-date'. (^ indicates error position.)",
+        "contains": "The value string does not match the required number from the format string \"uuuu\". Value being parsed: '^not-a-date'. (^ indicates error position.)"
+      },
+      "expected": {
+        "contains": "not-a-date"
+      }
+    },
+    {
+      "name": "instant_unix_seconds_and_nanoseconds_splits_fraction",
+      "version": "3.2.0",
+      "capability": "instant.unix.split",
+      "replay": "instant_unix_seconds_nanos",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "seconds: expected 1728777602, got 1728777601",
+      "actual": {
+        "seconds": "1728777601",
+        "nanoseconds": "234567890"
+      },
+      "expected": {
+        "seconds": 1728777601,
+        "nanoseconds": 234567890
+      }
+    },
+    {
+      "name": "duration_from_nanoseconds_int128_preserves_value",
+      "version": "3.2.0",
+      "capability": "duration.nanoseconds",
+      "replay": "duration_from_nanoseconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "nanoseconds: expected 1234567890124, got 1234567890123",
+      "actual": {
+        "nanoseconds": "1234567890123"
+      },
+      "expected": {
+        "nanoseconds": 1234567890123
+      }
+    },
+    {
+      "name": "period_min_value_is_less_than_zero_period",
+      "version": "3.2.0",
+      "capability": "period.bounds",
+      "replay": "period_bound_compare",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "less_than_zero: expected False, got true",
+      "actual": {
+        "less_than_zero": "true"
+      },
+      "expected": {
+        "less_than_zero": true
+      }
+    },
+    {
+      "name": "period_max_value_is_greater_than_zero_period",
+      "version": "3.2.0",
+      "capability": "period.bounds",
+      "replay": "period_bound_compare",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "greater_than_zero: expected False, got true",
+      "actual": {
+        "greater_than_zero": "true"
+      },
+      "expected": {
+        "greater_than_zero": true
+      }
+    },
+    {
+      "name": "period_nanoseconds_between_counts_difference",
+      "version": "3.3.0",
+      "capability": "period.nanoseconds-between",
+      "replay": "period_nanoseconds_between",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "nanoseconds: expected 10, got 9",
+      "actual": {
+        "nanoseconds": "9"
+      },
+      "expected": {
+        "nanoseconds": 9
+      }
+    },
+    {
+      "name": "duration64_preserves_small_nanosecond_duration",
+      "version": "3.3.0",
+      "capability": "high-performance.duration64",
+      "replay": "duration64",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "nanoseconds: expected 123456790, got 123456789",
+      "actual": {
+        "nanoseconds": "123456789"
+      },
+      "expected": {
+        "nanoseconds": 123456789
+      }
+    },
+    {
+      "name": "instant64_preserves_unix_epoch_nanoseconds",
+      "version": "3.3.0",
+      "capability": "high-performance.instant64",
+      "replay": "instant64",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "epoch_nanoseconds: expected 123456790, got 123456789",
+      "actual": {
+        "epoch_nanoseconds": "123456789"
+      },
+      "expected": {
+        "epoch_nanoseconds": 123456789
+      }
+    }
+  ]
+}

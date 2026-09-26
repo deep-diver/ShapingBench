@@ -1,0 +1,9 @@
+{
+  "name": "yaml-cross-node-runner",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "js-yaml": "5.4.1",
+    "yaml": "2.9.0"
+  }
+}

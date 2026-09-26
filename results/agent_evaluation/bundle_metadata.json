@@ -1,0 +1,144 @@
+{
+  "included_domain_count": 9,
+  "excluded_domains": [
+    "JSON Schema Validation",
+    "Rate Limiting and Quotas",
+    "Template Engines"
+  ],
+  "empirical_core_contracts": 4754,
+  "extended_contracts": 9783,
+  "total_contracts": 14537,
+  "configuration_count": 10,
+  "trajectory_configuration_count": 10,
+  "trajectory_count": 90,
+  "trajectory_checkpoint_rows": 450,
+  "table2_rows": [
+    {
+      "agent_framework": "Codex CLI",
+      "model": "GPT-5.6-Sol",
+      "core_5_of_5_macro_percent": 88.2,
+      "extended_4_of_5_macro_percent": 79.4,
+      "extended_3_of_5_macro_percent": 62.8,
+      "extended_2_of_5_macro_percent": 38.4,
+      "extended_1_of_5_macro_percent": 14.7,
+      "overall_macro_percent": 56.8,
+      "extended_1_to_4_of_5_macro_percent": 42.7,
+      "gap_percentage_points": 45.5
+    },
+    {
+      "agent_framework": "Codex CLI",
+      "model": "MiniMax M3",
+      "core_5_of_5_macro_percent": 62.1,
+      "extended_4_of_5_macro_percent": 45.4,
+      "extended_3_of_5_macro_percent": 40.0,
+      "extended_2_of_5_macro_percent": 22.6,
+      "extended_1_of_5_macro_percent": 13.1,
+      "overall_macro_percent": 36.6,
+      "extended_1_to_4_of_5_macro_percent": 26.8,
+      "gap_percentage_points": 35.3
+    },
+    {
+      "agent_framework": "Codex CLI",
+      "model": "GLM 5.3",
+      "core_5_of_5_macro_percent": 66.8,
+      "extended_4_of_5_macro_percent": 63.2,
+      "extended_3_of_5_macro_percent": 50.6,
+      "extended_2_of_5_macro_percent": 24.0,
+      "extended_1_of_5_macro_percent": 12.4,
+      "overall_macro_percent": 46.6,
+      "extended_1_to_4_of_5_macro_percent": 36.0,
+      "gap_percentage_points": 30.8
+    },
+    {
+      "agent_framework": "Claude Code",
+      "model": "Claude Opus 5",
+      "core_5_of_5_macro_percent": 81.4,
+      "extended_4_of_5_macro_percent": 68.4,
+      "extended_3_of_5_macro_percent": 66.4,
+      "extended_2_of_5_macro_percent": 42.5,
+      "extended_1_of_5_macro_percent": 21.3,
+      "overall_macro_percent": 57.7,
+      "extended_1_to_4_of_5_macro_percent": 45.9,
+      "gap_percentage_points": 35.5
+    },
+    {
+      "agent_framework": "Claude Code",
+      "model": "MiniMax M3",
+      "core_5_of_5_macro_percent": 69.7,
+      "extended_4_of_5_macro_percent": 50.6,
+      "extended_3_of_5_macro_percent": 43.9,
+      "extended_2_of_5_macro_percent": 29.2,
+      "extended_1_of_5_macro_percent": 13.8,
+      "overall_macro_percent": 42.2,
+      "extended_1_to_4_of_5_macro_percent": 30.9,
+      "gap_percentage_points": 38.8
+    },
+    {
+      "agent_framework": "Claude Code",
+      "model": "GLM 5.3",
+      "core_5_of_5_macro_percent": 78.0,
+      "extended_4_of_5_macro_percent": 66.0,
+      "extended_3_of_5_macro_percent": 59.3,
+      "extended_2_of_5_macro_percent": 30.5,
+      "extended_1_of_5_macro_percent": 15.0,
+      "overall_macro_percent": 51.8,
+      "extended_1_to_4_of_5_macro_percent": 39.8,
+      "gap_percentage_points": 38.2
+    },
+    {
+      "agent_framework": "OpenHands",
+      "model": "GPT-5.6-Sol",
+      "core_5_of_5_macro_percent": 78.2,
+      "extended_4_of_5_macro_percent": 66.7,
+      "extended_3_of_5_macro_percent": 56.9,
+      "extended_2_of_5_macro_percent": 30.5,
+      "extended_1_of_5_macro_percent": 17.2,
+      "overall_macro_percent": 52.4,
+      "extended_1_to_4_of_5_macro_percent": 39.8,
+      "gap_percentage_points": 38.4
+    },
+    {
+      "agent_framework": "OpenHands",
+      "model": "Claude Opus 5",
+      "core_5_of_5_macro_percent": 81.0,
+      "extended_4_of_5_macro_percent": 66.4,
+      "extended_3_of_5_macro_percent": 63.2,
+      "extended_2_of_5_macro_percent": 33.7,
+      "extended_1_of_5_macro_percent": 14.5,
+      "overall_macro_percent": 52.4,
+      "extended_1_to_4_of_5_macro_percent": 39.4,
+      "gap_percentage_points": 41.6
+    },
+    {
+      "agent_framework": "OpenHands",
+      "model": "MiniMax M3",
+      "core_5_of_5_macro_percent": 68.0,
+      "extended_4_of_5_macro_percent": 54.1,
+      "extended_3_of_5_macro_percent": 44.9,
+      "extended_2_of_5_macro_percent": 25.7,
+      "extended_1_of_5_macro_percent": 14.0,
+      "overall_macro_percent": 42.0,
+      "extended_1_to_4_of_5_macro_percent": 31.5,
+      "gap_percentage_points": 36.5
+    },
+    {
+      "agent_framework": "OpenHands",
+      "model": "GLM 5.3",
+      "core_5_of_5_macro_percent": 78.0,
+      "extended_4_of_5_macro_percent": 63.0,
+      "extended_3_of_5_macro_percent": 53.4,
+      "extended_2_of_5_macro_percent": 31.7,
+      "extended_1_of_5_macro_percent": 16.0,
+      "overall_macro_percent": 51.0,
+      "extended_1_to_4_of_5_macro_percent": 38.3,
+      "gap_percentage_points": 39.7
+    }
+  ],
+  "sources": [
+    "analysis/contract_taxonomy/contract_taxonomy.csv",
+    "analysis/empirical_support_reassessment/primary_configuration_support_scores.csv",
+    "analysis/publication_figures/data/primary_trajectories.csv",
+    "analysis/empirical_support_paper_bundle_9domains/trajectory_completion/all_snapshot_support_scores_completed.csv",
+    "analysis/publication_figures/qa/fig05d_contract_failure_support_assignments.csv"
+  ]
+}

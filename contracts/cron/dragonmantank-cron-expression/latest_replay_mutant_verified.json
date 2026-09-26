@@ -1,0 +1,4779 @@
+[
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_parsing_170497db3c67",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.parsing",
+    "op": "parse",
+    "params": {
+      "expression": "*/5 * * * *"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Parse and round-trip expression `*/5 * * * *`.",
+    "expected": {
+      "expression": "*/5 * * * *",
+      "parts": [
+        "*/5",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "*/5 * * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_parsing_344bdb323b91",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.parsing",
+    "op": "parse",
+    "params": {
+      "expression": "1 2-4 * 4,5,6 */3"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Parse and round-trip expression `1 2-4 * 4,5,6 */3`.",
+    "expected": {
+      "expression": "1 2-4 * 4,5,6 */3",
+      "parts": [
+        "1",
+        "2-4",
+        "*",
+        "4,5,6",
+        "*/3"
+      ],
+      "string": "1 2-4 * 4,5,6 */3",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_parsing_360093f20f6a",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.parsing",
+    "op": "parse",
+    "params": {
+      "expression": "0 0 * * MON,SUN"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Parse and round-trip expression `0 0 * * MON,SUN`.",
+    "expected": {
+      "expression": "0 0 * * MON,SUN",
+      "parts": [
+        "0",
+        "0",
+        "*",
+        "*",
+        "MON,SUN"
+      ],
+      "string": "0 0 * * MON,SUN",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_parsing_ca5465f54235",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.parsing",
+    "op": "parse",
+    "params": {
+      "expression": "0 0 * JAN 0"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Parse and round-trip expression `0 0 * JAN 0`.",
+    "expected": {
+      "expression": "0 0 * JAN 0",
+      "parts": [
+        "0",
+        "0",
+        "*",
+        "JAN",
+        "0"
+      ],
+      "string": "0 0 * JAN 0",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_parsing_3a1918bdd34b",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.parsing",
+    "op": "parse",
+    "params": {
+      "expression": "0-12/4 * * * *"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Parse and round-trip expression `0-12/4 * * * *`.",
+    "expected": {
+      "expression": "0-12/4 * * * *",
+      "parts": [
+        "0-12/4",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "0-12/4 * * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_cf7cc6af47ca",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "*/2 */2 * * *",
+      "start": "2015-08-10 21:47:27",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `*/2 */2 * * *` after `2015-08-10 21:47:27`.",
+    "expected": {
+      "date": "2015-08-10T22:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_ef7e4b796262",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "*/2 */2 * * *",
+      "date": "2015-08-10 21:47:27"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`*/2 */2 * * *` due check at `2015-08-10 21:47:27`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_0d5c083571e3",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * *",
+      "start": "2015-08-10 21:50:37",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `* * * * *` after `2015-08-10 21:50:37`.",
+    "expected": {
+      "date": "2015-08-10T21:50:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_d76adad14395",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "* * * * *",
+      "date": "2015-08-10 21:50:37"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`* * * * *` due check at `2015-08-10 21:50:37`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_3c28ef2aaed1",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "* 20,22 * * *",
+      "start": "2015-08-10 21:50:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `* 20,22 * * *` after `2015-08-10 21:50:00`.",
+    "expected": {
+      "date": "2015-08-10T22:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_31b5dc7fcfe2",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "* 20,22 * * *",
+      "date": "2015-08-10 21:50:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`* 20,22 * * *` due check at `2015-08-10 21:50:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_62f45590063d",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "7-9 * */9 * *",
+      "start": "2015-08-10 22:02:33",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `7-9 * */9 * *` after `2015-08-10 22:02:33`.",
+    "expected": {
+      "date": "2015-08-10T22:07:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_802371fa9f12",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "7-9 * */9 * *",
+      "date": "2015-08-10 22:02:33"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`7-9 * */9 * *` due check at `2015-08-10 22:02:33`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_276816ac1f51",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "1 * * * 7",
+      "start": "2015-08-10 21:47:27",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `1 * * * 7` after `2015-08-10 21:47:27`.",
+    "expected": {
+      "date": "2015-08-16T00:01:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_d7a430e7f50b",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "1 * * * 7",
+      "date": "2015-08-10 21:47:27"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`1 * * * 7` due check at `2015-08-10 21:47:27`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_e3127d92545e",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * 0",
+      "start": "2011-06-15 23:09:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `* * * * 0` after `2011-06-15 23:09:00`.",
+    "expected": {
+      "date": "2011-06-19T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_415e93c00a38",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "* * * * 0",
+      "date": "2011-06-15 23:09:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`* * * * 0` due check at `2011-06-15 23:09:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_cc37b493aba5",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * 7",
+      "start": "2011-06-15 23:09:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `* * * * 7` after `2011-06-15 23:09:00`.",
+    "expected": {
+      "date": "2011-06-19T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_f13452f6cc0a",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "* * * * 7",
+      "date": "2011-06-15 23:09:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`* * * * 7` due check at `2011-06-15 23:09:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_1c4d0c3004b5",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 * * 0-4",
+      "start": "2011-06-15 23:09:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `0 0 * * 0-4` after `2011-06-15 23:09:00`.",
+    "expected": {
+      "date": "2011-06-16T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_6fecb8f7f56c",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "0 0 * * 0-4",
+      "date": "2011-06-15 23:09:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`0 0 * * 0-4` due check at `2011-06-15 23:09:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_3940ce351eef",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 * * 7-4",
+      "start": "2011-06-15 23:09:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `0 0 * * 7-4` after `2011-06-15 23:09:00`.",
+    "expected": {
+      "date": "2011-06-16T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_9009b615e33c",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "0 0 * * 7-4",
+      "date": "2011-06-15 23:09:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`0 0 * * 7-4` due check at `2011-06-15 23:09:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_a71c4035bc5d",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 * * 3-7",
+      "start": "2011-06-18 23:09:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `0 0 * * 3-7` after `2011-06-18 23:09:00`.",
+    "expected": {
+      "date": "2011-06-19T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_7b41eb430e93",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "0 0 * * 3-7",
+      "date": "2011-06-18 23:09:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`0 0 * * 3-7` due check at `2011-06-18 23:09:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_b59be47b2879",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "0-12/4 * * * *",
+      "start": "2011-06-20 12:04:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `0-12/4 * * * *` after `2011-06-20 12:04:00`.",
+    "expected": {
+      "date": "2011-06-20T12:04:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_20c88540b57b",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "0-12/4 * * * *",
+      "date": "2011-06-20 12:04:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`0-12/4 * * * *` due check at `2011-06-20 12:04:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_next_run_core_d5ab1e9d02b4",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.next_run.core",
+    "op": "next_run",
+    "params": {
+      "expression": "4-59/3 * * * *",
+      "start": "2011-06-20 12:06:00",
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `4-59/3 * * * *` after `2011-06-20 12:06:00`.",
+    "expected": {
+      "date": "2011-06-20T12:07:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_is_due_core_0531f3c764ec",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.core",
+    "op": "is_due",
+    "params": {
+      "expression": "4-59/3 * * * *",
+      "date": "2011-06-20 12:06:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "`4-59/3 * * * *` due check at `2011-06-20 12:06:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_previous_run_core_4ff287cb5c41",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.previous_run.core",
+    "op": "previous_run",
+    "params": {
+      "expression": "* * * * *",
+      "start": "2015-08-10 21:51:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Previous run for `* * * * *` before `2015-08-10 21:51:00`.",
+    "expected": {
+      "date": "2015-08-10T21:50:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_previous_run_core_e6ac8a21e530",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.previous_run.core",
+    "op": "previous_run",
+    "params": {
+      "expression": "* */2 * * *",
+      "start": "2015-08-10 23:00:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Previous run for `* */2 * * *` before `2015-08-10 23:00:00`.",
+    "expected": {
+      "date": "2015-08-10T22:59:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_previous_run_core_2e10c4b5cd32",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.previous_run.core",
+    "op": "previous_run",
+    "params": {
+      "expression": "* * * */2 *",
+      "start": "2015-08-10 21:51:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Previous run for `* * * */2 *` before `2015-08-10 21:51:00`.",
+    "expected": {
+      "date": "2015-07-31T23:59:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_previous_run_core_93fc3c70b9c9",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.previous_run.core",
+    "op": "previous_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2013-03-17 00:00:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Previous run for `@weekly` before `2013-03-17 00:00:00`.",
+    "expected": {
+      "date": "2013-03-10T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_previous_run_core_3ca8f14bbcb1",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.previous_run.core",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 0 27 JAN *",
+      "start": "2011-08-22 00:00:00"
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Previous run for `0 0 27 JAN *` before `2011-08-22 00:00:00`.",
+    "expected": {
+      "date": "2011-01-27T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_multiple_run_dates_710b58e186e7",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "*/2 * * * *",
+      "start": "2008-11-09 00:00:00",
+      "total": 4,
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "4 run dates for `*/2 * * * *` from `2008-11-09 00:00:00`.",
+    "expected": {
+      "dates": [
+        "2008-11-09T00:00:00+00:00",
+        "2008-11-09T00:02:00+00:00",
+        "2008-11-09T00:04:00+00:00",
+        "2008-11-09T00:06:00+00:00"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_nth_next_run_d7b4a920b208",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.nth_next_run",
+    "op": "next_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2008-11-09 00:00:00",
+      "nth": 0,
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `@weekly` after `2008-11-09 00:00:00`.",
+    "expected": {
+      "date": "2008-11-09T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_nth_next_run_a4710d401aad",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.nth_next_run",
+    "op": "next_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2008-11-09 00:00:00",
+      "nth": 1,
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `@weekly` after `2008-11-09 00:00:00`.",
+    "expected": {
+      "date": "2008-11-16T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_nth_next_run_214e3d45b628",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.nth_next_run",
+    "op": "next_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2008-11-09 00:00:00",
+      "nth": 2,
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `@weekly` after `2008-11-09 00:00:00`.",
+    "expected": {
+      "date": "2008-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_0_cron_expression_nth_next_run_a3fc8533804c",
+    "version": "v1.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.nth_next_run",
+    "op": "next_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2008-11-09 00:00:00",
+      "nth": 3,
+      "allow_current": true
+    },
+    "evidence": "1.0.0 README/core API exposes parsing, getExpression, stringification, due, next, previous, and multiple run dates.",
+    "human": "Next run for `@weekly` after `2008-11-09 00:00:00`.",
+    "expected": {
+      "date": "2008-11-30T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_3_cron_expression_whitespace_separators_55f33a8f5491",
+    "version": "v1.0.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.whitespace_separators",
+    "op": "parse",
+    "params": {
+      "expression": "*\t*\t*\t*\t*\t"
+    },
+    "evidence": "1.0.3 release fixes extra whitespace separators, static factory, hyphen ranges, and timezone/default-date behavior.",
+    "human": "Parse and round-trip expression `*\t*\t*\t*\t*\t`.",
+    "expected": {
+      "expression": "* * * * *",
+      "parts": [
+        "*",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "* * * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_3_cron_expression_whitespace_separators_752ef551fbe9",
+    "version": "v1.0.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.whitespace_separators",
+    "op": "parse",
+    "params": {
+      "expression": "*  *  *  *  *  "
+    },
+    "evidence": "1.0.3 release fixes extra whitespace separators, static factory, hyphen ranges, and timezone/default-date behavior.",
+    "human": "Parse and round-trip expression `*  *  *  *  *  `.",
+    "expected": {
+      "expression": "* * * * *",
+      "parts": [
+        "*",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "* * * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_3_cron_expression_whitespace_separators_69787d5e6b0f",
+    "version": "v1.0.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.whitespace_separators",
+    "op": "parse",
+    "params": {
+      "expression": "* \t * \t * \t * \t * \t"
+    },
+    "evidence": "1.0.3 release fixes extra whitespace separators, static factory, hyphen ranges, and timezone/default-date behavior.",
+    "human": "Parse and round-trip expression `* \t * \t * \t * \t * \t`.",
+    "expected": {
+      "expression": "* * * * *",
+      "parts": [
+        "*",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "* * * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_3_cron_expression_range_and_step_regression_32ed99d13fef",
+    "version": "v1.0.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_and_step_regression",
+    "op": "next_run",
+    "params": {
+      "expression": "3-59/15 6-12 */15 1 2-5",
+      "start": "2017-01-08 00:00:00"
+    },
+    "evidence": "1.0.3 release fixes extra whitespace separators, static factory, hyphen ranges, and timezone/default-date behavior.",
+    "human": "Next run for `3-59/15 6-12 */15 1 2-5` after `2017-01-08 00:00:00`.",
+    "expected": {
+      "date": "2017-01-10T06:03:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_3_cron_expression_range_and_step_regression_db4deb64ee16",
+    "version": "v1.0.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_and_step_regression",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 * * 4-7",
+      "start": "2011-07-19 00:00:00"
+    },
+    "evidence": "1.0.3 release fixes extra whitespace separators, static factory, hyphen ranges, and timezone/default-date behavior.",
+    "human": "Next run for `0 0 * * 4-7` after `2011-07-19 00:00:00`.",
+    "expected": {
+      "date": "2011-07-21T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_0_3_cron_expression_range_and_step_regression_b018ae897516",
+    "version": "v1.0.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_and_step_regression",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 * * 2-7",
+      "start": "2011-06-18 23:09:00"
+    },
+    "evidence": "1.0.3 release fixes extra whitespace separators, static factory, hyphen ranges, and timezone/default-date behavior.",
+    "human": "Next run for `0 0 * * 2-7` after `2011-06-18 23:09:00`.",
+    "expected": {
+      "date": "2011-06-19T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_is_due_timezone_argument_d7c587d2e969",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.timezone_argument",
+    "op": "is_due",
+    "params": {
+      "expression": "0 15 * * 3",
+      "date": "2014-01-01 15:00:00",
+      "timezone": "UTC",
+      "date_timezone": "UTC"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "`0 15 * * 3` due check at `2014-01-01 15:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_is_due_timezone_argument_74446070a73e",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.timezone_argument",
+    "op": "is_due",
+    "params": {
+      "expression": "0 15 * * 3",
+      "date": "2014-01-01 15:00:00",
+      "timezone": "Europe/Amsterdam",
+      "date_timezone": "Europe/Amsterdam"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "`0 15 * * 3` due check at `2014-01-01 15:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_is_due_timezone_argument_a1607e7dd38c",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.is_due.timezone_argument",
+    "op": "is_due",
+    "params": {
+      "expression": "0 15 * * 3",
+      "date": "2014-01-01 15:00:00",
+      "timezone": "Asia/Tokyo",
+      "date_timezone": "Asia/Tokyo"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "`0 15 * * 3` due check at `2014-01-01 15:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_static_validation_d14df832d3fa",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.static_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* * * 1"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Validity of `* * * 1` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_static_validation_7a4cddcbd75c",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.static_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* * * * 1"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Validity of `* * * * 1` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_static_validation_b8cf14d086f6",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.static_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* * * 13 *"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Validity of `* * * 13 *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_static_validation_dea0446a857b",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.static_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "90 * * * *"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Validity of `90 * * * *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_static_validation_3e6a81202e8b",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.static_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 24 1 12 0"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Validity of `0 24 1 12 0` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_max_iteration_count_e5bb27e2186d",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.max_iteration_count",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "0 0 12 1 *",
+      "start": "2015-04-28 00:00:00",
+      "total": 9,
+      "allow_current": true,
+      "max_iterations": 2000
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "9 run dates for `0 0 12 1 *` from `2015-04-28 00:00:00`.",
+    "expected": {
+      "dates": [
+        "2016-01-12T00:00:00+00:00",
+        "2017-01-12T00:00:00+00:00",
+        "2018-01-12T00:00:00+00:00",
+        "2019-01-12T00:00:00+00:00",
+        "2020-01-12T00:00:00+00:00",
+        "2021-01-12T00:00:00+00:00",
+        "2022-01-12T00:00:00+00:00",
+        "2023-01-12T00:00:00+00:00",
+        "2024-01-12T00:00:00+00:00"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_timezone_in_datetime_a926b3f34683",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.timezone_in_datetime",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 7 * * *",
+      "start": "2017-10-17 10:00:00",
+      "date_timezone": "Europe/London",
+      "timezone": "America/New_York",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Previous run for `0 7 * * *` before `2017-10-17 10:00:00`.",
+    "expected": {
+      "date": "2017-10-16T07:00:00-04:00 America/New_York"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_last_weekday_of_month_6edc078e51bd",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.last_weekday_of_month",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * 5L",
+      "start": "2011-07-01 00:00:00"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Next run for `* * * * 5L` after `2011-07-01 00:00:00`.",
+    "expected": {
+      "date": "2011-07-29T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_last_weekday_of_month_fc8facf16bf8",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.last_weekday_of_month",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * 6L",
+      "start": "2011-07-01 00:00:00"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Next run for `* * * * 6L` after `2011-07-01 00:00:00`.",
+    "expected": {
+      "date": "2011-07-30T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_last_weekday_of_month_d3bef91787ab",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.last_weekday_of_month",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * 7L",
+      "start": "2011-07-01 00:00:00"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Next run for `* * * * 7L` after `2011-07-01 00:00:00`.",
+    "expected": {
+      "date": "2011-07-31T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_1_0_cron_expression_last_weekday_of_month_b66d7993c76b",
+    "version": "v1.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.last_weekday_of_month",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * 1 5L",
+      "start": "2011-12-25 00:00:00"
+    },
+    "evidence": "1.1.0 release fixes non-hourly timezone offsets, valid expression checks, max iteration count, DateTimeImmutable, and last weekday loop behavior.",
+    "human": "Next run for `* * * 1 5L` after `2011-12-25 00:00:00`.",
+    "expected": {
+      "date": "2012-01-27T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_cron_expression_day_of_month_and_step_validation_7b28fe2e7e49",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.day_of_month_and_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "*/0 * * * *"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "Validity of `*/0 * * * *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_cron_expression_day_of_month_and_step_validation_ead2471fb2eb",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.day_of_month_and_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 0 * *"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "Validity of `0 0 0 * *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_cron_expression_day_of_month_and_step_validation_78e332ec799e",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.day_of_month_and_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 32 * *"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "Validity of `0 0 32 * *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_cron_expression_day_of_month_and_step_validation_d008e0af17c2",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.day_of_month_and_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 31 * *"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "Validity of `0 0 31 * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_954851817dc1",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "1"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `1`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_cc5712ddd05c",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "01"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `01`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_5127d35b72b7",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "*"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `*`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_7a7ad29ece47",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "L"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `L`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_379cf4168e54",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "5W"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `5W`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_56339ebe708d",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "?"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `?`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_c01374cf2682",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "5W,L"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `5W,L`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_b5f669ba5491",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "0"
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `0`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_1_2_0_field_day_of_month_validation_d19552ae4668",
+    "version": "v1.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_month",
+      "value": "1."
+    },
+    "evidence": "1.2.0 release handles zero-step syntax better and tightens day-of-month validation.",
+    "human": "day_of_month accepts/rejects `1.`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_cron_expression_year_field_and_month_steps_9e64de2a0484",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.year_field_and_month_steps",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 1 1 * 2020"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "Validity of `0 0 1 1 * 2020` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_cron_expression_year_field_and_month_steps_1ef2c36c4203",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.year_field_and_month_steps",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 1 1 *"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "Validity of `0 0 1 1 *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_cron_expression_year_field_and_month_steps_5ef3e2e32a79",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.year_field_and_month_steps",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 * */2 *"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "Validity of `0 0 * */2 *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_cron_expression_year_field_and_month_steps_367f0cccb901",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.year_field_and_month_steps",
+    "op": "is_valid",
+    "params": {
+      "expression": "* * * */123 *"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "Validity of `* * * */123 *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_cron_expression_month_large_step_wraparound_19a430548e6b",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.month_large_step_wraparound",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * */123 *",
+      "start": "2014-05-07 00:00:00"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "Next run for `* * * */123 *` after `2014-05-07 00:00:00`.",
+    "expected": {
+      "date": "2015-04-01T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_large_step_wraparound_17e90ece0667",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.large_step_wraparound",
+    "op": "field_range",
+    "params": {
+      "field": "month",
+      "expression": "*/123",
+      "max": 12
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month range expansion for `*/123`.",
+    "expected": {
+      "range": [
+        4
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_8b9602fe65ba",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "12"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `12`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_0b79449d693b",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "*"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `*`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_2ba52dd887e3",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "*/10,2,1-12"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `*/10,2,1-12`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_23bf5de94950",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "1.fix-regexp"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `1.fix-regexp`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_12e26f563c70",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "1/10"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `1/10`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_5114480753d3",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "JAN"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `JAN`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_1cd3a644fbfc",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "Jan"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `Jan`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_0_0_field_month_validation_e3f7f76bc6af",
+    "version": "v2.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.month.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "month",
+      "value": "jan"
+    },
+    "evidence": "2.0.0 release drops the year field, reworks validation, and fixes steps for one-indexed fields like month.",
+    "human": "month accepts/rejects `jan`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_cron_expression_range_list_and_literals_validation_1f35e8e756b3",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_list_and_literals_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "2,17,35,47 5-7,11-13 * * *"
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "Validity of `2,17,35,47 5-7,11-13 * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_cron_expression_range_list_and_literals_next_5a284e3060c7",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_list_and_literals_next",
+    "op": "next_run",
+    "params": {
+      "expression": "2,17,35,47 5-7,11-13 * * *",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "Next run for `2,17,35,47 5-7,11-13 * * *` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2019-11-14T05:02:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_cron_expression_range_list_and_literals_validation_167dd5408d04",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_list_and_literals_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 0 * * MON-FRI"
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "Validity of `0 0 * * MON-FRI` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_cron_expression_range_list_and_literals_next_51fb1aec4bdc",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_list_and_literals_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 * * MON-FRI",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "Next run for `0 0 * * MON-FRI` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2019-11-15T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_cron_expression_range_list_and_literals_validation_e8870c334a00",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_list_and_literals_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 1 15 JUL mon,Wed,FRi"
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "Validity of `0 1 15 JUL mon,Wed,FRi` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_cron_expression_range_list_and_literals_next_b2f5fa6529c2",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.range_list_and_literals_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 1 15 JUL mon,Wed,FRi",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "Next run for `0 1 15 JUL mon,Wed,FRi` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2020-07-01T01:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_field_hour_range_list_expansion_ffafdcbd684e",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.hour.range_list_expansion",
+    "op": "field_range",
+    "params": {
+      "field": "hour",
+      "expression": "5-7,11-13",
+      "max": 23
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "hour range expansion for `5-7,11-13`.",
+    "expected": {
+      "range": [
+        5,
+        6,
+        7,
+        11,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_field_hour_range_list_expansion_72848154cd55",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.hour.range_list_expansion",
+    "op": "field_range",
+    "params": {
+      "field": "hour",
+      "expression": "*/6",
+      "max": 23
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "hour range expansion for `*/6`.",
+    "expected": {
+      "range": [
+        0,
+        6,
+        12,
+        18
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_field_hour_range_list_expansion_dacf0fb3d78e",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.hour.range_list_expansion",
+    "op": "field_range",
+    "params": {
+      "field": "hour",
+      "expression": "5-13/6",
+      "max": 23
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "hour range expansion for `5-13/6`.",
+    "expected": {
+      "range": [
+        5,
+        11
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_1_0_field_hour_range_list_expansion_8ffb3a8e789e",
+    "version": "v2.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.hour.range_list_expansion",
+    "op": "field_range",
+    "params": {
+      "field": "hour",
+      "expression": "1-4,11-14/2,21-27/3,40-59/10",
+      "max": 59
+    },
+    "evidence": "2.1.0 release fixes timezone behavior, ranges and lists in same expression, and literal conversion regressions.",
+    "human": "hour range expansion for `1-4,11-14/2,21-27/3,40-59/10`.",
+    "expected": {
+      "range": [
+        1,
+        2,
+        3,
+        4,
+        11,
+        13,
+        21,
+        24,
+        27,
+        40,
+        50
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_validation_c3584b9046d0",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "00 * * * *"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Validity of `00 * * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_next_25f291c84b41",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_next",
+    "op": "next_run",
+    "params": {
+      "expression": "00 * * * *",
+      "start": "2021-08-25 10:01:00",
+      "allow_current": true
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Next run for `00 * * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-25T11:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_validation_77acbdc55ac0",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "01 * * * *"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Validity of `01 * * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_next_3f097f5a119a",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_next",
+    "op": "next_run",
+    "params": {
+      "expression": "01 * * * *",
+      "start": "2021-08-25 10:01:00",
+      "allow_current": true
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Next run for `01 * * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-25T10:01:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_validation_df3087ede081",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* 00 * * *"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Validity of `* 00 * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_next_c5d8c6c0ea28",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_next",
+    "op": "next_run",
+    "params": {
+      "expression": "* 00 * * *",
+      "start": "2021-08-25 10:01:00",
+      "allow_current": true
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Next run for `* 00 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-26T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_validation_ced81c67ee02",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* 01 * * *"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Validity of `* 01 * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_next_bfe541db4335",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_next",
+    "op": "next_run",
+    "params": {
+      "expression": "* 01 * * *",
+      "start": "2021-08-25 10:01:00",
+      "allow_current": true
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Next run for `* 01 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-26T01:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_validation_9f325b070ae7",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0-59/65 10 * * *"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Validity of `0-59/65 10 * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_next_fa8853af16e5",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0-59/65 10 * * *",
+      "start": "2021-08-25 10:01:00",
+      "allow_current": true
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Next run for `0-59/65 10 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-25T10:05:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_validation_f5fe164aa34c",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "41-59/24 5 * * *"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Validity of `41-59/24 5 * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_cron_expression_leading_zero_and_large_step_next_7223bf4d6f93",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.leading_zero_and_large_step_next",
+    "op": "next_run",
+    "params": {
+      "expression": "41-59/24 5 * * *",
+      "start": "2021-08-25 10:01:00",
+      "allow_current": true
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "Next run for `41-59/24 5 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-26T05:41:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_field_leading_zero_and_range_start_validation_33236af472c4",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.leading_zero_and_range_start_validation",
+    "op": "field_validate",
+    "params": {
+      "field": "minute",
+      "value": "00"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "minute accepts/rejects `00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_field_leading_zero_and_range_start_validation_eff39e4fe9b6",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.leading_zero_and_range_start_validation",
+    "op": "field_validate",
+    "params": {
+      "field": "minute",
+      "value": "01"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "minute accepts/rejects `01`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_field_leading_zero_and_range_start_validation_890e1920b254",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.leading_zero_and_range_start_validation",
+    "op": "field_validate",
+    "params": {
+      "field": "hour",
+      "value": "00"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "hour accepts/rejects `00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_field_leading_zero_and_range_start_validation_b05d82a6dc90",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.leading_zero_and_range_start_validation",
+    "op": "field_validate",
+    "params": {
+      "field": "hour",
+      "value": "01"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "hour accepts/rejects `01`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_field_leading_zero_and_range_start_validation_a9a43494f638",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.leading_zero_and_range_start_validation",
+    "op": "field_validate",
+    "params": {
+      "field": "minute",
+      "value": "0/5"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "minute accepts/rejects `0/5`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_2_0_field_leading_zero_and_range_start_validation_9d5efbaf029a",
+    "version": "v2.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.leading_zero_and_range_start_validation",
+    "op": "field_validate",
+    "params": {
+      "field": "minute",
+      "value": "1/10"
+    },
+    "evidence": "2.2.0 release fixes steps larger than field ranges and leading zero validation.",
+    "human": "minute accepts/rejects `1/10`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_3_0_cron_expression_datetime_interface_input_1c2d37478df0",
+    "version": "v2.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.datetime_interface_input",
+    "op": "next_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2019-03-03 08:00:00"
+    },
+    "evidence": "2.3.0 release accepts DateTimeInterface/DateTimeImmutable and reports human-readable field positions.",
+    "human": "Next run for `@weekly` after `2019-03-03 08:00:00`.",
+    "expected": {
+      "date": "2019-03-10T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_2_3_0_cron_expression_human_readable_field_position_6e5cba84696a",
+    "version": "v2.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.human_readable_field_position",
+    "op": "parse_error",
+    "params": {
+      "expression": "0 * * * * ? *"
+    },
+    "evidence": "2.3.0 release accepts DateTimeInterface/DateTimeImmutable and reports human-readable field positions.",
+    "human": "`0 * * * * ? *` is rejected.",
+    "expected": {
+      "error": true,
+      "messageContains": "6 is not a valid position"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_dom_dow_or_semantics_6356e043f9da",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_or_semantics",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "30 0 1 * 1",
+      "start": "2019-10-10 23:20:00",
+      "total": 5,
+      "allow_current": true
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "5 run dates for `30 0 1 * 1` from `2019-10-10 23:20:00`.",
+    "expected": {
+      "dates": [
+        "2019-10-14T00:30:00+00:00",
+        "2019-10-21T00:30:00+00:00",
+        "2019-10-28T00:30:00+00:00",
+        "2019-11-01T00:30:00+00:00",
+        "2019-11-04T00:30:00+00:00"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_dom_dow_closest_next_92e9b4f73209",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_closest_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 0 13 * 3",
+      "start": "2021-07-15 00:00:00"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Next run for `0 0 13 * 3` after `2021-07-15 00:00:00`.",
+    "expected": {
+      "date": "2021-07-21T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_dom_dow_closest_previous_99f69f00511b",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_closest_previous",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 0 13 * 3",
+      "start": "2021-07-15 00:00:00"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Previous run for `0 0 13 * 3` before `2021-07-15 00:00:00`.",
+    "expected": {
+      "date": "2021-07-14T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_case_insensitive_literals_and_aliases_131ce995852f",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.case_insensitive_literals_and_aliases",
+    "op": "next_run",
+    "params": {
+      "expression": "0 1 15 jul mon,Wed,FRi",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Next run for `0 1 15 jul mon,Wed,FRi` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2020-07-01T01:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_case_insensitive_literals_and_aliases_913e26ebb9ed",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.case_insensitive_literals_and_aliases",
+    "op": "next_run",
+    "params": {
+      "expression": "@Weekly",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Next run for `@Weekly` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2019-11-17T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_case_insensitive_literals_and_aliases_cd6e01bebd25",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.case_insensitive_literals_and_aliases",
+    "op": "next_run",
+    "params": {
+      "expression": "@WEEKLY",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Next run for `@WEEKLY` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2019-11-17T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_case_insensitive_literals_and_aliases_cd2dfadc64f7",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.case_insensitive_literals_and_aliases",
+    "op": "next_run",
+    "params": {
+      "expression": "@WeeklY",
+      "start": "2019-11-14 00:00:00"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Next run for `@WeeklY` after `2019-11-14 00:00:00`.",
+    "expected": {
+      "date": "2019-11-17T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_single_number_range_rejected_95cd193ccec9",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.single_number_range_rejected",
+    "op": "parse_error",
+    "params": {
+      "expression": "0 0 * * 1/10"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "`0 0 * * 1/10` is rejected.",
+    "expected": {
+      "error": true,
+      "messageContains": "Invalid CRON field value 1/10 at position 4"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_0_0_cron_expression_seconds_are_dropped_9b7617be7158",
+    "version": "v3.0.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.seconds_are_dropped",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * *",
+      "start": "2011-09-27 10:10:54"
+    },
+    "evidence": "3.0.0 release changes DOM+DOW resolution from AND to OR and improves literals/seconds/timezone behavior.",
+    "human": "Next run for `* * * * *` after `2011-09-27 10:10:54`.",
+    "expected": {
+      "date": "2011-09-27T10:11:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_validation_f6d42d90efd8",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 12 * * ?"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Validity of `0 12 * * ?` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_validation_1e0100204782",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 12 ? * *"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Validity of `0 12 ? * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_validation_c775b20d6438",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 8 ? * ?"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Validity of `0 8 ? * ?` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_validation_4c36c4705067",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "? * * * *"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Validity of `? * * * *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_validation_5bd553c8bd3d",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* ? * * *"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Validity of `* ? * * *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_validation_1d6ef33422e1",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "* * * ? *"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Validity of `* * * ? *` is observable.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_dow_next_27777f20b3cb",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_dow_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 12 * * ?",
+      "start": "2020-08-20 00:00:00"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Next run for `0 12 * * ?` after `2020-08-20 00:00:00`.",
+    "expected": {
+      "date": "2020-08-20T12:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_3_0_1_cron_expression_question_mark_dom_next_7ac2b089a518",
+    "version": "3.0.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.question_mark_dom_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 12 ? * *",
+      "start": "2020-08-20 00:00:00"
+    },
+    "evidence": "3.0.1 release fixes casted step ranges and missing checks for question marks in DOM/DOW.",
+    "human": "Next run for `0 12 ? * *` after `2020-08-20 00:00:00`.",
+    "expected": {
+      "date": "2020-08-20T12:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_1_0_cron_expression_get_parts_1044f01d73f7",
+    "version": "v3.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.get_parts",
+    "op": "get_parts",
+    "params": {
+      "expression": "0 22 * * 1-5"
+    },
+    "evidence": "3.1.0 release adds CronExpression::getParts().",
+    "human": "Return expression parts as an ordered array.",
+    "expected": {
+      "parts": [
+        "0",
+        "22",
+        "*",
+        "*",
+        "1-5"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_1_0_cron_expression_set_part_785c06b4cded",
+    "version": "v3.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.set_part",
+    "op": "set_part",
+    "params": {
+      "initial": "0 22 * * 1-5",
+      "position": 1,
+      "value": "23"
+    },
+    "evidence": "3.1.0 release adds CronExpression::getParts().",
+    "human": "Mutating an expression part is observable.",
+    "expected": {
+      "expression": "0 23 * * 1-5",
+      "parts": [
+        "0",
+        "23",
+        "*",
+        "*",
+        "1-5"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_1_0_cron_expression_set_expression_6b6f5c23b4e4",
+    "version": "v3.1.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.set_expression",
+    "op": "set_expression",
+    "params": {
+      "initial": "0 22 * * 1-5",
+      "expression": "15 1 * * MON"
+    },
+    "evidence": "3.1.0 release adds CronExpression::getParts().",
+    "human": "Replacing an expression is observable.",
+    "expected": {
+      "expression": "15 1 * * MON",
+      "parts": [
+        "15",
+        "1",
+        "*",
+        "*",
+        "MON"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_validation_acdd11951091",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "1,3,5-7,11-15/1,17-22/2,23 * * * *"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Validity of `1,3,5-7,11-15/1,17-22/2,23 * * * *` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_next_bb876335ced5",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_next",
+    "op": "next_run",
+    "params": {
+      "expression": "1,3,5-7,11-15/1,17-22/2,23 * * * *",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Next run for `1,3,5-7,11-15/1,17-22/2,23 * * * *` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-08-20T04:01:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_next_c70587a67dbe",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_next",
+    "op": "next_run",
+    "params": {
+      "expression": "2,17,35,47 5-7,11-13 * * *",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Next run for `2,17,35,47 5-7,11-13 * * *` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-08-20T05:02:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_validation_5483f44a0368",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 20 L 6,12 ?"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Validity of `0 20 L 6,12 ?` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_next_b807a65c02f9",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 ?",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Next run for `0 20 L 6,12 ?` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-31T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_validation_0904240ab060",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_validation",
+    "op": "is_valid",
+    "params": {
+      "expression": "0 20 L 6,12 0-6"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Validity of `0 20 L 6,12 0-6` is observable.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_complex_range_step_list_next_cdb0dcd5f5c4",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.complex_range_step_list_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 0-6",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "Next run for `0 20 L 6,12 0-6` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-01T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_1_cron_expression_inverted_multiple_order_82b1d72cb082",
+    "version": "v3.2.1",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.inverted_multiple_order",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "*/2 * * * *",
+      "start": "2008-11-09 00:06:00",
+      "total": 4,
+      "invert": true,
+      "allow_current": true
+    },
+    "evidence": "3.2.1 release fixes mixtures of ranges, steps, lists, inverted multiple-date order, and DST handling.",
+    "human": "4 run dates for `*/2 * * * *` from `2008-11-09 00:06:00`.",
+    "expected": {
+      "dates": [
+        "2008-11-09T00:06:00+00:00",
+        "2008-11-09T00:04:00+00:00",
+        "2008-11-09T00:02:00+00:00",
+        "2008-11-09T00:00:00+00:00"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_next_fc09dc522bf0",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 1 * * 0",
+      "start": "2021-03-21 02:00+00:00",
+      "timezone": "Europe/London",
+      "date_timezone": "Europe/London",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Next run for `0 1 * * 0` after `2021-03-21 02:00+00:00`.",
+    "expected": {
+      "date": "2021-03-28T02:00:00+01:00 Europe/London"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_previous_806eb92b834c",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_previous",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 1 * * 0",
+      "start": "2021-03-21 02:00+00:00",
+      "timezone": "Europe/London",
+      "date_timezone": "Europe/London",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Previous run for `0 1 * * 0` before `2021-03-21 02:00+00:00`.",
+    "expected": {
+      "date": "2021-03-21T01:00:00+00:00 Europe/London"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_next_542e767ef8a9",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_next",
+    "op": "next_run",
+    "params": {
+      "expression": "15 2 * * 0",
+      "start": "2021-03-08 08:15-06:00",
+      "timezone": "America/Winnipeg",
+      "date_timezone": "America/Winnipeg",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Next run for `15 2 * * 0` after `2021-03-08 08:15-06:00`.",
+    "expected": {
+      "date": "2021-03-14T03:15:00-05:00 America/Winnipeg"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_previous_ea032f59c200",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_previous",
+    "op": "previous_run",
+    "params": {
+      "expression": "15 2 * * 0",
+      "start": "2021-03-08 08:15-06:00",
+      "timezone": "America/Winnipeg",
+      "date_timezone": "America/Winnipeg",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Previous run for `15 2 * * 0` before `2021-03-08 08:15-06:00`.",
+    "expected": {
+      "date": "2021-03-07T02:15:00-06:00 America/Winnipeg"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_next_3024af38551b",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_next",
+    "op": "next_run",
+    "params": {
+      "expression": "* * * * 2",
+      "start": "2020-10-23 15:31:45",
+      "timezone": "Europe/Berlin",
+      "date_timezone": "Europe/Berlin",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Next run for `* * * * 2` after `2020-10-23 15:31:45`.",
+    "expected": {
+      "date": "2020-10-27T00:00:00+01:00 Europe/Berlin"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_previous_b7b644a165ad",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_previous",
+    "op": "previous_run",
+    "params": {
+      "expression": "* * * * 2",
+      "start": "2020-10-23 15:31:45",
+      "timezone": "Europe/Berlin",
+      "date_timezone": "Europe/Berlin",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Previous run for `* * * * 2` before `2020-10-23 15:31:45`.",
+    "expected": {
+      "date": "2020-10-20T23:59:00+02:00 Europe/Berlin"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_next_5d4bb3873f99",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_next",
+    "op": "next_run",
+    "params": {
+      "expression": "30 07 * * *",
+      "start": "2023-03-10 08:00-05:00",
+      "timezone": "America/New_York",
+      "date_timezone": "America/New_York",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Next run for `30 07 * * *` after `2023-03-10 08:00-05:00`.",
+    "expected": {
+      "date": "2023-03-11T07:30:00-05:00 America/New_York"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_previous_c2dd7104b7a1",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_previous",
+    "op": "previous_run",
+    "params": {
+      "expression": "30 07 * * *",
+      "start": "2023-03-10 08:00-05:00",
+      "timezone": "America/New_York",
+      "date_timezone": "America/New_York",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Previous run for `30 07 * * *` before `2023-03-10 08:00-05:00`.",
+    "expected": {
+      "date": "2023-03-10T07:30:00-05:00 America/New_York"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_next_0838f87512eb",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_next",
+    "op": "next_run",
+    "params": {
+      "expression": "0 10 * * *",
+      "start": "2025-03-08 09:00-06:00",
+      "timezone": "America/Chicago",
+      "date_timezone": "America/Chicago",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Next run for `0 10 * * *` after `2025-03-08 09:00-06:00`.",
+    "expected": {
+      "date": "2025-03-08T10:00:00-06:00 America/Chicago"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_cron_expression_dst_transition_previous_b0e2fa3648e4",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_transition_previous",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 10 * * *",
+      "start": "2025-03-08 09:00-06:00",
+      "timezone": "America/Chicago",
+      "date_timezone": "America/Chicago",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "Previous run for `0 10 * * *` before `2025-03-08 09:00-06:00`.",
+    "expected": {
+      "date": "2025-03-07T10:00:00-06:00 America/Chicago"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_field_dst_and_offset_increment_dff7555ebc06",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.dst_and_offset_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "minute",
+      "date": "2021-03-28 01:59:00",
+      "date_timezone": "Europe/Berlin",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "minute increments `2021-03-28 01:59:00`.",
+    "expected": {
+      "date": "2021-03-28T03:00:00+02:00 Europe/Berlin"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_field_dst_and_offset_increment_c0b6b141825c",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.dst_and_offset_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "minute",
+      "date": "2021-03-28 00:59:00",
+      "date_timezone": "Europe/London",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "minute increments `2021-03-28 00:59:00`.",
+    "expected": {
+      "date": "2021-03-28T02:00:00+01:00 Europe/London"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_field_dst_and_offset_increment_0211fb25dae0",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.dst_and_offset_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "day_of_month",
+      "date": "2021-03-28 01:59:00",
+      "date_timezone": "Europe/Berlin",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "day_of_month increments `2021-03-28 01:59:00`.",
+    "expected": {
+      "date": "2021-03-29T00:00:00+02:00 Europe/Berlin"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_field_dst_and_offset_increment_2cb345c4b1f6",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.dst_and_offset_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "day_of_month",
+      "date": "2021-03-28 00:59:00",
+      "date_timezone": "Europe/London",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "day_of_month increments `2021-03-28 00:59:00`.",
+    "expected": {
+      "date": "2021-03-29T00:00:00+01:00 Europe/London"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_4_field_dst_and_offset_increment_7f0ffab3b840",
+    "version": "v3.2.4",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.dst_and_offset_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "month",
+      "date": "2011-03-31 11:59:59",
+      "date_timezone": "America/St_Johns",
+      "with_zone_name": true
+    },
+    "evidence": "3.2.3 and 3.2.4 releases change minute/hour/day-of-week increments to handle DST transitions better.",
+    "human": "month increments `2011-03-31 11:59:59`.",
+    "expected": {
+      "date": "2011-04-01T00:00:00-02:30 America/St_Johns"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_2_cron_expression_large_step_high_bound_20f3c305e73a",
+    "version": "v3.2.2",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.large_step_high_bound",
+    "op": "next_run",
+    "params": {
+      "expression": "0-59/59 10 * * *",
+      "start": "2021-08-25 10:01:00"
+    },
+    "evidence": "3.2.2 release fixes small ranges with large steps and wraparound high-bound handling.",
+    "human": "Next run for `0-59/59 10 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-25T10:59:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_2_cron_expression_large_step_high_bound_ab0c682c217c",
+    "version": "v3.2.2",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.large_step_high_bound",
+    "op": "next_run",
+    "params": {
+      "expression": "0-59/65 10 * * *",
+      "start": "2021-08-25 10:01:00"
+    },
+    "evidence": "3.2.2 release fixes small ranges with large steps and wraparound high-bound handling.",
+    "human": "Next run for `0-59/65 10 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-25T10:05:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_2_cron_expression_large_step_high_bound_440c38eca966",
+    "version": "v3.2.2",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.large_step_high_bound",
+    "op": "next_run",
+    "params": {
+      "expression": "41-59/24 5 * * *",
+      "start": "2021-08-25 10:01:00"
+    },
+    "evidence": "3.2.2 release fixes small ranges with large steps and wraparound high-bound handling.",
+    "human": "Next run for `41-59/24 5 * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-26T05:41:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_2_cron_expression_large_step_high_bound_aa209a721a2a",
+    "version": "v3.2.2",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.large_step_high_bound",
+    "op": "next_run",
+    "params": {
+      "expression": "4-59/3 * * * *",
+      "start": "2021-08-25 10:01:00"
+    },
+    "evidence": "3.2.2 release fixes small ranges with large steps and wraparound high-bound handling.",
+    "human": "Next run for `4-59/3 * * * *` after `2021-08-25 10:01:00`.",
+    "expected": {
+      "date": "2021-08-25T10:04:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_5a3cffc953a0",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@midnight"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@midnight`.",
+    "expected": {
+      "expression": "0 0 * * *",
+      "parts": [
+        "0",
+        "0",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "0 0 * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_f30a34c9b5ac",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@midnight",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@midnight` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2021-04-10T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_537ddd35d8b5",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@hourly"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@hourly`.",
+    "expected": {
+      "expression": "0 * * * *",
+      "parts": [
+        "0",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "0 * * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_171405debd2a",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@hourly",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@hourly` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2021-04-10T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_7eb2a455b617",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@daily"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@daily`.",
+    "expected": {
+      "expression": "0 0 * * *",
+      "parts": [
+        "0",
+        "0",
+        "*",
+        "*",
+        "*"
+      ],
+      "string": "0 0 * * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_00b7caabfe95",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@daily",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@daily` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2021-04-10T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_d30bf2015bb1",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@weekly"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@weekly`.",
+    "expected": {
+      "expression": "0 0 * * 0",
+      "parts": [
+        "0",
+        "0",
+        "*",
+        "*",
+        "0"
+      ],
+      "string": "0 0 * * 0",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_2e7052297667",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@weekly",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@weekly` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2021-04-11T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_eb8a39316254",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@monthly"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@monthly`.",
+    "expected": {
+      "expression": "0 0 1 * *",
+      "parts": [
+        "0",
+        "0",
+        "1",
+        "*",
+        "*"
+      ],
+      "string": "0 0 1 * *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_f83327d824db",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@monthly",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@monthly` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2021-05-01T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_afd80960938c",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@yearly"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@yearly`.",
+    "expected": {
+      "expression": "0 0 1 1 *",
+      "parts": [
+        "0",
+        "0",
+        "1",
+        "1",
+        "*"
+      ],
+      "string": "0 0 1 1 *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_fc49ed2d15cb",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@yearly",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@yearly` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2022-01-01T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_aliases_8e4ab578191b",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_aliases",
+    "op": "parse",
+    "params": {
+      "expression": "@annually"
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Parse and round-trip expression `@annually`.",
+    "expected": {
+      "expression": "0 0 1 1 *",
+      "parts": [
+        "0",
+        "0",
+        "1",
+        "1",
+        "*"
+      ],
+      "string": "0 0 1 1 *",
+      "missingPart": null
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_2_0_cron_expression_built_in_alias_next_debc4411432d",
+    "version": "v3.2.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.built_in_alias_next",
+    "op": "next_run",
+    "params": {
+      "expression": "@annually",
+      "start": "2021-04-10 00:00:00",
+      "allow_current": true
+    },
+    "evidence": "3.2.0 release adds @midnight alias and optimizes multiple run dates.",
+    "human": "Next run for `@annually` after `2021-04-10 00:00:00`.",
+    "expected": {
+      "date": "2022-01-01T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_custom_alias_lifecycle_122fc219b721",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.custom_alias_lifecycle",
+    "op": "alias_lifecycle",
+    "params": {
+      "alias": "@every_custom_minute",
+      "expression": "* * * * *"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Register, resolve, unregister, and reject an unregistered custom alias.",
+    "expected": {
+      "registered": true,
+      "resolved": "* * * * *",
+      "aliasValue": "* * * * *",
+      "unregisteredFirst": true,
+      "unregisteredSecond": false,
+      "supportedAfter": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_custom_alias_errors_6aa85418dc59",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.custom_alias_errors",
+    "op": "alias_error",
+    "params": {
+      "alias": "every",
+      "expression": "* * * * *",
+      "action": "register"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Invalid custom alias operation fails.",
+    "expected": {
+      "error": true,
+      "messageContains": "The alias `every` is invalid. It must start with an `@` character and contain alphanumeric (letters, numbers, regardless of case) plus underscore (_)."
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_custom_alias_errors_3f1d5641013a",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.custom_alias_errors",
+    "op": "alias_error",
+    "params": {
+      "alias": "@daily",
+      "expression": "* * * * *",
+      "action": "register"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Invalid custom alias operation fails.",
+    "expected": {
+      "error": true,
+      "messageContains": "The alias `@daily` is already registered."
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_custom_alias_errors_653b70ca63dd",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.custom_alias_errors",
+    "op": "alias_error",
+    "params": {
+      "alias": "@\u00e9very",
+      "expression": "* * * * *",
+      "action": "register"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Invalid custom alias operation fails.",
+    "expected": {
+      "error": true,
+      "messageContains": "The alias `@\u00e9very` is invalid. It must start with an `@` character and contain alphanumeric (letters, numbers, regardless of case) plus underscore (_)."
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_custom_alias_errors_692bcf8065a7",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.custom_alias_errors",
+    "op": "alias_error",
+    "params": {
+      "alias": "@bad_expression",
+      "expression": "foobar",
+      "action": "register"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Invalid custom alias operation fails.",
+    "expected": {
+      "error": true,
+      "messageContains": "The expression `foobar` is invalid"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_custom_alias_errors_e750fb434bda",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.custom_alias_errors",
+    "op": "alias_error",
+    "params": {
+      "alias": "@daily",
+      "expression": "",
+      "action": "unregister"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Invalid custom alias operation fails.",
+    "expected": {
+      "error": true,
+      "messageContains": "The alias `@daily` is a built-in alias; it can not be unregistered."
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_2b5c516600ab",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 ?",
+      "start": "2022-08-20 03:44:02",
+      "nth": 0
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 L 6,12 ?` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-31T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_f34b50997fd7",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 ?",
+      "start": "2022-08-20 03:44:02",
+      "nth": 1
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 L 6,12 ?` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2023-06-30T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_0077c4b4e820",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 ?",
+      "start": "2022-08-20 03:44:02",
+      "nth": 2
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 L 6,12 ?` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2023-12-31T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_prev_3ed414a56dcc",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution_prev",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 20 L 6,12 ?",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Previous run for `0 20 L 6,12 ?` before `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-06-30T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_93a369cf33bb",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 * 6,12 *",
+      "start": "2022-08-20 03:44:02",
+      "nth": 0
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 * 6,12 *` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-01T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_a53e90945c23",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 * 6,12 *",
+      "start": "2022-08-20 03:44:02",
+      "nth": 1
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 * 6,12 *` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-02T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_1a46a2ba6a39",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 * 6,12 *",
+      "start": "2022-08-20 03:44:02",
+      "nth": 2
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 * 6,12 *` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-03T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_prev_48df8c4cd129",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution_prev",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 20 * 6,12 *",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Previous run for `0 20 * 6,12 *` before `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-06-30T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_e8200a2bc87d",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 0-6",
+      "start": "2022-08-20 03:44:02",
+      "nth": 0
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 L 6,12 0-6` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-01T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_5a8444f0f6d0",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 0-6",
+      "start": "2022-08-20 03:44:02",
+      "nth": 1
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 L 6,12 0-6` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-02T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_769aa2e6f36e",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution",
+    "op": "next_run",
+    "params": {
+      "expression": "0 20 L 6,12 0-6",
+      "start": "2022-08-20 03:44:02",
+      "nth": 2
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Next run for `0 20 L 6,12 0-6` after `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-12-03T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_0_cron_expression_dom_dow_star_question_resolution_prev_294c2fc431c0",
+    "version": "v3.3.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dom_dow_star_question_resolution_prev",
+    "op": "previous_run",
+    "params": {
+      "expression": "0 20 L 6,12 0-6",
+      "start": "2022-08-20 03:44:02"
+    },
+    "evidence": "3.3.0 release adds custom expression aliases and adjusts DOM/DOW when one side is * or ?.",
+    "human": "Previous run for `0 20 L 6,12 0-6` before `2022-08-20 03:44:02`.",
+    "expected": {
+      "date": "2022-06-30T20:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_3_cron_expression_reject_both_dom_dow_question_6f7ad3bf9810",
+    "version": "v3.3.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.reject_both_dom_dow_question",
+    "op": "parse_error",
+    "params": {
+      "expression": "0 8 ? * ?"
+    },
+    "evidence": "3.3.3 release fixes question marks in both DOM/DOW and minute sorting for next execution.",
+    "human": "`0 8 ? * ?` is rejected.",
+    "expected": {
+      "error": true,
+      "messageContains": "0 8 ? * ? is not a valid CRON expression"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_3_cron_expression_minute_sorting_next_execution_1d8ccc3f1b98",
+    "version": "v3.3.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.minute_sorting_next_execution",
+    "op": "next_run",
+    "params": {
+      "expression": "3,1,2 * * * *",
+      "start": "2024-08-10 00:00:00"
+    },
+    "evidence": "3.3.3 release fixes question marks in both DOM/DOW and minute sorting for next execution.",
+    "human": "Next run for `3,1,2 * * * *` after `2024-08-10 00:00:00`.",
+    "expected": {
+      "date": "2024-08-10T00:01:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_3_cron_expression_minute_sorting_next_execution_880c064c6ed7",
+    "version": "v3.3.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.minute_sorting_next_execution",
+    "op": "next_run",
+    "params": {
+      "expression": "2,1,3 * * * *",
+      "start": "2024-08-10 00:00:00"
+    },
+    "evidence": "3.3.3 release fixes question marks in both DOM/DOW and minute sorting for next execution.",
+    "human": "Next run for `2,1,3 * * * *` after `2024-08-10 00:00:00`.",
+    "expected": {
+      "date": "2024-08-10T00:01:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_3_3_cron_expression_minute_sorting_next_execution_d521302c757a",
+    "version": "v3.3.3",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.minute_sorting_next_execution",
+    "op": "next_run",
+    "params": {
+      "expression": "41-59/24 5 * * *",
+      "start": "2024-08-10 00:00:00"
+    },
+    "evidence": "3.3.3 release fixes question marks in both DOM/DOW and minute sorting for next execution.",
+    "human": "Next run for `41-59/24 5 * * *` after `2024-08-10 00:00:00`.",
+    "expected": {
+      "date": "2024-08-10T05:41:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_db7fa55bfdfc",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "0 1 * * 0",
+      "start": "2021-03-13 00:00+00:00",
+      "total": 5,
+      "timezone": "Europe/London",
+      "date_timezone": "Europe/London",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "5 run dates for `0 1 * * 0` from `2021-03-13 00:00+00:00`.",
+    "expected": {
+      "dates": [
+        "2021-03-14T01:00:00+00:00 Europe/London",
+        "2021-03-21T01:00:00+00:00 Europe/London",
+        "2021-03-28T02:00:00+01:00 Europe/London",
+        "2021-04-04T01:00:00+01:00 Europe/London",
+        "2021-04-11T01:00:00+01:00 Europe/London"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_5cd9b94bf466",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "30 07 * * *",
+      "start": "2023-03-10 08:00-05:00",
+      "total": 3,
+      "timezone": "America/New_York",
+      "date_timezone": "America/New_York",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "3 run dates for `30 07 * * *` from `2023-03-10 08:00-05:00`.",
+    "expected": {
+      "dates": [
+        "2023-03-11T07:30:00-05:00 America/New_York",
+        "2023-03-12T07:30:00-04:00 America/New_York",
+        "2023-03-13T07:30:00-04:00 America/New_York"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_634ddc57bcb0",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "0 10 * * *",
+      "start": "2025-03-08 09:00-06:00",
+      "total": 3,
+      "timezone": "America/Chicago",
+      "date_timezone": "America/Chicago",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "3 run dates for `0 10 * * *` from `2025-03-08 09:00-06:00`.",
+    "expected": {
+      "dates": [
+        "2025-03-08T10:00:00-06:00 America/Chicago",
+        "2025-03-09T10:00:00-05:00 America/Chicago",
+        "2025-03-10T10:00:00-05:00 America/Chicago"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_81fb2f185839",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "30 */1 * * *",
+      "start": "2025-03-09 00:00-06:00",
+      "total": 4,
+      "timezone": "America/Chicago",
+      "date_timezone": "America/Chicago",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "4 run dates for `30 */1 * * *` from `2025-03-09 00:00-06:00`.",
+    "expected": {
+      "dates": [
+        "2025-03-09T00:30:00-06:00 America/Chicago",
+        "2025-03-09T01:30:00-06:00 America/Chicago",
+        "2025-03-09T03:30:00-05:00 America/Chicago",
+        "2025-03-09T04:30:00-05:00 America/Chicago"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_14d0204f4c32",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "30 */1 * * *",
+      "start": "2025-11-02 00:00-05:00",
+      "total": 4,
+      "timezone": "America/Chicago",
+      "date_timezone": "America/Chicago",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "4 run dates for `30 */1 * * *` from `2025-11-02 00:00-05:00`.",
+    "expected": {
+      "dates": [
+        "2025-11-02T00:30:00-05:00 America/Chicago",
+        "2025-11-02T01:30:00-05:00 America/Chicago",
+        "2025-11-02T01:30:00-06:00 America/Chicago",
+        "2025-11-02T02:30:00-06:00 America/Chicago"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_cb7373527030",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "30 2 * * *",
+      "start": "2025-03-08 01:30-06:00",
+      "total": 3,
+      "timezone": "America/Chicago",
+      "date_timezone": "America/Chicago",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "3 run dates for `30 2 * * *` from `2025-03-08 01:30-06:00`.",
+    "expected": {
+      "dates": [
+        "2025-03-08T02:30:00-06:00 America/Chicago",
+        "2025-03-09T03:30:00-05:00 America/Chicago",
+        "2025-03-10T02:30:00-05:00 America/Chicago"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_e3354561c372",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "0 */2 * * *",
+      "start": "2021-03-27 22:00+00:00",
+      "total": 5,
+      "timezone": "Europe/London",
+      "date_timezone": "Europe/London",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "5 run dates for `0 */2 * * *` from `2021-03-27 22:00+00:00`.",
+    "expected": {
+      "dates": [
+        "2021-03-27T22:00:00+00:00 Europe/London",
+        "2021-03-28T00:00:00+00:00 Europe/London",
+        "2021-03-28T02:00:00+01:00 Europe/London",
+        "2021-03-28T04:00:00+01:00 Europe/London",
+        "2021-03-28T06:00:00+01:00 Europe/London"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_351cbb7b546c",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "0 1-23/2 * * *",
+      "start": "2021-03-27 23:00+00:00",
+      "total": 5,
+      "timezone": "Europe/London",
+      "date_timezone": "Europe/London",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "5 run dates for `0 1-23/2 * * *` from `2021-03-27 23:00+00:00`.",
+    "expected": {
+      "dates": [
+        "2021-03-27T23:00:00+00:00 Europe/London",
+        "2021-03-28T02:00:00+01:00 Europe/London",
+        "2021-03-28T03:00:00+01:00 Europe/London",
+        "2021-03-28T05:00:00+01:00 Europe/London",
+        "2021-03-28T07:00:00+01:00 Europe/London"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_5543131d43aa",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "@hourly",
+      "start": "2021-03-27 22:00-03:00",
+      "total": 5,
+      "timezone": "America/Asuncion",
+      "date_timezone": "America/Asuncion",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "5 run dates for `@hourly` from `2021-03-27 22:00-03:00`.",
+    "expected": {
+      "dates": [
+        "2021-03-27T22:00:00-03:00 America/Asuncion",
+        "2021-03-27T23:00:00-03:00 America/Asuncion",
+        "2021-03-27T23:00:00-04:00 America/Asuncion",
+        "2021-03-28T00:00:00-04:00 America/Asuncion",
+        "2021-03-28T01:00:00-04:00 America/Asuncion"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_cron_expression_dst_multiple_run_dates_f95a4dae11dd",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "cron_expression.dst_multiple_run_dates",
+    "op": "multiple_run_dates",
+    "params": {
+      "expression": "@hourly",
+      "start": "2020-10-03 22:00-04:00",
+      "total": 5,
+      "timezone": "America/Asuncion",
+      "date_timezone": "America/Asuncion",
+      "allow_current": true,
+      "with_zone_name": true
+    },
+    "evidence": "v3.5.0 release fixes skipped run after daylight-saving turnover point; v3.6.0 preserves behavior on PHP 8.2+.",
+    "human": "5 run dates for `@hourly` from `2020-10-03 22:00-04:00`.",
+    "expected": {
+      "dates": [
+        "2020-10-03T22:00:00-04:00 America/Asuncion",
+        "2020-10-03T23:00:00-04:00 America/Asuncion",
+        "2020-10-04T01:00:00-03:00 America/Asuncion",
+        "2020-10-04T02:00:00-03:00 America/Asuncion",
+        "2020-10-04T03:00:00-03:00 America/Asuncion"
+      ]
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_260a1e4a99cc",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "1"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `1`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_d606e0959550",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "01"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `01`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_ac200b29b737",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_50ddb44d3866",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "*"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `*`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_f4aaed1e50a9",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "?"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `?`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_436f57e36a88",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "*/3,1,1-12"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `*/3,1,1-12`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_58709378bcee",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "SUN-2"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `SUN-2`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_749fb25f2713",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "1."
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `1.`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_1b1bb11f824c",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "MON#1"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `MON#1`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_f49824de3fc6",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "TUE#2"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `TUE#2`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_8235a21b9098",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "WED#3"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `WED#3`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_b6ee8e4492fe",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "THU#4"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `THU#4`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_ac681ef821fa",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "FRI#5"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `FRI#5`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_d3f22da3715d",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "SAT#1"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `SAT#1`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_a9edf665bc43",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "SUN#3"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `SUN#3`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_e1c89ab206fa",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "MON#1,MON#3"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `MON#1,MON#3`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_fa7da22d470f",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "mon,"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `mon,`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_6c43c7dc61f6",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "mon-"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `mon-`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_b454d393ee98",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "*/2,"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `*/2,`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_ffc1efaecd7d",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "-mon"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `-mon`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_5e62679ecd6b",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": ",1"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `,1`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_7c9d1a1cd52b",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": "*-"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `*-`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_validation_accc4aab76bd",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.validation",
+    "op": "field_validate",
+    "params": {
+      "field": "day_of_week",
+      "value": ",-"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week accepts/rejects `,-`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_6da16a240fc2",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "0-2",
+      "date": "2011-09-04 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `0-2` satisfaction at `2011-09-04 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_b49d39073561",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "6-0",
+      "date": "2011-09-04 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `6-0` satisfaction at `2011-09-04 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_4b9477516291",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "SUN",
+      "date": "2014-04-20 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `SUN` satisfaction at `2014-04-20 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_a1d592cccdb4",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "SUN#3",
+      "date": "2014-04-20 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `SUN#3` satisfaction at `2014-04-20 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_1dc10961623c",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "0#3",
+      "date": "2014-04-20 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `0#3` satisfaction at `2014-04-20 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_ffde8b00d7bf",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "7#3",
+      "date": "2014-04-20 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `7#3` satisfaction at `2014-04-20 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_450318063813",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "FRIL",
+      "date": "2018-12-28 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `FRIL` satisfaction at `2018-12-28 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_366fd594c574",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "5L",
+      "date": "2018-12-28 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `5L` satisfaction at `2018-12-28 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_6f6dca9421d9",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "FRIL",
+      "date": "2018-12-21 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `FRIL` satisfaction at `2018-12-21 00:00:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_de427be1a1d7",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "5L",
+      "date": "2018-12-21 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `5L` satisfaction at `2018-12-21 00:00:00`.",
+    "expected": {
+      "value": false
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_week_satisfaction_82414a495c23",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_week.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_week",
+      "value": "?",
+      "date": "2024-01-01 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week `?` satisfaction at `2024-01-01 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_month_satisfaction_20bf94376f8b",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_month",
+      "value": "?",
+      "date": "2024-01-01 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_month `?` satisfaction at `2024-01-01 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_month_satisfaction_4ab7b5a40c39",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_month",
+      "value": "L",
+      "date": "2024-02-29 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_month `L` satisfaction at `2024-02-29 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_month_satisfaction_e0e5d37747a9",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_month",
+      "value": "LW",
+      "date": "2024-03-29 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_month `LW` satisfaction at `2024-03-29 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_day_of_month_satisfaction_59ec43fdbaf3",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.day_of_month.satisfaction",
+    "op": "field_satisfied",
+    "params": {
+      "field": "day_of_month",
+      "value": "5W",
+      "date": "2024-04-05 00:00:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_month `5W` satisfaction at `2024-04-05 00:00:00`.",
+    "expected": {
+      "value": true
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_increment_795e68fdde55",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "minute",
+      "date": "2011-03-15 11:15:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "minute increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-15T11:16:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_decrement_b15eff2021a8",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_decrement",
+    "op": "field_increment",
+    "params": {
+      "field": "minute",
+      "date": "2011-03-15 11:15:00",
+      "invert": true
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "minute increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-15T11:14:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_increment_81b7663d8ae3",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "hour",
+      "date": "2011-03-15 11:15:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "hour increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-15T12:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_decrement_61032eda9704",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_decrement",
+    "op": "field_increment",
+    "params": {
+      "field": "hour",
+      "date": "2011-03-15 11:15:00",
+      "invert": true
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "hour increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-15T10:59:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_increment_6ddd625a3217",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "day_of_week",
+      "date": "2011-03-15 11:15:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-16T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_decrement_3f4aa8b73092",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_decrement",
+    "op": "field_increment",
+    "params": {
+      "field": "day_of_week",
+      "date": "2011-03-15 11:15:00",
+      "invert": true
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_week increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-14T23:59:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_increment_d90fc2f6ea06",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "day_of_month",
+      "date": "2011-03-15 11:15:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_month increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-16T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_decrement_7008a917e2b1",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_decrement",
+    "op": "field_increment",
+    "params": {
+      "field": "day_of_month",
+      "date": "2011-03-15 11:15:00",
+      "invert": true
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "day_of_month increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-03-14T23:59:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_increment_f1a7f9264f64",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_increment",
+    "op": "field_increment",
+    "params": {
+      "field": "month",
+      "date": "2011-03-15 11:15:00"
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "month increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-04-01T00:00:00+00:00"
+    }
+  },
+  {
+    "name": "dragonmantank_cron_expression_v_3_5_0_field_basic_decrement_7ab84f8358ec",
+    "version": "v3.5.0",
+    "project": "dragonmantank/cron-expression",
+    "domain": "cron_schedule_expression",
+    "capability": "field.basic_decrement",
+    "op": "field_increment",
+    "params": {
+      "field": "month",
+      "date": "2011-03-15 11:15:00",
+      "invert": true
+    },
+    "evidence": "Public field classes expose validation/satisfaction behavior for special DOM/DOW syntax used in release fixes.",
+    "human": "month increments `2011-03-15 11:15:00`.",
+    "expected": {
+      "date": "2011-02-28T23:59:00+00:00"
+    }
+  }
+]

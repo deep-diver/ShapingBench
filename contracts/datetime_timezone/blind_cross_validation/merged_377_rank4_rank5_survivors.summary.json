@@ -1,0 +1,4662 @@
+{
+  "project": "datetime-merged-rank4-rank5-blind-survivors",
+  "targets": [
+    "Carbon 3.13.2",
+    "date-fns 4.4.0 + @date-fns/tz 1.5.0"
+  ],
+  "contracts_total": 250,
+  "contracts": [
+    {
+      "name": "duration_can_be_constructed_from_millis",
+      "capability": "duration.core",
+      "replay": "duration_from_millis",
+      "params": {
+        "millis": 1234
+      },
+      "expected": {
+        "millis": 1234
+      },
+      "mutant": "drop_duration_milliseconds",
+      "evidence": "sourceforge-news:v0.95: This release adds duration and interval handling, the Coptic calendar system and firms up the API in advance of a 1.0 release.",
+      "version": "0.95",
+      "source": "sourceforge-news",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "interval_preserves_start_and_end_instants",
+      "capability": "interval.core",
+      "replay": "parse_interval",
+      "params": {
+        "text": "2004-01-01T00:00:00Z/2004-01-01T01:00:00Z"
+      },
+      "expected": {
+        "start": "2004-01-01T00:00:00Z",
+        "end": "2004-01-01T01:00:00Z"
+      },
+      "mutant": "collapse_interval_to_start_instant",
+      "evidence": "sourceforge-news:v0.95: This release adds duration and interval handling, the Coptic calendar system and firms up the API in advance of a 1.0 release.",
+      "version": "0.95",
+      "source": "sourceforge-news",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "abutting_interval_is_after_previous_interval",
+      "capability": "interval.relation",
+      "replay": "interval_relation",
+      "params": {
+        "left": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z",
+        "right": "2000-01-01T00:00:00Z/2000-01-01T01:00:00Z",
+        "relation": "isAfter"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "treat_abutting_interval_as_not_after",
+      "evidence": "upgrade-notes/0_99.html:v0.99: Interval/MutableInterval isAfter(ReadableInterval) - fixed bug when intervals abutted",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "default_fixed_offset_zone_is_not_coerced_to_utc",
+      "capability": "timezone.fixed-offset",
+      "replay": "fixed_offset_roundtrip",
+      "params": {
+        "offset": "+02:30"
+      },
+      "expected": {
+        "offset": "+02:30"
+      },
+      "mutant": "coerce_fixed_offset_default_zone_to_utc",
+      "evidence": "upgrade-notes/0_99.html:v0.99: Default time zone based on offset was being interpreted as UTC",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "month_day_preserves_leap_day",
+      "capability": "partial.month-day",
+      "replay": "parse_month_day",
+      "params": {
+        "text": "--02-29",
+        "format": "iso"
+      },
+      "expected": {
+        "month_day": "--02-29"
+      },
+      "mutant": "coerce_feb_29_to_feb_28",
+      "evidence": "upgrade-notes/0_99.html:v0.99: YearMonthDay/TimeOfDay",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "pattern_zz_formats_offset",
+      "capability": "datetime.format.pattern-zone",
+      "replay": "format_datetime",
+      "params": {
+        "instant": "2000-01-01T00:00:00Z",
+        "zone": "Asia/Singapore",
+        "pattern": "ZZ"
+      },
+      "expected": {
+        "text": "+08:00"
+      },
+      "mutant": "use_zz_for_zone_id",
+      "evidence": "upgrade-notes/0_99.html:v0.99: DateTimeFormat pattern change The time zone pattern 'ZZZZ' previously output a time zone offset like '+08:00'. Now you need a pattern of 'ZZ' to output the offset. The pattern 'ZZZZ' will now output the time zone id, such as 'Europe/London'.",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "pattern_zzzz_formats_zone_id",
+      "capability": "datetime.format.pattern-zone",
+      "replay": "format_datetime",
+      "params": {
+        "instant": "2000-01-01T00:00:00Z",
+        "zone": "Asia/Singapore",
+        "pattern": "ZZZZ"
+      },
+      "expected": {
+        "text": "Asia/Singapore"
+      },
+      "mutant": "use_zzzz_for_offset",
+      "evidence": "upgrade-notes/0_99.html:v0.99: DateTimeFormat pattern change The time zone pattern 'ZZZZ' previously output a time zone offset like '+08:00'. Now you need a pattern of 'ZZ' to output the offset. The pattern 'ZZZZ' will now output the time zone id, such as 'Europe/London'.",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_fractional_seconds_scale_to_millis",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "params": {
+        "text": "PT1.234S"
+      },
+      "expected": {
+        "millis": 234
+      },
+      "mutant": "drop_fractional_second_component",
+      "evidence": "upgrade-notes/0_99.html:v0.99: Fixed parsing of fractional seconds in Periods",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_time_fields_require_t_separator",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "params": {
+        "text": "P1H"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "allow_time_fields_without_t_separator",
+      "evidence": "upgrade-notes/0_99.html:v0.99: Period parsing now more strict - 'T' character required to separate date and time in ISO periods",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_time_only_form_parses",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "params": {
+        "text": "PT2H30M"
+      },
+      "expected": {
+        "iso": "PT2H30M"
+      },
+      "mutant": "reject_pt_time_only_periods",
+      "evidence": "upgrade-notes/0_99.html:v0.99: Parsing periods of the form PT... - fixed bug that prevented parsing",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "time_of_day_add_wraps_over_midnight",
+      "capability": "local-time.arithmetic",
+      "replay": "local_time_add",
+      "params": {
+        "time": "23:30:00",
+        "amount": {
+          "hours": 1
+        }
+      },
+      "expected": {
+        "time": "00:30:00"
+      },
+      "mutant": "throw_on_midnight_wrap",
+      "evidence": "upgrade-notes/0_99.html:v0.99: semantic change to TimeOfDay.Property.addToCopy() Previously, add threw an exception if the 23:59/00:00 boundary was broken. Now it wraps to the next 'day', as this is the more typical use case. Change to the method TimeOfDay.Property.addNoWrapToCopy() to restore the old behaviour.",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "time_style_formatter_outputs_time_not_date",
+      "capability": "datetime.format.localized-style",
+      "replay": "format_datetime",
+      "params": {
+        "instant": "2000-01-02T03:04:05Z",
+        "zone": "UTC",
+        "style": "-S",
+        "locale": "en"
+      },
+      "expected": {
+        "contains_time": true,
+        "contains_date": false
+      },
+      "mutant": "use_date_style_for_time_style",
+      "evidence": "upgrade-notes/0_99.html:v0.99: DateTimeFormat would use date style for time style",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "two_digit_year_pattern_uses_pivot_window",
+      "capability": "datetime.parse.two-digit-year",
+      "replay": "parse_local_date",
+      "params": {
+        "text": "05-01-02",
+        "pattern": "yy-MM-dd",
+        "pivot_year": 2000
+      },
+      "expected": {
+        "date": "2005-01-02"
+      },
+      "mutant": "parse_two_digit_year_as_year_five",
+      "evidence": "upgrade-notes/0_99.html:v0.99: Parsing two digit years using a pattern now follows JDK definition",
+      "version": "0.99",
+      "source": "upgrade-notes/0_99.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "athens_summer_time_after_1980_is_enabled",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Europe/Athens",
+        "instant": "2005-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "+03:00"
+      },
+      "mutant": "disable_athens_summer_time_after_1980",
+      "evidence": "upgrade-notes/1_1.html:v1.1: Date and Time (ZoneInfoCompiler) Greek summer time was incorrect due to a comment parsing bug. This disabled DST (summer time) for Europe/Athens after 1980.",
+      "version": "1.1",
+      "source": "upgrade-notes/1_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "interval_gap_returns_between_abutting_nonoverlap",
+      "capability": "interval.set-ops",
+      "replay": "interval_gap",
+      "params": {
+        "left": "2000-01-01T00:00:00Z/2000-01-01T01:00:00Z",
+        "right": "2000-01-01T02:00:00Z/2000-01-01T03:00:00Z"
+      },
+      "expected": {
+        "interval": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z"
+      },
+      "mutant": "return_empty_gap_for_separated_intervals",
+      "evidence": "upgrade-notes/1_1.html:v1.1: Interval Added overlap method that returns the actual overlap between two intervals. Added gap method that returns the gap between two intervals. Added abuts method that returns true if two intervals abut.",
+      "version": "1.1",
+      "source": "upgrade-notes/1_1.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "interval_overlap_returns_intersection",
+      "capability": "interval.set-ops",
+      "replay": "interval_overlap",
+      "params": {
+        "left": "2000-01-01T00:00:00Z/2000-01-01T02:00:00Z",
+        "right": "2000-01-01T01:00:00Z/2000-01-01T03:00:00Z"
+      },
+      "expected": {
+        "interval": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z"
+      },
+      "mutant": "return_union_for_overlap",
+      "evidence": "upgrade-notes/1_1.html:v1.1: Interval Added overlap method that returns the actual overlap between two intervals. Added gap method that returns the gap between two intervals. Added abuts method that returns true if two intervals abut.",
+      "version": "1.1",
+      "source": "upgrade-notes/1_1.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "numeric_parser_rejects_multiple_signs",
+      "capability": "datetime.parse.signed-number",
+      "replay": "parse_local_date",
+      "params": {
+        "text": "++2005-01-01",
+        "pattern": "yyyy-MM-dd"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_multiple_leading_signs",
+      "evidence": "upgrade-notes/1_1.html:v1.1: DateTimeFormatterBuilder/PeriodFormatterBuilder Number parser would accept multiple sign characters as valid.",
+      "version": "1.1",
+      "source": "upgrade-notes/1_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "ordinal_date_formats_day_of_year",
+      "capability": "datetime.format.ordinal-date",
+      "replay": "format_local_date",
+      "params": {
+        "date": "2005-06-10",
+        "format": "ordinal"
+      },
+      "expected": {
+        "text": "2005-161"
+      },
+      "mutant": "format_ordinal_as_month_day",
+      "evidence": "upgrade-notes/1_1.html:v1.1: ISODateTimeFormat New methods to output ordinal style dates, such as 2005-161.",
+      "version": "1.1",
+      "source": "upgrade-notes/1_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "day_property_to_interval_spans_one_day",
+      "capability": "interval.property",
+      "replay": "property_to_interval",
+      "params": {
+        "date": "2015-01-02T12:00:00Z",
+        "field": "dayOfMonth"
+      },
+      "expected": {
+        "start": "2015-01-02T00:00:00Z",
+        "end": "2015-01-03T00:00:00Z"
+      },
+      "mutant": "property_interval_keeps_original_instant",
+      "evidence": "upgrade-notes/1_2.html:v1.2: DateTime.Property.toInterval() (also DateMidnight/MutableDateTime) New method to convert return an Interval object over the span of the property Thus dt.monthOfYear().toInterval() returns an interval from the start to the end of the month",
+      "version": "1.2",
+      "source": "upgrade-notes/1_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "month_property_to_interval_spans_month",
+      "capability": "interval.property",
+      "replay": "property_to_interval",
+      "params": {
+        "date": "2005-02-10T12:00:00Z",
+        "field": "monthOfYear"
+      },
+      "expected": {
+        "start": "2005-02-01T00:00:00Z",
+        "end": "2005-03-01T00:00:00Z"
+      },
+      "mutant": "make_month_interval_one_day_long",
+      "evidence": "upgrade-notes/1_2.html:v1.2: DateTime.Property.toInterval() (also DateMidnight/MutableDateTime) New method to convert return an Interval object over the span of the property Thus dt.monthOfYear().toInterval() returns an interval from the start to the end of the month",
+      "version": "1.2",
+      "source": "upgrade-notes/1_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "pattern_k_prints_hour_of_halfday_zero_to_eleven",
+      "capability": "datetime.format.pattern-hour",
+      "replay": "format_datetime",
+      "params": {
+        "instant": "2000-01-01T00:00:00Z",
+        "zone": "UTC",
+        "pattern": "K"
+      },
+      "expected": {
+        "text": "0"
+      },
+      "mutant": "map_pattern_k_to_clockhour_1_to_24",
+      "evidence": "upgrade-notes/1_2.html:v1.2: DateTimeFormat Pattern letter 'K' was using the wrong underlying implementation",
+      "version": "1.2",
+      "source": "upgrade-notes/1_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2005q_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_2.html:v1.2: DateTimeZone data updated to version 2005q",
+      "version": "1.2",
+      "source": "upgrade-notes/1_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2005q_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_2.html:v1.2: DateTimeZone data updated to version 2005q",
+      "version": "1.2",
+      "source": "upgrade-notes/1_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "date_optional_time_parser_accepts_date_only",
+      "capability": "datetime.parse.optional-time",
+      "replay": "parse_local_datetime",
+      "params": {
+        "text": "2005-06-10",
+        "format": "date_optional_time"
+      },
+      "expected": {
+        "local": "2005-06-10T00:00:00"
+      },
+      "mutant": "require_time_in_date_optional_time_parser",
+      "evidence": "upgrade-notes/1_3.html:v1.3: dateOptionalTimeParser() New formats for parsing a datetime/date/time without a time zone, and for parsing a date (mandatory) with an optional time",
+      "version": "1.3",
+      "source": "upgrade-notes/1_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "instant_conversion_preserves_zone",
+      "capability": "instant.conversion",
+      "replay": "convert_datetime_zone",
+      "params": {
+        "instant": "2005-01-01T00:00:00Z",
+        "zone": "Europe/London",
+        "method": "toDateTime"
+      },
+      "expected": {
+        "zone": "Europe/London"
+      },
+      "mutant": "convert_to_default_zone",
+      "evidence": "upgrade-notes/1_3.html:v1.3: DateTime/DateMidnight/MutableDateTime/AbstractInstant Conversion methods toDateTime, toDateTimeISO, toMutableDateTime, and toMutableDateTimeISO now preserve the time zone. Previously calling any of these four methods would convert the result to the default time zone. This was incorrect. The methods have been changed to preserve the time zone. The similarly named methods on Instant have not changed behaviour.",
+      "version": "1.3",
+      "source": "upgrade-notes/1_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "local_date_plus_months_clamps_to_last_day",
+      "capability": "local-date.month-arithmetic",
+      "replay": "local_date_add",
+      "params": {
+        "date": "2015-01-31",
+        "amount": {
+          "months": 1
+        }
+      },
+      "expected": {
+        "date": "2015-02-28"
+      },
+      "mutant": "overflow_to_march_when_adding_month",
+      "evidence": "upgrade-notes/1_3.html:v1.3: LocalDate/LocalTime/LocalDateTime New classes representing date, time and datetime without a time zone. LocalDate is the recommended replacement for YearMonthDay. LocalTime is the recommended replacement for TimeOfDay. These classes are implemented more flexibly than YearMonthDay and TimeOfDay and thus solve the problem where you couldn't query or format fields such as dayOfWeek on a YearMonthDay or millisOfDay on a TimeOfDay. Neither YearMonthDay or TimeOfDay will be immediately deprecated as they are in widespread use. The API of the new classes has been kept as similar to YearMonthDay/TimeOfDay as possible to aid migration, so this should be a search and replace change.",
+      "version": "1.3",
+      "source": "upgrade-notes/1_3.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "local_time_parser_rejects_date_fields",
+      "capability": "local-time.parse",
+      "replay": "parse_local_time",
+      "params": {
+        "text": "2005-01-01T12:00:00"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "allow_date_fields_in_local_time_parse",
+      "evidence": "upgrade-notes/1_3.html:v1.3: TimeOfDay Constructing with String value no longer accepts date fields Constructing with String now treats 'T' prefix as optional",
+      "version": "1.3",
+      "source": "upgrade-notes/1_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2006g_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_3.html:v1.3: DateTimeZone data updated to version 2006g",
+      "version": "1.3",
+      "source": "upgrade-notes/1_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2006g_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_3.html:v1.3: DateTimeZone data updated to version 2006g",
+      "version": "1.3",
+      "source": "upgrade-notes/1_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "chronology_equality_is_structural",
+      "capability": "chronology.equality",
+      "replay": "chronology_equals",
+      "params": {
+        "left": {
+          "type": "ISO",
+          "zone": "UTC"
+        },
+        "right": {
+          "type": "ISO",
+          "zone": "UTC"
+        }
+      },
+      "expected": {
+        "equals": true
+      },
+      "mutant": "compare_chronology_identity_only",
+      "evidence": "upgrade-notes/1_4.html:v1.4: Comparisons of Chronology instances by identity [1576727] Some comparisons of Chronology instances were performed using == This worked fine in most cases due to agressive caching, however it failed when using LenientChronology and other wrapping chronologies which do not have caching Comparison is now via equals(), and involved adding equals() methods to a number of classes. In addition, subclasses of AbstractReadableInstantFieldProperty must now implement getChronology().",
+      "version": "1.4",
+      "source": "upgrade-notes/1_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_zero_formats_as_empty_iso_period",
+      "capability": "period.constant",
+      "replay": "period_constant",
+      "params": {
+        "constant": "ZERO"
+      },
+      "expected": {
+        "iso": "PT0S"
+      },
+      "mutant": "period_zero_contains_one_day",
+      "evidence": "upgrade-notes/1_4.html:v1.4: Period.ZERO Add zero-length constant to Period",
+      "version": "1.4",
+      "source": "upgrade-notes/1_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "single_field_days_to_standard_hours",
+      "capability": "period.single-field",
+      "replay": "single_field_period_convert",
+      "params": {
+        "type": "Days",
+        "value": 2,
+        "target": "Hours"
+      },
+      "expected": {
+        "value": 48
+      },
+      "mutant": "use_calendar_day_length_for_standard_days",
+      "evidence": "upgrade-notes/1_4.html:v1.4: Years/Months/Weeks/Days/Hours/Minutes/Seconds New group of single field period classes These allow applications to specify a specific field in method signatures and calculations Methods are provided to convert between most of these based on standard length periods",
+      "version": "1.4",
+      "source": "upgrade-notes/1_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2006o_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_4.html:v1.4: DateTimeZone data updated to version 2006o",
+      "version": "1.4",
+      "source": "upgrade-notes/1_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2006o_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_4.html:v1.4: DateTimeZone data updated to version 2006o",
+      "version": "1.4",
+      "source": "upgrade-notes/1_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_standard_seconds_truncates_millis",
+      "capability": "duration.standard-units",
+      "replay": "duration_standard_seconds",
+      "params": {
+        "millis": 1999
+      },
+      "expected": {
+        "seconds": 1
+      },
+      "mutant": "round_standard_seconds_up",
+      "evidence": "upgrade-notes/1_5.html:v1.5: add toStandardDuration()",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "fixed_offset_zone_converts_to_same_offset",
+      "capability": "timezone.fixed-offset",
+      "replay": "fixed_offset_roundtrip",
+      "params": {
+        "offset": "+05:45"
+      },
+      "expected": {
+        "offset": "+05:45"
+      },
+      "mutant": "convert_fixed_offset_zone_to_utc",
+      "evidence": "upgrade-notes/1_5.html:v1.5: DateTimeZone did not properly convert fixed offset zones to java.util.TimeZone [1682152]",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "localdate_start_of_day_avoids_missing_midnight",
+      "capability": "local-date.start-of-day",
+      "replay": "start_of_day",
+      "params": {
+        "date": "2011-12-30",
+        "zone": "Pacific/Apia"
+      },
+      "expected": {
+        "local_date": "2011-12-31"
+      },
+      "mutant": "return_missing_midnight_for_skipped_date",
+      "evidence": "upgrade-notes/1_5.html:v1.5: add toDateTimeAtStartOfDay(), toDateTimeAtStartOfDay(DateTimeZone) methods to replace toDateTimeAtMidnight() which avoid issues with time zones that do not have midnight at spring DST cutover",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_to_standard_days_uses_24_hour_days",
+      "capability": "period.standard-units",
+      "replay": "period_to_standard",
+      "params": {
+        "period": "P2D",
+        "target": "hours"
+      },
+      "expected": {
+        "hours": 48
+      },
+      "mutant": "use_calendar_day_for_standard_unit_conversion",
+      "evidence": "upgrade-notes/1_5.html:v1.5: add toStandardWeeks(), toStandardDays(), toStandardHours(), toStandardMinutes(), toStandardSeconds() methods to convert a period to other types using the standard conversions (7 day week, 24 hour day, ...)",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "same_abbreviation_zone_name_still_uses_correct_offset",
+      "capability": "timezone.name-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Australia/Brisbane",
+        "instant": "2007-07-01T00:00:00Z"
+      },
+      "expected": {
+        "offset": "+10:00"
+      },
+      "mutant": "infer_dst_from_abbreviation_difference_only",
+      "evidence": "upgrade-notes/1_5.html:v1.5: DateTimeZone names were incorrect when abbreviation is the same in winter and summer, notably in Australia [1716305]",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "spring_forward_add_hour_skips_gap",
+      "capability": "timezone.dst-gap",
+      "replay": "zoned_add",
+      "params": {
+        "zone": "Europe/Paris",
+        "start": "2015-03-29T01:30:00+01:00",
+        "amount": {
+          "hours": 1
+        }
+      },
+      "expected": {
+        "local": "2015-03-29T03:30:00",
+        "offset": "+02:00"
+      },
+      "mutant": "land_inside_spring_gap",
+      "evidence": "upgrade-notes/1_5.html:v1.5: Daylight savings cutover in Spring incorrect A problem with DST cutover in Spring meant that the result of many methods would be different depending on whether the time zone was in the Eastern or Western hemisphere. Now, the DST cutover is consistent, such that if a time is requested within the cutover, it will be pushed forwards into summer time. [1710316, 1747219, 1755158]",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "standard_offset_differs_from_dst_offset",
+      "capability": "timezone.standard-offset",
+      "replay": "standard_offset",
+      "params": {
+        "zone": "Europe/London",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "standard_offset": "+00:00",
+        "actual_offset": "+01:00"
+      },
+      "mutant": "report_actual_offset_as_standard_offset",
+      "evidence": "upgrade-notes/1_5.html:v1.5: add isStandardOffset() assists in determining if DST applies",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2007h_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_5.html:v1.5: DateTimeZone data updated to version 2007h",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2007h_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_5.html:v1.5: DateTimeZone data updated to version 2007h",
+      "version": "1.5",
+      "source": "upgrade-notes/1_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "month_text_parser_accepts_lowercase_locale_text",
+      "capability": "datetime.parse.text-case",
+      "replay": "parse_local_date",
+      "params": {
+        "text": "01 january 2007",
+        "pattern": "dd MMMM yyyy",
+        "locale": "en"
+      },
+      "expected": {
+        "date": "2007-01-01"
+      },
+      "mutant": "case_sensitive_month_text_parser",
+      "evidence": "upgrade-notes/1_5_1.html:v1.5.1: Parsing (regression) [1839440] Support parsing all upper-case and all lower-case text",
+      "version": "1.5.1",
+      "source": "upgrade-notes/1_5_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "month_text_parser_accepts_uppercase_locale_text",
+      "capability": "datetime.parse.text-case",
+      "replay": "parse_local_date",
+      "params": {
+        "text": "01 JANUARY 2007",
+        "pattern": "dd MMMM yyyy",
+        "locale": "en"
+      },
+      "expected": {
+        "date": "2007-01-01"
+      },
+      "mutant": "case_sensitive_month_text_parser",
+      "evidence": "upgrade-notes/1_5_1.html:v1.5.1: Parsing (regression) [1839440] Support parsing all upper-case and all lower-case text",
+      "version": "1.5.1",
+      "source": "upgrade-notes/1_5_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2007j_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_5_1.html:v1.5.1: DateTimeZone data updated to version 2007j",
+      "version": "1.5.1",
+      "source": "upgrade-notes/1_5_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2007j_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_5_1.html:v1.5.1: DateTimeZone data updated to version 2007j",
+      "version": "1.5.1",
+      "source": "upgrade-notes/1_5_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "convert_gap_local_time_rejects_nonexistent_time",
+      "capability": "timezone.dst-gap",
+      "replay": "convert_local_to_utc",
+      "params": {
+        "zone": "Europe/Paris",
+        "local": "2015-03-29T02:30:00",
+        "strict": true
+      },
+      "expected": {
+        "throws": "illegal-instant"
+      },
+      "mutant": "silently_shift_gap_local_time",
+      "evidence": "upgrade-notes/1_5_2.html:v1.5.2: DateTimeZone (regression from 1.4) Fix getOffsetFromLocal DST gap adjustment.",
+      "version": "1.5.2",
+      "source": "upgrade-notes/1_5_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2007k_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_5_2.html:v1.5.2: DateTimeZone data updated to version 2007k",
+      "version": "1.5.2",
+      "source": "upgrade-notes/1_5_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2007k_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_5_2.html:v1.5.2: DateTimeZone data updated to version 2007k",
+      "version": "1.5.2",
+      "source": "upgrade-notes/1_5_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "basic_iso_date_rejects_extended_separator",
+      "capability": "datetime.parse.iso-basic",
+      "replay": "parse_local_date",
+      "params": {
+        "text": "2008-01-01",
+        "format": "basic_iso_date"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "allow_extended_form_in_basic_parser",
+      "evidence": "upgrade-notes/1_6.html:v1.6: ISODateTimeFormat basic field parsing too lenient The basic parsers in ISODateTimeFormat were too lenient They have been changed to only accept the correct number of digits as per the ISO-8601 standard. The non basic parsers are unaffected",
+      "version": "1.6",
+      "source": "upgrade-notes/1_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "iso_millisecond_fraction_scales_to_millis",
+      "capability": "datetime.parse.fraction",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2008-01-01T12:00:00.4Z",
+        "format": "iso"
+      },
+      "expected": {
+        "millis_of_second": 400
+      },
+      "mutant": "interpret_single_fraction_digit_as_raw_millis",
+      "evidence": "upgrade-notes/1_6.html:v1.6: ISODateTimeFormat millisecond parsing broken Millisecond parsing would parse 12:00:00.4 as 4 milliseconds rather than 400 milliseconds",
+      "version": "1.6",
+      "source": "upgrade-notes/1_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "local_datetime_gap_detects_spring_forward_gap",
+      "capability": "timezone.dst-gap",
+      "replay": "local_datetime_gap",
+      "params": {
+        "zone": "Europe/Paris",
+        "local": "2015-03-29T02:30:00"
+      },
+      "expected": {
+        "gap": true
+      },
+      "mutant": "treat_gap_as_valid_local_time",
+      "evidence": "upgrade-notes/1_6.html:v1.6: Added DateTimeZone.isLocalDateTimeGap Returns true/false depending on whether the time is in a time-zone gap",
+      "version": "1.6",
+      "source": "upgrade-notes/1_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_print_zero_rarely_first_can_print_zero_seconds",
+      "capability": "period.format.zero",
+      "replay": "format_period_custom",
+      "params": {
+        "period": "PT0S",
+        "zero_policy": "rarely_first",
+        "fields": [
+          "seconds"
+        ]
+      },
+      "expected": {
+        "contains": "0"
+      },
+      "mutant": "suppress_zero_with_rarely_first",
+      "evidence": "upgrade-notes/1_6.html:v1.6: Period formatting [2025928] Formatting option printZeroRarelyFirst() did not work unless years field was included.",
+      "version": "1.6",
+      "source": "upgrade-notes/1_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2008i_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_6.html:v1.6: DateTimeZone data updated to version 2008i",
+      "version": "1.6",
+      "source": "upgrade-notes/1_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2008i_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_6.html:v1.6: DateTimeZone data updated to version 2008i",
+      "version": "1.6",
+      "source": "upgrade-notes/1_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "local_date_interval_handles_missing_midnight",
+      "capability": "local-date.interval",
+      "replay": "local_date_interval",
+      "params": {
+        "date": "2011-12-30",
+        "zone": "Pacific/Apia"
+      },
+      "expected": {
+        "duration_hours": 0
+      },
+      "mutant": "force_24h_interval_for_skipped_local_date",
+      "evidence": "upgrade-notes/1_6_1.html:v1.6.1: LocalDate.toInterval() [2487417] Now handles time zones which have no midnight at DST cutover",
+      "version": "1.6.1",
+      "source": "upgrade-notes/1_6_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "local_time_from_pre_epoch_date_fields_preserves_time",
+      "capability": "local-time.from-date",
+      "replay": "local_time_from_date",
+      "params": {
+        "instant": "1960-01-01T12:34:56Z",
+        "zone": "UTC"
+      },
+      "expected": {
+        "time": "12:34:56"
+      },
+      "mutant": "apply_epoch_offset_when_extracting_pre_epoch_time",
+      "evidence": "upgrade-notes/1_6_1.html:v1.6.1: LocalTime.fromDateFields() Now handles times based on java.util.Date before 1970",
+      "version": "1.6.1",
+      "source": "upgrade-notes/1_6_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2010k_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_6_1.html:v1.6.1: DateTimeZone data updated to version 2010k",
+      "version": "1.6.1",
+      "source": "upgrade-notes/1_6_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2010k_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_6_1.html:v1.6.1: DateTimeZone data updated to version 2010k",
+      "version": "1.6.1",
+      "source": "upgrade-notes/1_6_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_24_hour_rule_rolls_to_next_day",
+      "capability": "timezone.tzdb-24-hour",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Africa/Casablanca",
+        "instant": "2014-08-01T00:30:00Z"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant": "treat_24_00_rule_as_same_day_midnight",
+      "evidence": "upgrade-notes/1_6_1.html:v1.6.1: Time zone compiler now handles 24:00 [2804258]",
+      "version": "1.6.1",
+      "source": "upgrade-notes/1_6_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2010l_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/1_6_2.html:v1.6.2: DateTimeZone data updated to version 2010l",
+      "version": "1.6.2",
+      "source": "upgrade-notes/1_6_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2010l_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/1_6_2.html:v1.6.2: DateTimeZone data updated to version 2010l",
+      "version": "1.6.2",
+      "source": "upgrade-notes/1_6_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "datetime_with_time_preserves_date_and_zone",
+      "capability": "datetime.with-time",
+      "replay": "datetime_with_time",
+      "params": {
+        "datetime": "2015-01-01T12:34:56+01:00[Europe/Paris]",
+        "time": "01:02:03"
+      },
+      "expected": {
+        "local": "2015-01-01T01:02:03",
+        "zone": "Europe/Paris"
+      },
+      "mutant": "reset_date_when_replacing_time",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Add DateTime.withTimeAtStartOfDay() [3304757] Provide a simple, reliable way to get the start of day from DateTime.",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_to_string_uses_iso_seconds",
+      "capability": "duration.format.iso",
+      "replay": "format_duration",
+      "params": {
+        "millis": 1500
+      },
+      "expected": {
+        "text": "PT1.500S"
+      },
+      "mutant": "format_duration_as_milliseconds_number",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Duration.toString Fixed to work correctly for negative values",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "formatter_parses_common_zone_name",
+      "capability": "timezone.parse-zone-name",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2010-01-01T00:00:00 EST",
+        "pattern": "yyyy-MM-dd'T'HH:mm:ss z",
+        "locale": "en"
+      },
+      "expected": {
+        "offset": "-05:00"
+      },
+      "mutant": "ignore_textual_zone_names",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Support parsing of date-time zone names like \"EST\" and \"British Summer Time\" These names are not unique, so the new API methods on the builder require you to pass in a map listing all the names you want to be able to parse. The existing method is unaltered and does not permit parsing.",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "formatter_parses_region_zone_id",
+      "capability": "timezone.parse-zone-id",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2010-06-01T12:00:00 Europe/London",
+        "pattern": "yyyy-MM-dd'T'HH:mm:ss ZZZ"
+      },
+      "expected": {
+        "zone": "Europe/London",
+        "offset": "+01:00"
+      },
+      "mutant": "parse_only_numeric_offsets",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Support parsing of date-time zone IDs like Europe/London",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "month_day_parser_accepts_february_29_without_year",
+      "capability": "partial.month-day.parse",
+      "replay": "parse_month_day",
+      "params": {
+        "text": "--02-29",
+        "format": "iso"
+      },
+      "expected": {
+        "month_day": "--02-29"
+      },
+      "mutant": "reject_leap_day_without_year",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Parsing of month and day without year now handles February 29th This is achieved by changing the default year from 1970 to 2000 when parsing a month or day without a year. This behaviour can be controlled using the new withDefaultYear() setting on the formatter (set to 1970 for the old behaviour).",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "offset_parser_accepts_literal_z_as_utc",
+      "capability": "timezone.parse-offset",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2010-01-01T00:00:00Z",
+        "pattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant": "reject_literal_z_offset",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Allow 'Z' and 'ZZ' in format patterns to parse 'Z' as '+00:00' [2827359]",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2011h_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_0.html:v2.0: DateTimeZone data updated to version 2011h",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2011h_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_0.html:v2.0: DateTimeZone data updated to version 2011h",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "with_time_at_start_of_day_returns_first_valid_time",
+      "capability": "local-date.start-of-day",
+      "replay": "start_of_day",
+      "params": {
+        "date": "2015-03-29",
+        "zone": "Europe/Paris"
+      },
+      "expected": {
+        "local_time": "00:00:00",
+        "offset": "+01:00"
+      },
+      "mutant": "always_return_utc_midnight",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Add DateTime.withTimeAtStartOfDay() [3304757] Provide a simple, reliable way to get the start of day from DateTime.",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "word_based_period_format_pluralizes_days",
+      "capability": "period.format.words",
+      "replay": "format_period_words",
+      "params": {
+        "period": "P2D",
+        "locale": "en"
+      },
+      "expected": {
+        "contains": "2 days"
+      },
+      "mutant": "use_singular_word_for_plural_period",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Word based period formatters available in multiple languages [1252708] PeriodFormat provides a resource bundle based language formatter Currently supported (via online translators) are English, German, Dutch, French, Spanish and Portuguese. Corrections and additional languages welcome.",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "zone_id_parser_accepts_slash_region_ids",
+      "capability": "timezone.parse-zone-id",
+      "replay": "parse_zone_id",
+      "params": {
+        "text": "Europe/London"
+      },
+      "expected": {
+        "zone": "Europe/London"
+      },
+      "mutant": "reject_slash_region_zone_ids",
+      "evidence": "upgrade-notes/2_0.html:v2.0: Support parsing of date-time zone IDs like Europe/London",
+      "version": "2.0",
+      "source": "upgrade-notes/2_0.html",
+      "pass": "pass2",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "ambiguous_london_fall_back_picks_summer_offset",
+      "capability": "timezone.dst-overlap",
+      "replay": "resolve_local",
+      "params": {
+        "zone": "Europe/London",
+        "local": "2011-10-30T01:30:00"
+      },
+      "expected": {
+        "offset": "+01:00"
+      },
+      "mutant": "pick_winter_offset_for_zero_base_overlap",
+      "evidence": "upgrade-notes/2_1.html:v2.1: Ambiguous date-time when in zone with offset of 00:00 [3424669] A date-time constructor with an ambiguous time due to DST should choose summer time but for a zone with an offset of 00:00 it chose winter time",
+      "version": "2.1",
+      "source": "upgrade-notes/2_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "timezone_parser_prefers_longest_zone_id",
+      "capability": "timezone.parse-longest-id",
+      "replay": "parse_zone_id",
+      "params": {
+        "text": "America/Dawson_Creek"
+      },
+      "expected": {
+        "zone": "America/Dawson_Creek"
+      },
+      "mutant": "stop_at_shorter_zone_prefix",
+      "evidence": "upgrade-notes/2_1.html:v2.1: Time zone id parsing fixed for some longer time zones [3427389] Time zones like \"America/Dawson_Creek\" were not parsed as \"America/Dawson\" was matched first",
+      "version": "2.1",
+      "source": "upgrade-notes/2_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2011n_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_1.html:v2.1: DateTimeZone data updated to version 2011n",
+      "version": "2.1",
+      "source": "upgrade-notes/2_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2011n_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_1.html:v2.1: DateTimeZone data updated to version 2011n",
+      "version": "2.1",
+      "source": "upgrade-notes/2_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "with_earlier_offset_at_overlap_uses_pre_transition_offset",
+      "capability": "timezone.dst-overlap",
+      "replay": "overlap_offset_choice",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2011-11-06T01:30:00",
+        "choice": "earlier"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "use_later_offset_for_earlier_choice",
+      "evidence": "upgrade-notes/2_1.html:v2.1: Time zone later/earlier offset methods failed in Western hemisphere [3476684] Previously, withLaterOffset() failed in the Americas, Now rewritten",
+      "version": "2.1",
+      "source": "upgrade-notes/2_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "with_later_offset_at_overlap_uses_post_transition_offset",
+      "capability": "timezone.dst-overlap",
+      "replay": "overlap_offset_choice",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2011-11-06T01:30:00",
+        "choice": "later"
+      },
+      "expected": {
+        "offset": "-05:00"
+      },
+      "mutant": "use_earlier_offset_for_later_choice",
+      "evidence": "upgrade-notes/2_1.html:v2.1: Time zone later/earlier offset methods failed in Western hemisphere [3476684] Previously, withLaterOffset() failed in the Americas, Now rewritten",
+      "version": "2.1",
+      "source": "upgrade-notes/2_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_parse_small_negative_fraction",
+      "capability": "duration.parse.iso",
+      "replay": "parse_duration",
+      "params": {
+        "text": "PT-0.5S"
+      },
+      "expected": {
+        "millis": -500
+      },
+      "mutant": "parse_negative_fractional_duration_as_zero",
+      "evidence": "upgrade-notes/2_2.html:v2.2: Fix Duration string parsing for small negative numbers Values between 0 and -1 exclusive previously parsed incorrectly https://github.com/JodaOrg/joda-time/pull/10",
+      "version": "2.2",
+      "source": "upgrade-notes/2_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "month_day_plus_days_wraps_year_boundary",
+      "capability": "partial.month-day",
+      "replay": "month_day_add",
+      "params": {
+        "month_day": "--12-31",
+        "amount": {
+          "days": 1
+        }
+      },
+      "expected": {
+        "month_day": "--01-01"
+      },
+      "mutant": "reject_month_day_year_wrap",
+      "evidence": "upgrade-notes/2_2.html:v2.2: MonthDay add/subtract [3528941] Addition and subtraction in MonthDay was fixed. It previously didn't work when the start value was 29th February.",
+      "version": "2.2",
+      "source": "upgrade-notes/2_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "parse_only_formatter_throws_when_printing",
+      "capability": "datetime.formatter-capability",
+      "replay": "formatter_capability",
+      "params": {
+        "formatter": "parser_only",
+        "operation": "print"
+      },
+      "expected": {
+        "throws": "unsupported"
+      },
+      "mutant": "silently_ignore_unsupported_print",
+      "evidence": "upgrade-notes/2_2.html:v2.2: If a formatter cannot print or parse, it will now throw an exception instead of ignoring it",
+      "version": "2.2",
+      "source": "upgrade-notes/2_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2012j_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_2.html:v2.2: DateTimeZone data updated to version 2012j",
+      "version": "2.2",
+      "source": "upgrade-notes/2_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2012j_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_2.html:v2.2: DateTimeZone data updated to version 2012j",
+      "version": "2.2",
+      "source": "upgrade-notes/2_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "interval_is_equal_compares_bounds",
+      "capability": "interval.relation",
+      "replay": "interval_relation",
+      "params": {
+        "left": "2000-01-01T00:00:00Z/2000-01-01T01:00:00Z",
+        "right": "2000-01-01T00:00:00Z/2000-01-01T01:00:00Z",
+        "relation": "isEqual"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "compare_interval_identity",
+      "evidence": "upgrade-notes/2_3.html:v2.3: Interval/MutableInterval .isEqual() [#20] Add method to compare intervals ignoring the chronology https://github.com/JodaOrg/joda-time/issues/20",
+      "version": "2.3",
+      "source": "upgrade-notes/2_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "negative_subhour_offset_is_allowed",
+      "capability": "timezone.offset-range",
+      "replay": "fixed_offset",
+      "params": {
+        "offset": "-00:30"
+      },
+      "expected": {
+        "offset": "-00:30"
+      },
+      "mutant": "reject_negative_subhour_offsets",
+      "evidence": "upgrade-notes/2_3.html:v2.3: DateTimeZone.forOffsetHoursMinutes failed to allow offsets from -00:01 to -00:59 [#42] The forOffsetHoursMinutes() method could not create an offset from -00:01 to -00:59 This was due to an inappropriate design A backwards compatible change to the input handling has been made forOffsetHoursMinutes(0, -15) now creates -00:15",
+      "version": "2.3",
+      "source": "upgrade-notes/2_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "short_timezone_name_parser_uses_short_name_offset",
+      "capability": "timezone.parse-longest-name",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2013-01-01T00:00:00 PST",
+        "pattern": "yyyy-MM-dd'T'HH:mm:ss z",
+        "locale": "en"
+      },
+      "expected": {
+        "offset": "-08:00"
+      },
+      "mutant": "accept_first_shorter_name_match",
+      "evidence": "upgrade-notes/2_3.html:v2.3: Short time-zone name parsing failed to match the longest name This affected two short names where one is a short form of the second such as \"UT\" and \"UTC\"",
+      "version": "2.3",
+      "source": "upgrade-notes/2_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "timezone_offset_rejects_full_24_hours",
+      "capability": "timezone.offset-range",
+      "replay": "fixed_offset",
+      "params": {
+        "offset": "+24:00"
+      },
+      "expected": {
+        "throws": "invalid-offset"
+      },
+      "mutant": "allow_24_hour_fixed_offset",
+      "evidence": "upgrade-notes/2_3.html:v2.3: DateTimeZone is now limited to offsets from -23:59:59.999 to +23:59:59.999",
+      "version": "2.3",
+      "source": "upgrade-notes/2_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2013d_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_3.html:v2.3: DateTimeZone data updated to version 2013d",
+      "version": "2.3",
+      "source": "upgrade-notes/2_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2013d_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_3.html:v2.3: DateTimeZone data updated to version 2013d",
+      "version": "2.3",
+      "source": "upgrade-notes/2_3.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "day_field_is_leap_reports_feb_29",
+      "capability": "local-date.leap",
+      "replay": "field_is_leap",
+      "params": {
+        "date": "2016-02-29",
+        "field": "dayOfMonth"
+      },
+      "expected": {
+        "is_leap": true
+      },
+      "mutant": "report_day_field_never_leap",
+      "evidence": "upgrade-notes/2_4.html:v2.4: Ensure isLeap() returns correct result for day fields [#110] Day-of-month and day-of-year fields should report leap days",
+      "version": "2.4",
+      "source": "upgrade-notes/2_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_multiplied_by_scales_millis",
+      "capability": "duration.multiplication",
+      "replay": "duration_multiply",
+      "params": {
+        "millis": 1500,
+        "factor": 3
+      },
+      "expected": {
+        "millis": 4500
+      },
+      "mutant": "multiply_duration_seconds_only",
+      "evidence": "upgrade-notes/2_4.html:v2.4: Duration.multipliedBy(), .dividedBy(), .negated() Additional methods on Duration",
+      "version": "2.4",
+      "source": "upgrade-notes/2_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_negated_flips_sign",
+      "capability": "duration.negation",
+      "replay": "duration_negate",
+      "params": {
+        "millis": 1500
+      },
+      "expected": {
+        "millis": -1500
+      },
+      "mutant": "return_same_duration_when_negating",
+      "evidence": "upgrade-notes/2_4.html:v2.4: Duration.multipliedBy(), .dividedBy(), .negated() Additional methods on Duration",
+      "version": "2.4",
+      "source": "upgrade-notes/2_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_normalized_standard_normalizes_minutes",
+      "capability": "period.normalize",
+      "replay": "period_normalize",
+      "params": {
+        "period": "PT90M",
+        "type": "time"
+      },
+      "expected": {
+        "iso": "PT1H30M"
+      },
+      "mutant": "leave_90_minutes_unnormalized",
+      "evidence": "upgrade-notes/2_4.html:v2.4: Period.normalizedStandard(PeriodType) [#79] Fix handling of PeriodType when either years or months missing",
+      "version": "2.4",
+      "source": "upgrade-notes/2_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2014e_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_4.html:v2.4: DateTimeZone data updated to version 2014e",
+      "version": "2.4",
+      "source": "upgrade-notes/2_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2014e_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_4.html:v2.4: DateTimeZone data updated to version 2014e",
+      "version": "2.4",
+      "source": "upgrade-notes/2_4.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "localdate_to_datetime_with_time_uses_supplied_time",
+      "capability": "local-date.combine",
+      "replay": "combine_local_date_time",
+      "params": {
+        "date": "2014-01-01",
+        "time": "23:45:00",
+        "zone": "UTC"
+      },
+      "expected": {
+        "local": "2014-01-01T23:45:00"
+      },
+      "mutant": "ignore_supplied_local_time",
+      "evidence": "upgrade-notes/2_5.html:v2.5: LocalDate.toDateTime(LocalTime) and LocalDate.toDateTime(LocalTime, DateTimeZone) If you pass a null LocalTime to the method, no changes have been made If you pass a non-null LocalTime then behaviour during daylight saving gap and overlap has changed During a daylight saving gap the exception has changed from IllegalFieldValueException to IllegalInstantException During a daylight saving overlap the earlier offset is selected Previously, the earlier offset was chosen east of Greenwich and the later offset west of Greenwich",
+      "version": "2.5",
+      "source": "upgrade-notes/2_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2014h_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_5.html:v2.5: DateTimeZone data updated to version 2014h",
+      "version": "2.5",
+      "source": "upgrade-notes/2_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2014h_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_5.html:v2.5: DateTimeZone data updated to version 2014h",
+      "version": "2.5",
+      "source": "upgrade-notes/2_5.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2014j_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_6.html:v2.6: DateTimeZone data updated to version 2014j",
+      "version": "2.6",
+      "source": "upgrade-notes/2_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2014j_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_6.html:v2.6: DateTimeZone data updated to version 2014j",
+      "version": "2.6",
+      "source": "upgrade-notes/2_6.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "asia_dhaka_offset_matches_tzdb",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Asia/Dhaka",
+        "instant": "2014-07-01T00:00:00Z"
+      },
+      "expected": {
+        "offset": "+06:00"
+      },
+      "mutant": "use_wrong_asia_dhaka_offset",
+      "evidence": "upgrade-notes/2_7.html:v2.7: Fix Asia/Dhaka time-zone [#208] Problem caused by time-zone ending at 24:00 on December 31st Model change as being as 23:59:59.999",
+      "version": "2.7",
+      "source": "upgrade-notes/2_7.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "datetime_with_date_preserves_time_and_zone",
+      "capability": "datetime.with-date",
+      "replay": "datetime_with_date",
+      "params": {
+        "datetime": "2015-01-01T12:34:56+01:00[Europe/Paris]",
+        "date": "2015-02-03"
+      },
+      "expected": {
+        "local": "2015-02-03T12:34:56",
+        "zone": "Europe/Paris"
+      },
+      "mutant": "reset_time_when_replacing_date",
+      "evidence": "upgrade-notes/2_7.html:v2.7: Add DateTime.withDate(LocalDate) and DateTime.withTime(LocalTime) [#213] This was possible using DateTime.withFields(ReadablePartial) but the new methods are clearer",
+      "version": "2.7",
+      "source": "upgrade-notes/2_7.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "period_parse_roundtrips_standard_fields",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "params": {
+        "text": "P1Y2M3DT4H5M6S"
+      },
+      "expected": {
+        "iso": "P1Y2M3DT4H5M6S"
+      },
+      "mutant": "drop_mixed_date_time_period_fields",
+      "evidence": "upgrade-notes/2_8.html:v2.8: Fix Period.parse() [#238] Negative periods of a fraction of a second were not parsed correctly.",
+      "version": "2.8",
+      "source": "upgrade-notes/2_8.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015d_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_8.html:v2.8: DateTimeZone data updated to version 2015d",
+      "version": "2.8",
+      "source": "upgrade-notes/2_8.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015d_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_8.html:v2.8: DateTimeZone data updated to version 2015d",
+      "version": "2.8",
+      "source": "upgrade-notes/2_8.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "gmt_zone_formats_as_gmt_name",
+      "capability": "timezone.format-name",
+      "replay": "format_datetime",
+      "params": {
+        "instant": "2015-01-01T00:00:00Z",
+        "zone": "GMT",
+        "pattern": "z"
+      },
+      "expected": {
+        "text": "GMT"
+      },
+      "mutant": "format_gmt_as_numeric_zero_offset",
+      "evidence": "upgrade-notes/2_8_1.html:v2.8.1: Fixed to handle JDK 8u60 [#288, #291] Without this fix, formatting a time-zone will print \"+00:00\" instead of \"GMT\" for the GMT time-zone",
+      "version": "2.8.1",
+      "source": "upgrade-notes/2_8_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015e_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_8_1.html:v2.8.1: DateTimeZone data updated to version 2015e",
+      "version": "2.8.1",
+      "source": "upgrade-notes/2_8_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015e_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_8_1.html:v2.8.1: DateTimeZone data updated to version 2015e",
+      "version": "2.8.1",
+      "source": "upgrade-notes/2_8_1.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015f_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "upgrade-notes/2_8_2.html:v2.8.2: DateTimeZone data updated to version 2015f",
+      "version": "2.8.2",
+      "source": "upgrade-notes/2_8_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015f_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "upgrade-notes/2_8_2.html:v2.8.2: DateTimeZone data updated to version 2015f",
+      "version": "2.8.2",
+      "source": "upgrade-notes/2_8_2.html",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "basic_iso_date_accepts_redundant_plus_year",
+      "capability": "datetime.parse.iso-basic",
+      "replay": "parse_local_date",
+      "params": {
+        "text": "+20151030",
+        "format": "basic_iso_date"
+      },
+      "expected": {
+        "date": "2015-10-30"
+      },
+      "mutant": "reject_plus_prefixed_basic_year",
+      "evidence": "changes.xml:v2.9: Fix parsing of basic form ISO style where year has unnecessary plus sign [#86] For example, +20151030 will now be correctly parsed as year 2015.",
+      "version": "2.9",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "interval_parse_with_offset_preserves_fixed_offset",
+      "capability": "interval.parse-offset",
+      "replay": "parse_interval",
+      "params": {
+        "text": "2015-01-01T00:00:00+02:00/2015-01-01T01:00:00+02:00",
+        "mode": "with_offset"
+      },
+      "expected": {
+        "start": "2015-01-01T00:00:00+02:00",
+        "end": "2015-01-01T01:00:00+02:00",
+        "offset": "+02:00"
+      },
+      "mutant": "drop_interval_fixed_offset",
+      "evidence": "changes.xml:v2.9: Added Interval.parseWithOffset(String) [#299, #296] Provides a way to parse the fixed offset in an interval string",
+      "version": "2.9",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015g_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9: DateTimeZone data updated to version 2015g",
+      "version": "2.9",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2015g_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9: DateTimeZone data updated to version 2015g",
+      "version": "2.9",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "timezone_parse_does_not_require_zone_at_end",
+      "capability": "timezone.parse-position",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2016-01-01T00:00:00 America/Dawson_Creek suffix",
+        "pattern": "yyyy-MM-dd'T'HH:mm:ss ZZZ 'suffix'"
+      },
+      "expected": {
+        "zone": "America/Dawson_Creek",
+        "local": "2016-01-01T00:00:00"
+      },
+      "mutant": "require_timezone_token_to_be_last",
+      "evidence": "changes.xml:v2.9.2: Fix bug in time-zone binary search [#332]",
+      "version": "2.9.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016a_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9.2: DateTimeZone data updated to version 2016a (version 2.9 had time-zone data 2015g)",
+      "version": "2.9.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016a_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9.2: DateTimeZone data updated to version 2016a (version 2.9 had time-zone data 2015g)",
+      "version": "2.9.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016c_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9.3: DateTimeZone data updated to version 2016c",
+      "version": "2.9.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016c_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9.3: DateTimeZone data updated to version 2016c",
+      "version": "2.9.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016d_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9.4: DateTimeZone data updated to version 2016d",
+      "version": "2.9.4",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016d_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9.4: DateTimeZone data updated to version 2016d",
+      "version": "2.9.4",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_divided_by_down_truncates",
+      "capability": "duration.division",
+      "replay": "duration_divide",
+      "params": {
+        "millis": 5,
+        "divisor": 2,
+        "rounding": "DOWN"
+      },
+      "expected": {
+        "millis": 2
+      },
+      "mutant": "always_half_up_duration_division",
+      "evidence": "changes.xml:v2.9.5: Add Duration.dividedBy(long,RoundingMode) [#69, #379]",
+      "version": "2.9.5",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "duration_divided_by_half_up_rounds",
+      "capability": "duration.division",
+      "replay": "duration_divide",
+      "params": {
+        "millis": 5,
+        "divisor": 2,
+        "rounding": "HALF_UP"
+      },
+      "expected": {
+        "millis": 3
+      },
+      "mutant": "always_floor_duration_division",
+      "evidence": "changes.xml:v2.9.5: Add Duration.dividedBy(long,RoundingMode) [#69, #379]",
+      "version": "2.9.5",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016i_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9.5: DateTimeZone data updated to version 2016i",
+      "version": "2.9.5",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016i_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9.5: DateTimeZone data updated to version 2016i",
+      "version": "2.9.5",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016j_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9.7: DateTimeZone data updated to version 2016j.",
+      "version": "2.9.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2016j_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9.7: DateTimeZone data updated to version 2016j.",
+      "version": "2.9.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2017b_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.9.8: DateTimeZone data updated to version 2017b.",
+      "version": "2.9.8",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2017b_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.9.8: DateTimeZone data updated to version 2017b.",
+      "version": "2.9.8",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "instant_epoch_is_unix_epoch",
+      "capability": "instant.epoch",
+      "replay": "instant_constant",
+      "params": {
+        "constant": "EPOCH"
+      },
+      "expected": {
+        "epoch_millis": 0
+      },
+      "mutant": "epoch_constant_uses_local_midnight",
+      "evidence": "changes.xml:v2.10: Add Instant.EPOCH. See #472.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "instant_of_epoch_milli_preserves_millis",
+      "capability": "instant.factory",
+      "replay": "instant_from_epoch_millis",
+      "params": {
+        "epoch_millis": 123456789
+      },
+      "expected": {
+        "iso": "1970-01-02T10:17:36.789Z"
+      },
+      "mutant": "truncate_epoch_millis_to_seconds",
+      "evidence": "changes.xml:v2.10: Add Instant.ofEpochMilli(). Add Instant.ofEpochSecond(). Fixes #458.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "instant_of_epoch_second_preserves_seconds",
+      "capability": "instant.factory",
+      "replay": "instant_from_epoch_seconds",
+      "params": {
+        "epoch_seconds": 123456789
+      },
+      "expected": {
+        "iso": "1973-11-29T21:33:09.000Z"
+      },
+      "mutant": "interpret_epoch_seconds_as_millis",
+      "evidence": "changes.xml:v2.10: Add Instant.ofEpochMilli(). Add Instant.ofEpochSecond(). Fixes #458.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "negative_dst_save_values_preserve_dublin_summer",
+      "capability": "timezone.negative-dst",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Europe/Dublin",
+        "instant": "2019-07-15T12:00:00Z"
+      },
+      "expected": {
+        "offset": "+01:00"
+      },
+      "mutant": "ignore_negative_save_rules",
+      "evidence": "changes.xml:v2.10: Handle negative SAVE values in tzdb. Once again, tzdb is the source of problems, with their inability to provide stability. A hack has been added that reverses their latest decision to have negative SAVE values. The hack works so long as a rule set does not mix positive and negative save values.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "negative_dst_save_values_preserve_dublin_winter",
+      "capability": "timezone.negative-dst",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Europe/Dublin",
+        "instant": "2019-01-15T12:00:00Z"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant": "treat_negative_save_as_positive_dst",
+      "evidence": "changes.xml:v2.10: Handle negative SAVE values in tzdb. Once again, tzdb is the source of problems, with their inability to provide stability. A hack has been added that reverses their latest decision to have negative SAVE values. The hack works so long as a rule set does not mix positive and negative save values.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2018e_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10: DateTimeZone data updated to version 2018e.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2018e_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10: DateTimeZone data updated to version 2018e.",
+      "version": "2.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "namibia_post_2017_no_longer_observes_dst",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Africa/Windhoek",
+        "instant": "2018-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "+02:00"
+      },
+      "mutant": "keep_old_namibia_winter_offset",
+      "evidence": "changes.xml:v2.10.1: Fix time-zone compiler for Namibia. Oh I do love tzdb. Fixes #485.",
+      "version": "2.10.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tokyo_historic_offset_uses_tzdb_compiler_result",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Asia/Tokyo",
+        "instant": "1948-05-01T16:00:00Z"
+      },
+      "expected": {
+        "offset": "+10:00"
+      },
+      "mutant": "ignore_tokyo_historic_dst_rule",
+      "evidence": "changes.xml:v2.10.1: Fix time-zone compiler for Tokyo. Oh I do love tzdb.",
+      "version": "2.10.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2018g_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.1: DateTimeZone data updated to version 2018g.",
+      "version": "2.10.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2018g_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.1: DateTimeZone data updated to version 2018g.",
+      "version": "2.10.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "start_of_day_skips_midnight_dst_gap",
+      "capability": "local-date.start-of-day",
+      "replay": "start_of_day",
+      "params": {
+        "date": "2018-11-04",
+        "zone": "America/Sao_Paulo"
+      },
+      "expected": {
+        "local_time": "01:00:00",
+        "offset": "-02:00"
+      },
+      "mutant": "return_nonexistent_midnight",
+      "evidence": "changes.xml:v2.10.2: Fix calculation of DateTime.withTimeAtStartOfDay() when DST is at midnight. Fixes #488.",
+      "version": "2.10.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2019a_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.2: DateTimeZone data updated to version 2019a.",
+      "version": "2.10.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2019a_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.2: DateTimeZone data updated to version 2019a.",
+      "version": "2.10.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2019b_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.3: DateTimeZone data updated to version 2019b.",
+      "version": "2.10.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2019b_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.3: DateTimeZone data updated to version 2019b.",
+      "version": "2.10.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2019c_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.4: DateTimeZone data updated to version 2019c.",
+      "version": "2.10.4",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2019c_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.4: DateTimeZone data updated to version 2019c.",
+      "version": "2.10.4",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020a_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.6: DateTimeZone data updated to version 2020a.",
+      "version": "2.10.6",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020a_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.6: DateTimeZone data updated to version 2020a.",
+      "version": "2.10.6",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "removed_tzdb_zone_pacific_new",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "params": {
+        "id": "Pacific/New"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant": "retain_removed_tzdb_zone",
+      "evidence": "changes.xml:v2.10.7: DateTimeZone data updated to version 2020c. Remove systemv and pacificnew time zones as per TZDB changes.",
+      "version": "2.10.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020c_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.7: DateTimeZone data updated to version 2020c. Remove systemv and pacificnew time zones as per TZDB changes.",
+      "version": "2.10.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020c_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.7: DateTimeZone data updated to version 2020c. Remove systemv and pacificnew time zones as per TZDB changes.",
+      "version": "2.10.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020d_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.8: DateTimeZone data updated to version 2020d. Remove systemv and pacificnew time zones as per TZDB changes.",
+      "version": "2.10.8",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020d_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.8: DateTimeZone data updated to version 2020d. Remove systemv and pacificnew time zones as per TZDB changes.",
+      "version": "2.10.8",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020e_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.9: DateTimeZone data updated to version 2020e. Fix to time-zone compiler.",
+      "version": "2.10.9",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2020e_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.9: DateTimeZone data updated to version 2020e. Fix to time-zone compiler.",
+      "version": "2.10.9",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2021a_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.10: DateTimeZone data updated to version 2021a.",
+      "version": "2.10.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2021a_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.10: DateTimeZone data updated to version 2021a.",
+      "version": "2.10.10",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "timezone_provider_rejects_destructive_empty_data",
+      "capability": "timezone.provider-safety",
+      "replay": "available_zone_ids",
+      "params": {},
+      "expected": {
+        "contains": "Europe/London"
+      },
+      "mutant": "accept_empty_or_destructive_tzdb_payload",
+      "evidence": "changes.xml:v2.10.11: Defend against possible release of hugely damaging timezone data. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.11",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2021bfork3_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.12: DateTimeZone data updated to version 2021bfork3. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.12",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2021bfork3_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.12: DateTimeZone data updated to version 2021bfork3. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.12",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2021efork_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.13: DateTimeZone data updated to version 2021efork. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.13",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2021efork_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.13: DateTimeZone data updated to version 2021efork. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.13",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "global_tz_retains_pre_1970_zone_data",
+      "capability": "timezone.pre-1970",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Europe/Oslo",
+        "instant": "1870-01-01T00:00:00Z"
+      },
+      "expected": {
+        "not_offset": "+01:00"
+      },
+      "mutant": "truncate_pre_1970_tzdb_to_single_modern_offset",
+      "evidence": "changes.xml:v2.10.14: DateTimeZone data updated to version 2022agtz. This uses the new global-tz project that reinstates all the data removed by IANA's TZDB. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.14",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022agtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.10.14: DateTimeZone data updated to version 2022agtz. This uses the new global-tz project that reinstates all the data removed by IANA's TZDB. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.14",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022agtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.10.14: DateTimeZone data updated to version 2022agtz. This uses the new global-tz project that reinstates all the data removed by IANA's TZDB. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.10.14",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022bgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.11.0: DateTimeZone data updated to version 2022bgtz. This uses the new global-tz project that reinstates all the data removed by IANA's TZDB. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.11.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022bgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.11.0: DateTimeZone data updated to version 2022bgtz. This uses the new global-tz project that reinstates all the data removed by IANA's TZDB. See https://github.com/JodaOrg/joda-time/issues/566",
+      "version": "2.11.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022cgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.11.1: DateTimeZone data updated to version 2022cgtz.",
+      "version": "2.11.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022cgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.11.1: DateTimeZone data updated to version 2022cgtz.",
+      "version": "2.11.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022dgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.11.2: DateTimeZone data updated to version 2022dgtz.",
+      "version": "2.11.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022dgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.11.2: DateTimeZone data updated to version 2022dgtz.",
+      "version": "2.11.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022egtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.0: DateTimeZone data updated to version 2022egtz.",
+      "version": "2.12.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022egtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.0: DateTimeZone data updated to version 2022egtz.",
+      "version": "2.12.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022fgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.1: DateTimeZone data updated to version 2022fgtz.",
+      "version": "2.12.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022fgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.1: DateTimeZone data updated to version 2022fgtz.",
+      "version": "2.12.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022ggtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.2: DateTimeZone data updated to version 2022ggtz.",
+      "version": "2.12.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2022ggtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.2: DateTimeZone data updated to version 2022ggtz.",
+      "version": "2.12.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023agtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.3: DateTimeZone data updated to version 2023agtz.",
+      "version": "2.12.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023agtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.3: DateTimeZone data updated to version 2023agtz.",
+      "version": "2.12.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023bgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.4: DateTimeZone data updated to version 2023bgtz.",
+      "version": "2.12.4",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023bgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.4: DateTimeZone data updated to version 2023bgtz.",
+      "version": "2.12.4",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023cgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.5: DateTimeZone data updated to version 2023cgtz.",
+      "version": "2.12.5",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023cgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.5: DateTimeZone data updated to version 2023cgtz.",
+      "version": "2.12.5",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "offset_zone_id_plus_hour_parses",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "params": {
+        "id": "+01:00"
+      },
+      "expected": {
+        "offset": "+01:00"
+      },
+      "mutant": "reject_java_time_offset_zone_id",
+      "evidence": "changes.xml:v2.12.6: Enhance DateTimeZone.forID() to better match java.time. Fixes #733, #717.",
+      "version": "2.12.6",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023dgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.6: DateTimeZone data updated to version 2023dgtz.",
+      "version": "2.12.6",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2023dgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.6: DateTimeZone data updated to version 2023dgtz.",
+      "version": "2.12.6",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "zone_id_z_maps_to_utc",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "params": {
+        "id": "Z"
+      },
+      "expected": {
+        "canonical_id": "UTC"
+      },
+      "mutant": "reject_java_time_z_zone_id",
+      "evidence": "changes.xml:v2.12.6: Enhance DateTimeZone.forID() to better match java.time. Fixes #733, #717.",
+      "version": "2.12.6",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2024agtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.12.7: DateTimeZone data updated to version 2024agtz.",
+      "version": "2.12.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2024agtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.12.7: DateTimeZone data updated to version 2024agtz.",
+      "version": "2.12.7",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "european_short_zone_id_cet_retained",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "params": {
+        "id": "CET"
+      },
+      "expected": {
+        "canonical_id": "CET"
+      },
+      "mutant": "retire_all_short_zone_ids",
+      "evidence": "changes.xml:v2.13.0: DateTimeZone data updated to version 2024bgtz. This release retires the American short zone IDs - EST, MST, HST, EST5EDT, CST6CDT, MST7MDT and PST8PDT. Creating a zone with one of these IDs will return the modern alternative, for example 'MST' is mapped to 'America/Phoenix'. The European zone IDs - WET, CET and EET - are retained. The non-standard European zone ID 'MET' is mapped to the standard form of 'CET'. Note that these changes have no impact to current or future timestamps.",
+      "version": "2.13.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "european_short_zone_id_eet_retained",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "params": {
+        "id": "EET"
+      },
+      "expected": {
+        "canonical_id": "EET"
+      },
+      "mutant": "retire_all_short_zone_ids",
+      "evidence": "changes.xml:v2.13.0: DateTimeZone data updated to version 2024bgtz. This release retires the American short zone IDs - EST, MST, HST, EST5EDT, CST6CDT, MST7MDT and PST8PDT. Creating a zone with one of these IDs will return the modern alternative, for example 'MST' is mapped to 'America/Phoenix'. The European zone IDs - WET, CET and EET - are retained. The non-standard European zone ID 'MET' is mapped to the standard form of 'CET'. Note that these changes have no impact to current or future timestamps.",
+      "version": "2.13.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "european_short_zone_id_wet_retained",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "params": {
+        "id": "WET"
+      },
+      "expected": {
+        "canonical_id": "WET"
+      },
+      "mutant": "retire_all_short_zone_ids",
+      "evidence": "changes.xml:v2.13.0: DateTimeZone data updated to version 2024bgtz. This release retires the American short zone IDs - EST, MST, HST, EST5EDT, CST6CDT, MST7MDT and PST8PDT. Creating a zone with one of these IDs will return the modern alternative, for example 'MST' is mapped to 'America/Phoenix'. The European zone IDs - WET, CET and EET - are retained. The non-standard European zone ID 'MET' is mapped to the standard form of 'CET'. Note that these changes have no impact to current or future timestamps.",
+      "version": "2.13.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2024bgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.13.0: DateTimeZone data updated to version 2024bgtz.",
+      "version": "2.13.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2024bgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.13.0: DateTimeZone data updated to version 2024bgtz.",
+      "version": "2.13.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2025agtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.13.1: DateTimeZone data updated to version 2025agtz.",
+      "version": "2.13.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2025agtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.13.1: DateTimeZone data updated to version 2025agtz.",
+      "version": "2.13.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2025bgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.14.0: DateTimeZone data updated to version 2025bgtz.",
+      "version": "2.14.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2025bgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.14.0: DateTimeZone data updated to version 2025bgtz.",
+      "version": "2.14.0",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2026agtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.14.1: DateTimeZone data updated to version 2026agtz.",
+      "version": "2.14.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2026agtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.14.1: DateTimeZone data updated to version 2026agtz.",
+      "version": "2.14.1",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2026bgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.14.2: DateTimeZone data updated to version 2026bgtz.",
+      "version": "2.14.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2026bgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.14.2: DateTimeZone data updated to version 2026bgtz.",
+      "version": "2.14.2",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2026cgtz_contains_london_zone",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "params": {
+        "id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant": "drop_core_iana_zone_ids",
+      "evidence": "changes.xml:v2.14.3: DateTimeZone data updated to version 2026cgtz.",
+      "version": "2.14.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "tzdb_2026cgtz_new_york_summer_offset",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "America/New_York",
+        "instant": "2015-07-01T12:00:00Z"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant": "ignore_dst_rules_in_tzdb",
+      "evidence": "changes.xml:v2.14.3: DateTimeZone data updated to version 2026cgtz.",
+      "version": "2.14.3",
+      "source": "changes.xml",
+      "pass": "pass1",
+      "origin_project": "Joda-Time",
+      "merge_basis": "survived_latest_nodatime_and_python_dateutil"
+    },
+    {
+      "name": "calendar_iso_has_stable_id",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "params": {
+        "calendar": "ISO"
+      },
+      "expected": {
+        "id": "ISO"
+      },
+      "mutant": "change_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: API changes:      Added the CalendarSystem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format s",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "calendar_for_id_roundtrips_iso",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.lookup",
+      "replay": "calendar_for_id",
+      "params": {
+        "id": "ISO"
+      },
+      "expected": {
+        "calendar": "ISO"
+      },
+      "mutant": "lookup_wrong_calendar",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: stem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format specifier for local date values, which includes the calendar ID, representing the calendar",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "calendar_ids_include_iso",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.lookup",
+      "replay": "calendar_ids",
+      "params": {},
+      "expected": {
+        "contains": "ISO"
+      },
+      "mutant": "omit_iso_calendar",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: ns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format specifier for local date values, which includes the calendar ID, representing the calendar system    Added support for",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "local_time_fraction_accepts_comma_separator",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "local-time.parse.fraction-separator",
+      "replay": "parse_local_time",
+      "params": {
+        "text": "12:34:56,789",
+        "format": "extended_iso"
+      },
+      "expected": {
+        "time": "12:34:56.789"
+      },
+      "mutant": "reject_comma_fraction",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: nting the calendar system    Added support for the ; custom format specifier to parse both comma and period for fractions of a second; InstantPattern.ExtendedIsoPattern ,  LocalTimePattern.ExtendedIsoPattern , and  LocalDateTimePattern.ExtendedIsoPattern now accept both as separators ( issue 140 and issue 141 )    Adde",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "local_datetime_fraction_accepts_comma_separator",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "local-datetime.parse.fraction-separator",
+      "replay": "parse_local_datetime",
+      "params": {
+        "text": "2012-11-07T12:34:56,789",
+        "format": "extended_iso"
+      },
+      "expected": {
+        "local": "2012-11-07T12:34:56.789"
+      },
+      "mutant": "reject_comma_fraction",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: nting the calendar system    Added support for the ; custom format specifier to parse both comma and period for fractions of a second; InstantPattern.ExtendedIsoPattern ,  LocalTimePattern.ExtendedIsoPattern , and  LocalDateTimePattern.ExtendedIsoPattern now accept both as separators ( issue 140 and issue 141 )    Adde",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "iso_weekyear_week_day_creates_expected_date",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "week-year.creation",
+      "replay": "weekyear_date",
+      "params": {
+        "week_year": 2020,
+        "week": 1,
+        "day": "Monday"
+      },
+      "expected": {
+        "date": "2019-12-30"
+      },
+      "mutant": "miscompute_weekyear",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: o DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )     Tick , SecondOfDay and MillisecondOfDay properties removed from time-based types ( issue 103 )    Removed the NodaCult",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "moscow_pre_2014_uses_correct_offset",
+      "origin_project": "Noda Time",
+      "version": "1.3.1",
+      "release_title": "1.3.1, released 2015-03-06 with tzdb 2015a",
+      "capability": "timezone.bcl-russian-history",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Europe/Moscow",
+        "instant": "2014-10-25T12:00:00Z"
+      },
+      "expected": {
+        "offset": "+04:00"
+      },
+      "mutant": "wrong_moscow_offset",
+      "evidence": "nodatime.org/versions:1.3.1, released 2015-03-06 with tzdb 2015a: that caused  BclDateTimeZone to incorrectly calculate time zone conversions for Russian time zones before 2014-10-26 ( issue 342 ). (This is essentially the same problem documented in Microsoft KB 3012229 .)    TZDB zone transitions that occur at 24:00 at the end of the last year in a zone rule are now handled correctl",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "year_month_type_converter_roundtrips_text",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "year-month.text",
+      "replay": "year_month_parse_format",
+      "params": {
+        "text": "2020-05"
+      },
+      "expected": {
+        "text": "2020 May"
+      },
+      "mutant": "wrong_year_month_text",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: First beta release of 3.0.0.    New features since 3.0.0-alpha01:      Provide dictionaries from TZDB ID to Windows ID and vice versa issue 274    Provide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromM",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "year_month_to_string_uses_year_and_month_name",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "year-month.format",
+      "replay": "year_month_parse_format",
+      "params": {
+        "text": "2022-04"
+      },
+      "expected": {
+        "text": "2022 April"
+      },
+      "mutant": "wrong_year_month_string",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: d LocalTime    Fixed BclDateTimeZone support in .NET 6.0 on Unix    Implemented ToString method for YearMonth    Improved error messages for bad format specifiers    Added LocalDateTime.MinIsoValue and LocalDate.MaxIsoValue    Added Period.Between overload accepting YearMonth values    Added YearMonth.PlusMonths method",
+      "merge_basis": "nodatime_origin_excluding_joda_common_verified_on_latest_nodatime"
+    },
+    {
+      "name": "two_digit_zero_year_parses_as_2000",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.two-digit-year.zero",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "31-Dec-00"
+      },
+      "expected": {
+        "date": "2000-12-31"
+      },
+      "mutant": "parse_00_as_1900",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: fter” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsing (such as 31-Dec-00), as reported by Jim Abramson, and included test case for this.    Sort exdate and rdate before iterating over them, so that it’s not necessary to sort them before adding to the rruleset, as reported by Nicholas P",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "zoneinfo_gettz_returns_internal_zone",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "timezone.zoneinfo-internal",
+      "replay": "zoneinfo_gettz",
+      "params": {
+        "zone": "UTC"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant": "ignore_internal_zoneinfo",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: versions. It’s also possible to ask for the internal versions directly by using dateutil.zoneinfo.gettz().    New tzwin timezone type, allowing access to Windows internal timezones (contributed by Jeffrey Harris).    Fixed parsing of unicode date strings.    Accept parserinfo instances as the parser constructor parameter, besides parserin",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_parses_xxhxxm_time_after_date",
+      "origin_project": "python-dateutil",
+      "version": "1.0",
+      "release_title": "Version 1.0",
+      "capability": "parser.hms-token",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2003-09-25 10h36m"
+      },
+      "expected": {
+        "date": "2003-09-25",
+        "time": "10:36:00"
+      },
+      "mutant": "ignore_hms_token",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.0: Fixed parsing of XXhXXm formatted time after day/month/year has been parsed.    Added patch by Jeffrey Harris optimizing rrule.__contains__.",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tzoffset_subminute_rounds_to_full_minute_legacy_surface",
+      "origin_project": "python-dateutil",
+      "version": "1.2",
+      "release_title": "Version 1.2",
+      "capability": "timezone.subminute-legacy",
+      "replay": "tzoffset_seconds",
+      "params": {
+        "seconds": 90
+      },
+      "expected": {
+        "offset_seconds": 90
+      },
+      "mutant": "truncate_subminute_offset",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.2: Now tzfile will round timezones to full-minutes if necessary, since Python’s datetime doesn’t support sub-minute offsets. Thanks to Ilpo Nyyssönen for reporting the issue.    Removed bare string exceptions, as reported and fixed by Wilfredo Sánchez Vega.    Fix bug in leap co",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_rejects_13_pm",
+      "origin_project": "python-dateutil",
+      "version": "2.4.1",
+      "release_title": "Version 2.4.1",
+      "capability": "parser.validation.hour-ampm",
+      "replay": "parse_error",
+      "params": {
+        "text": "2015-01-01 13 PM"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_13_pm",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.1: Added explicit check for valid hours if AM/PM is specified in parser. (gh pr #22, issue #21)    Fix bug in rrule introduced in 2.4.0 where byweekday parameter was not handled properly. (gh pr #35, issue #34)    Fix error where parser allowed some invalid dates, overwriting existing ho",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "relativedelta_zero_is_false",
+      "origin_project": "python-dateutil",
+      "version": "2.4.1",
+      "release_title": "Version 2.4.1",
+      "capability": "relativedelta.bool",
+      "replay": "relativedelta_bool",
+      "params": {},
+      "expected": {
+        "value": false
+      },
+      "mutant": "zero_is_true",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.1: g. (gh pr #32, issue #31)    Fix and add test for Python 2.x compatibility with boolean checking of relativedelta objects. Implemented by @nimasmi (gh pr #43) and Cédric Krier (lp: 1035038)    Replaced parse() calls with explicit datetime objects in unit tests unrelated to parser. (gh pr #36)    Changed private _byxxx from sets to sorted",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "relativedelta_fractional_days_are_supported",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "relativedelta.fractional",
+      "replay": "relativedelta_apply",
+      "params": {
+        "base": "2020-01-01T00:00:00",
+        "days": 1.5
+      },
+      "expected": {
+        "datetime": "2020-01-02T12:00:00"
+      },
+      "mutant": "truncate_fractional_days",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: es. (lp: 727525, gh issue #45, pr #49)    relativedelta now explicitly supports fractional relative weeks, days, hours, minutes and seconds. Fractional values in absolute parameters (year, day, etc) are now deprecated. (gh issue #40, pr #190)    relativedelta objects previously did not use microseconds to determine of two relativedelta ob",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_empty_string_raises_value_error",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "parser.empty",
+      "replay": "parse_error",
+      "params": {
+        "text": ""
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "return_default_on_empty",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: parameters is now deprecated as inconsistent with RFC2445 (gh pr #62, #185)    Parsing an empty string will now raise a ValueError, rather than returning the datetime passed to the ‘default’ parameter. (gh issue #78, pr #187)    tzwinlocal objects now have a meaningful repr() and str() implementation (gh issue #148, prs #184 and #186)",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_iso_comma_fraction_parses",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "parser.comma-fraction",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2015-01-01T12:00:00,5"
+      },
+      "expected": {
+        "microsecond": 500000
+      },
+      "mutant": "reject_comma_fraction",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: y parsed. Contributed by @Bachmann1234 (gh pr #130)    Fixed parser issue where commas were not a valid separator between seconds and microseconds, preventing parsing of ISO 8601 dates. Contributed by @ryanss (gh issue #28, pr #106)    Fixed issue with tzwin encoding in locales with non-Latin alphabets (gh issue #92, pr #98)    Fixed an i",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_no_separator_respects_yearfirst",
+      "origin_project": "python-dateutil",
+      "version": "2.5.2",
+      "release_title": "Version 2.5.2",
+      "capability": "parser.no-separator-order",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "20160304",
+        "yearfirst": true
+      },
+      "expected": {
+        "date": "2016-03-04"
+      },
+      "mutant": "ignore_yearfirst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.2: Updated zoneinfo to 2016c    Fixed parser bug where yearfirst and dayfirst parameters were not being respected when no separator was present. (gh issue #81 and #217, pr #229)",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_no_separator_respects_dayfirst",
+      "origin_project": "python-dateutil",
+      "version": "2.5.2",
+      "release_title": "Version 2.5.2",
+      "capability": "parser.no-separator-order",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "20160403",
+        "dayfirst": true
+      },
+      "expected": {
+        "date": "2016-03-04"
+      },
+      "mutant": "ignore_dayfirst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.2: Updated zoneinfo to 2016c    Fixed parser bug where yearfirst and dayfirst parameters were not being respected when no separator was present. (gh issue #81 and #217, pr #229)",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "datetime_ambiguous_detects_fall_back",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.ambiguous",
+      "replay": "datetime_ambiguous",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-11-05T01:30:00"
+      },
+      "expected": {
+        "ambiguous": true
+      },
+      "mutant": "miss_ambiguous",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: ed new methods for working with ambiguous and imaginary dates to the tz module. datetime_ambiguous() determines if a datetime is ambiguous for a given zone and datetime_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixe",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "datetime_exists_detects_spring_gap",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "datetime_exists",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-03-12T02:30:00"
+      },
+      "expected": {
+        "exists": false
+      },
+      "mutant": "miss_imaginary",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: datetime_ambiguous() determines if a datetime is ambiguous for a given zone and datetime_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixed an issue where dst() in Portugal in 1996 was returning the wrong value in tz.t",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "resolve_imaginary_moves_gap_forward",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "resolve_imaginary",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-03-12T02:30:00"
+      },
+      "expected": {
+        "local": "2017-03-12T03:30:00",
+        "offset": "-04:00"
+      },
+      "mutant": "wrong_gap_resolution",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: Added PEP-495-compatible methods to address ambiguous and imaginary dates in time zones in a backwards-compatible way. Ambiguous dates and times can now be safely represented by all dateutil time zones. Many thanks to Alexander Belopolski (@abalkin) and Tim Peters @tim-one for their inputs on how to address this. Ori",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tzoffset_accepts_timedelta",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.tzoffset.timedelta",
+      "replay": "tzoffset_seconds",
+      "params": {
+        "timedelta_seconds": 5400
+      },
+      "expected": {
+        "offset_seconds": 5400
+      },
+      "mutant": "reject_timedelta_offset",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: 307)    tzoffset and tzrange objects now accept either a number of seconds or a datetime.timedelta() object wherever previously only a number of seconds was allowed. (gh pr #264, #277)    datetime.timedelta objects can now be added to relativedelta objects. Reported and added by Alec Nikolas Reiter (@justanr) (gh issue #282, pr #283    Re",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "timedelta_adds_to_relativedelta",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "relativedelta.timedelta-add",
+      "replay": "relativedelta_plus_timedelta",
+      "params": {
+        "relativedelta_days": 1,
+        "timedelta_seconds": 3600
+      },
+      "expected": {
+        "days": 1,
+        "hours": 1
+      },
+      "mutant": "reject_timedelta_add",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: wherever previously only a number of seconds was allowed. (gh pr #264, #277)    datetime.timedelta objects can now be added to relativedelta objects. Reported and added by Alec Nikolas Reiter (@justanr) (gh issue #282, pr #283    Refactored relativedelta.weekday and rrule.weekday into a common base class to reduce code duplication. (gh is",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_non_string_argument_raises_type_error",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "parser.input-type",
+      "replay": "parse_non_string_error",
+      "params": {
+        "value": 123
+      },
+      "expected": {
+        "throws": "type"
+      },
+      "mutant": "attribute_error_on_non_string",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: f get() method of zoneinfo.ZoneInfoFile objects. (gh issue #11, pr #310)    For non-character, non-stream arguments, parser.parse now raises TypeError instead of AttributeError. (gh issues #171, #269, pr #247)    Fixed an issue where tzfile objects were not properly handling dst() and tzname() when attached to datetime.time objects. Repor",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tzfile_time_object_has_name",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.time-object",
+      "replay": "tzname_for_time",
+      "params": {
+        "zone": "UTC",
+        "time": "12:00:00"
+      },
+      "expected": {
+        "name": "UTC"
+      },
+      "mutant": "fail_time_object_tzname",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: e tzfile objects were not properly handling dst() and tzname() when attached to datetime.time objects. Reported by @ovacephaloid. (gh issue #292, pr #309)    /usr/share/lib/zoneinfo was added to TZPATHS for compatibility with Solaris systems. Reported by @dhduvall (gh issue #276, pr #307)    tzoffset and tzrange objects now accept either",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "london_zero_standard_offset_dst_transition_has_dst",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "timezone.zero-standard-dst",
+      "replay": "datetime_ambiguous",
+      "params": {
+        "zone": "Europe/London",
+        "local": "2017-10-29T01:30:00"
+      },
+      "expected": {
+        "ambiguous": true
+      },
+      "mutant": "wrong_zero_standard_dst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: d issue with several time zone classes around DST transitions in any zones with +0 standard offset (e.g. Europe/London) (gh issue #321, pr #390)    Fixed issue with fuzzy parsing where tokens similar to AM/PM that are in the end skipped were dropped in the fuzzy_with_tokens list. Reported and fixed by @jbrockmendel (gh pr #332).    Fixed",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "utils_default_tzinfo_attaches_missing_zone",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "utils.default_tzinfo",
+      "replay": "utils_default_tzinfo",
+      "params": {
+        "datetime": "2020-01-01T00:00:00",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "has_tzinfo": true,
+        "offset": "+00:00"
+      },
+      "mutant": "leave_naive",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: issue #432, gh pr #437)    Added today function to utils (gh pr #474)    Added default_tzinfo function to utils (gh pr #475), solving an issue reported by @nealmcb (gh issue #94)    Added dedicated ISO 8601 parsing function isoparse (gh issue #424). Initial implementation by @pganssle in gh pr #489 and #622, with a pre-release fix by @ki",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "utils_within_delta_accepts_close_datetimes",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "utils.within_delta",
+      "replay": "utils_within_delta",
+      "params": {
+        "left": "2020-01-01T00:00:00",
+        "right": "2020-01-01T00:00:02",
+        "delta_seconds": 3
+      },
+      "expected": {
+        "within": true
+      },
+      "mutant": "strict_delta",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: 7, pr #552)    Added the utils submodule, for miscellaneous utilities.    Added within_delta function to utils - added by @justanr (gh issue #432, gh pr #437)    Added today function to utils (gh pr #474)    Added default_tzinfo function to utils (gh pr #475), solving an issue reported by @nealmcb (gh issue #94)    Added dedicated ISO 860",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "isoparse_parses_calendar_date",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.isoparse",
+      "replay": "isoparse",
+      "params": {
+        "text": "2018-03-24"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      },
+      "mutant": "reject_iso_date",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: eported by @nealmcb (gh issue #94)    Added dedicated ISO 8601 parsing function isoparse (gh issue #424). Initial implementation by @pganssle in gh pr #489 and #622, with a pre-release fix by @kirit93 (gh issue #546, gh pr #573).    Moved parser module into parser/_parser.py and officially deprecated the use of several private functions a",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "isoparse_parses_week_date",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.isoparse.week-date",
+      "replay": "isoparse",
+      "params": {
+        "text": "2018-W12-6"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      },
+      "mutant": "reject_week_date",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: eported by @nealmcb (gh issue #94)    Added dedicated ISO 8601 parsing function isoparse (gh issue #424). Initial implementation by @pganssle in gh pr #489 and #622, with a pre-release fix by @kirit93 (gh issue #546, gh pr #573).    Moved parser module into parser/_parser.py and officially deprecated the use of several private functions a",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_bytearray_input_parses",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.bytearray",
+      "replay": "parse_datetime",
+      "params": {
+        "text_type": "bytearray",
+        "text": "2018-03-24"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      },
+      "mutant": "reject_bytearray",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: Dropped support for Python 2.6 (gh pr #362 by @jdufresne)    Dropped support for Python 3.2 (gh pr #626)    Updated zoneinfo file to 2018c (gh pr #616)    Changed licensing scheme so all new contributions are dual licensed under Apache 2.0 and BSD. (gh pr #542",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_invalid_hour_rejected",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.validation.hour",
+      "replay": "parse_error",
+      "params": {
+        "text": "2018-03-24 25:00"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_invalid_hour",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: ing colons, reported and fixed by @jbrockmendel (gh pr #420)    Fixed bug where hours were not validated, leading to improper parse. Reported by @heappro (gh pr #353), fixed by @jbrockmendel (gh pr #482)    Fixed problem parsing strings in %b-%Y-%d format. Reported and fixed by @jbrockmendel (gh pr #481)    Fixed problem parsing strings i",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_trailing_colon_rejected_as_value_error",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.validation.trailing-colon",
+      "replay": "parse_error",
+      "params": {
+        "text": "2018-03-24 12:"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "index_error_trailing_colon",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: fixed by @jbrockmendel (gh pr #409)    Fixed IndexError in parser on dates with trailing colons, reported and fixed by @jbrockmendel (gh pr #420)    Fixed bug where hours were not validated, leading to improper parse. Reported by @heappro (gh pr #353), fixed by @jbrockmendel (gh pr #482)    Fixed problem parsing strings in %b-%Y-%d format",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tzoffset_subminute_offset_supported",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "timezone.subminute-offset",
+      "replay": "tzoffset_seconds",
+      "params": {
+        "seconds": 90
+      },
+      "expected": {
+        "offset_seconds": 90
+      },
+      "mutant": "truncate_to_minute",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "isoparse_time_comma_decimal_separator",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.isoparse.comma-time",
+      "replay": "isoparse",
+      "params": {
+        "text": "2019-02-04T12:34:56,789"
+      },
+      "expected": {
+        "datetime": "2019-02-04T12:34:56.789000"
+      },
+      "mutant": "reject_comma_time",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "isoparse_t24_rolls_to_following_day",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.isoparse.24-hour",
+      "replay": "isoparse",
+      "params": {
+        "text": "2019-02-04T24:00"
+      },
+      "expected": {
+        "datetime": "2019-02-05T00:00:00"
+      },
+      "mutant": "keep_same_day_24",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "parser_tzinfos_invalid_type_raises_type_error",
+      "origin_project": "python-dateutil",
+      "version": "2.8.1",
+      "release_title": "Version 2.8.1 (2019-11-03)",
+      "capability": "parser.tzinfos-type",
+      "replay": "parse_tzinfos_type_error",
+      "params": {
+        "text": "2019-11-03 12:00 UTC"
+      },
+      "expected": {
+        "throws": "type"
+      },
+      "mutant": "unboundlocalerror",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.1 (2019-11-03): Patch by @gfyoung (gh pr #881).     parser.parse will now raise TypeError when tzinfos is passed a type that cannot be interpreted as a time zone. Prior to this change, it would raise an UnboundLocalError instead. Patch by @jbrockmendel (gh pr #891).    Changed error message raised when when passing a bytes object as the time zone name t",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tz_utc_constant_is_tzutc",
+      "origin_project": "python-dateutil",
+      "version": "2.8.1",
+      "release_title": "Version 2.8.1 (2019-11-03)",
+      "capability": "timezone.utc-constant",
+      "replay": "tz_utc_constant",
+      "params": {},
+      "expected": {
+        "offset": "+00:00",
+        "name": "UTC"
+      },
+      "mutant": "wrong_utc_constant",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.1 (2019-11-03): elease. Patch by Hugo van Kemenade (gh pr #950).    Updated many modules to use tz.UTC in favor of tz.tzutc() internally, to avoid an unnecessary function call. (gh pr #910).    Fixed issue where dateutil.tz was using a backported version of  contextlib.nullcontext even in Python 3.7 due to a malformed import statement. (gh pr #963).",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "relativedelta_missing_day_returns_last_day_when_needed",
+      "origin_project": "python-dateutil",
+      "version": "2.9.0",
+      "release_title": "Version 2.9.0 (2024-02-29)",
+      "capability": "relativedelta.month-end-doc",
+      "replay": "relativedelta_apply",
+      "params": {
+        "base": "2024-01-31T00:00:00",
+        "months": 1
+      },
+      "expected": {
+        "date": "2024-02-29"
+      },
+      "mutant": "overflow_month_end",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.9.0 (2024-02-29): on changes      Added note into docs and tests where relativedelta would return last day of the month only if the same day on a different month resolves to a date that doesn’t exist. Reported by @hawkEye-01 (gh issue #1167). Fixed by @Mifrill (gh pr #1168)",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tz_enfold_sets_fold_one",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.fold",
+      "replay": "tz_enfold",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-11-05T01:30:00"
+      },
+      "expected": {
+        "fold": 1,
+        "offset": "-05:00"
+      },
+      "mutant": "ignore_enfold",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: me_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixed an issue where dst() in Portugal in 1996 was returning the wrong value in tz.tzfile objects. Reported by @abalkin (gh issue #128, pr #225)    Fixed an issue where z",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    },
+    {
+      "name": "tz_datetime_exists_true_for_normal_time",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "datetime_exists",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-03-12T03:30:00"
+      },
+      "expected": {
+        "exists": true
+      },
+      "mutant": "mark_normal_imaginary",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: datetime_ambiguous() determines if a datetime is ambiguous for a given zone and datetime_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixed an issue where dst() in Portugal in 1996 was returning the wrong value in tz.t",
+      "merge_basis": "python_dateutil_origin_survived_latest_jodatime_and_nodatime"
+    }
+  ]
+}

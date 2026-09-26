@@ -1,0 +1,5992 @@
+{
+  "project": "jsdom/whatwg-url",
+  "latest_version": "17.1.0",
+  "input_contracts": 132,
+  "latest_replay_passed": 128,
+  "latest_mutant_killed": 132,
+  "latest_survivors": 128,
+  "survivors": [
+    {
+      "name": "1.0.0:url_constructor_exposes_components",
+      "version": "1.0.0",
+      "capability": "url.api.constructor-components",
+      "op": "parse_url",
+      "params": {
+        "input": "https://user:pass@example.com:8443/a/b?x=1#frag"
+      },
+      "expected": {
+        "protocol": "https:",
+        "username": "user",
+        "password": "pass",
+        "hostname": "example.com",
+        "port": "8443",
+        "pathname": "/a/b",
+        "search": "?x=1",
+        "hash": "#frag"
+      },
+      "mutant": "constructor_does_not_expose_components",
+      "evidence": "GitHub release v1.0.0: Overhauled API to expose the `URL` constructor alongside the lower-level algorithms from the URL Standard.",
+      "pass": "pass2"
+    },
+    {
+      "name": "1.0.0:url_constructor_resolves_relative_against_base",
+      "version": "1.0.0",
+      "capability": "url.api.constructor-base",
+      "op": "parse_url",
+      "params": {
+        "input": "../d?q=1",
+        "base": "https://example.com/a/b/c"
+      },
+      "expected": {
+        "href": "https://example.com/a/d?q=1"
+      },
+      "mutant": "constructor_ignores_base_url",
+      "evidence": "GitHub release v1.0.0: Overhauled API to expose the `URL` constructor alongside the lower-level algorithms from the URL Standard.",
+      "pass": "pass2"
+    },
+    {
+      "name": "1.0.1:percent_decode_uppercase_2e_to_dot",
+      "version": "1.0.1",
+      "capability": "url.percent-decode.hex-case",
+      "op": "percent_decode_string",
+      "params": {
+        "input": "a%2Eb%2ec"
+      },
+      "expected": {
+        "value": "a.b.c"
+      },
+      "mutant": "leave_uppercase_percent_escape_encoded",
+      "evidence": "GitHub release v1.0.1: Fixed an issue with percent-decoding which was not properly converting `%2E` into `.`, even though `%2e` was processed correctly.",
+      "pass": "pass1"
+    },
+    {
+      "name": "1.0.1:percent_decode_mixed_hex_pair_to_dot",
+      "version": "1.0.1",
+      "capability": "url.percent-decode.hex-case",
+      "op": "percent_decode_bytes",
+      "params": {
+        "input": "%2E%2e"
+      },
+      "expected": {
+        "hex": "2e2e"
+      },
+      "mutant": "decode_only_lowercase_hex_pair",
+      "evidence": "GitHub release v1.0.1: Fixed an issue with percent-decoding which was not properly converting `%2E` into `.`, even though `%2e` was processed correctly.",
+      "pass": "pass1"
+    },
+    {
+      "name": "2.0.0:ascii_tab_newline_are_removed_before_parsing",
+      "version": "2.0.0",
+      "capability": "url.input-trimming.ascii-tab-newline",
+      "op": "parse_url",
+      "params": {
+        "input": "h\nt\rt\tp://exa\nmple.com/a\tb"
+      },
+      "expected": {
+        "href": "http://example.com/ab",
+        "host": "example.com",
+        "pathname": "/ab"
+      },
+      "mutant": "preserve_ascii_tab_newline_in_input",
+      "evidence": "GitHub release v2.0.0: Updated to the latest spec. This includes: - Removing all tab and newline characters from the input: https://github.com/whatwg/url/commit/7b40216f809c7fe3c9a1680b5c1b06a771c9ebd8#diff-03b21320f26423640f89c447968191e5R1737 - Renaming the \"non-relative\" flag to ",
+      "pass": "pass1"
+    },
+    {
+      "name": "2.0.0:ascii_newline_removed_in_query",
+      "version": "2.0.0",
+      "capability": "url.input-trimming.ascii-tab-newline",
+      "op": "parse_url",
+      "params": {
+        "input": "http://example.com/?a\n=b\rc"
+      },
+      "expected": {
+        "href": "http://example.com/?a=bc",
+        "search": "?a=bc"
+      },
+      "mutant": "preserve_ascii_newline_in_query",
+      "evidence": "GitHub release v2.0.0: Updated to the latest spec. This includes: - Removing all tab and newline characters from the input: https://github.com/whatwg/url/commit/7b40216f809c7fe3c9a1680b5c1b06a771c9ebd8#diff-03b21320f26423640f89c447968191e5R1737 - Renaming the \"non-relative\" flag to ",
+      "pass": "pass1"
+    },
+    {
+      "name": "2.0.1:hostname_setter_updates_host",
+      "version": "2.0.1",
+      "capability": "url.setter.hostname",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/a",
+        "component": "hostname",
+        "value": "example.org"
+      },
+      "expected": {
+        "href": "http://example.org/a",
+        "hostname": "example.org"
+      },
+      "mutant": "hostname_setter_noops",
+      "evidence": "GitHub release v2.0.1: Fixed an issue where the hostname setter would not work, due to a typo. Updated the search setter per https://github.com/whatwg/url/commit/4f1c2ddbdb866b1150819622ec04a86813294059.",
+      "pass": "pass1"
+    },
+    {
+      "name": "2.0.1:search_setter_accepts_value_without_question_mark",
+      "version": "2.0.1",
+      "capability": "url.setter.search",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/a?old=1",
+        "component": "search",
+        "value": "x=1 y=2"
+      },
+      "expected": {
+        "href": "http://example.com/a?x=1%20y=2",
+        "search": "?x=1%20y=2"
+      },
+      "mutant": "do_not_percent_encode_search_setter_space",
+      "evidence": "GitHub release v2.0.1: Fixed an issue where the hostname setter would not work, due to a typo. Updated the search setter per https://github.com/whatwg/url/commit/4f1c2ddbdb866b1150819622ec04a86813294059.",
+      "pass": "pass1"
+    },
+    {
+      "name": "2.0.1:search_setter_empty_removes_query",
+      "version": "2.0.1",
+      "capability": "url.setter.search",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/a?old=1",
+        "component": "search",
+        "value": ""
+      },
+      "expected": {
+        "href": "http://example.com/a",
+        "search": ""
+      },
+      "mutant": "leave_empty_question_mark_after_empty_search",
+      "evidence": "GitHub release v2.0.1: Fixed an issue where the hostname setter would not work, due to a typo. Updated the search setter per https://github.com/whatwg/url/commit/4f1c2ddbdb866b1150819622ec04a86813294059.",
+      "pass": "pass1"
+    },
+    {
+      "name": "3.0.0:scheme_may_contain_digits_after_first_character",
+      "version": "3.0.0",
+      "capability": "url.scheme.syntax",
+      "op": "parse_url",
+      "params": {
+        "input": "h3://example/path"
+      },
+      "expected": {
+        "href": "h3://example/path",
+        "protocol": "h3:"
+      },
+      "mutant": "reject_digit_in_scheme",
+      "evidence": "GitHub release v3.0.0: Fixed parsing schemes that have numbers in them. Parsing failures are now handled differently (and more to-spec): - `new URL()` now correctly throws for parsing failures. - `URL` setters now ignore parsing failures, leaving the old value in place. - URL-record",
+      "pass": "pass1"
+    },
+    {
+      "name": "3.0.0:url_constructor_throws_on_absolute_parse_failure",
+      "version": "3.0.0",
+      "capability": "url.parse.failure-surface",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://[::1"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "return_failure_object_in_constructor",
+      "evidence": "GitHub release v3.0.0: Fixed parsing schemes that have numbers in them. Parsing failures are now handled differently (and more to-spec): - `new URL()` now correctly throws for parsing failures. - `URL` setters now ignore parsing failures, leaving the old value in place. - URL-record",
+      "pass": "pass1"
+    },
+    {
+      "name": "3.0.0:href_setter_ignores_parse_failure",
+      "version": "3.0.0",
+      "capability": "url.setter.failure-ignores",
+      "op": "set_component",
+      "params": {
+        "input": "https://example.com/a",
+        "component": "href",
+        "value": "http://[::1"
+      },
+      "expected": {
+        "href": "https://example.com/a"
+      },
+      "mutant": "setter_replaces_with_invalid_value",
+      "evidence": "GitHub release v3.0.0: Fixed parsing schemes that have numbers in them. Parsing failures are now handled differently (and more to-spec): - `new URL()` now correctly throws for parsing failures. - `URL` setters now ignore parsing failures, leaving the old value in place. - URL-record",
+      "pass": "pass1"
+    },
+    {
+      "name": "3.1.0:file_base_parent_resolution_keeps_drive_letter",
+      "version": "3.1.0",
+      "capability": "url.file.relative-resolution",
+      "op": "parse_url",
+      "params": {
+        "input": "../b",
+        "base": "file:///C:/a/c"
+      },
+      "expected": {
+        "href": "file:///C:/b",
+        "pathname": "/C:/b"
+      },
+      "mutant": "drop_windows_drive_letter_on_parent_resolution",
+      "evidence": "GitHub release v3.1.0: Fixed some issues parsing relative URLs containing `..` against file base URLs. Updated the `port` setter per https://github.com/whatwg/url/commit/05ffaa644bc3cd4c6694ac6db11a072781af449c.",
+      "pass": "pass1"
+    },
+    {
+      "name": "3.1.0:file_base_current_directory_resolution_keeps_drive_letter",
+      "version": "3.1.0",
+      "capability": "url.file.relative-resolution",
+      "op": "parse_url",
+      "params": {
+        "input": "./b",
+        "base": "file:///C:/a/c"
+      },
+      "expected": {
+        "href": "file:///C:/a/b"
+      },
+      "mutant": "treat_file_drive_letter_as_host",
+      "evidence": "GitHub release v3.1.0: Fixed some issues parsing relative URLs containing `..` against file base URLs. Updated the `port` setter per https://github.com/whatwg/url/commit/05ffaa644bc3cd4c6694ac6db11a072781af449c.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.0.0:url_constructor_has_no_domain_to_ascii_static",
+      "version": "4.0.0",
+      "capability": "url.api.removed-domain-statics",
+      "op": "static_presence",
+      "params": {
+        "property": "domainToASCII"
+      },
+      "expected": {
+        "present": false
+      },
+      "mutant": "keep_removed_domain_to_ascii_static",
+      "evidence": "GitHub release v4.0.0: Removed the static methods `URL.domainToUnicode()` and `URL.domainToASCII()` per https://github.com/whatwg/url/commit/2bd0f59b98024921ab90e628b7a526cca5abcb5f.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.0.0:url_constructor_has_no_domain_to_unicode_static",
+      "version": "4.0.0",
+      "capability": "url.api.removed-domain-statics",
+      "op": "static_presence",
+      "params": {
+        "property": "domainToUnicode"
+      },
+      "expected": {
+        "present": false
+      },
+      "mutant": "keep_removed_domain_to_unicode_static",
+      "evidence": "GitHub release v4.0.0: Removed the static methods `URL.domainToUnicode()` and `URL.domainToASCII()` per https://github.com/whatwg/url/commit/2bd0f59b98024921ab90e628b7a526cca5abcb5f.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.1.0:hash_setter_percent_encodes_non_ascii",
+      "version": "4.1.0",
+      "capability": "url.fragment.percent-encode-unicode",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/a",
+        "component": "hash",
+        "value": "é"
+      },
+      "expected": {
+        "href": "http://example.com/a#%C3%A9",
+        "hash": "#%C3%A9"
+      },
+      "mutant": "leave_unicode_fragment_raw",
+      "evidence": "GitHub release v4.1.0: Updated fragment parsing to URL-encode non-ASCII code points, per https://github.com/whatwg/url/commit/373dbedbbf0596f723ce8a195923da98b698aeb0.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.2.0:empty_password_serializes_colon_when_username_present",
+      "version": "4.2.0",
+      "capability": "url.credentials.empty-password",
+      "op": "parse_url",
+      "params": {
+        "input": "http://user:@example.com/"
+      },
+      "expected": {
+        "href": "http://user@example.com/",
+        "username": "user",
+        "password": ""
+      },
+      "mutant": "keep_empty_password_colon",
+      "evidence": "GitHub release v4.2.0: Removed the distinction between null and empty-string passwords, per https://github.com/whatwg/url/commit/5e0b05e95a81fdd539c7b1bf97e69b3df701384f. Stopped decoding all `%2e`s in the path, per https://github.com/whatwg/url/commit/fbff6834a8a03576261f777d0e0afe",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.2.0:encoded_dot_in_path_is_not_always_decoded",
+      "version": "4.2.0",
+      "capability": "url.path.encoded-dot",
+      "op": "parse_url",
+      "params": {
+        "input": "http://example.com/a/%2e%2e/b"
+      },
+      "expected": {
+        "href": "http://example.com/b",
+        "pathname": "/b"
+      },
+      "mutant": "never_process_encoded_dot_segments",
+      "evidence": "GitHub release v4.2.0: Removed the distinction between null and empty-string passwords, per https://github.com/whatwg/url/commit/5e0b05e95a81fdd539c7b1bf97e69b3df701384f. Stopped decoding all `%2e`s in the path, per https://github.com/whatwg/url/commit/fbff6834a8a03576261f777d0e0afe",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.2.0:double_encoded_dot_segment_is_preserved",
+      "version": "4.2.0",
+      "capability": "url.path.encoded-dot",
+      "op": "parse_url",
+      "params": {
+        "input": "http://example.com/a/%252e%252e/b"
+      },
+      "expected": {
+        "href": "http://example.com/a/%252e%252e/b",
+        "pathname": "/a/%252e%252e/b"
+      },
+      "mutant": "decode_double_encoded_dot_segment",
+      "evidence": "GitHub release v4.2.0: Removed the distinction between null and empty-string passwords, per https://github.com/whatwg/url/commit/5e0b05e95a81fdd539c7b1bf97e69b3df701384f. Stopped decoding all `%2e`s in the path, per https://github.com/whatwg/url/commit/fbff6834a8a03576261f777d0e0afe",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.3.0:low_level_scheme_state_override_failure_returns_null",
+      "version": "4.3.0",
+      "capability": "url.low-level.state-override",
+      "op": "low_level_parse",
+      "params": {
+        "input": "1http",
+        "stateOverride": "scheme start"
+      },
+      "expected": {
+        "isNull": true
+      },
+      "mutant": "throw_instead_of_null_for_state_override_failure",
+      "evidence": "GitHub release v4.3.0: Returned failure in state override scheme parsing, per https://github.com/whatwg/url/commit/4617e33b27d386bbf1db8c04316961d46aaa1397. (This only impacts consumers of this library using the `stateOverride` option.) Disallowed invalid IPv4 addresses in the IPv6 ",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.3.0:ipv6_embedded_invalid_ipv4_fails",
+      "version": "4.3.0",
+      "capability": "url.host.ipv6",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://[::ffff:999.0.0.1]/"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "accept_invalid_ipv4_inside_ipv6",
+      "evidence": "GitHub release v4.3.0: Returned failure in state override scheme parsing, per https://github.com/whatwg/url/commit/4617e33b27d386bbf1db8c04316961d46aaa1397. (This only impacts consumers of this library using the `stateOverride` option.) Disallowed invalid IPv4 addresses in the IPv6 ",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.3.0:ipv6_serializer_compresses_trailing_zero_run",
+      "version": "4.3.0",
+      "capability": "url.host.ipv6-serialization",
+      "op": "parse_url",
+      "params": {
+        "input": "http://[2001:db8:0:0:0:0:0:0]/"
+      },
+      "expected": {
+        "host": "[2001:db8::]",
+        "href": "http://[2001:db8::]/"
+      },
+      "mutant": "do_not_compress_ipv6_zero_run",
+      "evidence": "GitHub release v4.3.0: Returned failure in state override scheme parsing, per https://github.com/whatwg/url/commit/4617e33b27d386bbf1db8c04316961d46aaa1397. (This only impacts consumers of this library using the `stateOverride` option.) Disallowed invalid IPv4 addresses in the IPv6 ",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:non_special_host_preserves_percent_encoded_delimiter",
+      "version": "4.4.0",
+      "capability": "url.non-special.host",
+      "op": "parse_url",
+      "params": {
+        "input": "foo://exa%23mple/"
+      },
+      "expected": {
+        "href": "foo://exa%23mple/",
+        "host": "exa%23mple",
+        "hostname": "exa%23mple"
+      },
+      "mutant": "decode_non_special_host_delimiter",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:non_special_url_can_have_empty_host",
+      "version": "4.4.0",
+      "capability": "url.non-special.empty-host",
+      "op": "parse_url",
+      "params": {
+        "input": "foo:///path"
+      },
+      "expected": {
+        "href": "foo:///path",
+        "host": "",
+        "pathname": "/path"
+      },
+      "mutant": "treat_non_special_empty_host_as_failure",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:non_special_path_preserves_backslash",
+      "version": "4.4.0",
+      "capability": "url.non-special.path",
+      "op": "parse_url",
+      "params": {
+        "input": "foo://example/a\\b"
+      },
+      "expected": {
+        "href": "foo://example/a\\b",
+        "pathname": "/a\\b"
+      },
+      "mutant": "treat_non_special_backslash_as_slash",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:pathless_file_url_serializes_with_empty_path",
+      "version": "4.4.0",
+      "capability": "url.file.pathless",
+      "op": "parse_url",
+      "params": {
+        "input": "file://host"
+      },
+      "expected": {
+        "href": "file://host/",
+        "host": "host",
+        "pathname": "/"
+      },
+      "mutant": "serialize_pathless_file_without_slash",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:file_url_username_setter_noops",
+      "version": "4.4.0",
+      "capability": "url.setter.credentials.file-noop",
+      "op": "set_component",
+      "params": {
+        "input": "file:///tmp/a",
+        "component": "username",
+        "value": "u"
+      },
+      "expected": {
+        "href": "file:///tmp/a",
+        "username": ""
+      },
+      "mutant": "allow_credentials_on_file_url",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:non_special_credentials_are_serialized",
+      "version": "4.4.0",
+      "capability": "url.setter.credentials.non-special",
+      "op": "set_component",
+      "params": {
+        "input": "foo://example/path",
+        "component": "username",
+        "value": "u s"
+      },
+      "expected": {
+        "href": "foo://u%20s@example/path",
+        "username": "u%20s"
+      },
+      "mutant": "disallow_credentials_on_non_special_url",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:url_tojson_returns_href",
+      "version": "4.4.0",
+      "capability": "url.api.toJSON",
+      "op": "method_call",
+      "params": {
+        "input": "https://example.com/a?x=1",
+        "method": "toJSON"
+      },
+      "expected": {
+        "value": "https://example.com/a?x=1"
+      },
+      "mutant": "tojson_returns_object",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.4.0:replacement_character_percent_encodes",
+      "version": "4.4.0",
+      "capability": "url.percent-encode.replacement-character",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/",
+        "component": "pathname",
+        "value": "/�"
+      },
+      "expected": {
+        "href": "http://example.com/%EF%BF%BD",
+        "pathname": "/%EF%BF%BD"
+      },
+      "mutant": "drop_replacement_character",
+      "evidence": "GitHub release v4.4.0: Changed host parsing for URLs without a special scheme, per https://github.com/whatwg/url/commit/30362553e9ce9fc706d3492bd61886e399fc94e2 and https://github.com/whatwg/url/commit/cdbcce62045b1614695b00cc0427f6fb0fc7ed03. Changed path parsing for URLs without a",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.5.0:idna_nontransitional_preserves_sharp_s_as_punycode",
+      "version": "4.5.0",
+      "capability": "url.host.idna-nontransitional",
+      "op": "parse_url",
+      "params": {
+        "input": "https://faß.de/"
+      },
+      "expected": {
+        "hostname": "xn--fa-hia.de",
+        "href": "https://xn--fa-hia.de/"
+      },
+      "mutant": "use_transitional_idna_fass_to_fass",
+      "evidence": "GitHub release v4.5.0: Changed host parsing to use nontransitional processing when converting to ASCII, per https://github.com/whatwg/url/commit/f4d84a52e67b154b2d11e04889fe0a35a029c833. Removed a special-case in the `hash` setter for javascript URLs, per https://github.com/whatwg/u",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.6.0:protocol_setter_noops_when_credentials_present",
+      "version": "4.6.0",
+      "capability": "url.setter.protocol-credentials-port",
+      "op": "set_component",
+      "params": {
+        "input": "http://u@example.com/a",
+        "component": "protocol",
+        "value": "file"
+      },
+      "expected": {
+        "href": "http://u@example.com/a",
+        "protocol": "http:"
+      },
+      "mutant": "allow_protocol_change_with_credentials",
+      "evidence": "GitHub release v4.6.0: Changed the `protocol` setter to do nothing when a URL has username, password, or port components, per https://github.com/whatwg/url/commit/462fdc14732aae4b0b9c5334f37962d8c235caf9. Changed the URL record representation to sometimes have an empty string host, ",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.6.0:protocol_setter_noops_when_port_present",
+      "version": "4.6.0",
+      "capability": "url.setter.protocol-credentials-port",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com:81/a",
+        "component": "protocol",
+        "value": "file"
+      },
+      "expected": {
+        "href": "http://example.com:81/a",
+        "protocol": "http:"
+      },
+      "mutant": "allow_protocol_change_with_port",
+      "evidence": "GitHub release v4.6.0: Changed the `protocol` setter to do nothing when a URL has username, password, or port components, per https://github.com/whatwg/url/commit/462fdc14732aae4b0b9c5334f37962d8c235caf9. Changed the URL record representation to sometimes have an empty string host, ",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.7.0:file_url_trims_extra_leading_path_slashes",
+      "version": "4.7.0",
+      "capability": "url.file.leading-slashes",
+      "op": "parse_url",
+      "params": {
+        "input": "file://///server/share"
+      },
+      "expected": {
+        "href": "file://///server/share",
+        "pathname": "///server/share"
+      },
+      "mutant": "collapse_file_extra_leading_slashes",
+      "evidence": "GitHub release v4.7.0: Changed file URLs to trim leading slashes from their paths, per https://github.com/whatwg/url/commit/6103e0a58eb2460d409056fb2b93b015941b64f2.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.7.1:domain_with_empty_label_example_parses",
+      "version": "4.7.1",
+      "capability": "url.host.empty-label",
+      "op": "parse_url",
+      "params": {
+        "input": "http://../"
+      },
+      "expected": {
+        "href": "http://../",
+        "hostname": ".."
+      },
+      "mutant": "reject_empty_domain_labels",
+      "evidence": "GitHub release v4.7.1: Fixed a bug in parsing domains with empty labels, such as `http://../`.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.8.0:file_url_windows_drive_letter_from_base",
+      "version": "4.8.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "params": {
+        "input": "/D:/x",
+        "base": "file:///C:/a/b"
+      },
+      "expected": {
+        "href": "file:///D:/x",
+        "pathname": "/D:/x"
+      },
+      "mutant": "keep_base_drive_for_absolute_drive_path",
+      "evidence": "GitHub release v4.8.0: Fixed Windows drive letter handling with a `file:` base URL, per https://github.com/whatwg/url/commit/fe6b251739e225555f04319f19c70c031a5d99eb.",
+      "pass": "pass1"
+    },
+    {
+      "name": "4.8.0:file_url_relative_keeps_windows_drive_base",
+      "version": "4.8.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "params": {
+        "input": "x",
+        "base": "file:///C:/a/b"
+      },
+      "expected": {
+        "href": "file:///C:/a/x"
+      },
+      "mutant": "drop_drive_for_relative_path",
+      "evidence": "GitHub release v4.8.0: Fixed Windows drive letter handling with a `file:` base URL, per https://github.com/whatwg/url/commit/fe6b251739e225555f04319f19c70c031a5d99eb.",
+      "pass": "pass1"
+    },
+    {
+      "name": "5.0.0:origin_serialization_uses_ascii_domain",
+      "version": "5.0.0",
+      "capability": "url.origin.ascii",
+      "op": "origin",
+      "params": {
+        "input": "https://測試.example/path"
+      },
+      "expected": {
+        "origin": "https://xn--g6w251d.example"
+      },
+      "mutant": "serialize_origin_as_unicode",
+      "evidence": "GitHub release v5.0.0: Changed origin serialization to be the ASCII serialization of the origin, instead of the now-no-longer-a-thing Unicode serialization, per https://github.com/whatwg/url/commit/20c3257194db218c47526ba4ef4894a09e3847c9. This changed the public API by removing `se",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:url_searchparams_gets_duplicate_values",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.basic",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "getAll",
+            "name": "a"
+          }
+        ]
+      },
+      "expected": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "mutant": "collapse_duplicate_search_params",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:url_searchparams_parent_url_updates_after_append",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.parent-url",
+      "op": "searchparams_parent",
+      "params": {
+        "input": "http://example.com/?a=1",
+        "actions": [
+          {
+            "type": "append",
+            "name": "b",
+            "value": "2"
+          }
+        ]
+      },
+      "expected": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2"
+      },
+      "mutant": "searchparams_does_not_update_parent_url",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:url_searchparams_spaces_serialize_as_plus",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.form-urlencode",
+      "op": "searchparams",
+      "params": {
+        "init": [
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=x+y"
+      },
+      "mutant": "serialize_space_as_percent20",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:public_percent_decode_decodes_utf8_sequence",
+      "version": "6.0.0",
+      "capability": "url.api.percent-decode",
+      "op": "percent_decode_string",
+      "params": {
+        "input": "%E2%9C%93"
+      },
+      "expected": {
+        "value": "✓"
+      },
+      "mutant": "decode_utf8_percent_sequence_as_latin1",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:file_url_cannot_have_username_password_port",
+      "version": "6.0.0",
+      "capability": "url.low-level.credentials-port-policy",
+      "op": "cannot_have_credentials_port",
+      "params": {
+        "input": "file:///tmp/a"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "allow_credentials_port_on_file_records",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:http_url_can_have_username_password_port",
+      "version": "6.0.0",
+      "capability": "url.low-level.credentials-port-policy",
+      "op": "cannot_have_credentials_port",
+      "params": {
+        "input": "http://example.com/"
+      },
+      "expected": {
+        "value": false
+      },
+      "mutant": "forbid_credentials_port_on_http_records",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:low_level_parse_failure_returns_null",
+      "version": "6.0.0",
+      "capability": "url.low-level.failure-null",
+      "op": "low_level_parse",
+      "params": {
+        "input": "http://[::1"
+      },
+      "expected": {
+        "isNull": true
+      },
+      "mutant": "return_failure_string_for_parse_failure",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:url_symbol_tostringtag_is_url",
+      "version": "6.0.0",
+      "capability": "url.webidl.to-string-tag",
+      "op": "object_tag",
+      "params": {
+        "type": "URL",
+        "input": "http://example.com/"
+      },
+      "expected": {
+        "value": "[object URL]"
+      },
+      "mutant": "missing_url_tostringtag",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:urlsearchparams_symbol_tostringtag_is_urlsearchparams",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.webidl.to-string-tag",
+      "op": "object_tag",
+      "params": {
+        "type": "URLSearchParams",
+        "input": "a=1"
+      },
+      "expected": {
+        "value": "[object URLSearchParams]"
+      },
+      "mutant": "missing_urlsearchparams_tostringtag",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "params": {
+        "init": "b=2&a=1&a=0",
+        "actions": [
+          {
+            "type": "sort"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "mutant": "sort_reorders_duplicate_values",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass2"
+    },
+    {
+      "name": "6.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "4"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "mutant": "set_only_replaces_first_value",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass2"
+    },
+    {
+      "name": "6.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "params": {
+        "init": "?a=1",
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1"
+      },
+      "mutant": "keep_leading_question_mark_in_params",
+      "evidence": "GitHub release v6.0.0: Node.js v6 is now required, as we have started using JavaScript language features not present in earlier versions. Added spec-compliant `URLSearchParams` support, both as an export and through the `searchParams` property of `URL` instances. (@TimothyGu) Added ",
+      "pass": "pass2"
+    },
+    {
+      "name": "6.1.0:protocol_setter_resets_new_default_port",
+      "version": "6.1.0",
+      "capability": "url.setter.scheme-default-port",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com:443/a",
+        "component": "protocol",
+        "value": "https"
+      },
+      "expected": {
+        "href": "https://example.com/a",
+        "protocol": "https:",
+        "port": ""
+      },
+      "mutant": "keep_port_after_scheme_default_changes",
+      "evidence": "GitHub release v6.1.0: Made the scheme setter properly reset the port as appropriate, per https://github.com/whatwg/url/commit/0f53958338bbaec3882f902897873da59ba7e8bd.",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.2.0:searchparams_delete_last_param_removes_question_mark",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.parent-url-empty",
+      "op": "searchparams_parent",
+      "params": {
+        "input": "http://example.com/?a=1",
+        "actions": [
+          {
+            "type": "delete",
+            "name": "a"
+          }
+        ]
+      },
+      "expected": {
+        "href": "http://example.com/",
+        "search": ""
+      },
+      "mutant": "leave_empty_question_mark_after_deleting_last_param",
+      "evidence": "GitHub release v6.2.0: Fixed `URLSearchParams` to remove the \"`?`\" from its parent `URL` if the query becomes empty, per https://github.com/whatwg/url/commit/43158268deb10343057998b8d761a193e9f3dc8a.",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.2.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "params": {
+        "init": "b=2&a=1&a=0",
+        "actions": [
+          {
+            "type": "sort"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "mutant": "sort_reorders_duplicate_values",
+      "evidence": "GitHub release v6.2.0: Fixed `URLSearchParams` to remove the \"`?`\" from its parent `URL` if the query becomes empty, per https://github.com/whatwg/url/commit/43158268deb10343057998b8d761a193e9f3dc8a.",
+      "pass": "pass2"
+    },
+    {
+      "name": "6.2.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "4"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "mutant": "set_only_replaces_first_value",
+      "evidence": "GitHub release v6.2.0: Fixed `URLSearchParams` to remove the \"`?`\" from its parent `URL` if the query becomes empty, per https://github.com/whatwg/url/commit/43158268deb10343057998b8d761a193e9f3dc8a.",
+      "pass": "pass2"
+    },
+    {
+      "name": "6.2.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "params": {
+        "init": "?a=1",
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1"
+      },
+      "mutant": "keep_leading_question_mark_in_params",
+      "evidence": "GitHub release v6.2.0: Fixed `URLSearchParams` to remove the \"`?`\" from its parent `URL` if the query becomes empty, per https://github.com/whatwg/url/commit/43158268deb10343057998b8d761a193e9f3dc8a.",
+      "pass": "pass2"
+    },
+    {
+      "name": "6.3.0:file_url_windows_drive_letter_from_base",
+      "version": "6.3.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "params": {
+        "input": "/D:/x",
+        "base": "file:///C:/a/b"
+      },
+      "expected": {
+        "href": "file:///D:/x",
+        "pathname": "/D:/x"
+      },
+      "mutant": "keep_base_drive_for_absolute_drive_path",
+      "evidence": "GitHub release v6.3.0: Fixed Windows drive letter handling when resolving relative to another Windows-drive-letter-containing URL, per https://github.com/whatwg/url/commit/2eef975e989cb5ae2d62467394778fd6778ddec9.",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.3.0:file_url_relative_keeps_windows_drive_base",
+      "version": "6.3.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "params": {
+        "input": "x",
+        "base": "file:///C:/a/b"
+      },
+      "expected": {
+        "href": "file:///C:/a/x"
+      },
+      "mutant": "drop_drive_for_relative_path",
+      "evidence": "GitHub release v6.3.0: Fixed Windows drive letter handling when resolving relative to another Windows-drive-letter-containing URL, per https://github.com/whatwg/url/commit/2eef975e989cb5ae2d62467394778fd6778ddec9.",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.4.0:special_query_percent_encodes_space",
+      "version": "6.4.0",
+      "capability": "url.query.percent-encode",
+      "op": "parse_url",
+      "params": {
+        "input": "http://example.com/?q=a b"
+      },
+      "expected": {
+        "href": "http://example.com/?q=a%20b",
+        "search": "?q=a%20b"
+      },
+      "mutant": "serialize_url_query_space_as_plus",
+      "evidence": "GitHub release v6.4.0: Changed percent-escaping rules in the query portion of URLs, per https://github.com/whatwg/url/commit/7a3c69f8a1583b33e730c3fea85141a618e7c697.",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.4.1:href_setter_updates_existing_searchparams_view",
+      "version": "6.4.1",
+      "capability": "url.setter.href-searchparams-sync",
+      "op": "href_setter_searchparams",
+      "params": {
+        "input": "http://example.com/?a=1",
+        "value": "http://example.com/?b=2",
+        "read": "b"
+      },
+      "expected": {
+        "value": "2",
+        "href": "http://example.com/?b=2"
+      },
+      "mutant": "searchparams_view_keeps_old_query_after_href_set",
+      "evidence": "GitHub release v6.4.1: Fixed the `href` setter to update the `searchParams` of a `URL` instance. (@TimothyGu, #114)",
+      "pass": "pass1"
+    },
+    {
+      "name": "6.5.0:special_scheme_query_percent_encodes_apostrophe",
+      "version": "6.5.0",
+      "capability": "url.query.percent-encode-special",
+      "op": "parse_url",
+      "params": {
+        "input": "http://example.com/?q='"
+      },
+      "expected": {
+        "href": "http://example.com/?q=%27",
+        "search": "?q=%27"
+      },
+      "mutant": "leave_apostrophe_raw_in_special_query",
+      "evidence": "GitHub release v6.5.0: Percent-encoded `'` characters in the query portion of URLs with special schemes, per https://github.com/whatwg/url/commit/6ef17ebe1220a7e7c0cfff0785017502ee18808b.",
+      "pass": "pass1"
+    },
+    {
+      "name": "7.0.0:file_url_origin_serializes_null",
+      "version": "7.0.0",
+      "capability": "url.origin.file-opaque",
+      "op": "origin",
+      "params": {
+        "input": "file:///tmp/a"
+      },
+      "expected": {
+        "origin": "null"
+      },
+      "mutant": "serialize_file_origin_as_file_scheme",
+      "evidence": "GitHub release v7.0.0: Changed `file:` URLs to have an opaque origin, which serializes to `\"null\"`. Previously all `file:` URLs shared an origin serialization of `\"file://\"`. This is [underspecified](https://url.spec.whatwg.org/#concept-url-origin), so either behavior is technically",
+      "pass": "pass1"
+    },
+    {
+      "name": "7.0.0:invalid_constructor_error_message_contains_input",
+      "version": "7.0.0",
+      "capability": "url.error-message.invalid-input",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://[::1",
+        "messageContains": "http://[::1"
+      },
+      "expected": {
+        "throws": "TypeError",
+        "messageContains": "http://[::1"
+      },
+      "mutant": "omit_invalid_input_from_error_message",
+      "evidence": "GitHub release v7.0.0: Changed `file:` URLs to have an opaque origin, which serializes to `\"null\"`. Previously all `file:` URLs shared an origin serialization of `\"file://\"`. This is [underspecified](https://url.spec.whatwg.org/#concept-url-origin), so either behavior is technically",
+      "pass": "pass1"
+    },
+    {
+      "name": "7.1.0:gopher_is_not_special_scheme",
+      "version": "7.1.0",
+      "capability": "url.scheme.gopher-not-special",
+      "op": "parse_url",
+      "params": {
+        "input": "gopher://example.com:70/1"
+      },
+      "expected": {
+        "href": "gopher://example.com:70/1",
+        "origin": "null"
+      },
+      "mutant": "treat_gopher_as_special_with_origin",
+      "evidence": "GitHub release v7.1.0: Removed `gopher:` special-case parsing and origin computation, per https://github.com/whatwg/url/commit/d589670451a4da9717bad69ed5d5364f93fede33 and https://github.com/whatwg/url/commit/7ae1c691c96f0d82fafa24c33aa1e8df9ffbf2bc.",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "8.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "params": {
+        "init": "b=2&a=1&a=0",
+        "actions": [
+          {
+            "type": "sort"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "mutant": "sort_reorders_duplicate_values",
+      "evidence": "GitHub release v8.0.0: The breaking change in this release is raising the minimum Node.js version to v10. This release introduces the `whatwg-url/webidl2js-wrapper` module, which can be used to install `URL` and `URLSearchParams` constructors on arbitrary global objects. (This is us",
+      "pass": "pass2"
+    },
+    {
+      "name": "8.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "8.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "4"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "mutant": "set_only_replaces_first_value",
+      "evidence": "GitHub release v8.0.0: The breaking change in this release is raising the minimum Node.js version to v10. This release introduces the `whatwg-url/webidl2js-wrapper` module, which can be used to install `URL` and `URLSearchParams` constructors on arbitrary global objects. (This is us",
+      "pass": "pass2"
+    },
+    {
+      "name": "8.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "8.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "params": {
+        "init": "?a=1",
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1"
+      },
+      "mutant": "keep_leading_question_mark_in_params",
+      "evidence": "GitHub release v8.0.0: The breaking change in this release is raising the minimum Node.js version to v10. This release introduces the `whatwg-url/webidl2js-wrapper` module, which can be used to install `URL` and `URLSearchParams` constructors on arbitrary global objects. (This is us",
+      "pass": "pass2"
+    },
+    {
+      "name": "8.1.0:fragment_null_code_point_is_percent_encoded",
+      "version": "8.1.0",
+      "capability": "url.fragment.null-percent-encode",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/",
+        "component": "hash",
+        "value": "\u0000"
+      },
+      "expected": {
+        "href": "http://example.com/#%00",
+        "hash": "#%00"
+      },
+      "mutant": "drop_null_code_point_in_fragment",
+      "evidence": "GitHub release v8.1.0: Changed fragment parsing so that U+0000 code points are now percent-encoded, instead of removed, per https://github.com/whatwg/url/commit/3d574017081f6594ce1fa7a5107027c83dbe931f. Changed `file:` URL parsing so that if the host ends up empty after the Unicode ",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.2.0:host_rejects_less_than",
+      "version": "8.2.0",
+      "capability": "url.host.forbidden-code-point",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://exa<mple.org/"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "allow_less_than_in_host",
+      "evidence": "GitHub release v8.2.0: Made `<`, `>`, and `^` in the host component cause parsing failures, per https://github.com/whatwg/url/commit/302ba419cb3248568243aaf7b5aca9003694d5c3. Fixed the parsing-then-serializing of non-special URLs to be idempotent, per https://github.com/whatwg/url/c",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.2.0:host_rejects_greater_than",
+      "version": "8.2.0",
+      "capability": "url.host.forbidden-code-point",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://exa>mple.org/"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "allow_greater_than_in_host",
+      "evidence": "GitHub release v8.2.0: Made `<`, `>`, and `^` in the host component cause parsing failures, per https://github.com/whatwg/url/commit/302ba419cb3248568243aaf7b5aca9003694d5c3. Fixed the parsing-then-serializing of non-special URLs to be idempotent, per https://github.com/whatwg/url/c",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.2.0:host_rejects_caret",
+      "version": "8.2.0",
+      "capability": "url.host.forbidden-code-point",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://exa^mple.org/"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "allow_caret_in_host",
+      "evidence": "GitHub release v8.2.0: Made `<`, `>`, and `^` in the host component cause parsing failures, per https://github.com/whatwg/url/commit/302ba419cb3248568243aaf7b5aca9003694d5c3. Fixed the parsing-then-serializing of non-special URLs to be idempotent, per https://github.com/whatwg/url/c",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.2.0:non_special_parse_serialize_parse_is_idempotent",
+      "version": "8.2.0",
+      "capability": "url.non-special.idempotent",
+      "op": "roundtrip",
+      "params": {
+        "input": "foo:////example.com/%2F?x=%2F#%2F"
+      },
+      "expected": {
+        "stable": true
+      },
+      "mutant": "non_special_roundtrip_changes_href",
+      "evidence": "GitHub release v8.2.0: Made `<`, `>`, and `^` in the host component cause parsing failures, per https://github.com/whatwg/url/commit/302ba419cb3248568243aaf7b5aca9003694d5c3. Fixed the parsing-then-serializing of non-special URLs to be idempotent, per https://github.com/whatwg/url/c",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.2.2:percent_decode_bytes_returns_uint8array",
+      "version": "8.2.2",
+      "capability": "url.api.percent-decode-bytes",
+      "op": "percent_decode_bytes",
+      "params": {
+        "input": "%41%42"
+      },
+      "expected": {
+        "constructor": "Uint8Array",
+        "hex": "4142"
+      },
+      "mutant": "return_node_buffer_from_percent_decode_bytes",
+      "evidence": "GitHub release v8.2.2: Fixed `percentDecode` to return a `Buffer`, like it did in v8.1.0, instead of a `Uint8Array`.",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.3.0:file_path_normalizes_dot_segments",
+      "version": "8.3.0",
+      "capability": "url.file.path-normalization",
+      "op": "parse_url",
+      "params": {
+        "input": "file:///a/b/../c"
+      },
+      "expected": {
+        "href": "file:///a/c",
+        "pathname": "/a/c"
+      },
+      "mutant": "skip_file_dot_segment_normalization",
+      "evidence": "GitHub release v8.3.0: Updated `file:` URL path normalization, per https://github.com/whatwg/url/commit/47efa0043d677fb51169cde72b60703bd8de83e3.",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.4.0:file_parse_serialize_parse_is_idempotent",
+      "version": "8.4.0",
+      "capability": "url.file.idempotent",
+      "op": "roundtrip",
+      "params": {
+        "input": "file:////host//a/../b"
+      },
+      "expected": {
+        "stable": true
+      },
+      "mutant": "file_roundtrip_changes_href",
+      "evidence": "GitHub release v8.4.0: Fixed `file:` URL parsing cases which would cause different results when serialized-then-reparsed, per https://github.com/whatwg/url/commit/a19495e27ad95154543b46f751d1a1bf25553808.",
+      "pass": "pass1"
+    },
+    {
+      "name": "8.7.0:pathname_setter_empty_on_special_url_sets_root_path",
+      "version": "8.7.0",
+      "capability": "url.setter.pathname-empty",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/a/b",
+        "component": "pathname",
+        "value": ""
+      },
+      "expected": {
+        "href": "http://example.com/",
+        "pathname": "/"
+      },
+      "mutant": "leave_old_path_on_empty_pathname_setter",
+      "evidence": "GitHub release v8.7.0: Make the `pathname` setter not mess up the URL's path state tracking when given the empty string, per https://github.com/whatwg/url/commit/0672f2e2ef43aca18b59d90abb6dac21712399bb.",
+      "pass": "pass1"
+    },
+    {
+      "name": "9.0.0:percent_decode_bytes_returns_uint8array",
+      "version": "9.0.0",
+      "capability": "url.api.percent-decode-bytes",
+      "op": "percent_decode_bytes",
+      "params": {
+        "input": "%41%42"
+      },
+      "expected": {
+        "constructor": "Uint8Array",
+        "hex": "4142"
+      },
+      "mutant": "return_node_buffer_from_percent_decode_bytes",
+      "evidence": "GitHub release v9.0.0: Breaking changes: * Removed Node.js v10 support. * The `percentDecode()` export was renamed `percentDecodeBytes()`, and now returns a `Uint8Array` instead of a Node.js `Buffer`. Other changes: * The package's main module now exports the `percentDecodeString()`",
+      "pass": "pass1"
+    },
+    {
+      "name": "9.0.0:percent_decode_string_export_decodes_without_utf8_decoding",
+      "version": "9.0.0",
+      "capability": "url.api.percent-decode-string",
+      "op": "percent_decode_string",
+      "params": {
+        "input": "%41%42%43"
+      },
+      "expected": {
+        "value": "ABC"
+      },
+      "mutant": "missing_percent_decode_string_export",
+      "evidence": "GitHub release v9.0.0: Breaking changes: * Removed Node.js v10 support. * The `percentDecode()` export was renamed `percentDecodeBytes()`, and now returns a `Uint8Array` instead of a Node.js `Buffer`. Other changes: * The package's main module now exports the `percentDecodeString()`",
+      "pass": "pass1"
+    },
+    {
+      "name": "9.1.0:host_ending_in_number_but_not_ipv4_fails",
+      "version": "9.1.0",
+      "capability": "url.host.numeric-ending",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://example.0/"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "accept_non_ipv4_domain_ending_in_number",
+      "evidence": "GitHub release v9.1.0: Made the host parser reject non-IPv4 domains that end in numbers, per https://github.com/whatwg/url/commit/ab0e820b0b559610b30c731b7f2c1a8094181680.",
+      "pass": "pass1"
+    },
+    {
+      "name": "9.1.0:valid_ipv4_number_host_still_parses",
+      "version": "9.1.0",
+      "capability": "url.host.ipv4",
+      "op": "parse_url",
+      "params": {
+        "input": "http://127.0.0.1/"
+      },
+      "expected": {
+        "hostname": "127.0.0.1",
+        "host": "127.0.0.1"
+      },
+      "mutant": "reject_all_numeric_ending_hosts",
+      "evidence": "GitHub release v9.1.0: Made the host parser reject non-IPv4 domains that end in numbers, per https://github.com/whatwg/url/commit/ab0e820b0b559610b30c731b7f2c1a8094181680.",
+      "pass": "pass1"
+    },
+    {
+      "name": "11.0.0:serialize_path_supports_opaque_path_records",
+      "version": "11.0.0",
+      "capability": "url.low-level.serialize-path",
+      "op": "serialize_path",
+      "params": {
+        "input": "mailto:user@example.com"
+      },
+      "expected": {
+        "value": "user@example.com"
+      },
+      "mutant": "serialize_opaque_path_as_slash_path_array",
+      "evidence": "GitHub release v11.0.0: The breaking changes in this release are only to the [Low-level URL Standard API](https://github.com/jsdom/whatwg-url#low-level-url-standard-api). No actual URL parsing or serialization behavior has changed, and users of the `URL` and `URLSearchParams` exports",
+      "pass": "pass1"
+    },
+    {
+      "name": "11.0.0:has_opaque_path_true_for_mailto",
+      "version": "11.0.0",
+      "capability": "url.low-level.opaque-path",
+      "op": "has_opaque_path",
+      "params": {
+        "input": "mailto:user@example.com"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "treat_mailto_path_as_hierarchical",
+      "evidence": "GitHub release v11.0.0: The breaking changes in this release are only to the [Low-level URL Standard API](https://github.com/jsdom/whatwg-url#low-level-url-standard-api). No actual URL parsing or serialization behavior has changed, and users of the `URL` and `URLSearchParams` exports",
+      "pass": "pass1"
+    },
+    {
+      "name": "11.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "11.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "params": {
+        "init": "b=2&a=1&a=0",
+        "actions": [
+          {
+            "type": "sort"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "mutant": "sort_reorders_duplicate_values",
+      "evidence": "GitHub release v11.0.0: The breaking changes in this release are only to the [Low-level URL Standard API](https://github.com/jsdom/whatwg-url#low-level-url-standard-api). No actual URL parsing or serialization behavior has changed, and users of the `URL` and `URLSearchParams` exports",
+      "pass": "pass2"
+    },
+    {
+      "name": "11.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "11.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "4"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "mutant": "set_only_replaces_first_value",
+      "evidence": "GitHub release v11.0.0: The breaking changes in this release are only to the [Low-level URL Standard API](https://github.com/jsdom/whatwg-url#low-level-url-standard-api). No actual URL parsing or serialization behavior has changed, and users of the `URL` and `URLSearchParams` exports",
+      "pass": "pass2"
+    },
+    {
+      "name": "11.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "11.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "params": {
+        "init": "?a=1",
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1"
+      },
+      "mutant": "keep_leading_question_mark_in_params",
+      "evidence": "GitHub release v11.0.0: The breaking changes in this release are only to the [Low-level URL Standard API](https://github.com/jsdom/whatwg-url#low-level-url-standard-api). No actual URL parsing or serialization behavior has changed, and users of the `URL` and `URLSearchParams` exports",
+      "pass": "pass2"
+    },
+    {
+      "name": "12.0.0:url_searchparams_gets_duplicate_values",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.basic",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "getAll",
+            "name": "a"
+          }
+        ]
+      },
+      "expected": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "mutant": "collapse_duplicate_search_params",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:url_searchparams_parent_url_updates_after_append",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.parent-url",
+      "op": "searchparams_parent",
+      "params": {
+        "input": "http://example.com/?a=1",
+        "actions": [
+          {
+            "type": "append",
+            "name": "b",
+            "value": "2"
+          }
+        ]
+      },
+      "expected": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2"
+      },
+      "mutant": "searchparams_does_not_update_parent_url",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:url_searchparams_spaces_serialize_as_plus",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.form-urlencode",
+      "op": "searchparams",
+      "params": {
+        "init": [
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=x+y"
+      },
+      "mutant": "serialize_space_as_percent20",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:special_url_rejects_forbidden_domain_character",
+      "version": "12.0.0",
+      "capability": "url.host.special-vs-generic",
+      "op": "construct_failure",
+      "params": {
+        "input": "http://exa%mple.org/"
+      },
+      "expected": {
+        "throws": "TypeError"
+      },
+      "mutant": "allow_percent_in_special_domain",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:non_special_opaque_host_allows_percent_escape",
+      "version": "12.0.0",
+      "capability": "url.host.special-vs-generic",
+      "op": "parse_url",
+      "params": {
+        "input": "foo://exa%mple.org/"
+      },
+      "expected": {
+        "href": "foo://exa%mple.org/",
+        "hostname": "exa%mple.org"
+      },
+      "mutant": "reject_percent_in_generic_host",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:search_setter_encodes_hash_to_preserve_roundtrip",
+      "version": "12.0.0",
+      "capability": "url.setter.roundtrip-search-hash",
+      "op": "set_component",
+      "params": {
+        "input": "http://example.com/",
+        "component": "search",
+        "value": "a#b"
+      },
+      "expected": {
+        "href": "http://example.com/?a%23b",
+        "search": "?a%23b"
+      },
+      "mutant": "allow_hash_to_escape_search",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:urlsearchparams_set_encodes_hash_to_preserve_roundtrip",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.roundtrip-hash",
+      "op": "searchparams_parent",
+      "params": {
+        "input": "http://example.com/",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "#b"
+          }
+        ]
+      },
+      "expected": {
+        "href": "http://example.com/?a=%23b"
+      },
+      "mutant": "urlsearchparams_leaves_hash_unescaped",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass1"
+    },
+    {
+      "name": "12.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "params": {
+        "init": "b=2&a=1&a=0",
+        "actions": [
+          {
+            "type": "sort"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "mutant": "sort_reorders_duplicate_values",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass2"
+    },
+    {
+      "name": "12.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "4"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "mutant": "set_only_replaces_first_value",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass2"
+    },
+    {
+      "name": "12.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "params": {
+        "init": "?a=1",
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1"
+      },
+      "mutant": "keep_leading_question_mark_in_params",
+      "evidence": "GitHub release v12.0.0: Breaking change: removed Node.js v12 support. Changed the characters allowed in domains vs. generic hosts, per https://github.com/whatwg/url/commit/35e195a2cce7b82694284b8f60caeaf7b43087b4. Changed the `URL` API's `search` and `hash` setters, as well as the `U",
+      "pass": "pass2"
+    },
+    {
+      "name": "12.0.1:punycode_label_followed_by_empty_label_parses",
+      "version": "12.0.1",
+      "capability": "url.host.idna-empty-label",
+      "op": "can_parse",
+      "params": {
+        "input": "https://xn--4-0bd15808a.../"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "reject_punycode_empty_label_example",
+      "evidence": "GitHub release v12.0.1: Updated our [`tr46`](https://github.com/jsdom/tr46/) dependency, which brings along several fixes related to international domain names. Such as: - Empty domain name labels, as in `https://xn--4-0bd15808a.../`, no longer cause URL parsing to fail. - Invalid pu",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:url_searchparams_gets_duplicate_values",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.basic",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "getAll",
+            "name": "a"
+          }
+        ]
+      },
+      "expected": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "mutant": "collapse_duplicate_search_params",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:url_searchparams_parent_url_updates_after_append",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.parent-url",
+      "op": "searchparams_parent",
+      "params": {
+        "input": "http://example.com/?a=1",
+        "actions": [
+          {
+            "type": "append",
+            "name": "b",
+            "value": "2"
+          }
+        ]
+      },
+      "expected": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2"
+      },
+      "mutant": "searchparams_does_not_update_parent_url",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:url_searchparams_spaces_serialize_as_plus",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.form-urlencode",
+      "op": "searchparams",
+      "params": {
+        "init": [
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=x+y"
+      },
+      "mutant": "serialize_space_as_percent20",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:url_canparse_true_for_valid_absolute_url",
+      "version": "13.0.0",
+      "capability": "url.api.canParse",
+      "op": "can_parse",
+      "params": {
+        "input": "https://example.com/a"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "canparse_rejects_valid_absolute_url",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:url_canparse_false_for_invalid_absolute_url",
+      "version": "13.0.0",
+      "capability": "url.api.canParse",
+      "op": "can_parse",
+      "params": {
+        "input": "http://[::1"
+      },
+      "expected": {
+        "value": false
+      },
+      "mutant": "canparse_accepts_invalid_url",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:url_canparse_respects_base_url",
+      "version": "13.0.0",
+      "capability": "url.api.canParse",
+      "op": "can_parse",
+      "params": {
+        "input": "../b",
+        "base": "https://example.com/a/c"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "canparse_ignores_base_url",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:urlsearchparams_size_counts_entries",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.size",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "size"
+          }
+        ]
+      },
+      "expected": {
+        "value": 3
+      },
+      "mutant": "size_counts_unique_names_only",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:urlsearchparams_has_name_value_pair",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.has-value",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2",
+        "actions": [
+          {
+            "type": "has",
+            "name": "a",
+            "value": "2"
+          }
+        ]
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "has_ignores_optional_value",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:urlsearchparams_delete_name_value_pair_only",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.delete-value",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&a=1",
+        "actions": [
+          {
+            "type": "delete",
+            "name": "a",
+            "value": "1"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=2"
+      },
+      "mutant": "delete_ignores_optional_value",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:blob_origin_for_non_http_inner_url_is_null",
+      "version": "13.0.0",
+      "capability": "url.origin.blob-non-http-null",
+      "op": "origin",
+      "params": {
+        "input": "blob:ftp://example.com/id"
+      },
+      "expected": {
+        "origin": "null"
+      },
+      "mutant": "use_inner_ftp_origin_for_blob_url",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:blob_origin_for_https_inner_url_uses_inner_origin",
+      "version": "13.0.0",
+      "capability": "url.origin.blob-http",
+      "op": "origin",
+      "params": {
+        "input": "blob:https://example.com/id"
+      },
+      "expected": {
+        "origin": "https://example.com"
+      },
+      "mutant": "always_null_blob_origin",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass1"
+    },
+    {
+      "name": "13.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "params": {
+        "init": "b=2&a=1&a=0",
+        "actions": [
+          {
+            "type": "sort"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "mutant": "sort_reorders_duplicate_values",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass2"
+    },
+    {
+      "name": "13.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "params": {
+        "init": "a=1&a=2&b=3",
+        "actions": [
+          {
+            "type": "set",
+            "name": "a",
+            "value": "4"
+          },
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "mutant": "set_only_replaces_first_value",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass2"
+    },
+    {
+      "name": "13.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "params": {
+        "init": "?a=1",
+        "actions": [
+          {
+            "type": "toString"
+          }
+        ]
+      },
+      "expected": {
+        "value": "a=1"
+      },
+      "mutant": "keep_leading_question_mark_in_params",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass2"
+    },
+    {
+      "name": "13.0.0:static_parse_and_constructor_agree_on_href",
+      "version": "13.0.0",
+      "capability": "url.api.static-parse-agreement",
+      "op": "static_parse",
+      "params": {
+        "input": "https://example.com/a/../b"
+      },
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "mutant": "static_parse_uses_different_parser",
+      "evidence": "GitHub release v13.0.0: Breaking change: removed Node.js v14 support. Added `URL.canParse()`, per https://github.com/whatwg/url/commit/ae3c28b84e3e7122c2807401c26b8a63cb2ab445. Added `URLSearchParams`'s `size` getter, per https://github.com/whatwg/url/commit/12b6f0c456c6df049e2704c92",
+      "pass": "pass2"
+    },
+    {
+      "name": "14.1.0:url_parse_returns_null_on_failure",
+      "version": "14.1.0",
+      "capability": "url.api.parse-static",
+      "op": "static_parse",
+      "params": {
+        "input": "http://[::1"
+      },
+      "expected": {
+        "isNull": true
+      },
+      "mutant": "throw_or_return_record_for_static_parse_failure",
+      "evidence": "GitHub release v14.1.0: Added `URL.parse()`, per https://github.com/whatwg/url/commit/58acb06dccec3e95a33d842337e61d25195d4b1b.",
+      "pass": "pass1"
+    },
+    {
+      "name": "14.1.0:url_parse_accepts_base",
+      "version": "14.1.0",
+      "capability": "url.api.parse-static",
+      "op": "static_parse",
+      "params": {
+        "input": "../b",
+        "base": "https://example.com/a/c"
+      },
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "mutant": "static_parse_ignores_base",
+      "evidence": "GitHub release v14.1.0: Added `URL.parse()`, per https://github.com/whatwg/url/commit/58acb06dccec3e95a33d842337e61d25195d4b1b.",
+      "pass": "pass1"
+    },
+    {
+      "name": "14.1.0:static_parse_and_constructor_agree_on_href",
+      "version": "14.1.0",
+      "capability": "url.api.static-parse-agreement",
+      "op": "static_parse",
+      "params": {
+        "input": "https://example.com/a/../b"
+      },
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "mutant": "static_parse_uses_different_parser",
+      "evidence": "GitHub release v14.1.0: Added `URL.parse()`, per https://github.com/whatwg/url/commit/58acb06dccec3e95a33d842337e61d25195d4b1b.",
+      "pass": "pass2"
+    },
+    {
+      "name": "14.2.0:path_percent_encodes_caret",
+      "version": "14.2.0",
+      "capability": "url.path.percent-encode-caret",
+      "op": "parse_url",
+      "params": {
+        "input": "http://example.com/a^b"
+      },
+      "expected": {
+        "href": "http://example.com/a%5Eb",
+        "pathname": "/a%5Eb"
+      },
+      "mutant": "leave_caret_raw_in_path",
+      "evidence": "GitHub release v14.2.0: Updated our [`tr46`](https://github.com/jsdom/tr46/) dependency, which updates our international domain name support to reflect Unicode 16.0.0. Also includes the related changes to the URL Standard: - https://github.com/whatwg/url/commit/cd8f1d6c1ad0bab1cc8e40",
+      "pass": "pass1"
+    },
+    {
+      "name": "14.2.0:idna_unicode_domain_maps_to_ascii_14_2_0",
+      "version": "14.2.0",
+      "capability": "url.host.idna-unicode",
+      "op": "parse_url",
+      "params": {
+        "input": "https://測試.example/"
+      },
+      "expected": {
+        "hostname": "xn--g6w251d.example",
+        "href": "https://xn--g6w251d.example/"
+      },
+      "mutant": "leave_unicode_host_unmapped",
+      "evidence": "GitHub release v14.2.0: Updated our [`tr46`](https://github.com/jsdom/tr46/) dependency, which updates our international domain name support to reflect Unicode 16.0.0. Also includes the related changes to the URL Standard: - https://github.com/whatwg/url/commit/cd8f1d6c1ad0bab1cc8e40",
+      "pass": "pass1"
+    },
+    {
+      "name": "15.1.0:idna_unicode_domain_maps_to_ascii_15_1_0",
+      "version": "15.1.0",
+      "capability": "url.host.idna-unicode",
+      "op": "parse_url",
+      "params": {
+        "input": "https://測試.example/"
+      },
+      "expected": {
+        "hostname": "xn--g6w251d.example",
+        "href": "https://xn--g6w251d.example/"
+      },
+      "mutant": "leave_unicode_host_unmapped",
+      "evidence": "GitHub release v15.1.0: Updated our [`tr46`](https://github.com/jsdom/tr46/) dependency, which updates our international domain name support to reflect Unicode 17.0.0.",
+      "pass": "pass1"
+    },
+    {
+      "name": "16.0.0:low_level_parse_query_uses_shift_jis_encoding_option",
+      "version": "16.0.0",
+      "capability": "url.query.encoding-option",
+      "op": "low_level_parse",
+      "params": {
+        "input": "http://example.com/?q=こんにちは",
+        "encoding": "shift_jis"
+      },
+      "expected": {
+        "query": "q=%82%B1%82%F1%82%C9%82%BF%82%CD"
+      },
+      "mutant": "ignore_query_encoding_option",
+      "evidence": "GitHub release v16.0.0: Breaking change: now requires Node.js versions `^20.19.0 || ^22.12.0 || >=24.0.0`. Added encoding support for query string parsing, via the new `encoding` options to `parseURL()` and `basicURLParse()`. (The `URL` API is not affected, as it always uses UTF-8.) ",
+      "pass": "pass1"
+    },
+    {
+      "name": "16.0.1:url_parse_returns_url_instance",
+      "version": "16.0.1",
+      "capability": "url.api.parse-static",
+      "op": "static_parse",
+      "params": {
+        "input": "https://example.com/a"
+      },
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/a"
+      },
+      "mutant": "return_internal_record_from_static_parse",
+      "evidence": "GitHub release v16.0.1: Fixed `URL.parse()` to return a proper `URL` object, instead of an internal implementation object. This fixes, among other things, `URL.parse(x) instanceof URL`.",
+      "pass": "pass1"
+    },
+    {
+      "name": "16.0.1:static_parse_and_constructor_agree_on_href",
+      "version": "16.0.1",
+      "capability": "url.api.static-parse-agreement",
+      "op": "static_parse",
+      "params": {
+        "input": "https://example.com/a/../b"
+      },
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "mutant": "static_parse_uses_different_parser",
+      "evidence": "GitHub release v16.0.1: Fixed `URL.parse()` to return a proper `URL` object, instead of an internal implementation object. This fixes, among other things, `URL.parse(x) instanceof URL`.",
+      "pass": "pass2"
+    },
+    {
+      "name": "17.0.0:ascii_domain_does_not_require_idna_mapping",
+      "version": "17.0.0",
+      "capability": "url.host.ascii-fallback",
+      "op": "parse_url",
+      "params": {
+        "input": "https://EXAMPLE.com/path"
+      },
+      "expected": {
+        "href": "https://example.com/path",
+        "hostname": "example.com"
+      },
+      "mutant": "require_unicode_domain_mapper_for_ascii_hosts",
+      "evidence": "GitHub release v17.0.0: Breaking change: now requires Node.js `^22.14.0 || >=24.0.0`. Updated the domain parser to have an ASCII fallback path, per https://github.com/whatwg/url/commit/a8d5ca3716c31145d103d83d1cae65a881dd4d7a.",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:parse_with_validation_errors_reports_missing_scheme",
+      "version": "17.1.0",
+      "capability": "url.validation-errors.parse",
+      "op": "parse_with_validation_errors",
+      "params": {
+        "input": "example.com"
+      },
+      "expected": {
+        "urlIsNull": true,
+        "errorsContains": "missing-scheme-non-relative-URL"
+      },
+      "mutant": "do_not_report_missing_scheme_validation_error",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:parse_with_validation_errors_reports_special_slashes",
+      "version": "17.1.0",
+      "capability": "url.validation-errors.parse",
+      "op": "parse_with_validation_errors",
+      "params": {
+        "input": "http:example.com"
+      },
+      "expected": {
+        "urlIsNull": false,
+        "errorsContains": "special-scheme-missing-following-solidus"
+      },
+      "mutant": "do_not_report_special_scheme_slash_error",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:valid_url_string_accepts_absolute_with_fragment",
+      "version": "17.1.0",
+      "capability": "url.validation.valid-url-string",
+      "op": "is_valid_url_string",
+      "params": {
+        "input": "https://example.com/a#b"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "reject_valid_absolute_url_string",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:valid_url_string_accepts_relative_with_base",
+      "version": "17.1.0",
+      "capability": "url.validation.valid-url-string",
+      "op": "is_valid_url_string",
+      "params": {
+        "input": "../b#f",
+        "base": "https://example.com/a/c"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": "ignore_base_for_relative_valid_url_string",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:valid_url_string_rejects_no_scheme_without_base",
+      "version": "17.1.0",
+      "capability": "url.validation.valid-url-string",
+      "op": "is_valid_url_string",
+      "params": {
+        "input": "../b#f"
+      },
+      "expected": {
+        "value": false
+      },
+      "mutant": "accept_relative_without_base_as_valid_url_string",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:userinfo_astral_code_point_percent_encodes_utf8",
+      "version": "17.1.0",
+      "capability": "url.userinfo.astral",
+      "op": "parse_url",
+      "params": {
+        "input": "https://💩:🔑@example.com/"
+      },
+      "expected": {
+        "username": "%F0%9F%92%A9",
+        "password": "%F0%9F%94%91",
+        "href": "https://%F0%9F%92%A9:%F0%9F%94%91@example.com/"
+      },
+      "mutant": "encode_astral_userinfo_as_utf16_surrogates",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass1"
+    },
+    {
+      "name": "17.1.0:validation_errors_empty_for_clean_url",
+      "version": "17.1.0",
+      "capability": "url.validation-errors.clean-url",
+      "op": "parse_with_validation_errors",
+      "params": {
+        "input": "https://example.com/a"
+      },
+      "expected": {
+        "urlIsNull": false,
+        "errorsLength": 0
+      },
+      "mutant": "report_spurious_errors_for_clean_url",
+      "evidence": "GitHub release v17.1.0: * Added `parseURLWithValidationErrors()`, which records and returns [validation errors](https://url.spec.whatwg.org/#validation-error) per the standard's parsing algorithm, often performing additional checks on the input. * Added `isValidURLString()`, which ch",
+      "pass": "pass2"
+    }
+  ],
+  "results": [
+    {
+      "name": "1.0.0:url_constructor_exposes_components",
+      "version": "1.0.0",
+      "capability": "url.api.constructor-components",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "protocol": "https:",
+        "username": "user",
+        "password": "pass",
+        "hostname": "example.com",
+        "port": "8443",
+        "pathname": "/a/b",
+        "search": "?x=1",
+        "hash": "#frag"
+      },
+      "actual": {
+        "href": "https://user:pass@example.com:8443/a/b?x=1#frag",
+        "origin": "https://example.com:8443",
+        "protocol": "https:",
+        "username": "user",
+        "password": "pass",
+        "host": "example.com:8443",
+        "hostname": "example.com",
+        "port": "8443",
+        "pathname": "/a/b",
+        "search": "?x=1",
+        "hash": "#frag"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "protocol": "https:__mutant__",
+        "username": "user",
+        "password": "pass",
+        "hostname": "example.com",
+        "port": "8443",
+        "pathname": "/a/b",
+        "search": "?x=1",
+        "hash": "#frag"
+      },
+      "mutant_failures": [
+        "protocol: expected 'https:__mutant__', got 'https:'"
+      ]
+    },
+    {
+      "name": "1.0.0:url_constructor_resolves_relative_against_base",
+      "version": "1.0.0",
+      "capability": "url.api.constructor-base",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "https://example.com/a/d?q=1"
+      },
+      "actual": {
+        "href": "https://example.com/a/d?q=1",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a/d",
+        "search": "?q=1",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "https://example.com/a/d?q=1__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'https://example.com/a/d?q=1__mutant__', got 'https://example.com/a/d?q=1'"
+      ]
+    },
+    {
+      "name": "1.0.1:percent_decode_uppercase_2e_to_dot",
+      "version": "1.0.1",
+      "capability": "url.percent-decode.hex-case",
+      "op": "percent_decode_string",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a.b.c"
+      },
+      "actual": {
+        "hex": "612e622e63",
+        "value": "a.b.c"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a.b.c__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a.b.c__mutant__', got 'a.b.c'"
+      ]
+    },
+    {
+      "name": "1.0.1:percent_decode_mixed_hex_pair_to_dot",
+      "version": "1.0.1",
+      "capability": "url.percent-decode.hex-case",
+      "op": "percent_decode_bytes",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "hex": "2e2e"
+      },
+      "actual": {
+        "constructor": "Uint8Array",
+        "hex": "2e2e"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "hex": "2e2e__mutant__"
+      },
+      "mutant_failures": [
+        "hex: expected '2e2e__mutant__', got '2e2e'"
+      ]
+    },
+    {
+      "name": "2.0.0:ascii_tab_newline_are_removed_before_parsing",
+      "version": "2.0.0",
+      "capability": "url.input-trimming.ascii-tab-newline",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/ab",
+        "host": "example.com",
+        "pathname": "/ab"
+      },
+      "actual": {
+        "href": "http://example.com/ab",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/ab",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/ab__mutant__",
+        "host": "example.com",
+        "pathname": "/ab"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/ab__mutant__', got 'http://example.com/ab'"
+      ]
+    },
+    {
+      "name": "2.0.0:ascii_newline_removed_in_query",
+      "version": "2.0.0",
+      "capability": "url.input-trimming.ascii-tab-newline",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?a=bc",
+        "search": "?a=bc"
+      },
+      "actual": {
+        "href": "http://example.com/?a=bc",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "?a=bc",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?a=bc__mutant__",
+        "search": "?a=bc"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?a=bc__mutant__', got 'http://example.com/?a=bc'"
+      ]
+    },
+    {
+      "name": "2.0.1:hostname_setter_updates_host",
+      "version": "2.0.1",
+      "capability": "url.setter.hostname",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.org/a",
+        "hostname": "example.org"
+      },
+      "actual": {
+        "href": "http://example.org/a",
+        "origin": "http://example.org",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.org",
+        "hostname": "example.org",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.org/a__mutant__",
+        "hostname": "example.org"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.org/a__mutant__', got 'http://example.org/a'"
+      ]
+    },
+    {
+      "name": "2.0.1:search_setter_accepts_value_without_question_mark",
+      "version": "2.0.1",
+      "capability": "url.setter.search",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/a?x=1%20y=2",
+        "search": "?x=1%20y=2"
+      },
+      "actual": {
+        "href": "http://example.com/a?x=1%20y=2",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "?x=1%20y=2",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/a?x=1%20y=2__mutant__",
+        "search": "?x=1%20y=2"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/a?x=1%20y=2__mutant__', got 'http://example.com/a?x=1%20y=2'"
+      ]
+    },
+    {
+      "name": "2.0.1:search_setter_empty_removes_query",
+      "version": "2.0.1",
+      "capability": "url.setter.search",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/a",
+        "search": ""
+      },
+      "actual": {
+        "href": "http://example.com/a",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/a__mutant__",
+        "search": ""
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/a__mutant__', got 'http://example.com/a'"
+      ]
+    },
+    {
+      "name": "3.0.0:scheme_may_contain_digits_after_first_character",
+      "version": "3.0.0",
+      "capability": "url.scheme.syntax",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "h3://example/path",
+        "protocol": "h3:"
+      },
+      "actual": {
+        "href": "h3://example/path",
+        "origin": "null",
+        "protocol": "h3:",
+        "username": "",
+        "password": "",
+        "host": "example",
+        "hostname": "example",
+        "port": "",
+        "pathname": "/path",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "h3://example/path__mutant__",
+        "protocol": "h3:"
+      },
+      "mutant_failures": [
+        "href: expected 'h3://example/path__mutant__', got 'h3://example/path'"
+      ]
+    },
+    {
+      "name": "3.0.0:url_constructor_throws_on_absolute_parse_failure",
+      "version": "3.0.0",
+      "capability": "url.parse.failure-surface",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://[::1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "3.0.0:href_setter_ignores_parse_failure",
+      "version": "3.0.0",
+      "capability": "url.setter.failure-ignores",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "https://example.com/a"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://[::1",
+        "href": "https://example.com/a",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "https://example.com/a__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'https://example.com/a__mutant__', got 'https://example.com/a'"
+      ]
+    },
+    {
+      "name": "3.1.0:file_base_parent_resolution_keeps_drive_letter",
+      "version": "3.1.0",
+      "capability": "url.file.relative-resolution",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///C:/b",
+        "pathname": "/C:/b"
+      },
+      "actual": {
+        "href": "file:///C:/b",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/C:/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///C:/b__mutant__",
+        "pathname": "/C:/b"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///C:/b__mutant__', got 'file:///C:/b'"
+      ]
+    },
+    {
+      "name": "3.1.0:file_base_current_directory_resolution_keeps_drive_letter",
+      "version": "3.1.0",
+      "capability": "url.file.relative-resolution",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///C:/a/b"
+      },
+      "actual": {
+        "href": "file:///C:/a/b",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/C:/a/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///C:/a/b__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///C:/a/b__mutant__', got 'file:///C:/a/b'"
+      ]
+    },
+    {
+      "name": "4.0.0:url_constructor_has_no_domain_to_ascii_static",
+      "version": "4.0.0",
+      "capability": "url.api.removed-domain-statics",
+      "op": "static_presence",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "present": false
+      },
+      "actual": {
+        "present": false
+      },
+      "failures": [],
+      "mutant_expected": {
+        "present": true
+      },
+      "mutant_failures": [
+        "present: expected True, got False"
+      ]
+    },
+    {
+      "name": "4.0.0:url_constructor_has_no_domain_to_unicode_static",
+      "version": "4.0.0",
+      "capability": "url.api.removed-domain-statics",
+      "op": "static_presence",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "present": false
+      },
+      "actual": {
+        "present": false
+      },
+      "failures": [],
+      "mutant_expected": {
+        "present": true
+      },
+      "mutant_failures": [
+        "present: expected True, got False"
+      ]
+    },
+    {
+      "name": "4.1.0:hash_setter_percent_encodes_non_ascii",
+      "version": "4.1.0",
+      "capability": "url.fragment.percent-encode-unicode",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/a#%C3%A9",
+        "hash": "#%C3%A9"
+      },
+      "actual": {
+        "href": "http://example.com/a#%C3%A9",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": "#%C3%A9"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/a#%C3%A9__mutant__",
+        "hash": "#%C3%A9"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/a#%C3%A9__mutant__', got 'http://example.com/a#%C3%A9'"
+      ]
+    },
+    {
+      "name": "4.2.0:empty_password_serializes_colon_when_username_present",
+      "version": "4.2.0",
+      "capability": "url.credentials.empty-password",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://user@example.com/",
+        "username": "user",
+        "password": ""
+      },
+      "actual": {
+        "href": "http://user@example.com/",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "user",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://user@example.com/__mutant__",
+        "username": "user",
+        "password": ""
+      },
+      "mutant_failures": [
+        "href: expected 'http://user@example.com/__mutant__', got 'http://user@example.com/'"
+      ]
+    },
+    {
+      "name": "4.2.0:encoded_dot_in_path_is_not_always_decoded",
+      "version": "4.2.0",
+      "capability": "url.path.encoded-dot",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/b",
+        "pathname": "/b"
+      },
+      "actual": {
+        "href": "http://example.com/b",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/b__mutant__",
+        "pathname": "/b"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/b__mutant__', got 'http://example.com/b'"
+      ]
+    },
+    {
+      "name": "4.2.0:double_encoded_dot_segment_is_preserved",
+      "version": "4.2.0",
+      "capability": "url.path.encoded-dot",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/a/%252e%252e/b",
+        "pathname": "/a/%252e%252e/b"
+      },
+      "actual": {
+        "href": "http://example.com/a/%252e%252e/b",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a/%252e%252e/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/a/%252e%252e/b__mutant__",
+        "pathname": "/a/%252e%252e/b"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/a/%252e%252e/b__mutant__', got 'http://example.com/a/%252e%252e/b'"
+      ]
+    },
+    {
+      "name": "4.3.0:low_level_scheme_state_override_failure_returns_null",
+      "version": "4.3.0",
+      "capability": "url.low-level.state-override",
+      "op": "low_level_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isNull": true
+      },
+      "actual": {
+        "isNull": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isNull": false
+      },
+      "mutant_failures": [
+        "isNull: expected False, got True"
+      ]
+    },
+    {
+      "name": "4.3.0:ipv6_embedded_invalid_ipv4_fails",
+      "version": "4.3.0",
+      "capability": "url.host.ipv6",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://[::ffff:999.0.0.1]/"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "4.3.0:ipv6_serializer_compresses_trailing_zero_run",
+      "version": "4.3.0",
+      "capability": "url.host.ipv6-serialization",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "host": "[2001:db8::]",
+        "href": "http://[2001:db8::]/"
+      },
+      "actual": {
+        "href": "http://[2001:db8::]/",
+        "origin": "http://[2001:db8::]",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "[2001:db8::]",
+        "hostname": "[2001:db8::]",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "host": "[2001:db8::]__mutant__",
+        "href": "http://[2001:db8::]/"
+      },
+      "mutant_failures": [
+        "host: expected '[2001:db8::]__mutant__', got '[2001:db8::]'"
+      ]
+    },
+    {
+      "name": "4.4.0:non_special_host_preserves_percent_encoded_delimiter",
+      "version": "4.4.0",
+      "capability": "url.non-special.host",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "foo://exa%23mple/",
+        "host": "exa%23mple",
+        "hostname": "exa%23mple"
+      },
+      "actual": {
+        "href": "foo://exa%23mple/",
+        "origin": "null",
+        "protocol": "foo:",
+        "username": "",
+        "password": "",
+        "host": "exa%23mple",
+        "hostname": "exa%23mple",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "foo://exa%23mple/__mutant__",
+        "host": "exa%23mple",
+        "hostname": "exa%23mple"
+      },
+      "mutant_failures": [
+        "href: expected 'foo://exa%23mple/__mutant__', got 'foo://exa%23mple/'"
+      ]
+    },
+    {
+      "name": "4.4.0:non_special_url_can_have_empty_host",
+      "version": "4.4.0",
+      "capability": "url.non-special.empty-host",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "foo:///path",
+        "host": "",
+        "pathname": "/path"
+      },
+      "actual": {
+        "href": "foo:///path",
+        "origin": "null",
+        "protocol": "foo:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/path",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "foo:///path__mutant__",
+        "host": "",
+        "pathname": "/path"
+      },
+      "mutant_failures": [
+        "href: expected 'foo:///path__mutant__', got 'foo:///path'"
+      ]
+    },
+    {
+      "name": "4.4.0:non_special_path_preserves_backslash",
+      "version": "4.4.0",
+      "capability": "url.non-special.path",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "foo://example/a\\b",
+        "pathname": "/a\\b"
+      },
+      "actual": {
+        "href": "foo://example/a\\b",
+        "origin": "null",
+        "protocol": "foo:",
+        "username": "",
+        "password": "",
+        "host": "example",
+        "hostname": "example",
+        "port": "",
+        "pathname": "/a\\b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "foo://example/a\\b__mutant__",
+        "pathname": "/a\\b"
+      },
+      "mutant_failures": [
+        "href: expected 'foo://example/a\\\\b__mutant__', got 'foo://example/a\\\\b'"
+      ]
+    },
+    {
+      "name": "4.4.0:pathless_file_url_serializes_with_empty_path",
+      "version": "4.4.0",
+      "capability": "url.file.pathless",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file://host/",
+        "host": "host",
+        "pathname": "/"
+      },
+      "actual": {
+        "href": "file://host/",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "host",
+        "hostname": "host",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file://host/__mutant__",
+        "host": "host",
+        "pathname": "/"
+      },
+      "mutant_failures": [
+        "href: expected 'file://host/__mutant__', got 'file://host/'"
+      ]
+    },
+    {
+      "name": "4.4.0:file_url_username_setter_noops",
+      "version": "4.4.0",
+      "capability": "url.setter.credentials.file-noop",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///tmp/a",
+        "username": ""
+      },
+      "actual": {
+        "href": "file:///tmp/a",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/tmp/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///tmp/a__mutant__",
+        "username": ""
+      },
+      "mutant_failures": [
+        "href: expected 'file:///tmp/a__mutant__', got 'file:///tmp/a'"
+      ]
+    },
+    {
+      "name": "4.4.0:non_special_credentials_are_serialized",
+      "version": "4.4.0",
+      "capability": "url.setter.credentials.non-special",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "foo://u%20s@example/path",
+        "username": "u%20s"
+      },
+      "actual": {
+        "href": "foo://u%20s@example/path",
+        "origin": "null",
+        "protocol": "foo:",
+        "username": "u%20s",
+        "password": "",
+        "host": "example",
+        "hostname": "example",
+        "port": "",
+        "pathname": "/path",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "foo://u%20s@example/path__mutant__",
+        "username": "u%20s"
+      },
+      "mutant_failures": [
+        "href: expected 'foo://u%20s@example/path__mutant__', got 'foo://u%20s@example/path'"
+      ]
+    },
+    {
+      "name": "4.4.0:url_tojson_returns_href",
+      "version": "4.4.0",
+      "capability": "url.api.toJSON",
+      "op": "method_call",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "https://example.com/a?x=1"
+      },
+      "actual": {
+        "value": "https://example.com/a?x=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "https://example.com/a?x=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'https://example.com/a?x=1__mutant__', got 'https://example.com/a?x=1'"
+      ]
+    },
+    {
+      "name": "4.4.0:replacement_character_percent_encodes",
+      "version": "4.4.0",
+      "capability": "url.percent-encode.replacement-character",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/%EF%BF%BD",
+        "pathname": "/%EF%BF%BD"
+      },
+      "actual": {
+        "href": "http://example.com/%EF%BF%BD",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/%EF%BF%BD",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/%EF%BF%BD__mutant__",
+        "pathname": "/%EF%BF%BD"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/%EF%BF%BD__mutant__', got 'http://example.com/%EF%BF%BD'"
+      ]
+    },
+    {
+      "name": "4.5.0:idna_nontransitional_preserves_sharp_s_as_punycode",
+      "version": "4.5.0",
+      "capability": "url.host.idna-nontransitional",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "hostname": "xn--fa-hia.de",
+        "href": "https://xn--fa-hia.de/"
+      },
+      "actual": {
+        "href": "https://xn--fa-hia.de/",
+        "origin": "https://xn--fa-hia.de",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "xn--fa-hia.de",
+        "hostname": "xn--fa-hia.de",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "hostname": "xn--fa-hia.de__mutant__",
+        "href": "https://xn--fa-hia.de/"
+      },
+      "mutant_failures": [
+        "hostname: expected 'xn--fa-hia.de__mutant__', got 'xn--fa-hia.de'"
+      ]
+    },
+    {
+      "name": "4.6.0:protocol_setter_noops_when_credentials_present",
+      "version": "4.6.0",
+      "capability": "url.setter.protocol-credentials-port",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://u@example.com/a",
+        "protocol": "http:"
+      },
+      "actual": {
+        "href": "http://u@example.com/a",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "u",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://u@example.com/a__mutant__",
+        "protocol": "http:"
+      },
+      "mutant_failures": [
+        "href: expected 'http://u@example.com/a__mutant__', got 'http://u@example.com/a'"
+      ]
+    },
+    {
+      "name": "4.6.0:protocol_setter_noops_when_port_present",
+      "version": "4.6.0",
+      "capability": "url.setter.protocol-credentials-port",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com:81/a",
+        "protocol": "http:"
+      },
+      "actual": {
+        "href": "http://example.com:81/a",
+        "origin": "http://example.com:81",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com:81",
+        "hostname": "example.com",
+        "port": "81",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com:81/a__mutant__",
+        "protocol": "http:"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com:81/a__mutant__', got 'http://example.com:81/a'"
+      ]
+    },
+    {
+      "name": "4.7.0:file_url_trims_extra_leading_path_slashes",
+      "version": "4.7.0",
+      "capability": "url.file.leading-slashes",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file://///server/share",
+        "pathname": "///server/share"
+      },
+      "actual": {
+        "href": "file://///server/share",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "///server/share",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file://///server/share__mutant__",
+        "pathname": "///server/share"
+      },
+      "mutant_failures": [
+        "href: expected 'file://///server/share__mutant__', got 'file://///server/share'"
+      ]
+    },
+    {
+      "name": "4.7.1:domain_with_empty_label_example_parses",
+      "version": "4.7.1",
+      "capability": "url.host.empty-label",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://../",
+        "hostname": ".."
+      },
+      "actual": {
+        "href": "http://../",
+        "origin": "http://..",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "..",
+        "hostname": "..",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://../__mutant__",
+        "hostname": ".."
+      },
+      "mutant_failures": [
+        "href: expected 'http://../__mutant__', got 'http://../'"
+      ]
+    },
+    {
+      "name": "4.8.0:file_url_windows_drive_letter_from_base",
+      "version": "4.8.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///D:/x",
+        "pathname": "/D:/x"
+      },
+      "actual": {
+        "href": "file:///D:/x",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/D:/x",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///D:/x__mutant__",
+        "pathname": "/D:/x"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///D:/x__mutant__', got 'file:///D:/x'"
+      ]
+    },
+    {
+      "name": "4.8.0:file_url_relative_keeps_windows_drive_base",
+      "version": "4.8.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///C:/a/x"
+      },
+      "actual": {
+        "href": "file:///C:/a/x",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/C:/a/x",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///C:/a/x__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///C:/a/x__mutant__', got 'file:///C:/a/x'"
+      ]
+    },
+    {
+      "name": "5.0.0:origin_serialization_uses_ascii_domain",
+      "version": "5.0.0",
+      "capability": "url.origin.ascii",
+      "op": "origin",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "origin": "https://xn--g6w251d.example"
+      },
+      "actual": {
+        "origin": "https://xn--g6w251d.example"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "origin": "https://xn--g6w251d.example__mutant__"
+      },
+      "mutant_failures": [
+        "origin: expected 'https://xn--g6w251d.example__mutant__', got 'https://xn--g6w251d.example'"
+      ]
+    },
+    {
+      "name": "6.0.0:url_searchparams_gets_duplicate_values",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.basic",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "actual": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "failures": [],
+      "mutant_expected": {
+        "values": [
+          "2",
+          "1"
+        ],
+        "size": 3
+      },
+      "mutant_failures": [
+        "values: expected ['2', '1'], got ['1', '2']"
+      ]
+    },
+    {
+      "name": "6.0.0:url_searchparams_parent_url_updates_after_append",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.parent-url",
+      "op": "searchparams_parent",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2"
+      },
+      "actual": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2",
+        "value": "a=1&b=2",
+        "size": 2
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?a=1&b=2__mutant__",
+        "search": "?a=1&b=2"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?a=1&b=2__mutant__', got 'http://example.com/?a=1&b=2'"
+      ]
+    },
+    {
+      "name": "6.0.0:url_searchparams_spaces_serialize_as_plus",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.form-urlencode",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=x+y"
+      },
+      "actual": {
+        "value": "a=x+y"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=x+y__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=x+y__mutant__', got 'a=x+y'"
+      ]
+    },
+    {
+      "name": "6.0.0:public_percent_decode_decodes_utf8_sequence",
+      "version": "6.0.0",
+      "capability": "url.api.percent-decode",
+      "op": "percent_decode_string",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "✓"
+      },
+      "actual": {
+        "hex": "e29c93",
+        "value": "✓"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "✓__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected '✓__mutant__', got '✓'"
+      ]
+    },
+    {
+      "name": "6.0.0:file_url_cannot_have_username_password_port",
+      "version": "6.0.0",
+      "capability": "url.low-level.credentials-port-policy",
+      "op": "cannot_have_credentials_port",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "6.0.0:http_url_can_have_username_password_port",
+      "version": "6.0.0",
+      "capability": "url.low-level.credentials-port-policy",
+      "op": "cannot_have_credentials_port",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": false
+      },
+      "actual": {
+        "value": false
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": true
+      },
+      "mutant_failures": [
+        "value: expected True, got False"
+      ]
+    },
+    {
+      "name": "6.0.0:low_level_parse_failure_returns_null",
+      "version": "6.0.0",
+      "capability": "url.low-level.failure-null",
+      "op": "low_level_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isNull": true
+      },
+      "actual": {
+        "isNull": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isNull": false
+      },
+      "mutant_failures": [
+        "isNull: expected False, got True"
+      ]
+    },
+    {
+      "name": "6.0.0:url_symbol_tostringtag_is_url",
+      "version": "6.0.0",
+      "capability": "url.webidl.to-string-tag",
+      "op": "object_tag",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "[object URL]"
+      },
+      "actual": {
+        "value": "[object URL]"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "[object URL]__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected '[object URL]__mutant__', got '[object URL]'"
+      ]
+    },
+    {
+      "name": "6.0.0:urlsearchparams_symbol_tostringtag_is_urlsearchparams",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.webidl.to-string-tag",
+      "op": "object_tag",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "[object URLSearchParams]"
+      },
+      "actual": {
+        "value": "[object URLSearchParams]"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "[object URLSearchParams]__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected '[object URLSearchParams]__mutant__', got '[object URLSearchParams]'"
+      ]
+    },
+    {
+      "name": "6.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "actual": {
+        "value": "a=1&a=0&b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1&a=0&b=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1&a=0&b=2__mutant__', got 'a=1&a=0&b=2'"
+      ]
+    },
+    {
+      "name": "6.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "actual": {
+        "value": "a=4&b=3"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=4&b=3__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=4&b=3__mutant__', got 'a=4&b=3'"
+      ]
+    },
+    {
+      "name": "6.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "6.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1"
+      },
+      "actual": {
+        "value": "a=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1__mutant__', got 'a=1'"
+      ]
+    },
+    {
+      "name": "6.1.0:protocol_setter_resets_new_default_port",
+      "version": "6.1.0",
+      "capability": "url.setter.scheme-default-port",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "https://example.com/a",
+        "protocol": "https:",
+        "port": ""
+      },
+      "actual": {
+        "href": "https://example.com/a",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "https://example.com/a__mutant__",
+        "protocol": "https:",
+        "port": ""
+      },
+      "mutant_failures": [
+        "href: expected 'https://example.com/a__mutant__', got 'https://example.com/a'"
+      ]
+    },
+    {
+      "name": "6.2.0:searchparams_delete_last_param_removes_question_mark",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.parent-url-empty",
+      "op": "searchparams_parent",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/",
+        "search": ""
+      },
+      "actual": {
+        "href": "http://example.com/",
+        "search": "",
+        "value": "",
+        "size": 0
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/__mutant__",
+        "search": ""
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/__mutant__', got 'http://example.com/'"
+      ]
+    },
+    {
+      "name": "6.2.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "actual": {
+        "value": "a=1&a=0&b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1&a=0&b=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1&a=0&b=2__mutant__', got 'a=1&a=0&b=2'"
+      ]
+    },
+    {
+      "name": "6.2.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "actual": {
+        "value": "a=4&b=3"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=4&b=3__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=4&b=3__mutant__', got 'a=4&b=3'"
+      ]
+    },
+    {
+      "name": "6.2.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "6.2.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1"
+      },
+      "actual": {
+        "value": "a=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1__mutant__', got 'a=1'"
+      ]
+    },
+    {
+      "name": "6.3.0:file_url_windows_drive_letter_from_base",
+      "version": "6.3.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///D:/x",
+        "pathname": "/D:/x"
+      },
+      "actual": {
+        "href": "file:///D:/x",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/D:/x",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///D:/x__mutant__",
+        "pathname": "/D:/x"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///D:/x__mutant__', got 'file:///D:/x'"
+      ]
+    },
+    {
+      "name": "6.3.0:file_url_relative_keeps_windows_drive_base",
+      "version": "6.3.0",
+      "capability": "url.file.windows-drive",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///C:/a/x"
+      },
+      "actual": {
+        "href": "file:///C:/a/x",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/C:/a/x",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///C:/a/x__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///C:/a/x__mutant__', got 'file:///C:/a/x'"
+      ]
+    },
+    {
+      "name": "6.4.0:special_query_percent_encodes_space",
+      "version": "6.4.0",
+      "capability": "url.query.percent-encode",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?q=a%20b",
+        "search": "?q=a%20b"
+      },
+      "actual": {
+        "href": "http://example.com/?q=a%20b",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "?q=a%20b",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?q=a%20b__mutant__",
+        "search": "?q=a%20b"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?q=a%20b__mutant__', got 'http://example.com/?q=a%20b'"
+      ]
+    },
+    {
+      "name": "6.4.0:non_special_query_percent_encodes_backtick",
+      "version": "6.4.0",
+      "capability": "url.query.percent-encode",
+      "op": "parse_url",
+      "replay_ok": false,
+      "mutant_killed": true,
+      "survived_latest": false,
+      "expected": {
+        "href": "foo://example/?q=%60"
+      },
+      "actual": {
+        "href": "foo://example/?q=`",
+        "origin": "null",
+        "protocol": "foo:",
+        "username": "",
+        "password": "",
+        "host": "example",
+        "hostname": "example",
+        "port": "",
+        "pathname": "/",
+        "search": "?q=`",
+        "hash": ""
+      },
+      "failures": [
+        "href: expected 'foo://example/?q=%60', got 'foo://example/?q=`'"
+      ],
+      "mutant_expected": {
+        "href": "foo://example/?q=%60__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'foo://example/?q=%60__mutant__', got 'foo://example/?q=`'"
+      ]
+    },
+    {
+      "name": "6.4.1:href_setter_updates_existing_searchparams_view",
+      "version": "6.4.1",
+      "capability": "url.setter.href-searchparams-sync",
+      "op": "href_setter_searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "2",
+        "href": "http://example.com/?b=2"
+      },
+      "actual": {
+        "href": "http://example.com/?b=2",
+        "search": "?b=2",
+        "value": "2",
+        "serialized": "b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "2__mutant__",
+        "href": "http://example.com/?b=2"
+      },
+      "mutant_failures": [
+        "value: expected '2__mutant__', got '2'"
+      ]
+    },
+    {
+      "name": "6.5.0:special_scheme_query_percent_encodes_apostrophe",
+      "version": "6.5.0",
+      "capability": "url.query.percent-encode-special",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?q=%27",
+        "search": "?q=%27"
+      },
+      "actual": {
+        "href": "http://example.com/?q=%27",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "?q=%27",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?q=%27__mutant__",
+        "search": "?q=%27"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?q=%27__mutant__', got 'http://example.com/?q=%27'"
+      ]
+    },
+    {
+      "name": "7.0.0:file_url_origin_serializes_null",
+      "version": "7.0.0",
+      "capability": "url.origin.file-opaque",
+      "op": "origin",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "origin": "null"
+      },
+      "actual": {
+        "origin": "null"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "origin": "null__mutant__"
+      },
+      "mutant_failures": [
+        "origin: expected 'null__mutant__', got 'null'"
+      ]
+    },
+    {
+      "name": "7.0.0:invalid_constructor_error_message_contains_input",
+      "version": "7.0.0",
+      "capability": "url.error-message.invalid-input",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError",
+        "messageContains": "http://[::1"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://[::1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__",
+        "messageContains": "http://[::1"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "7.1.0:gopher_is_not_special_scheme",
+      "version": "7.1.0",
+      "capability": "url.scheme.gopher-not-special",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "gopher://example.com:70/1",
+        "origin": "null"
+      },
+      "actual": {
+        "href": "gopher://example.com:70/1",
+        "origin": "null",
+        "protocol": "gopher:",
+        "username": "",
+        "password": "",
+        "host": "example.com:70",
+        "hostname": "example.com",
+        "port": "70",
+        "pathname": "/1",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "gopher://example.com:70/1__mutant__",
+        "origin": "null"
+      },
+      "mutant_failures": [
+        "href: expected 'gopher://example.com:70/1__mutant__', got 'gopher://example.com:70/1'"
+      ]
+    },
+    {
+      "name": "8.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "8.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "actual": {
+        "value": "a=1&a=0&b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1&a=0&b=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1&a=0&b=2__mutant__', got 'a=1&a=0&b=2'"
+      ]
+    },
+    {
+      "name": "8.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "8.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "actual": {
+        "value": "a=4&b=3"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=4&b=3__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=4&b=3__mutant__', got 'a=4&b=3'"
+      ]
+    },
+    {
+      "name": "8.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "8.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1"
+      },
+      "actual": {
+        "value": "a=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1__mutant__', got 'a=1'"
+      ]
+    },
+    {
+      "name": "8.1.0:fragment_null_code_point_is_percent_encoded",
+      "version": "8.1.0",
+      "capability": "url.fragment.null-percent-encode",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/#%00",
+        "hash": "#%00"
+      },
+      "actual": {
+        "href": "http://example.com/#%00",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": "#%00"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/#%00__mutant__",
+        "hash": "#%00"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/#%00__mutant__', got 'http://example.com/#%00'"
+      ]
+    },
+    {
+      "name": "8.1.0:file_host_empty_after_toascii_fails",
+      "version": "8.1.0",
+      "capability": "url.file.empty-host-toascii-failure",
+      "op": "construct_failure",
+      "replay_ok": false,
+      "mutant_killed": true,
+      "survived_latest": false,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": null
+      },
+      "failures": [
+        "throws: expected 'TypeError', got None"
+      ],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got None"
+      ]
+    },
+    {
+      "name": "8.2.0:host_rejects_less_than",
+      "version": "8.2.0",
+      "capability": "url.host.forbidden-code-point",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://exa<mple.org/"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "8.2.0:host_rejects_greater_than",
+      "version": "8.2.0",
+      "capability": "url.host.forbidden-code-point",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://exa>mple.org/"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "8.2.0:host_rejects_caret",
+      "version": "8.2.0",
+      "capability": "url.host.forbidden-code-point",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://exa^mple.org/"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "8.2.0:non_special_parse_serialize_parse_is_idempotent",
+      "version": "8.2.0",
+      "capability": "url.non-special.idempotent",
+      "op": "roundtrip",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "stable": true
+      },
+      "actual": {
+        "stable": true,
+        "href": "foo:////example.com/%2F?x=%2F#%2F"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "stable": false
+      },
+      "mutant_failures": [
+        "stable: expected False, got True"
+      ]
+    },
+    {
+      "name": "8.2.2:percent_decode_bytes_returns_uint8array",
+      "version": "8.2.2",
+      "capability": "url.api.percent-decode-bytes",
+      "op": "percent_decode_bytes",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "constructor": "Uint8Array",
+        "hex": "4142"
+      },
+      "actual": {
+        "constructor": "Uint8Array",
+        "hex": "4142"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "constructor": "Uint8Array__mutant__",
+        "hex": "4142"
+      },
+      "mutant_failures": [
+        "constructor: expected 'Uint8Array__mutant__', got 'Uint8Array'"
+      ]
+    },
+    {
+      "name": "8.3.0:file_path_normalizes_dot_segments",
+      "version": "8.3.0",
+      "capability": "url.file.path-normalization",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "file:///a/c",
+        "pathname": "/a/c"
+      },
+      "actual": {
+        "href": "file:///a/c",
+        "origin": "null",
+        "protocol": "file:",
+        "username": "",
+        "password": "",
+        "host": "",
+        "hostname": "",
+        "port": "",
+        "pathname": "/a/c",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "file:///a/c__mutant__",
+        "pathname": "/a/c"
+      },
+      "mutant_failures": [
+        "href: expected 'file:///a/c__mutant__', got 'file:///a/c'"
+      ]
+    },
+    {
+      "name": "8.4.0:file_parse_serialize_parse_is_idempotent",
+      "version": "8.4.0",
+      "capability": "url.file.idempotent",
+      "op": "roundtrip",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "stable": true
+      },
+      "actual": {
+        "stable": true,
+        "href": "file:////host//b"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "stable": false
+      },
+      "mutant_failures": [
+        "stable: expected False, got True"
+      ]
+    },
+    {
+      "name": "8.7.0:pathname_setter_empty_on_special_url_sets_root_path",
+      "version": "8.7.0",
+      "capability": "url.setter.pathname-empty",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/",
+        "pathname": "/"
+      },
+      "actual": {
+        "href": "http://example.com/",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/__mutant__",
+        "pathname": "/"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/__mutant__', got 'http://example.com/'"
+      ]
+    },
+    {
+      "name": "9.0.0:percent_decode_bytes_returns_uint8array",
+      "version": "9.0.0",
+      "capability": "url.api.percent-decode-bytes",
+      "op": "percent_decode_bytes",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "constructor": "Uint8Array",
+        "hex": "4142"
+      },
+      "actual": {
+        "constructor": "Uint8Array",
+        "hex": "4142"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "constructor": "Uint8Array__mutant__",
+        "hex": "4142"
+      },
+      "mutant_failures": [
+        "constructor: expected 'Uint8Array__mutant__', got 'Uint8Array'"
+      ]
+    },
+    {
+      "name": "9.0.0:percent_decode_string_export_decodes_without_utf8_decoding",
+      "version": "9.0.0",
+      "capability": "url.api.percent-decode-string",
+      "op": "percent_decode_string",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "ABC"
+      },
+      "actual": {
+        "hex": "414243",
+        "value": "ABC"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "ABC__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'ABC__mutant__', got 'ABC'"
+      ]
+    },
+    {
+      "name": "9.1.0:host_ending_in_number_but_not_ipv4_fails",
+      "version": "9.1.0",
+      "capability": "url.host.numeric-ending",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://example.0/"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "9.1.0:valid_ipv4_number_host_still_parses",
+      "version": "9.1.0",
+      "capability": "url.host.ipv4",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "hostname": "127.0.0.1",
+        "host": "127.0.0.1"
+      },
+      "actual": {
+        "href": "http://127.0.0.1/",
+        "origin": "http://127.0.0.1",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "127.0.0.1",
+        "hostname": "127.0.0.1",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "hostname": "127.0.0.1__mutant__",
+        "host": "127.0.0.1"
+      },
+      "mutant_failures": [
+        "hostname: expected '127.0.0.1__mutant__', got '127.0.0.1'"
+      ]
+    },
+    {
+      "name": "11.0.0:serialize_path_supports_opaque_path_records",
+      "version": "11.0.0",
+      "capability": "url.low-level.serialize-path",
+      "op": "serialize_path",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "user@example.com"
+      },
+      "actual": {
+        "value": "user@example.com"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "user@example.com__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'user@example.com__mutant__', got 'user@example.com'"
+      ]
+    },
+    {
+      "name": "11.0.0:has_opaque_path_true_for_mailto",
+      "version": "11.0.0",
+      "capability": "url.low-level.opaque-path",
+      "op": "has_opaque_path",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "11.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "11.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "actual": {
+        "value": "a=1&a=0&b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1&a=0&b=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1&a=0&b=2__mutant__', got 'a=1&a=0&b=2'"
+      ]
+    },
+    {
+      "name": "11.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "11.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "actual": {
+        "value": "a=4&b=3"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=4&b=3__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=4&b=3__mutant__', got 'a=4&b=3'"
+      ]
+    },
+    {
+      "name": "11.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "11.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1"
+      },
+      "actual": {
+        "value": "a=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1__mutant__', got 'a=1'"
+      ]
+    },
+    {
+      "name": "12.0.0:url_searchparams_gets_duplicate_values",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.basic",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "actual": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "failures": [],
+      "mutant_expected": {
+        "values": [
+          "2",
+          "1"
+        ],
+        "size": 3
+      },
+      "mutant_failures": [
+        "values: expected ['2', '1'], got ['1', '2']"
+      ]
+    },
+    {
+      "name": "12.0.0:url_searchparams_parent_url_updates_after_append",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.parent-url",
+      "op": "searchparams_parent",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2"
+      },
+      "actual": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2",
+        "value": "a=1&b=2",
+        "size": 2
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?a=1&b=2__mutant__",
+        "search": "?a=1&b=2"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?a=1&b=2__mutant__', got 'http://example.com/?a=1&b=2'"
+      ]
+    },
+    {
+      "name": "12.0.0:url_searchparams_spaces_serialize_as_plus",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.form-urlencode",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=x+y"
+      },
+      "actual": {
+        "value": "a=x+y"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=x+y__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=x+y__mutant__', got 'a=x+y'"
+      ]
+    },
+    {
+      "name": "12.0.0:special_url_rejects_forbidden_domain_character",
+      "version": "12.0.0",
+      "capability": "url.host.special-vs-generic",
+      "op": "construct_failure",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": "TypeError",
+        "message": "Invalid URL: http://exa%mple.org/"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got 'TypeError'"
+      ]
+    },
+    {
+      "name": "12.0.0:non_special_opaque_host_allows_percent_escape",
+      "version": "12.0.0",
+      "capability": "url.host.special-vs-generic",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "foo://exa%mple.org/",
+        "hostname": "exa%mple.org"
+      },
+      "actual": {
+        "href": "foo://exa%mple.org/",
+        "origin": "null",
+        "protocol": "foo:",
+        "username": "",
+        "password": "",
+        "host": "exa%mple.org",
+        "hostname": "exa%mple.org",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "foo://exa%mple.org/__mutant__",
+        "hostname": "exa%mple.org"
+      },
+      "mutant_failures": [
+        "href: expected 'foo://exa%mple.org/__mutant__', got 'foo://exa%mple.org/'"
+      ]
+    },
+    {
+      "name": "12.0.0:search_setter_encodes_hash_to_preserve_roundtrip",
+      "version": "12.0.0",
+      "capability": "url.setter.roundtrip-search-hash",
+      "op": "set_component",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?a%23b",
+        "search": "?a%23b"
+      },
+      "actual": {
+        "href": "http://example.com/?a%23b",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "?a%23b",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?a%23b__mutant__",
+        "search": "?a%23b"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?a%23b__mutant__', got 'http://example.com/?a%23b'"
+      ]
+    },
+    {
+      "name": "12.0.0:urlsearchparams_set_encodes_hash_to_preserve_roundtrip",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.roundtrip-hash",
+      "op": "searchparams_parent",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?a=%23b"
+      },
+      "actual": {
+        "href": "http://example.com/?a=%23b",
+        "search": "?a=%23b",
+        "value": "a=%23b",
+        "size": 1
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?a=%23b__mutant__"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?a=%23b__mutant__', got 'http://example.com/?a=%23b'"
+      ]
+    },
+    {
+      "name": "12.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "actual": {
+        "value": "a=1&a=0&b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1&a=0&b=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1&a=0&b=2__mutant__', got 'a=1&a=0&b=2'"
+      ]
+    },
+    {
+      "name": "12.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "actual": {
+        "value": "a=4&b=3"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=4&b=3__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=4&b=3__mutant__', got 'a=4&b=3'"
+      ]
+    },
+    {
+      "name": "12.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "12.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1"
+      },
+      "actual": {
+        "value": "a=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1__mutant__', got 'a=1'"
+      ]
+    },
+    {
+      "name": "12.0.1:invalid_punycode_label_fails",
+      "version": "12.0.1",
+      "capability": "url.host.idna-punycode-validation",
+      "op": "construct_failure",
+      "replay_ok": false,
+      "mutant_killed": true,
+      "survived_latest": false,
+      "expected": {
+        "throws": "TypeError"
+      },
+      "actual": {
+        "throws": null
+      },
+      "failures": [
+        "throws: expected 'TypeError', got None"
+      ],
+      "mutant_expected": {
+        "throws": "TypeError__mutant__"
+      },
+      "mutant_failures": [
+        "throws: expected 'TypeError__mutant__', got None"
+      ]
+    },
+    {
+      "name": "12.0.1:punycode_label_followed_by_empty_label_parses",
+      "version": "12.0.1",
+      "capability": "url.host.idna-empty-label",
+      "op": "can_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "13.0.0:url_searchparams_gets_duplicate_values",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.basic",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "actual": {
+        "values": [
+          "1",
+          "2"
+        ],
+        "size": 3
+      },
+      "failures": [],
+      "mutant_expected": {
+        "values": [
+          "2",
+          "1"
+        ],
+        "size": 3
+      },
+      "mutant_failures": [
+        "values: expected ['2', '1'], got ['1', '2']"
+      ]
+    },
+    {
+      "name": "13.0.0:url_searchparams_parent_url_updates_after_append",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.parent-url",
+      "op": "searchparams_parent",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2"
+      },
+      "actual": {
+        "href": "http://example.com/?a=1&b=2",
+        "search": "?a=1&b=2",
+        "value": "a=1&b=2",
+        "size": 2
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/?a=1&b=2__mutant__",
+        "search": "?a=1&b=2"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/?a=1&b=2__mutant__', got 'http://example.com/?a=1&b=2'"
+      ]
+    },
+    {
+      "name": "13.0.0:url_searchparams_spaces_serialize_as_plus",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.form-urlencode",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=x+y"
+      },
+      "actual": {
+        "value": "a=x+y"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=x+y__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=x+y__mutant__', got 'a=x+y'"
+      ]
+    },
+    {
+      "name": "13.0.0:url_canparse_true_for_valid_absolute_url",
+      "version": "13.0.0",
+      "capability": "url.api.canParse",
+      "op": "can_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "13.0.0:url_canparse_false_for_invalid_absolute_url",
+      "version": "13.0.0",
+      "capability": "url.api.canParse",
+      "op": "can_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": false
+      },
+      "actual": {
+        "value": false
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": true
+      },
+      "mutant_failures": [
+        "value: expected True, got False"
+      ]
+    },
+    {
+      "name": "13.0.0:url_canparse_respects_base_url",
+      "version": "13.0.0",
+      "capability": "url.api.canParse",
+      "op": "can_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "13.0.0:urlsearchparams_size_counts_entries",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.size",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": 3
+      },
+      "actual": {
+        "value": 3
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": 4
+      },
+      "mutant_failures": [
+        "value: expected 4, got 3"
+      ]
+    },
+    {
+      "name": "13.0.0:urlsearchparams_has_name_value_pair",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.has-value",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "13.0.0:urlsearchparams_delete_name_value_pair_only",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.delete-value",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=2"
+      },
+      "actual": {
+        "value": "a=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=2__mutant__', got 'a=2'"
+      ]
+    },
+    {
+      "name": "13.0.0:blob_origin_for_non_http_inner_url_is_null",
+      "version": "13.0.0",
+      "capability": "url.origin.blob-non-http-null",
+      "op": "origin",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "origin": "null"
+      },
+      "actual": {
+        "origin": "null"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "origin": "null__mutant__"
+      },
+      "mutant_failures": [
+        "origin: expected 'null__mutant__', got 'null'"
+      ]
+    },
+    {
+      "name": "13.0.0:blob_origin_for_https_inner_url_uses_inner_origin",
+      "version": "13.0.0",
+      "capability": "url.origin.blob-http",
+      "op": "origin",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "origin": "https://example.com"
+      },
+      "actual": {
+        "origin": "https://example.com"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "origin": "https://example.com__mutant__"
+      },
+      "mutant_failures": [
+        "origin: expected 'https://example.com__mutant__', got 'https://example.com'"
+      ]
+    },
+    {
+      "name": "13.0.0:urlsearchparams_sort_orders_by_name_stably",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.sort",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1&a=0&b=2"
+      },
+      "actual": {
+        "value": "a=1&a=0&b=2"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1&a=0&b=2__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1&a=0&b=2__mutant__', got 'a=1&a=0&b=2'"
+      ]
+    },
+    {
+      "name": "13.0.0:urlsearchparams_set_replaces_all_existing_values",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.set",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=4&b=3"
+      },
+      "actual": {
+        "value": "a=4&b=3"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=4&b=3__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=4&b=3__mutant__', got 'a=4&b=3'"
+      ]
+    },
+    {
+      "name": "13.0.0:urlsearchparams_constructor_strips_leading_question_mark",
+      "version": "13.0.0",
+      "capability": "urlsearchparams.constructor",
+      "op": "searchparams",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": "a=1"
+      },
+      "actual": {
+        "value": "a=1"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": "a=1__mutant__"
+      },
+      "mutant_failures": [
+        "value: expected 'a=1__mutant__', got 'a=1'"
+      ]
+    },
+    {
+      "name": "13.0.0:static_parse_and_constructor_agree_on_href",
+      "version": "13.0.0",
+      "capability": "url.api.static-parse-agreement",
+      "op": "static_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "actual": {
+        "isNull": false,
+        "isURL": true,
+        "href": "https://example.com/b",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isURL": false,
+        "href": "https://example.com/b"
+      },
+      "mutant_failures": [
+        "isURL: expected False, got True"
+      ]
+    },
+    {
+      "name": "14.1.0:url_parse_returns_null_on_failure",
+      "version": "14.1.0",
+      "capability": "url.api.parse-static",
+      "op": "static_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isNull": true
+      },
+      "actual": {
+        "isNull": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isNull": false
+      },
+      "mutant_failures": [
+        "isNull: expected False, got True"
+      ]
+    },
+    {
+      "name": "14.1.0:url_parse_accepts_base",
+      "version": "14.1.0",
+      "capability": "url.api.parse-static",
+      "op": "static_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "actual": {
+        "isNull": false,
+        "isURL": true,
+        "href": "https://example.com/b",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isURL": false,
+        "href": "https://example.com/b"
+      },
+      "mutant_failures": [
+        "isURL: expected False, got True"
+      ]
+    },
+    {
+      "name": "14.1.0:static_parse_and_constructor_agree_on_href",
+      "version": "14.1.0",
+      "capability": "url.api.static-parse-agreement",
+      "op": "static_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "actual": {
+        "isNull": false,
+        "isURL": true,
+        "href": "https://example.com/b",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isURL": false,
+        "href": "https://example.com/b"
+      },
+      "mutant_failures": [
+        "isURL: expected False, got True"
+      ]
+    },
+    {
+      "name": "14.2.0:path_percent_encodes_caret",
+      "version": "14.2.0",
+      "capability": "url.path.percent-encode-caret",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "http://example.com/a%5Eb",
+        "pathname": "/a%5Eb"
+      },
+      "actual": {
+        "href": "http://example.com/a%5Eb",
+        "origin": "http://example.com",
+        "protocol": "http:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a%5Eb",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "http://example.com/a%5Eb__mutant__",
+        "pathname": "/a%5Eb"
+      },
+      "mutant_failures": [
+        "href: expected 'http://example.com/a%5Eb__mutant__', got 'http://example.com/a%5Eb'"
+      ]
+    },
+    {
+      "name": "14.2.0:opaque_path_with_space_roundtrips",
+      "version": "14.2.0",
+      "capability": "url.opaque-path.roundtrip",
+      "op": "roundtrip",
+      "replay_ok": false,
+      "mutant_killed": true,
+      "survived_latest": false,
+      "expected": {
+        "stable": true,
+        "href": "mailto:user%20name@example.com"
+      },
+      "actual": {
+        "stable": true,
+        "href": "mailto:user name@example.com"
+      },
+      "failures": [
+        "href: expected 'mailto:user%20name@example.com', got 'mailto:user name@example.com'"
+      ],
+      "mutant_expected": {
+        "stable": false,
+        "href": "mailto:user%20name@example.com"
+      },
+      "mutant_failures": [
+        "stable: expected False, got True",
+        "href: expected 'mailto:user%20name@example.com', got 'mailto:user name@example.com'"
+      ]
+    },
+    {
+      "name": "14.2.0:idna_unicode_domain_maps_to_ascii_14_2_0",
+      "version": "14.2.0",
+      "capability": "url.host.idna-unicode",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "hostname": "xn--g6w251d.example",
+        "href": "https://xn--g6w251d.example/"
+      },
+      "actual": {
+        "href": "https://xn--g6w251d.example/",
+        "origin": "https://xn--g6w251d.example",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "xn--g6w251d.example",
+        "hostname": "xn--g6w251d.example",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "hostname": "xn--g6w251d.example__mutant__",
+        "href": "https://xn--g6w251d.example/"
+      },
+      "mutant_failures": [
+        "hostname: expected 'xn--g6w251d.example__mutant__', got 'xn--g6w251d.example'"
+      ]
+    },
+    {
+      "name": "15.1.0:idna_unicode_domain_maps_to_ascii_15_1_0",
+      "version": "15.1.0",
+      "capability": "url.host.idna-unicode",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "hostname": "xn--g6w251d.example",
+        "href": "https://xn--g6w251d.example/"
+      },
+      "actual": {
+        "href": "https://xn--g6w251d.example/",
+        "origin": "https://xn--g6w251d.example",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "xn--g6w251d.example",
+        "hostname": "xn--g6w251d.example",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "hostname": "xn--g6w251d.example__mutant__",
+        "href": "https://xn--g6w251d.example/"
+      },
+      "mutant_failures": [
+        "hostname: expected 'xn--g6w251d.example__mutant__', got 'xn--g6w251d.example'"
+      ]
+    },
+    {
+      "name": "16.0.0:low_level_parse_query_uses_shift_jis_encoding_option",
+      "version": "16.0.0",
+      "capability": "url.query.encoding-option",
+      "op": "low_level_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "query": "q=%82%B1%82%F1%82%C9%82%BF%82%CD"
+      },
+      "actual": {
+        "isNull": false,
+        "scheme": "http",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "port": null,
+        "path": "/",
+        "query": "q=%82%B1%82%F1%82%C9%82%BF%82%CD",
+        "fragment": null,
+        "href": "http://example.com/?q=%82%B1%82%F1%82%C9%82%BF%82%CD"
+      },
+      "failures": [],
+      "mutant_expected": {
+        "query": "q=%82%B1%82%F1%82%C9%82%BF%82%CD__mutant__"
+      },
+      "mutant_failures": [
+        "query: expected 'q=%82%B1%82%F1%82%C9%82%BF%82%CD__mutant__', got 'q=%82%B1%82%F1%82%C9%82%BF%82%CD'"
+      ]
+    },
+    {
+      "name": "16.0.1:url_parse_returns_url_instance",
+      "version": "16.0.1",
+      "capability": "url.api.parse-static",
+      "op": "static_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/a"
+      },
+      "actual": {
+        "isNull": false,
+        "isURL": true,
+        "href": "https://example.com/a",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/a",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isURL": false,
+        "href": "https://example.com/a"
+      },
+      "mutant_failures": [
+        "isURL: expected False, got True"
+      ]
+    },
+    {
+      "name": "16.0.1:static_parse_and_constructor_agree_on_href",
+      "version": "16.0.1",
+      "capability": "url.api.static-parse-agreement",
+      "op": "static_parse",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "isURL": true,
+        "href": "https://example.com/b"
+      },
+      "actual": {
+        "isNull": false,
+        "isURL": true,
+        "href": "https://example.com/b",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/b",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "isURL": false,
+        "href": "https://example.com/b"
+      },
+      "mutant_failures": [
+        "isURL: expected False, got True"
+      ]
+    },
+    {
+      "name": "17.0.0:ascii_domain_does_not_require_idna_mapping",
+      "version": "17.0.0",
+      "capability": "url.host.ascii-fallback",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "href": "https://example.com/path",
+        "hostname": "example.com"
+      },
+      "actual": {
+        "href": "https://example.com/path",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "",
+        "password": "",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/path",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "href": "https://example.com/path__mutant__",
+        "hostname": "example.com"
+      },
+      "mutant_failures": [
+        "href: expected 'https://example.com/path__mutant__', got 'https://example.com/path'"
+      ]
+    },
+    {
+      "name": "17.1.0:parse_with_validation_errors_reports_missing_scheme",
+      "version": "17.1.0",
+      "capability": "url.validation-errors.parse",
+      "op": "parse_with_validation_errors",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "urlIsNull": true,
+        "errorsContains": "missing-scheme-non-relative-URL"
+      },
+      "actual": {
+        "urlIsNull": true,
+        "errors": [
+          "missing-scheme-non-relative-URL"
+        ],
+        "errorsLength": 1
+      },
+      "failures": [],
+      "mutant_expected": {
+        "urlIsNull": false,
+        "errorsContains": "missing-scheme-non-relative-URL"
+      },
+      "mutant_failures": [
+        "urlIsNull: expected False, got True"
+      ]
+    },
+    {
+      "name": "17.1.0:parse_with_validation_errors_reports_special_slashes",
+      "version": "17.1.0",
+      "capability": "url.validation-errors.parse",
+      "op": "parse_with_validation_errors",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "urlIsNull": false,
+        "errorsContains": "special-scheme-missing-following-solidus"
+      },
+      "actual": {
+        "urlIsNull": false,
+        "errors": [
+          "special-scheme-missing-following-solidus"
+        ],
+        "errorsLength": 1
+      },
+      "failures": [],
+      "mutant_expected": {
+        "urlIsNull": true,
+        "errorsContains": "special-scheme-missing-following-solidus"
+      },
+      "mutant_failures": [
+        "urlIsNull: expected True, got False"
+      ]
+    },
+    {
+      "name": "17.1.0:valid_url_string_accepts_absolute_with_fragment",
+      "version": "17.1.0",
+      "capability": "url.validation.valid-url-string",
+      "op": "is_valid_url_string",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "17.1.0:valid_url_string_accepts_relative_with_base",
+      "version": "17.1.0",
+      "capability": "url.validation.valid-url-string",
+      "op": "is_valid_url_string",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": true
+      },
+      "actual": {
+        "value": true
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": false
+      },
+      "mutant_failures": [
+        "value: expected False, got True"
+      ]
+    },
+    {
+      "name": "17.1.0:valid_url_string_rejects_no_scheme_without_base",
+      "version": "17.1.0",
+      "capability": "url.validation.valid-url-string",
+      "op": "is_valid_url_string",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "value": false
+      },
+      "actual": {
+        "value": false
+      },
+      "failures": [],
+      "mutant_expected": {
+        "value": true
+      },
+      "mutant_failures": [
+        "value: expected True, got False"
+      ]
+    },
+    {
+      "name": "17.1.0:userinfo_astral_code_point_percent_encodes_utf8",
+      "version": "17.1.0",
+      "capability": "url.userinfo.astral",
+      "op": "parse_url",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "username": "%F0%9F%92%A9",
+        "password": "%F0%9F%94%91",
+        "href": "https://%F0%9F%92%A9:%F0%9F%94%91@example.com/"
+      },
+      "actual": {
+        "href": "https://%F0%9F%92%A9:%F0%9F%94%91@example.com/",
+        "origin": "https://example.com",
+        "protocol": "https:",
+        "username": "%F0%9F%92%A9",
+        "password": "%F0%9F%94%91",
+        "host": "example.com",
+        "hostname": "example.com",
+        "port": "",
+        "pathname": "/",
+        "search": "",
+        "hash": ""
+      },
+      "failures": [],
+      "mutant_expected": {
+        "username": "%F0%9F%92%A9__mutant__",
+        "password": "%F0%9F%94%91",
+        "href": "https://%F0%9F%92%A9:%F0%9F%94%91@example.com/"
+      },
+      "mutant_failures": [
+        "username: expected '%F0%9F%92%A9__mutant__', got '%F0%9F%92%A9'"
+      ]
+    },
+    {
+      "name": "17.1.0:validation_errors_empty_for_clean_url",
+      "version": "17.1.0",
+      "capability": "url.validation-errors.clean-url",
+      "op": "parse_with_validation_errors",
+      "replay_ok": true,
+      "mutant_killed": true,
+      "survived_latest": true,
+      "expected": {
+        "urlIsNull": false,
+        "errorsLength": 0
+      },
+      "actual": {
+        "urlIsNull": false,
+        "errors": [],
+        "errorsLength": 0
+      },
+      "failures": [],
+      "mutant_expected": {
+        "urlIsNull": true,
+        "errorsLength": 0
+      },
+      "mutant_failures": [
+        "urlIsNull: expected True, got False"
+      ]
+    }
+  ]
+}

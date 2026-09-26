@@ -1,0 +1,70 @@
+{
+  "failed": 0,
+  "latest_version": "2.7.0",
+  "project": "urllib3",
+  "results": [
+    {
+      "contract": "same_origin_sequential_requests_reuse_one_connection",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "get_query_fields_are_sent_as_url_parameters",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "post_form_fields_are_sent_as_request_parameters",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "arbitrary_http_method_is_sent_unchanged",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "multipart_file_post_preserves_file_name_and_size",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "redirect_can_be_observed_without_following",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "redirect_is_followed_by_default",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "redirect_consumes_retry_budget",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "slow_response_exceeding_socket_timeout_fails",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "pool_rejects_foreign_origin_requests",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "broken_connection_is_retried_until_success",
+      "source_version": "0.3",
+      "survived_latest": true
+    },
+    {
+      "contract": "https_origin_request_succeeds",
+      "source_version": "0.3",
+      "survived_latest": true
+    }
+  ],
+  "survived": 12,
+  "total": 12,
+  "urllib3_runtime_version": "2.7.0"
+}

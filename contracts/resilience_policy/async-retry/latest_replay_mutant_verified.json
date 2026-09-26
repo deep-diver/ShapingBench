@@ -1,0 +1,6254 @@
+{
+  "contracts": [
+    {
+      "name": "async_retry_1_1_2_retrier_returned_value_resolution_00a8ef44f656",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "syncValue",
+        "randomize": false,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "retrier syncValue resolves successful value 'ok'",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_retrier_returned_value_resolution_ec39f1560eec",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "syncValue",
+        "randomize": false,
+        "outcomes": [
+          0
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "retrier syncValue resolves successful value 0",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": 0,
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": 0,
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": 0,
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_retrier_returned_value_resolution_aeca9f43fc6e",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "syncValue",
+        "randomize": false,
+        "outcomes": [
+          false
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "retrier syncValue resolves successful value False",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": false,
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": false,
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": false,
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_retrier_returned_value_resolution_4f8b51ac63b8",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "syncValue",
+        "randomize": false,
+        "outcomes": [
+          ""
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "retrier syncValue resolves successful value ''",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_retrier_returned_value_resolution_ede9d1a85a57",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "syncValue",
+        "randomize": false,
+        "outcomes": [
+          {
+            "payload": "done"
+          }
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "retrier syncValue resolves successful value {'payload': 'done'}",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": {
+          "payload": "done"
+        },
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": {
+          "payload": "done"
+        },
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": {
+          "payload": "done"
+        },
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retrier_returned_value_resolution_51bb5ce98cc5",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "asyncPromise",
+        "randomize": false,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retrier asyncPromise resolves successful value 'ok'",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retrier_returned_value_resolution_a3adb24a303f",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retrier.returned-value-resolution",
+      "op": "retry_call",
+      "params": {
+        "fnMode": "asyncPromise",
+        "randomize": false,
+        "outcomes": [
+          "__undefined__"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retrier asyncPromise resolves successful value '__undefined__'",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "__undefined__",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "__undefined__",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "__undefined__",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_until_later_success_cc2e58749e43",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-until-later-success",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retry makes 1 retries and resolves when the later attempt succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_until_later_success_7295042fe30e",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-until-later-success",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retry makes 2 retries and resolves when the later attempt succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_until_later_success_8b5a26260ce1",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-until-later-success",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retry makes 3 retries and resolves when the later attempt succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_until_later_success_b112b287fa7a",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-until-later-success",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retry makes 4 retries and resolves when the later attempt succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_option_is_retry_count_not_total_attempts_350b98867b1a",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-option-is-retry-count-not-total-attempts",
+      "op": "retry_call",
+      "params": {
+        "retries": 0,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retries=0 allows initial attempt plus retry-count attempts before rejecting",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_option_is_retry_count_not_total_attempts_f27ef8bc2899",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-option-is-retry-count-not-total-attempts",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retries=1 allows initial attempt plus retry-count attempts before rejecting",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_option_is_retry_count_not_total_attempts_4a116d34739d",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-option-is-retry-count-not-total-attempts",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retries=2 allows initial attempt plus retry-count attempts before rejecting",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_option_is_retry_count_not_total_attempts_bc8a91dbed82",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-option-is-retry-count-not-total-attempts",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retries=3 allows initial attempt plus retry-count attempts before rejecting",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_retry_retries_option_is_retry_count_not_total_attempts_fc8512613b11",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.retries-option-is-retry-count-not-total-attempts",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "retries=5 allows initial attempt plus retry-count attempts before rejecting",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_bail_abort_without_scheduling_retry_9523a288ba6e",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "bail.abort-without-scheduling-retry",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "bail:fatal",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "bail:fatal aborts retrying immediately without scheduling a retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_bail_abort_without_scheduling_retry_f12d783f77dc",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "bail.abort-without-scheduling-retry",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "bail:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "bail:transient aborts retrying immediately without scheduling a retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_bail_abort_without_scheduling_retry_921f076d40d0",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "bail.abort-without-scheduling-retry",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "bail:other",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "bail:other aborts retrying immediately without scheduling a retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "other",
+        "errorMessage": "other",
+        "errorType": "OtherError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "other",
+        "errorMessage": "other",
+        "errorType": "OtherError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "other",
+        "errorMessage": "other",
+        "errorType": "OtherError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_error_bail_flag_aborts_retry_9d5c38ccc6ba",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "error.bail-flag-aborts-retry",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw_bail_flag:fatal",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "throwing an error object with bail=true aborts retrying immediately",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_error_bail_flag_aborts_retry_45633e15f832",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "error.bail-flag-aborts-retry",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw_bail_flag:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "throwing an error object with bail=true aborts retrying immediately",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_bail_without_error_uses_aborted_error_e7b4939be356",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "bail.without-error-uses-aborted-error",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "bail"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "calling bail without a supplied error rejects with the library's default abort error",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "Aborted",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "Aborted",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "Aborted",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_called_only_for_scheduled_retries_3ccd588813c7",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.called-only-for-scheduled-retries",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is called for each failed attempt that schedules a retry, failures=1",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_called_only_for_scheduled_retries_bcfe995384a4",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.called-only-for-scheduled-retries",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is called for each failed attempt that schedules a retry, failures=2",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_called_only_for_scheduled_retries_63801d8fcff1",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.called-only-for-scheduled-retries",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is called for each failed attempt that schedules a retry, failures=3",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_called_only_for_scheduled_retries_3134322c88b1",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.called-only-for-scheduled-retries",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is called for each failed attempt that schedules a retry, failures=4",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_not_called_on_final_giveup_565fa95509c3",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.not-called-on-final-giveup",
+      "op": "retry_call",
+      "params": {
+        "retries": 0,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is not called for the final failure after retries=0 is exhausted",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_not_called_on_final_giveup_8b4b523385da",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.not-called-on-final-giveup",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is not called for the final failure after retries=1 is exhausted",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_not_called_on_final_giveup_b0764c326c8c",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.not-called-on-final-giveup",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is not called for the final failure after retries=2 is exhausted",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_not_called_for_bail_7c31026941b9",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.not-called-for-bail",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "bail:fatal",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is not called when retrying is aborted by bail:fatal",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_0_onretry_not_called_for_bail_4d3d8d8d22cc",
+      "version": "0.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.not-called-for-bail",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw_bail_flag:fatal",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.0: ### Patches - Index: implement `onRetry`",
+      "human": "onRetry is not called when retrying is aborted by throw_bail_flag:fatal",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": true,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_2_0_onretry_receives_failed_attempt_number_878deeadc901",
+      "version": "1.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.receives-failed-attempt-number",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.2.0: ### Minor Changes - Pass attempt number to onRetry: #41 ### Patches - Switched to Yarn: 2e3d9522054ca76ef8ba4e415bca13122f62e9ad - Bumped dependencies to the latest version: f2a5460e8abd7b5343cf67c4f1a30af623112a62 ### Credits Huge thanks to @whitecrownclown f",
+      "human": "onRetry receives the failed attempt number for failures=1",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_2_0_onretry_receives_failed_attempt_number_efb36af466db",
+      "version": "1.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.receives-failed-attempt-number",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.2.0: ### Minor Changes - Pass attempt number to onRetry: #41 ### Patches - Switched to Yarn: 2e3d9522054ca76ef8ba4e415bca13122f62e9ad - Bumped dependencies to the latest version: f2a5460e8abd7b5343cf67c4f1a30af623112a62 ### Credits Huge thanks to @whitecrownclown f",
+      "human": "onRetry receives the failed attempt number for failures=2",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_2_0_onretry_receives_failed_attempt_number_443c15026612",
+      "version": "1.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.receives-failed-attempt-number",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.2.0: ### Minor Changes - Pass attempt number to onRetry: #41 ### Patches - Switched to Yarn: 2e3d9522054ca76ef8ba4e415bca13122f62e9ad - Bumped dependencies to the latest version: f2a5460e8abd7b5343cf67c4f1a30af623112a62 ### Credits Huge thanks to @whitecrownclown f",
+      "human": "onRetry receives the failed attempt number for failures=3",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_2_0_onretry_receives_failed_attempt_number_956befbf62e9",
+      "version": "1.2.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "onRetry.receives-failed-attempt-number",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "onRetryMode": "capture",
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.2.0: ### Minor Changes - Pass attempt number to onRetry: #41 ### Patches - Switched to Yarn: 2e3d9522054ca76ef8ba4e415bca13122f62e9ad - Bumped dependencies to the latest version: f2a5460e8abd7b5343cf67c4f1a30af623112a62 ### Credits Huge thanks to @whitecrownclown f",
+      "human": "onRetry receives the failed attempt number for failures=4",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [
+          {
+            "attemptNumber": 1,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "bail": false,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_factor_shapes_timeout_sequence_4af9b315bc21",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "factor.shapes-timeout-sequence",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 8,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "factor=1 shapes the timeout sequence passed through node-retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          8,
+          8,
+          8
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_factor_shapes_timeout_sequence_59242b0b118e",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "factor.shapes-timeout-sequence",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 8,
+        "factor": 1.5,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "factor=1.5 shapes the timeout sequence passed through node-retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          12,
+          18,
+          27
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          12,
+          18,
+          27
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          12,
+          18,
+          27
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_factor_shapes_timeout_sequence_e339898bd7e9",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "factor.shapes-timeout-sequence",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 8,
+        "factor": 2,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "factor=2 shapes the timeout sequence passed through node-retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          16,
+          32,
+          64
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          16,
+          32,
+          64
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          16,
+          32,
+          64
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_factor_shapes_timeout_sequence_f3e0fa511ebc",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "factor.shapes-timeout-sequence",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 8,
+        "factor": 3,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "factor=3 shapes the timeout sequence passed through node-retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          24,
+          72,
+          216
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          24,
+          72,
+          216
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          24,
+          72,
+          216
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_factor_shapes_timeout_sequence_c18929a6119b",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "factor.shapes-timeout-sequence",
+      "op": "retry_call",
+      "params": {
+        "retries": 4,
+        "minTimeout": 8,
+        "factor": 4,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "factor=4 shapes the timeout sequence passed through node-retry",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          32,
+          128,
+          512
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          32,
+          128,
+          512
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          32,
+          128,
+          512
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mintimeout_first_retry_delay_and_minimum_floor_5bd8efdb3e1c",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "minTimeout.first-retry-delay-and-minimum-floor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 0,
+        "factor": 2,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "minTimeout=0 controls first retry delay, with node-retry's lower floor applied",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          2,
+          4
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mintimeout_first_retry_delay_and_minimum_floor_fbb3b1b2baae",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "minTimeout.first-retry-delay-and-minimum-floor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 1,
+        "factor": 2,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "minTimeout=1 controls first retry delay, with node-retry's lower floor applied",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          2,
+          4
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mintimeout_first_retry_delay_and_minimum_floor_890a39fb530a",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "minTimeout.first-retry-delay-and-minimum-floor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 5,
+        "factor": 2,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "minTimeout=5 controls first retry delay, with node-retry's lower floor applied",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10,
+          20
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6,
+          10,
+          20
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10,
+          20
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mintimeout_first_retry_delay_and_minimum_floor_d4b8f3087310",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "minTimeout.first-retry-delay-and-minimum-floor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "minTimeout=10 controls first retry delay, with node-retry's lower floor applied",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mintimeout_first_retry_delay_and_minimum_floor_59b4aa2a7191",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "minTimeout.first-retry-delay-and-minimum-floor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 25,
+        "factor": 2,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "minTimeout=25 controls first retry delay, with node-retry's lower floor applied",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          25,
+          50,
+          100
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          26,
+          50,
+          100
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          25,
+          50,
+          100
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_maxtimeout_caps_computed_timeouts_b66aa3231655",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxTimeout.caps-computed-timeouts",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 10,
+        "factor": 2,
+        "maxTimeout": 10,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=10 caps each computed retry timeout",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_maxtimeout_caps_computed_timeouts_3b008ad811e8",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxTimeout.caps-computed-timeouts",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 10,
+        "factor": 2,
+        "maxTimeout": 12,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=12 caps each computed retry timeout",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          12,
+          12,
+          12,
+          12
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          12,
+          12,
+          12,
+          12
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          12,
+          12,
+          12,
+          12
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_maxtimeout_caps_computed_timeouts_5c98278fad4a",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxTimeout.caps-computed-timeouts",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 10,
+        "factor": 2,
+        "maxTimeout": 16,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=16 caps each computed retry timeout",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_maxtimeout_caps_computed_timeouts_27ef38ba154a",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxTimeout.caps-computed-timeouts",
+      "op": "retry_call",
+      "params": {
+        "retries": 5,
+        "minTimeout": 10,
+        "factor": 2,
+        "maxTimeout": 40,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=40 caps each computed retry timeout",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40,
+          40,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40,
+          40,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40,
+          40,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_invalid_timeout_bounds_reject_before_first_attempt_119a0061da67",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "invalid-timeout-bounds-reject-before-first-attempt",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "maxTimeout": 0,
+        "randomize": false,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=0 below minTimeout rejects before the retrier is first invoked",
+      "pass": true,
+      "expected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 1,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_invalid_timeout_bounds_reject_before_first_attempt_3a3e2a4e8d02",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "invalid-timeout-bounds-reject-before-first-attempt",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "maxTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=1 below minTimeout rejects before the retrier is first invoked",
+      "pass": true,
+      "expected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 1,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_invalid_timeout_bounds_reject_before_first_attempt_a7f6234e61a3",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "invalid-timeout-bounds-reject-before-first-attempt",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "maxTimeout": 9,
+        "randomize": false,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "maxTimeout=9 below minTimeout rejects before the retrier is first invoked",
+      "pass": true,
+      "expected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 1,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_true_multiplies_timeout_by_one_to_two_factor_7e32bc8436f3",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.true-multiplies-timeout-by-one-to-two-factor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": true,
+        "random": 0,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=true multiplies each timeout by Math.random()+1 with Math.random=0",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_true_multiplies_timeout_by_one_to_two_factor_74d7078a0ce1",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.true-multiplies-timeout-by-one-to-two-factor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": true,
+        "random": 0.25,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=true multiplies each timeout by Math.random()+1 with Math.random=0.25",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          25,
+          50
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          14,
+          25,
+          50
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          25,
+          50
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_true_multiplies_timeout_by_one_to_two_factor_c98d866f4f17",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.true-multiplies-timeout-by-one-to-two-factor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": true,
+        "random": 0.5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=true multiplies each timeout by Math.random()+1 with Math.random=0.5",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          15,
+          30,
+          60
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          16,
+          30,
+          60
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          15,
+          30,
+          60
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_true_multiplies_timeout_by_one_to_two_factor_fa2ab363dd49",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.true-multiplies-timeout-by-one-to-two-factor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": true,
+        "random": 0.9,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=true multiplies each timeout by Math.random()+1 with Math.random=0.9",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          19,
+          38,
+          76
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          20,
+          38,
+          76
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          19,
+          38,
+          76
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_true_multiplies_timeout_by_one_to_two_factor_0445678e42aa",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.true-multiplies-timeout-by-one-to-two-factor",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": true,
+        "random": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=true multiplies each timeout by Math.random()+1 with Math.random=1",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          20,
+          40,
+          80
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          21,
+          40,
+          80
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          20,
+          40,
+          80
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_3_0_randomize_defaults_to_true_when_option_omitted_2d5667f70bae",
+      "version": "1.3.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.defaults-to-true-when-option-omitted",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "random": 0,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.3.0: ### Minor Changes - [Feature] Default `randomize` to true: #49 ### Credits Huge thanks to @whitecrownclown for helping!",
+      "human": "async-retry defaults randomize to true when the option is omitted, Math.random=0",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_3_0_randomize_defaults_to_true_when_option_omitted_371ab97e7ad8",
+      "version": "1.3.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.defaults-to-true-when-option-omitted",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "random": 0.25,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.3.0: ### Minor Changes - [Feature] Default `randomize` to true: #49 ### Credits Huge thanks to @whitecrownclown for helping!",
+      "human": "async-retry defaults randomize to true when the option is omitted, Math.random=0.25",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          25,
+          50
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          14,
+          25,
+          50
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          25,
+          50
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_3_0_randomize_defaults_to_true_when_option_omitted_cf39073219f3",
+      "version": "1.3.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.defaults-to-true-when-option-omitted",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "random": 0.5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.3.0: ### Minor Changes - [Feature] Default `randomize` to true: #49 ### Credits Huge thanks to @whitecrownclown for helping!",
+      "human": "async-retry defaults randomize to true when the option is omitted, Math.random=0.5",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          15,
+          30,
+          60
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          16,
+          30,
+          60
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          15,
+          30,
+          60
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_false_keeps_deterministic_computed_timeouts_92c24af226f2",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.false-keeps-deterministic-computed-timeouts",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": false,
+        "random": 0,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=false ignores Math.random=0 and keeps computed timeouts",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_randomize_false_keeps_deterministic_computed_timeouts_17bbb46d2e87",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "randomize.false-keeps-deterministic-computed-timeouts",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 10,
+        "factor": 2,
+        "randomize": false,
+        "random": 0.9,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "randomize=false ignores Math.random=0.9 and keeps computed timeouts",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_timeouts_array_defines_explicit_retry_schedule_868de919e270",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeouts-array.defines-explicit-retry-schedule",
+      "op": "retry_call",
+      "params": {
+        "optsMode": "numberArray",
+        "timeouts": [
+          1
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "array opts [1] define the explicit retry schedule",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_timeouts_array_defines_explicit_retry_schedule_53c4eb5f9ec9",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeouts-array.defines-explicit-retry-schedule",
+      "op": "retry_call",
+      "params": {
+        "optsMode": "numberArray",
+        "timeouts": [
+          1,
+          3
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "array opts [1, 3] define the explicit retry schedule",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          3
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          3
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          3
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_timeouts_array_defines_explicit_retry_schedule_680d4fd6ec06",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeouts-array.defines-explicit-retry-schedule",
+      "op": "retry_call",
+      "params": {
+        "optsMode": "numberArray",
+        "timeouts": [
+          2,
+          5,
+          9
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "array opts [2, 5, 9] define the explicit retry schedule",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          5,
+          9
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          3,
+          5,
+          9
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          5,
+          9
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_timeouts_array_defines_explicit_retry_schedule_0bbb5f13c7dc",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeouts-array.defines-explicit-retry-schedule",
+      "op": "retry_call",
+      "params": {
+        "optsMode": "numberArray",
+        "timeouts": [
+          5,
+          1,
+          4
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "array opts [5, 1, 4] define the explicit retry schedule",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          5,
+          1,
+          4
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          6,
+          1,
+          4
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          5,
+          1,
+          4
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_2_1_opts_optional_defaults_to_object_e0473922e629",
+      "version": "0.2.1",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "opts.optional-defaults-to-object",
+      "op": "retry_call",
+      "params": {
+        "optsMode": "undefined",
+        "random": 0,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.2.1: ### Patches - Index: default props to `{}`",
+      "human": "opts may be omitted and retry still resolves on first success (0.2.1)",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_3_1_opts_optional_still_uses_default_retry_policy_9bcd649a62ab",
+      "version": "1.3.1",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "opts.optional-still-uses-default-retry-policy",
+      "op": "retry_call",
+      "params": {
+        "optsMode": "undefined",
+        "random": 0,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.3.1: ### Patches - [FIX]: Make parameter opts optional again.: #66 ### Credits Huge thanks to @yeldiRium for helping!",
+      "human": "when opts is omitted, the default retry policy still retries a transient failure",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1000
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1001
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1000
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_failure_style_propagated_after_retry_exhaustion_7bcce87a3a83",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.propagated-after-retry-exhaustion",
+      "op": "retry_call",
+      "params": {
+        "retries": 0,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "failure style throw:transient is propagated after retry exhaustion",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_failure_style_propagated_after_retry_exhaustion_d2fd9d9ad1ee",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.propagated-after-retry-exhaustion",
+      "op": "retry_call",
+      "params": {
+        "retries": 0,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "reject:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "failure style reject:transient is propagated after retry exhaustion",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_failure_style_propagated_after_retry_exhaustion_5ba17dedce55",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.propagated-after-retry-exhaustion",
+      "op": "retry_call",
+      "params": {
+        "retries": 0,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:string"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "failure style throw:string is propagated after retry exhaustion",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "string-failure",
+        "errorType": "string",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "string-failure",
+        "errorType": "string",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "string-failure",
+        "errorType": "string",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_failure_style_propagated_after_retry_exhaustion_0b373b864aa9",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.propagated-after-retry-exhaustion",
+      "op": "retry_call",
+      "params": {
+        "retries": 0,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:object"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "failure style throw:object is propagated after retry exhaustion",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "object",
+        "errorMessage": "{\"kind\":\"object\",\"message\":\"object\",\"name\":\"ObjectFailure\"}",
+        "errorType": "object",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [
+          2
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "object",
+        "errorMessage": "{\"kind\":\"object\",\"message\":\"object\",\"name\":\"ObjectFailure\"}",
+        "errorType": "object",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [
+          1
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "object",
+        "errorMessage": "{\"kind\":\"object\",\"message\":\"object\",\"name\":\"ObjectFailure\"}",
+        "errorType": "object",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_failure_style_can_retry_sync_throw_and_promise_rejection_d57225858965",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.can-retry-sync-throw-and-promise-rejection",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "throw:transient can be retried before a later success",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_failure_style_can_retry_sync_throw_and_promise_rejection_7ab15cded957",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.can-retry-sync-throw-and-promise-rejection",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "reject:transient",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "reject:transient can be retried before a later success",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_failure_style_can_retry_sync_throw_and_promise_rejection_31754d4a7750",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.can-retry-sync-throw-and-promise-rejection",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:string",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "throw:string can be retried before a later success",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_1_1_2_failure_style_can_retry_sync_throw_and_promise_rejection_1582c0975487",
+      "version": "1.1.2",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failure-style.can-retry-sync-throw-and-promise-rejection",
+      "op": "retry_call",
+      "params": {
+        "retries": 1,
+        "minTimeout": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:object",
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 1.1.2: ### Patches - Use `Promise.resolve()`: 66420479d0a7f3595720a4da672082683d187878 - Already exported perfectly by default: eacb573dc898b1fdb3acd272be0ac0d1bc516dbc - Added import comments: e9e74931b56a105c365869e785fba752b8a3b26f",
+      "human": "throw:object can be retried before a later success",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2
+        ],
+        "clearedCount": 0,
+        "onRetryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mainerror_selects_most_frequent_final_error_e501cd412387",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "mainError.selects-most-frequent-final-error",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:fatal",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "final rejection uses node-retry mainError selection from failure sequence ['throw:fatal', 'throw:transient', 'throw:transient']",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mainerror_selects_most_frequent_final_error_d89d690e1b26",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "mainError.selects-most-frequent-final-error",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:transient",
+          "throw:fatal",
+          "throw:fatal"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "final rejection uses node-retry mainError selection from failure sequence ['throw:transient', 'throw:fatal', 'throw:fatal']",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_mainerror_selects_most_frequent_final_error_15de2746dedb",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "mainError.selects-most-frequent-final-error",
+      "op": "retry_call",
+      "params": {
+        "retries": 2,
+        "minTimeout": 1,
+        "factor": 1,
+        "randomize": false,
+        "outcomes": [
+          "throw:other",
+          "throw:other",
+          "throw:fatal"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "final rejection uses node-retry mainError selection from failure sequence ['throw:other', 'throw:other', 'throw:fatal']",
+      "pass": true,
+      "expected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "other",
+        "errorMessage": "other",
+        "errorType": "OtherError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "other",
+        "errorMessage": "other",
+        "errorType": "OtherError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": [
+          1,
+          2,
+          3
+        ],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": "other",
+        "errorMessage": "other",
+        "errorType": "OtherError",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "async_retry_0_1_0_invalid_timeout_bounds_reject_before_first_attempt_23b7780cc957",
+      "version": "0.1.0",
+      "project": "vercel/async-retry",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "invalid-timeout-bounds-reject-before-first-attempt",
+      "op": "retry_call",
+      "params": {
+        "retries": 3,
+        "minTimeout": 20,
+        "maxTimeout": 10,
+        "randomize": false,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "async-retry release 0.1.0: Hey, world! \ud83d\ude38",
+      "human": "minTimeout greater than maxTimeout rejects before the retrier is first invoked",
+      "pass": true,
+      "expected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 1,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": [],
+        "bail": false,
+        "clearedCount": 0,
+        "errorKind": null,
+        "errorMessage": "minTimeout is greater than maxTimeout",
+        "errorType": "Error",
+        "onRetryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    }
+  ],
+  "summary": {
+    "npm_versions_seen": 18,
+    "github_releases_seen": 18,
+    "prior_signature_families_seen": 249,
+    "candidate_contracts": 80,
+    "exclusion_note": "Exact deterministic de-duplication across resilience-policy APIs is not meaningful; generation avoided broad circuit-breaker/fallback/decorator wait-generator overlap and focused on async-retry-specific public call semantics, bail, onRetry, node-retry option pass-through, timeout arrays, and default randomization.",
+    "latest_target": "async-retry@1.3.3",
+    "replay_passed": 80,
+    "mutant_rejected": 80,
+    "latest_survivors": 80,
+    "survivors_by_origin_version": {
+      "0.1.0": 53,
+      "0.2.0": 9,
+      "0.2.1": 1,
+      "1.1.2": 9,
+      "1.2.0": 4,
+      "1.3.0": 3,
+      "1.3.1": 1
+    },
+    "survivors_by_capability": {
+      "bail.abort-without-scheduling-retry": 3,
+      "bail.without-error-uses-aborted-error": 1,
+      "error.bail-flag-aborts-retry": 2,
+      "factor.shapes-timeout-sequence": 5,
+      "failure-style.can-retry-sync-throw-and-promise-rejection": 4,
+      "failure-style.propagated-after-retry-exhaustion": 4,
+      "invalid-timeout-bounds-reject-before-first-attempt": 4,
+      "mainError.selects-most-frequent-final-error": 3,
+      "maxTimeout.caps-computed-timeouts": 4,
+      "minTimeout.first-retry-delay-and-minimum-floor": 5,
+      "onRetry.called-only-for-scheduled-retries": 4,
+      "onRetry.not-called-for-bail": 2,
+      "onRetry.not-called-on-final-giveup": 3,
+      "onRetry.receives-failed-attempt-number": 4,
+      "opts.optional-defaults-to-object": 1,
+      "opts.optional-still-uses-default-retry-policy": 1,
+      "randomize.defaults-to-true-when-option-omitted": 3,
+      "randomize.false-keeps-deterministic-computed-timeouts": 2,
+      "randomize.true-multiplies-timeout-by-one-to-two-factor": 5,
+      "retrier.returned-value-resolution": 7,
+      "retry.retries-option-is-retry-count-not-total-attempts": 5,
+      "retry.retries-until-later-success": 4,
+      "timeouts-array.defines-explicit-retry-schedule": 4
+    }
+  }
+}

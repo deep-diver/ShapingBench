@@ -1,0 +1,2056 @@
+{
+  "domain": "date-time-timezone",
+  "project": "Noda Time",
+  "source_release_sections": 75,
+  "exclusion_basis": "Semantic overlap with 223 Joda-Time-origin contracts that survived both Noda Time and python-dateutil latest cross-validation.",
+  "contracts_total": 120,
+  "contracts": [
+    {
+      "name": "calendar_iso_has_stable_id",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "params": {
+        "calendar": "ISO"
+      },
+      "expected": {
+        "id": "ISO"
+      },
+      "mutant": "change_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: API changes:      Added the CalendarSystem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format s"
+    },
+    {
+      "name": "calendar_coptic_has_stable_id",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "params": {
+        "calendar": "Coptic"
+      },
+      "expected": {
+        "id": "Coptic"
+      },
+      "mutant": "change_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: API changes:      Added the CalendarSystem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format s"
+    },
+    {
+      "name": "calendar_julian_has_stable_id",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "params": {
+        "calendar": "Julian"
+      },
+      "expected": {
+        "id": "Julian"
+      },
+      "mutant": "change_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: API changes:      Added the CalendarSystem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format s"
+    },
+    {
+      "name": "calendar_islamicbcl_has_stable_id",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.id",
+      "replay": "calendar_id",
+      "params": {
+        "calendar": "IslamicBcl"
+      },
+      "expected": {
+        "id": "Hijri Astronomical-Base16"
+      },
+      "mutant": "change_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: API changes:      Added the CalendarSystem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format s"
+    },
+    {
+      "name": "calendar_for_id_roundtrips_iso",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.lookup",
+      "replay": "calendar_for_id",
+      "params": {
+        "id": "ISO"
+      },
+      "expected": {
+        "calendar": "ISO"
+      },
+      "mutant": "lookup_wrong_calendar",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: stem.Id property that returns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format specifier for local date values, which includes the calendar ID, representing the calendar"
+    },
+    {
+      "name": "calendar_ids_include_iso",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "calendar.lookup",
+      "replay": "calendar_ids",
+      "params": {},
+      "expected": {
+        "contains": "ISO"
+      },
+      "mutant": "omit_iso_calendar",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: ns a unique ID for a calendar system, along with the ForId() factory method and Ids static property; ToString() now returns the calendar ID rather than the name    Added support for the c custom format specifier for local date values, which includes the calendar ID, representing the calendar system    Added support for"
+    },
+    {
+      "name": "local_date_calendar_pattern_includes_calendar_id",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "local-date.format.calendar",
+      "replay": "format_local_date_calendar",
+      "params": {
+        "date": "2012-11-07",
+        "calendar": "ISO"
+      },
+      "expected": {
+        "text": "2012-11-07 (ISO)"
+      },
+      "mutant": "drop_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: g() now returns the calendar ID rather than the name    Added support for the c custom format specifier for local date values, which includes the calendar ID, representing the calendar system    Added support for the ; custom format specifier to parse both comma and period for fractions of a second; InstantPattern.Exte"
+    },
+    {
+      "name": "local_time_fraction_accepts_comma_separator",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "local-time.parse.fraction-separator",
+      "replay": "parse_local_time",
+      "params": {
+        "text": "12:34:56,789",
+        "format": "extended_iso"
+      },
+      "expected": {
+        "time": "12:34:56.789"
+      },
+      "mutant": "reject_comma_fraction",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: nting the calendar system    Added support for the ; custom format specifier to parse both comma and period for fractions of a second; InstantPattern.ExtendedIsoPattern ,  LocalTimePattern.ExtendedIsoPattern , and  LocalDateTimePattern.ExtendedIsoPattern now accept both as separators ( issue 140 and issue 141 )    Adde"
+    },
+    {
+      "name": "local_datetime_fraction_accepts_comma_separator",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "local-datetime.parse.fraction-separator",
+      "replay": "parse_local_datetime",
+      "params": {
+        "text": "2012-11-07T12:34:56,789",
+        "format": "extended_iso"
+      },
+      "expected": {
+        "local": "2012-11-07T12:34:56.789"
+      },
+      "mutant": "reject_comma_fraction",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: nting the calendar system    Added support for the ; custom format specifier to parse both comma and period for fractions of a second; InstantPattern.ExtendedIsoPattern ,  LocalTimePattern.ExtendedIsoPattern , and  LocalDateTimePattern.ExtendedIsoPattern now accept both as separators ( issue 140 and issue 141 )    Adde"
+    },
+    {
+      "name": "local_datetime_roundtrip_pattern_preserves_calendar",
+      "origin_project": "Noda Time",
+      "version": "1.0.0",
+      "release_title": "1.0.0, released 2012-11-07 with tzdb 2012i",
+      "capability": "local-datetime.format.calendar",
+      "replay": "format_local_datetime_calendar",
+      "params": {
+        "local": "2012-11-07T01:02:03",
+        "calendar": "ISO"
+      },
+      "expected": {
+        "contains": "ISO"
+      },
+      "mutant": "drop_calendar_id",
+      "evidence": "nodatime.org/versions:1.0.0, released 2012-11-07 with tzdb 2012i: ccept both as separators ( issue 140 and issue 141 )    Added support for the r standard pattern for LocalDateTime that includes the calendar system    Renamed the CreateWithInvariantInfo() method on the pattern types to  CreateWithInvariantCulture() ( issue 137 )      Other:      Set specific files to be ignored in Zo"
+    },
+    {
+      "name": "iso_weekyear_week_day_creates_expected_date",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "week-year.creation",
+      "replay": "weekyear_date",
+      "params": {
+        "week_year": 2020,
+        "week": 1,
+        "day": "Monday"
+      },
+      "expected": {
+        "date": "2019-12-30"
+      },
+      "mutant": "miscompute_weekyear",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: o DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )     Tick , SecondOfDay and MillisecondOfDay properties removed from time-based types ( issue 103 )    Removed the NodaCult"
+    },
+    {
+      "name": "negative_absolute_year_parses",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "local-date.parse.signed-year",
+      "replay": "parse_local_date_pattern",
+      "params": {
+        "text": "-0001-01-02",
+        "pattern": "uuuu-MM-dd"
+      },
+      "expected": {
+        "year": -1,
+        "month": 1,
+        "day": 2
+      },
+      "mutant": "reject_negative_year",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )     Tick , SecondOfDay and MillisecondOfDay properties removed from time-based types ( issue 103 )    Removed the NodaCultureInfo and NodaFormatInfo types ( issue 131 and related issues"
+    },
+    {
+      "name": "tzdb_source_exposes_aliases",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "timezone.metadata.aliases",
+      "replay": "tzdb_aliases",
+      "params": {
+        "canonical": "Europe/London"
+      },
+      "expected": {
+        "contains": "GB"
+      },
+      "mutant": "omit_aliases",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "tzdb_source_exposes_canonical_map",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "timezone.metadata.aliases",
+      "replay": "tzdb_canonical_map",
+      "params": {
+        "id": "UTC"
+      },
+      "expected": {
+        "canonical": "Etc/UTC"
+      },
+      "mutant": "wrong_canonical_map",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "tzdb_source_exposes_windows_mapping",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "timezone.metadata.windows",
+      "replay": "windows_mapping",
+      "params": {
+        "windows": "GMT Standard Time"
+      },
+      "expected": {
+        "contains": "Europe/London"
+      },
+      "mutant": "drop_windows_mapping",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "tzdb_source_exposes_zone_locations",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "timezone.metadata.locations",
+      "replay": "zone_locations",
+      "params": {
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "country": "GB"
+      },
+      "mutant": "drop_zone_locations",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "tzdb_source_version_is_exposed",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "timezone.metadata.version",
+      "replay": "tzdb_version",
+      "params": {},
+      "expected": {
+        "matches": "\\\\d{4}[a-z].*"
+      },
+      "mutant": "hide_tzdb_version",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "local_datetime_24_hour_rolls_to_next_day",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "local-datetime.parse.24-hour",
+      "replay": "parse_local_datetime_24",
+      "params": {
+        "text": "2013-03-28T24:00:00"
+      },
+      "expected": {
+        "local": "2013-03-29T00:00:00"
+      },
+      "mutant": "reject_24_hour",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "instant_from_unix_ticks_roundtrips",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "instant.factory.unix",
+      "replay": "instant_from_unix",
+      "params": {
+        "unit": "ticks",
+        "value": 1234567890
+      },
+      "expected": {
+        "iso": "1970-01-01T00:02:03.456789Z"
+      },
+      "mutant": "wrong_unix_ticks",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "instant_from_unix_milliseconds_roundtrips",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "instant.factory.unix",
+      "replay": "instant_from_unix",
+      "params": {
+        "unit": "milliseconds",
+        "value": 123456789
+      },
+      "expected": {
+        "iso": "1970-01-02T10:17:36.789Z"
+      },
+      "mutant": "wrong_unix_millis",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "local_time_from_milliseconds_since_midnight",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "params": {
+        "unit": "milliseconds",
+        "value": 45296789
+      },
+      "expected": {
+        "time": "12:34:56.789"
+      },
+      "mutant": "wrong_day_millis",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "local_time_from_seconds_since_midnight",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "params": {
+        "unit": "seconds",
+        "value": 45296
+      },
+      "expected": {
+        "time": "12:34:56"
+      },
+      "mutant": "wrong_day_seconds",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "local_datetime_in_utc_keeps_local_fields",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "local-datetime.conversion.utc",
+      "replay": "local_datetime_in_utc",
+      "params": {
+        "local": "2013-03-28T12:00:00"
+      },
+      "expected": {
+        "instant": "2013-03-28T12:00:00Z"
+      },
+      "mutant": "shift_local_datetime",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "local_datetime_with_offset_uses_supplied_offset",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-rc1",
+      "release_title": "1.0.0-rc1, released 2012-11-01 with tzdb 2012h",
+      "capability": "local-datetime.conversion.offset",
+      "replay": "local_datetime_with_offset",
+      "params": {
+        "local": "2013-03-28T12:00:00",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "instant": "2013-03-28T10:00:00Z",
+        "offset": "+02:00"
+      },
+      "mutant": "ignore_offset",
+      "evidence": "nodatime.org/versions:1.0.0-rc1, released 2012-11-01 with tzdb 2012h: API changes:      Renamed DateTimeZone.GetOffsetFromUtc() to DateTimeZone.GetUtcOffset() to match the BCL ( issue 121 )    Added LocalDate.FromWeekYearWeekAndDay() ( issue 120 )    Text formats can now parse negative values for absolute years ( issue 118 )"
+    },
+    {
+      "name": "offset_datetime_preserves_local_and_offset",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-beta2",
+      "release_title": "1.0.0-beta2, released 2012-08-04 with tzdb 2012e",
+      "capability": "offset-datetime.core",
+      "replay": "offset_datetime_create",
+      "params": {
+        "local": "2012-08-04T12:00:00",
+        "offset": "+02:30"
+      },
+      "expected": {
+        "local": "2012-08-04T12:00:00",
+        "offset": "+02:30"
+      },
+      "mutant": "drop_offset",
+      "evidence": "nodatime.org/versions:1.0.0-beta2, released 2012-08-04 with tzdb 2012e: ts what it means for time zones to be equal ( issue 81 )         New core type: OffsetDateTime representing a local date/time and an offset from UTC, but not full time zone information         Added a new standard offset pattern of G , which is like g but using \"Z\" for zero; also available as OffsetPattern.GeneralInvar"
+    },
+    {
+      "name": "offset_pattern_general_with_z_prints_z_for_zero",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-beta2",
+      "release_title": "1.0.0-beta2, released 2012-08-04 with tzdb 2012e",
+      "capability": "offset.pattern.zero",
+      "replay": "format_offset",
+      "params": {
+        "offset": "+00:00",
+        "pattern": "G"
+      },
+      "expected": {
+        "text": "Z"
+      },
+      "mutant": "print_zero_numeric",
+      "evidence": "nodatime.org/versions:1.0.0-beta2, released 2012-08-04 with tzdb 2012e: ormation         Added a new standard offset pattern of G , which is like g but using \"Z\" for zero; also available as OffsetPattern.GeneralInvariantPatternWithZ          Period and PeriodBuilder no longer differentiate between absent and zero components (to the extent that they did at all): Units has been removed from"
+    },
+    {
+      "name": "period_zero_fields_are_omitted",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-beta2",
+      "release_title": "1.0.0-beta2, released 2012-08-04 with tzdb 2012e",
+      "capability": "period.format.zero-omission",
+      "replay": "format_period",
+      "params": {
+        "period": "P0Y2M0DT0H"
+      },
+      "expected": {
+        "text": "P2M"
+      },
+      "mutant": "print_zero_fields",
+      "evidence": "nodatime.org/versions:1.0.0-beta2, released 2012-08-04 with tzdb 2012e: at they did at all): Units has been removed from Period , period formatting now omits all zero values unconditionally, and the Year (etc) properties on PeriodBuilder are no longer nullable ( issue 90 )         Removed the BCL parsing methods and some of the BCL formatting methods from  Instant , LocalDate , LocalDateTi"
+    },
+    {
+      "name": "duration_epsilon_is_one_nanosecond",
+      "origin_project": "Noda Time",
+      "version": "1.0.0-beta2",
+      "release_title": "1.0.0-beta2, released 2012-08-04 with tzdb 2012e",
+      "capability": "duration.constant.epsilon",
+      "replay": "duration_constant",
+      "params": {
+        "constant": "Epsilon"
+      },
+      "expected": {
+        "nanoseconds": 1
+      },
+      "mutant": "wrong_epsilon",
+      "evidence": "nodatime.org/versions:1.0.0-beta2, released 2012-08-04 with tzdb 2012e: in favour of the existing static methods; removed  MinValue and MaxValue , and added Epsilon ( issue 70 )         Removed Instant.BeginningOfTimeLabel and Instant.EndOfTimeLabel          Instant.InIsoUtc renamed to InUtc          Instant.UnixEpoch moved to NodaConstants.UnixEpoch ;  NodaConstants.DateTimeEpochTicks re"
+    },
+    {
+      "name": "offset_datetime_instant_comparer_ignores_local_offset_difference",
+      "origin_project": "Noda Time",
+      "version": "1.1.0",
+      "release_title": "1.1.0, released 2013-04-06 with tzdb 2013b",
+      "capability": "offset-datetime.compare.instant",
+      "replay": "offset_datetime_compare",
+      "params": {
+        "left": "2013-04-06T12:00:00+02:00",
+        "right": "2013-04-06T10:00:00Z",
+        "mode": "instant"
+      },
+      "expected": {
+        "comparison": 0
+      },
+      "mutant": "compare_by_local",
+      "evidence": "nodatime.org/versions:1.1.0, released 2013-04-06 with tzdb 2013b: teTime.Comparer and ZonedDateTime.Comparer ,  IComparer<T> implementations that compare values by either the local date/time or the underlying instant     TzdbDateTimeZoneSource.WindowsZones renamed to WindowsMapping     ZoneEqualityComparer converted to use factory methods rather than multiple constructors; some optio"
+    },
+    {
+      "name": "offset_datetime_local_comparer_uses_local_time",
+      "origin_project": "Noda Time",
+      "version": "1.1.0",
+      "release_title": "1.1.0, released 2013-04-06 with tzdb 2013b",
+      "capability": "offset-datetime.compare.local",
+      "replay": "offset_datetime_compare",
+      "params": {
+        "left": "2013-04-06T12:00:00+02:00",
+        "right": "2013-04-06T10:00:00Z",
+        "mode": "local"
+      },
+      "expected": {
+        "comparison": 1
+      },
+      "mutant": "compare_by_instant",
+      "evidence": "nodatime.org/versions:1.1.0, released 2013-04-06 with tzdb 2013b: teTime.Comparer and ZonedDateTime.Comparer ,  IComparer<T> implementations that compare values by either the local date/time or the underlying instant     TzdbDateTimeZoneSource.WindowsZones renamed to WindowsMapping     ZoneEqualityComparer converted to use factory methods rather than multiple constructors; some optio"
+    },
+    {
+      "name": "duration_pattern_parses_iso_seconds",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "duration.pattern.parse",
+      "replay": "parse_duration_pattern",
+      "params": {
+        "text": "0:00:01:02.003"
+      },
+      "expected": {
+        "millis": 62003
+      },
+      "mutant": "wrong_duration_pattern",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: trol the time zone provider used by XML and binary serialization    New classes DurationPattern , OffsetDateTimePattern , and  ZonedDateTimePattern that represent patterns for parsing and formatting  Duration , OffsetDateTime , and ZonedDateTime respectively    Added LocalDateTimePattern properties GeneralIsoPattern ,"
+    },
+    {
+      "name": "duration_default_string_is_descriptive",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "duration.format.default",
+      "replay": "format_duration_default",
+      "params": {
+        "millis": 1500
+      },
+      "expected": {
+        "contains": "0:00:00:01.5"
+      },
+      "mutant": "wrong_duration_string",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: Major features:      Noda Time core types now support XML and (on the desktop build) binary serialization (issues issue 24 and issue 226 )    New optional NodaTime.Serialization.JsonNet NuGet package enabling JSON serialization for Noda Time types using Json.N"
+    },
+    {
+      "name": "offset_datetime_pattern_parses_embedded_offset",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "offset-datetime.pattern.parse",
+      "replay": "parse_offset_datetime_pattern",
+      "params": {
+        "text": "2013-11-16T12:00:00+02:00"
+      },
+      "expected": {
+        "instant": "2013-11-16T10:00:00Z",
+        "offset": "+02:00"
+      },
+      "mutant": "ignore_embedded_offset",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: provider used by XML and binary serialization    New classes DurationPattern , OffsetDateTimePattern , and  ZonedDateTimePattern that represent patterns for parsing and formatting  Duration , OffsetDateTime , and ZonedDateTime respectively    Added LocalDateTimePattern properties GeneralIsoPattern ,  BclRoundtripPatte"
+    },
+    {
+      "name": "zoned_datetime_pattern_parses_embedded_zone_id",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "zoned-datetime.pattern.parse",
+      "replay": "parse_zoned_datetime_pattern",
+      "params": {
+        "text": "2013-11-16T12:00:00 Europe/London"
+      },
+      "expected": {
+        "zone": "Europe/London",
+        "local": "2013-11-16T12:00:00"
+      },
+      "mutant": "ignore_embedded_zone",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: ary serialization    New classes DurationPattern , OffsetDateTimePattern , and  ZonedDateTimePattern that represent patterns for parsing and formatting  Duration , OffsetDateTime , and ZonedDateTime respectively    Added LocalDateTimePattern properties GeneralIsoPattern ,  BclRoundtripPattern , and FullRoundtripPattern"
+    },
+    {
+      "name": "local_datetime_general_iso_pattern_outputs_t_separator",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "local-datetime.pattern.general",
+      "replay": "format_local_datetime_pattern",
+      "params": {
+        "local": "2013-11-16T12:34:56",
+        "pattern": "general_iso"
+      },
+      "expected": {
+        "text": "2013-11-16T12:34:56"
+      },
+      "mutant": "wrong_general_iso",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: eTime , and ZonedDateTime respectively    Added LocalDateTimePattern properties GeneralIsoPattern ,  BclRoundtripPattern , and FullRoundtripPattern , which provide programmatic access to the o / O , r , and s patterns, respectively    Default formatting (i.e. ToString() ) for Duration , OffsetDateTime , and ZonedDateTi"
+    },
+    {
+      "name": "local_datetime_full_roundtrip_contains_calendar",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "local-datetime.pattern.full-roundtrip",
+      "replay": "format_local_datetime_pattern",
+      "params": {
+        "local": "2013-11-16T12:34:56",
+        "pattern": "full_roundtrip",
+        "calendar": "ISO"
+      },
+      "expected": {
+        "contains": "ISO"
+      },
+      "mutant": "drop_calendar_id",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: LocalDateTimePattern properties GeneralIsoPattern ,  BclRoundtripPattern , and FullRoundtripPattern , which provide programmatic access to the o / O , r , and s patterns, respectively    Default formatting (i.e. ToString() ) for Duration , OffsetDateTime , and ZonedDateTime has changed    Local date patterns that incl"
+    },
+    {
+      "name": "five_digit_year_formats_without_ambiguity",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "local-date.format.large-year",
+      "replay": "format_large_year_date",
+      "params": {
+        "year": -9998,
+        "month": 6,
+        "day": 7
+      },
+      "expected": {
+        "text": "-9998-06-07"
+      },
+      "mutant": "truncate_large_year",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: rns that include yyyy (for example, the standard ones) can now parse and format five-digit years in cases where the result would not be ambiguous    Added InstantPattern.WithMinMaxLabels() , which allows replacement of the text used to format the minimum and maximum instants (the defaults for which have also changed)"
+    },
+    {
+      "name": "instant_min_label_can_be_replaced",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "instant.pattern.minmax-label",
+      "replay": "instant_minmax_label",
+      "params": {
+        "which": "min",
+        "label": "START"
+      },
+      "expected": {
+        "text": "START"
+      },
+      "mutant": "ignore_min_label",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: years in cases where the result would not be ambiguous    Added InstantPattern.WithMinMaxLabels() , which allows replacement of the text used to format the minimum and maximum instants (the defaults for which have also changed)    Added Era.AnnoMartyrum , obsoleting the misnamed AnnoMartyrm    Added Instant.WithOffset"
+    },
+    {
+      "name": "instant_with_offset_converts_to_offset_datetime",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "instant.conversion.offset",
+      "replay": "instant_with_offset",
+      "params": {
+        "instant": "2013-11-16T12:00:00Z",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "local": "2013-11-16T14:00:00",
+        "offset": "+02:00"
+      },
+      "mutant": "ignore_offset",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: anged)    Added Era.AnnoMartyrum , obsoleting the misnamed AnnoMartyrm    Added Instant.WithOffset() , which parallels the equivalent method in  LocalDateTime    Added OffsetDateTime.WithCalendar() , which returns an OffsetDateTime  representing the same point in time, but using a given calendar system    Added Interva"
+    },
+    {
+      "name": "offset_datetime_with_calendar_changes_calendar_not_instant",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "offset-datetime.calendar",
+      "replay": "offset_datetime_with_calendar",
+      "params": {
+        "local": "2013-11-16T12:00:00",
+        "offset": "+00:00",
+        "calendar": "Julian"
+      },
+      "expected": {
+        "offset": "+00:00",
+        "calendar": "Julian"
+      },
+      "mutant": "drop_calendar",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: which parallels the equivalent method in  LocalDateTime    Added OffsetDateTime.WithCalendar() , which returns an OffsetDateTime  representing the same point in time, but using a given calendar system    Added Interval.Contains() , which returns whether an Interval contains the given Instant    Added ZonedDateTime.Cale"
+    },
+    {
+      "name": "interval_contains_instant_inside",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "interval.contains.instant",
+      "replay": "interval_contains",
+      "params": {
+        "interval": "2013-11-16T12:00:00Z/2013-11-16T13:00:00Z",
+        "instant": "2013-11-16T12:30:00Z"
+      },
+      "expected": {
+        "contains": true
+      },
+      "mutant": "invert_contains",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: representing the same point in time, but using a given calendar system    Added Interval.Contains() , which returns whether an Interval contains the given Instant    Added ZonedDateTime.Calendar , which returns the calendar system used by a ZonedDateTime    Added ZonedDateTime.GetZoneInterval() , a convenience method t"
+    },
+    {
+      "name": "zoned_datetime_exposes_calendar",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "zoned-datetime.calendar",
+      "replay": "zoned_datetime_calendar",
+      "params": {
+        "local": "2013-11-16T12:00:00",
+        "zone": "UTC",
+        "calendar": "Julian"
+      },
+      "expected": {
+        "calendar": "Julian"
+      },
+      "mutant": "drop_calendar",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: tains() , which returns whether an Interval contains the given Instant    Added ZonedDateTime.Calendar , which returns the calendar system used by a ZonedDateTime    Added ZonedDateTime.GetZoneInterval() , a convenience method that returns the ZoneInterval of the time zone used by a ZonedDateTime  ( issue 211 )    Adde"
+    },
+    {
+      "name": "zoned_datetime_get_zone_interval_returns_interval_name",
+      "origin_project": "Noda Time",
+      "version": "1.2.0",
+      "release_title": "1.2.0, released 2013-11-16 with tzdb 2013h",
+      "capability": "zoned-datetime.zone-interval",
+      "replay": "zoned_zone_interval",
+      "params": {
+        "instant": "2013-07-01T12:00:00Z",
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "name": "BST"
+      },
+      "mutant": "wrong_zone_interval",
+      "evidence": "nodatime.org/versions:1.2.0, released 2013-11-16 with tzdb 2013h: hich returns the calendar system used by a ZonedDateTime    Added ZonedDateTime.GetZoneInterval() , a convenience method that returns the ZoneInterval of the time zone used by a ZonedDateTime  ( issue 211 )    Added ParseResult.Exception , which provides direct access to the exception that would be thrown by GetValueOr"
+    },
+    {
+      "name": "persiansimple_calendar_month_one_has_31_days",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "calendar.persian",
+      "replay": "calendar_days_in_month",
+      "params": {
+        "calendar": "PersianSimple",
+        "year": 1393,
+        "month": 1
+      },
+      "expected": {
+        "days": 31
+      },
+      "mutant": "wrong_days_in_month",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: Major features:      Support for the Persian/Solar Hijri calendar    Experimental support for the Hebrew calendar ( issue 238 )      API changes:      Added CalendarSystem.GetPersianCalendar() and Era.AnnoPersico for the Persian calendar    Added CalendarSystem.GetHebrewCalend"
+    },
+    {
+      "name": "persianarithmetic_calendar_month_one_has_31_days",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "calendar.persian",
+      "replay": "calendar_days_in_month",
+      "params": {
+        "calendar": "PersianArithmetic",
+        "year": 1393,
+        "month": 1
+      },
+      "expected": {
+        "days": 31
+      },
+      "mutant": "wrong_days_in_month",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: Major features:      Support for the Persian/Solar Hijri calendar    Experimental support for the Hebrew calendar ( issue 238 )      API changes:      Added CalendarSystem.GetPersianCalendar() and Era.AnnoPersico for the Persian calendar    Added CalendarSystem.GetHebrewCalend"
+    },
+    {
+      "name": "persianastronomical_calendar_month_one_has_31_days",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "calendar.persian",
+      "replay": "calendar_days_in_month",
+      "params": {
+        "calendar": "PersianAstronomical",
+        "year": 1393,
+        "month": 1
+      },
+      "expected": {
+        "days": 31
+      },
+      "mutant": "wrong_days_in_month",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: Major features:      Support for the Persian/Solar Hijri calendar    Experimental support for the Hebrew calendar ( issue 238 )      API changes:      Added CalendarSystem.GetPersianCalendar() and Era.AnnoPersico for the Persian calendar    Added CalendarSystem.GetHebrewCalend"
+    },
+    {
+      "name": "hebrewcivil_calendar_month_one_has_30_days",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "calendar.hebrew",
+      "replay": "calendar_days_in_month",
+      "params": {
+        "calendar": "HebrewCivil",
+        "year": 5774,
+        "month": 1
+      },
+      "expected": {
+        "days": 30
+      },
+      "mutant": "wrong_days_in_month",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: Support for the Persian/Solar Hijri calendar    Experimental support for the Hebrew calendar ( issue 238 )      API changes:      Added CalendarSystem.GetPersianCalendar() and Era.AnnoPersico for the Persian calendar    Added CalendarSystem.GetHebrewCalendar() , Era.AnnoMundi , and the  HebrewMonthNumbering enum for"
+    },
+    {
+      "name": "hebrewscriptural_calendar_month_one_has_30_days",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "calendar.hebrew",
+      "replay": "calendar_days_in_month",
+      "params": {
+        "calendar": "HebrewScriptural",
+        "year": 5774,
+        "month": 1
+      },
+      "expected": {
+        "days": 30
+      },
+      "mutant": "wrong_days_in_month",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: Support for the Persian/Solar Hijri calendar    Experimental support for the Hebrew calendar ( issue 238 )      API changes:      Added CalendarSystem.GetPersianCalendar() and Era.AnnoPersico for the Persian calendar    Added CalendarSystem.GetHebrewCalendar() , Era.AnnoMundi , and the  HebrewMonthNumbering enum for"
+    },
+    {
+      "name": "local_date_at_local_time_combines_fields",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "local-date.combine",
+      "replay": "local_date_at_time",
+      "params": {
+        "date": "2014-06-27",
+        "time": "12:34:56"
+      },
+      "expected": {
+        "local": "2014-06-27T12:34:56"
+      },
+      "mutant": "swap_date_time",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: AnnoMundi , and the  HebrewMonthNumbering enum for the Hebrew calendar    Added LocalDate.At(LocalTime) and LocalTime.On(LocalDate) , more discoverable versions of LocalDate + LocalTime ( issue 192 )    Added OffsetDateTime.WithOffset() , which returns an OffsetDateTime  representing the same point in time, but using a"
+    },
+    {
+      "name": "local_time_on_local_date_combines_fields",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "local-date.combine",
+      "replay": "local_time_on_date",
+      "params": {
+        "date": "2014-06-27",
+        "time": "12:34:56"
+      },
+      "expected": {
+        "local": "2014-06-27T12:34:56"
+      },
+      "mutant": "swap_date_time",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: onthNumbering enum for the Hebrew calendar    Added LocalDate.At(LocalTime) and LocalTime.On(LocalDate) , more discoverable versions of LocalDate + LocalTime ( issue 192 )    Added OffsetDateTime.WithOffset() , which returns an OffsetDateTime  representing the same point in time, but using a given offset ( issue 246 )"
+    },
+    {
+      "name": "offset_datetime_with_offset_preserves_instant",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "offset-datetime.with-offset",
+      "replay": "offset_datetime_with_offset",
+      "params": {
+        "local": "2014-06-27T12:00:00",
+        "offset": "+00:00",
+        "new_offset": "+02:00"
+      },
+      "expected": {
+        "local": "2014-06-27T14:00:00",
+        "offset": "+02:00"
+      },
+      "mutant": "preserve_local_not_instant",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: verable versions of LocalDate + LocalTime ( issue 192 )    Added OffsetDateTime.WithOffset() , which returns an OffsetDateTime  representing the same point in time, but using a given offset ( issue 246 )    Added ZonedDateTime.IsDaylightSavingTime() , mirroring the method of the same name in System.DateTime ( issue 264"
+    },
+    {
+      "name": "zoned_datetime_reports_dst_in_london_summer",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "zoned-datetime.dst",
+      "replay": "zoned_is_dst",
+      "params": {
+        "instant": "2014-07-01T12:00:00Z",
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "is_dst": true
+      },
+      "mutant": "ignore_dst",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: me point in time, but using a given offset ( issue 246 )    Added ZonedDateTime.IsDaylightSavingTime() , mirroring the method of the same name in System.DateTime ( issue 264 )    Added missing OffsetDateTimePattern.CreateWithInvariantCulture() ,  OffsetDateTimePattern.CreateWithCurrentCulture() , and  ZonedDateTimePatt"
+    },
+    {
+      "name": "offset_datetime_rfc3339_pattern_roundtrips",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "offset-datetime.pattern.rfc3339",
+      "replay": "format_offset_datetime_rfc3339",
+      "params": {
+        "local": "2014-06-27T12:34:56",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "text": "2014-06-27T12:34:56+02:00"
+      },
+      "mutant": "wrong_rfc3339",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: Pattern.CreateWithCurrentCulture() ( issue 267 )    Added OffsetDateTimePattern.Rfc3339Pattern , an RFC 3339-compliant pattern formatter ( issue 284 )     ZonedDateTimePattern patterns containing the G and F standard patterns can now be used for parsing when used with a zone provider ( issue 277 )    Marked the desktop"
+    },
+    {
+      "name": "zoned_pattern_g_parses_era_when_provider_supplied",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "zoned-datetime.pattern.era",
+      "replay": "parse_zoned_era_pattern",
+      "params": {
+        "text": "AD 2014-06-27T12:00:00 Europe/London"
+      },
+      "expected": {
+        "zone": "Europe/London",
+        "year": 2014
+      },
+      "mutant": "ignore_era",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: attern formatter ( issue 284 )     ZonedDateTimePattern patterns containing the G and F standard patterns can now be used for parsing when used with a zone provider ( issue 277 )    Marked the desktop assembly with the AllowPartiallyTrustedCallers  attribute (and relevant types with the SecurityCritical attribute), all"
+    },
+    {
+      "name": "interval_to_string_uses_iso_interval",
+      "origin_project": "Noda Time",
+      "version": "1.3.0",
+      "release_title": "1.3.0, released 2014-06-27 with tzdb 2014e",
+      "capability": "interval.format.iso",
+      "replay": "format_interval",
+      "params": {
+        "interval": "2014-06-27T12:00:00Z/2014-06-27T13:00:00Z"
+      },
+      "expected": {
+        "text": "2014-06-27T12:00:00Z/2014-06-27T13:00:00Z"
+      },
+      "mutant": "wrong_interval_format",
+      "evidence": "nodatime.org/versions:1.3.0, released 2014-06-27 with tzdb 2014e: es issue 268  and issue 272 )    Changed the previously-undocumented format for Interval.ToString() to ISO-8601 interval format ( issue 270 )      API changes for NodaTime.Serialization.JsonNet:      Added JsonSerializerSettings.WithIsoIntervalConverter() and  JsonSerializer.WithIsoIntervalConverter() extension methods"
+    },
+    {
+      "name": "moscow_pre_2014_uses_correct_offset",
+      "origin_project": "Noda Time",
+      "version": "1.3.1",
+      "release_title": "1.3.1, released 2015-03-06 with tzdb 2015a",
+      "capability": "timezone.bcl-russian-history",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Europe/Moscow",
+        "instant": "2014-10-25T12:00:00Z"
+      },
+      "expected": {
+        "offset": "+04:00"
+      },
+      "mutant": "wrong_moscow_offset",
+      "evidence": "nodatime.org/versions:1.3.1, released 2015-03-06 with tzdb 2015a: that caused  BclDateTimeZone to incorrectly calculate time zone conversions for Russian time zones before 2014-10-26 ( issue 342 ). (This is essentially the same problem documented in Microsoft KB 3012229 .)    TZDB zone transitions that occur at 24:00 at the end of the last year in a zone rule are now handled correctl"
+    },
+    {
+      "name": "bcl_timezone_wrappers_compare_by_underlying_zone",
+      "origin_project": "Noda Time",
+      "version": "1.3.1",
+      "release_title": "1.3.1, released 2015-03-06 with tzdb 2015a",
+      "capability": "timezone.bcl-equality",
+      "replay": "zone_equality",
+      "params": {
+        "zone": "UTC"
+      },
+      "expected": {
+        "equals": true
+      },
+      "mutant": "always_not_equal",
+      "evidence": "nodatime.org/versions:1.3.1, released 2015-03-06 with tzdb 2015a: are now handled correctly ( issue 335 )    Instances of BclDateTimeZone are now considered equal if they wrap the same underlying TimeZoneInfo , rather than always throwing  NotImplementedException ( issue 334 )    The NodaTime assembly now correctly declares a dependency on  System.Xml , required due to XML serializat"
+    },
+    {
+      "name": "date_parse_month_zero_returns_failed_parse",
+      "origin_project": "Noda Time",
+      "version": "1.3.2",
+      "release_title": "1.3.2, released 2016-04-14 with tzdb 2016c",
+      "capability": "local-date.parse.validation",
+      "replay": "parse_result_local_date",
+      "params": {
+        "text": "2016-00-01"
+      },
+      "expected": {
+        "success": false
+      },
+      "mutant": "throw_on_parse_result",
+      "evidence": "nodatime.org/versions+github-releases:1.3.2, released 2016-04-14 with tzdb 2016c: When parsing a date, correctly return a failed parse result when provided a month number of 0, instead of throwing an exception ( issue 414 ). Primarily an update to TZDB 2016c, along with a fix for #414."
+    },
+    {
+      "name": "instant_supports_nanosecond_fraction",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "instant.precision.nanosecond",
+      "replay": "instant_nanosecond_fraction",
+      "params": {
+        "text": "2017-03-31T12:00:00.123456789Z"
+      },
+      "expected": {
+        "nanosecond_of_second": 123456789
+      },
+      "mutant": "truncate_to_millis",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: ime 1.x to 2.0 migration guide  for full details.    New features include:      Nanosecond precision    .NET Core support: 2.0 targets netstandard1.3 and net45 TFMs    Improved performance on many LocalDate -related operations due to new internal representation    Time zone reimplementation    Many extension methods, i"
+    },
+    {
+      "name": "duration_supports_nanosecond_component",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "duration.precision.nanosecond",
+      "replay": "duration_from_nanoseconds",
+      "params": {
+        "nanoseconds": 123456789
+      },
+      "expected": {
+        "nanoseconds": 123456789
+      },
+      "mutant": "truncate_to_millis",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: ime 1.x to 2.0 migration guide  for full details.    New features include:      Nanosecond precision    .NET Core support: 2.0 targets netstandard1.3 and net45 TFMs    Improved performance on many LocalDate -related operations due to new internal representation    Time zone reimplementation    Many extension methods, i"
+    },
+    {
+      "name": "date_adjuster_end_of_month_moves_to_last_day",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "local-date.adjuster",
+      "replay": "date_adjuster",
+      "params": {
+        "date": "2017-02-10",
+        "adjuster": "end_of_month"
+      },
+      "expected": {
+        "date": "2017-02-28"
+      },
+      "mutant": "wrong_end_of_month",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: ension methods, including on BCL types, in the NodaTime.Extensions namespace    Date and time adjusters, e.g. var monthEnd = date.With(DateAdjusters.EndOfMonth)    Extension methods for testing (to allow things like 19.June(1976) ) in the NodaTime.Testing.Extensions namespace     AnnualDate to represent events like bir"
+    },
+    {
+      "name": "annual_date_matches_same_month_day",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "annual-date.core",
+      "replay": "annual_date_match",
+      "params": {
+        "annual_date": "--06-19",
+        "date": "1976-06-19"
+      },
+      "expected": {
+        "matches": true
+      },
+      "mutant": "wrong_annual_date",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: ow things like 19.June(1976) ) in the NodaTime.Testing.Extensions namespace     AnnualDate to represent events like birthdays and anniversaries     DateInterval - a LocalDate -based interval type     ZonedClock - a wrapper around IClock with a time zone, making it easier to get the current day/time in a time zone repea"
+    },
+    {
+      "name": "date_interval_contains_end_date_inclusively",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "date-interval.contains",
+      "replay": "date_interval_contains",
+      "params": {
+        "start": "2017-03-01",
+        "end": "2017-03-03",
+        "date": "2017-03-03"
+      },
+      "expected": {
+        "contains": true
+      },
+      "mutant": "exclude_end_date",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: mespace     AnnualDate to represent events like birthdays and anniversaries     DateInterval - a LocalDate -based interval type     ZonedClock - a wrapper around IClock with a time zone, making it easier to get the current day/time in a time zone repeatedly     WeekYearRules - a calendar-neutral way of extracting week-"
+    },
+    {
+      "name": "date_interval_length_counts_inclusive_days",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "date-interval.length",
+      "replay": "date_interval_length",
+      "params": {
+        "start": "2017-03-01",
+        "end": "2017-03-03"
+      },
+      "expected": {
+        "days": 3
+      },
+      "mutant": "exclusive_length",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: mespace     AnnualDate to represent events like birthdays and anniversaries     DateInterval - a LocalDate -based interval type     ZonedClock - a wrapper around IClock with a time zone, making it easier to get the current day/time in a time zone repeatedly     WeekYearRules - a calendar-neutral way of extracting week-"
+    },
+    {
+      "name": "week_year_rule_iso_week_one_crosses_year_boundary",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "week-year.rule",
+      "replay": "weekyear_date",
+      "params": {
+        "week_year": 2017,
+        "week": 1,
+        "day": "Sunday"
+      },
+      "expected": {
+        "date": "2017-01-08"
+      },
+      "mutant": "wrong_week_rule",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: one, making it easier to get the current day/time in a time zone repeatedly     WeekYearRules - a calendar-neutral way of extracting week-year information    Simpler calendar access using properties in CalendarSystem    Embedded date/time patterns in LocalDateTime, ZonedDateTime and OffsetDateTime patterns      Breakin"
+    },
+    {
+      "name": "lenient_resolver_maps_gap_forward",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "timezone.resolver.lenient",
+      "replay": "lenient_resolver",
+      "params": {
+        "zone": "Europe/London",
+        "local": "2017-03-26T01:30:00"
+      },
+      "expected": {
+        "local": "2017-03-26T02:30:00",
+        "offset": "+01:00"
+      },
+      "mutant": "wrong_gap_resolver",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: I.    Removed LocalTime.LocalDateTime property.    Changed the behaviour of the LenientResolver to more closely match real-world usage. This also affects DateTimeZone.AtLeniently and LocalDateTime.InZoneLeniently .     For ambiguous values, the lenient resolver used to return the later of the two possible instants. It"
+    },
+    {
+      "name": "calendar_system_exposes_coptic_property",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "calendar.property",
+      "replay": "calendar_id",
+      "params": {
+        "calendar": "Coptic"
+      },
+      "expected": {
+        "id": "Coptic"
+      },
+      "mutant": "wrong_calendar_property",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: WeekYearRules - a calendar-neutral way of extracting week-year information    Simpler calendar access using properties in CalendarSystem    Embedded date/time patterns in LocalDateTime, ZonedDateTime and OffsetDateTime patterns      Breaking changes:      When passing an IFormatProvider , only CultureInfo and DateTim"
+    },
+    {
+      "name": "local_date_day_of_week_is_iso_named_value",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "local-date.day-of-week",
+      "replay": "local_date_day_of_week",
+      "params": {
+        "date": "2017-03-31"
+      },
+      "expected": {
+        "day": "Friday"
+      },
+      "mutant": "wrong_day_of_week",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: ed all static pattern properties to remove the Pattern suffix    Renamed the IsoDayOfWeek properties in LocalDate , LocalDateTime , OffsetDateTime  and ZonedDateTime to just DayOfWeek , and removed the previous numeric DayOfWeek properties.    Removed members which had already been made obsolete in the 1.x release line"
+    },
+    {
+      "name": "culture_provider_rejects_non_culture_format_provider",
+      "origin_project": "Noda Time",
+      "version": "2.0",
+      "release_title": "2.0, released 2017-03-31 with tzdb 2017b",
+      "capability": "text.culture-validation",
+      "replay": "invalid_format_provider",
+      "params": {},
+      "expected": {
+        "throws": "invalid"
+      },
+      "mutant": "accept_any_provider",
+      "evidence": "nodatime.org/versions:2.0, released 2017-03-31 with tzdb 2017b: DateTime patterns      Breaking changes:      When passing an IFormatProvider , only CultureInfo and DateTimeFormatInfo values can be used; any other non-null reference will now throw an exception. When a DateTimeFormatInfo is provided, the invariant culture is used for resource lookups and text comparisons.    Removed"
+    },
+    {
+      "name": "local_date_min_iso_value_has_year_minus_9998",
+      "origin_project": "Noda Time",
+      "version": "2.1.0",
+      "release_title": "2.1.0, released 2017-07-09 with tzdb 2017b",
+      "capability": "local-date.bounds",
+      "replay": "local_date_bound",
+      "params": {
+        "which": "min"
+      },
+      "expected": {
+        "year": -9998
+      },
+      "mutant": "wrong_min_date",
+      "evidence": "nodatime.org/versions+github-releases:2.1.0, released 2017-07-09 with tzdb 2017b: tional context ( issue 780 )    Added SourceLink support ( issue 870 )    Added LocalDate.MinIsoValue / MaxIsoValue ( issue 898 )      (Beta 1 was released on 2017-07-05. Only change since beta 1 was the final addition listed above.) Full 2.1.0 release. New features:\r \r - Some optimizations to `Period` which didn't get"
+    },
+    {
+      "name": "local_date_max_iso_value_has_year_9999",
+      "origin_project": "Noda Time",
+      "version": "2.1.0",
+      "release_title": "2.1.0, released 2017-07-09 with tzdb 2017b",
+      "capability": "local-date.bounds",
+      "replay": "local_date_bound",
+      "params": {
+        "which": "max"
+      },
+      "expected": {
+        "year": 9999
+      },
+      "mutant": "wrong_max_date",
+      "evidence": "nodatime.org/versions+github-releases:2.1.0, released 2017-07-09 with tzdb 2017b: tional context ( issue 780 )    Added SourceLink support ( issue 870 )    Added LocalDate.MinIsoValue / MaxIsoValue ( issue 898 )      (Beta 1 was released on 2017-07-05. Only change since beta 1 was the final addition listed above.) Full 2.1.0 release. New features:\r \r - Some optimizations to `Period` which didn't get"
+    },
+    {
+      "name": "parse_result_success_exposes_value",
+      "origin_project": "Noda Time",
+      "version": "2.1.0",
+      "release_title": "2.1.0, released 2017-07-09 with tzdb 2017b",
+      "capability": "text.parse-result",
+      "replay": "parse_result_local_date",
+      "params": {
+        "text": "2017-07-09"
+      },
+      "expected": {
+        "success": true,
+        "date": "2017-07-09"
+      },
+      "mutant": "drop_parse_value",
+      "evidence": "nodatime.org/versions+github-releases:2.1.0, released 2017-07-09 with tzdb 2017b: n method ( issue 776 )    Added factory methods and some extra functionality to ParseResult to make it easier to work with it in a functional context ( issue 780 )    Added SourceLink support ( issue 870 )    Added LocalDate.MinIsoValue / MaxIsoValue ( issue 898 )      (Beta 1 was released on 2017-07-05. Only change si"
+    },
+    {
+      "name": "timezone_parser_accepts_etc_gmt_minus_12",
+      "origin_project": "Noda Time",
+      "version": "1.4.1",
+      "release_title": "1.4.1, released 2017-10-14 with tzdb 2017b",
+      "capability": "timezone.parse.prefix",
+      "replay": "zone_id",
+      "params": {
+        "id": "Etc/GMT-12"
+      },
+      "expected": {
+        "canonical_id": "Etc/GMT-12"
+      },
+      "mutant": "prefix_match_wrong_zone",
+      "evidence": "nodatime.org/versions+github-releases:1.4.1, released 2017-10-14 with tzdb 2017b: -fix release:      Fixes issue 981 : Failure to parse time zones with IDs like \"Etc/GMT-12\" (Zones where another zone has an ID with common prefix and  there's at least one zone between the two, lexically.) Bug-fix release for the 1.4.x series.\r \r Fixes issue #981 where time zones such as \"Etc/GMT-12\" would sometimes n"
+    },
+    {
+      "name": "etc_gmt_minus_12_has_positive_12_offset",
+      "origin_project": "Noda Time",
+      "version": "1.4.1",
+      "release_title": "1.4.1, released 2017-10-14 with tzdb 2017b",
+      "capability": "timezone.parse.prefix",
+      "replay": "zone_offset",
+      "params": {
+        "zone": "Etc/GMT-12",
+        "instant": "2017-10-14T00:00:00Z"
+      },
+      "expected": {
+        "offset": "+12:00"
+      },
+      "mutant": "wrong_etc_gmt_sign",
+      "evidence": "nodatime.org/versions+github-releases:1.4.1, released 2017-10-14 with tzdb 2017b: -fix release:      Fixes issue 981 : Failure to parse time zones with IDs like \"Etc/GMT-12\" (Zones where another zone has an ID with common prefix and  there's at least one zone between the two, lexically.) Bug-fix release for the 1.4.x series.\r \r Fixes issue #981 where time zones such as \"Etc/GMT-12\" would sometimes n"
+    },
+    {
+      "name": "instant_subtract_duration_checks_lower_bound",
+      "origin_project": "Noda Time",
+      "version": "1.4.1",
+      "release_title": "1.4.1, released 2017-10-14 with tzdb 2017b",
+      "capability": "instant.bounds",
+      "replay": "instant_minus_duration_bound",
+      "params": {
+        "instant": "min",
+        "duration_days": 1
+      },
+      "expected": {
+        "throws": "overflow"
+      },
+      "mutant": "allow_underflow",
+      "evidence": "nodatime.org/versions+github-releases:1.4.1, released 2017-10-14 with tzdb 2017b: Bug-fix release:      Fixes issue 981 : Failure to parse time zones with IDs like \"Etc/GMT-12\" (Zones where another zone has an ID with common prefix and  there's at least one zone between the two, lexically.) Bug-fix release for the 1.4.x series.\r \r Fixes iss"
+    },
+    {
+      "name": "unknown_standard_pattern_error_mentions_percent",
+      "origin_project": "Noda Time",
+      "version": "1.4.1",
+      "release_title": "1.4.1, released 2017-10-14 with tzdb 2017b",
+      "capability": "text.pattern.error",
+      "replay": "unknown_pattern_error",
+      "params": {
+        "pattern": "%"
+      },
+      "expected": {
+        "contains": "%"
+      },
+      "mutant": "vague_pattern_error",
+      "evidence": "nodatime.org/versions+github-releases:1.4.1, released 2017-10-14 with tzdb 2017b: Bug-fix release:      Fixes issue 981 : Failure to parse time zones with IDs like \"Etc/GMT-12\" (Zones where another zone has an ID with common prefix and  there's at least one zone between the two, lexically.) Bug-fix release for the 1.4.x series.\r \r Fixes iss"
+    },
+    {
+      "name": "badi_calendar_has_19_day_months",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "calendar.badi",
+      "replay": "calendar_days_in_month",
+      "params": {
+        "calendar": "Badi",
+        "year": 1,
+        "month": 1
+      },
+      "expected": {
+        "days": 19
+      },
+      "mutant": "wrong_badi_month",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: d iteration (it implements IEnumerable<LocalDate> )    New calendar system: the Badíʿ calendar    Text handling for AnnualDate      2.3.0-beta01 was released on 2017-12-13, and 2.3.0-beta02 was released on 2018-03-25."
+    },
+    {
+      "name": "offset_date_preserves_date_and_offset",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "offset-date.core",
+      "replay": "offset_date_create",
+      "params": {
+        "date": "2018-05-19",
+        "offset": "+03:00"
+      },
+      "expected": {
+        "date": "2018-05-19",
+        "offset": "+03:00"
+      },
+      "mutant": "drop_offset",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: ypes     Min / Max methods added to LocalDate , LocalTime and LocalDateTime     OffsetDate and OffsetTime structs added to represent dates or times-of-day with offsets, with conversions from other types as appropriate.     OffsetDateTime.InZone method added for easier conversion to ZonedDateTime    New operations on Da"
+    },
+    {
+      "name": "offset_time_preserves_time_and_offset",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "offset-time.core",
+      "replay": "offset_time_create",
+      "params": {
+        "time": "12:34:56",
+        "offset": "-03:00"
+      },
+      "expected": {
+        "time": "12:34:56",
+        "offset": "-03:00"
+      },
+      "mutant": "drop_offset",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: Max methods added to LocalDate , LocalTime and LocalDateTime     OffsetDate and OffsetTime structs added to represent dates or times-of-day with offsets, with conversions from other types as appropriate.     OffsetDateTime.InZone method added for easier conversion to ZonedDateTime    New operations on DateInterval : Co"
+    },
+    {
+      "name": "offset_datetime_in_zone_converts_to_zone",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "offset-datetime.in-zone",
+      "replay": "offset_datetime_in_zone",
+      "params": {
+        "local": "2018-05-19T12:00:00",
+        "offset": "+00:00",
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "local": "2018-05-19T13:00:00",
+        "zone": "Europe/London"
+      },
+      "mutant": "retain_wrong_local",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: imes-of-day with offsets, with conversions from other types as appropriate.     OffsetDateTime.InZone method added for easier conversion to ZonedDateTime    New operations on DateInterval : Contains(DateInterval) , Union ,  Intersection and iteration (it implements IEnumerable<LocalDate> )    New calendar system: the B"
+    },
+    {
+      "name": "date_interval_contains_nested_interval",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "date-interval.contains-interval",
+      "replay": "date_interval_contains_interval",
+      "params": {
+        "outer_start": "2018-05-01",
+        "outer_end": "2018-05-31",
+        "inner_start": "2018-05-10",
+        "inner_end": "2018-05-20"
+      },
+      "expected": {
+        "contains": true
+      },
+      "mutant": "wrong_interval_contains",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: dded for easier conversion to ZonedDateTime    New operations on DateInterval : Contains(DateInterval) , Union ,  Intersection and iteration (it implements IEnumerable<LocalDate> )    New calendar system: the Badíʿ calendar    Text handling for AnnualDate      2.3.0-beta01 was released on 2017-12-13, and 2.3.0-beta02 w"
+    },
+    {
+      "name": "date_interval_intersection_returns_overlap",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "date-interval.intersection",
+      "replay": "date_interval_intersection",
+      "params": {
+        "left_start": "2018-05-01",
+        "left_end": "2018-05-10",
+        "right_start": "2018-05-05",
+        "right_end": "2018-05-20"
+      },
+      "expected": {
+        "start": "2018-05-05",
+        "end": "2018-05-10"
+      },
+      "mutant": "wrong_intersection",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: dDateTime    New operations on DateInterval : Contains(DateInterval) , Union ,  Intersection and iteration (it implements IEnumerable<LocalDate> )    New calendar system: the Badíʿ calendar    Text handling for AnnualDate      2.3.0-beta01 was released on 2017-12-13, and 2.3.0-beta02 was released on 2018-03-25."
+    },
+    {
+      "name": "date_interval_union_returns_covering_interval",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "date-interval.union",
+      "replay": "date_interval_union",
+      "params": {
+        "left_start": "2018-05-01",
+        "left_end": "2018-05-10",
+        "right_start": "2018-05-11",
+        "right_end": "2018-05-20"
+      },
+      "expected": {
+        "start": "2018-05-01",
+        "end": "2018-05-20"
+      },
+      "mutant": "wrong_union",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: n to ZonedDateTime    New operations on DateInterval : Contains(DateInterval) , Union ,  Intersection and iteration (it implements IEnumerable<LocalDate> )    New calendar system: the Badíʿ calendar    Text handling for AnnualDate      2.3.0-beta01 was released on 2017-12-13, and 2.3.0-beta02 was released on 2018-03-25"
+    },
+    {
+      "name": "date_interval_iteration_is_inclusive",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "date-interval.iteration",
+      "replay": "date_interval_iterate",
+      "params": {
+        "start": "2018-05-01",
+        "end": "2018-05-03"
+      },
+      "expected": {
+        "dates": "2018-05-01,2018-05-02,2018-05-03"
+      },
+      "mutant": "exclusive_iteration",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: operations on DateInterval : Contains(DateInterval) , Union ,  Intersection and iteration (it implements IEnumerable<LocalDate> )    New calendar system: the Badíʿ calendar    Text handling for AnnualDate      2.3.0-beta01 was released on 2017-12-13, and 2.3.0-beta02 was released on 2018-03-25."
+    },
+    {
+      "name": "annual_date_text_roundtrips_month_day",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "annual-date.text",
+      "replay": "annual_date_parse_format",
+      "params": {
+        "text": "--05-19"
+      },
+      "expected": {
+        "text": "--05-19"
+      },
+      "mutant": "wrong_annual_text",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: plements IEnumerable<LocalDate> )    New calendar system: the Badíʿ calendar    Text handling for AnnualDate      2.3.0-beta01 was released on 2017-12-13, and 2.3.0-beta02 was released on 2018-03-25."
+    },
+    {
+      "name": "local_date_min_method_returns_earlier_date",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "local-date.minmax",
+      "replay": "local_date_minmax",
+      "params": {
+        "left": "2018-05-20",
+        "right": "2018-05-19",
+        "mode": "min"
+      },
+      "expected": {
+        "date": "2018-05-19"
+      },
+      "mutant": "wrong_min",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: res:       Deconstruct methods to support C# 7 deconstruction in many types     Min / Max methods added to LocalDate , LocalTime and LocalDateTime     OffsetDate and OffsetTime structs added to represent dates or times-of-day with offsets, with conversions from other types as appropriate.     OffsetDateTime.InZone meth"
+    },
+    {
+      "name": "local_time_max_method_returns_later_time",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "local-time.minmax",
+      "replay": "local_time_minmax",
+      "params": {
+        "left": "12:00:00",
+        "right": "13:00:00",
+        "mode": "max"
+      },
+      "expected": {
+        "time": "13:00:00"
+      },
+      "mutant": "wrong_max",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: res:       Deconstruct methods to support C# 7 deconstruction in many types     Min / Max methods added to LocalDate , LocalTime and LocalDateTime     OffsetDate and OffsetTime structs added to represent dates or times-of-day with offsets, with conversions from other types as appropriate.     OffsetDateTime.InZone meth"
+    },
+    {
+      "name": "local_datetime_deconstruct_exposes_date_and_time",
+      "origin_project": "Noda Time",
+      "version": "2.3.0",
+      "release_title": "2.3.0, released 2018-05-19 with tzdb 2018e",
+      "capability": "local-datetime.deconstruct",
+      "replay": "local_datetime_deconstruct",
+      "params": {
+        "local": "2018-05-19T12:34:56"
+      },
+      "expected": {
+        "date": "2018-05-19",
+        "time": "12:34:56"
+      },
+      "mutant": "swap_deconstruct",
+      "evidence": "nodatime.org/versions:2.3.0, released 2018-05-19 with tzdb 2018e: New features:       Deconstruct methods to support C# 7 deconstruction in many types     Min / Max methods added to LocalDate , LocalTime and LocalDateTime     OffsetDate and OffsetTime structs added to represent dates or times-of-day with offsets, with conver"
+    },
+    {
+      "name": "local_time_from_hours_since_midnight",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "params": {
+        "unit": "hours",
+        "value": 12
+      },
+      "expected": {
+        "time": "12:00:00"
+      },
+      "mutant": "wrong_hour_factory",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: rovide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromMinutesSinceMidnight issue 1366    Introduce a date adjuster to add a period when invoked    Add o and O invariant round-trip standard patterns to LocalTime issue 1361    Add standard LocalDate patterns for IS"
+    },
+    {
+      "name": "local_time_from_minutes_since_midnight",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-time.factory.day-unit",
+      "replay": "local_time_from_day_unit",
+      "params": {
+        "unit": "minutes",
+        "value": 754
+      },
+      "expected": {
+        "time": "12:34:00"
+      },
+      "mutant": "wrong_minute_factory",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromMinutesSinceMidnight issue 1366    Introduce a date adjuster to add a period when invoked    Add o and O invariant round-trip standard patterns to LocalTime issue 1361    Add standard LocalDate patterns for ISO and \"full round trip with"
+    },
+    {
+      "name": "date_adjuster_add_period_applies_month_then_day",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-date.adjuster.period",
+      "replay": "date_adjuster_add_period",
+      "params": {
+        "date": "2020-01-31",
+        "period": "P1M1D"
+      },
+      "expected": {
+        "date": "2020-03-01"
+      },
+      "mutant": "wrong_period_adjuster",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: e.FromHoursSinceMidnight and FromMinutesSinceMidnight issue 1366    Introduce a date adjuster to add a period when invoked    Add o and O invariant round-trip standard patterns to LocalTime issue 1361    Add standard LocalDate patterns for ISO and \"full round trip with calendar\" issue 1363    Use 'S' as the extended IS"
+    },
+    {
+      "name": "local_time_roundtrip_o_preserves_nanos",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-time.pattern.roundtrip",
+      "replay": "format_local_time_pattern",
+      "params": {
+        "time": "12:34:56.123456789",
+        "pattern": "o"
+      },
+      "expected": {
+        "text": "12:34:56.123456789"
+      },
+      "mutant": "truncate_nanos",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: ght issue 1366    Introduce a date adjuster to add a period when invoked    Add o and O invariant round-trip standard patterns to LocalTime issue 1361    Add standard LocalDate patterns for ISO and \"full round trip with calendar\" issue 1363    Use 'S' as the extended ISO standard pattern specifier issue 1219    Add a t"
+    },
+    {
+      "name": "local_date_iso_standard_pattern_formats_date",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-date.pattern.iso",
+      "replay": "format_local_date_pattern",
+      "params": {
+        "date": "2020-05-22",
+        "pattern": "D"
+      },
+      "expected": {
+        "text": "2020-05-22"
+      },
+      "mutant": "wrong_iso_date_pattern",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: d o and O invariant round-trip standard patterns to LocalTime issue 1361    Add standard LocalDate patterns for ISO and \"full round trip with calendar\" issue 1363    Use 'S' as the extended ISO standard pattern specifier issue 1219    Add a template value to InstantPattern (like other patterns)    Add a new roundtrip p"
+    },
+    {
+      "name": "instant_pattern_template_supplies_missing_date",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "instant.pattern.template",
+      "replay": "parse_instant_with_template",
+      "params": {
+        "text": "12:34:56Z",
+        "template": "2020-05-22T00:00:00Z"
+      },
+      "expected": {
+        "iso": "2020-05-22T12:34:56Z"
+      },
+      "mutant": "ignore_template",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: 3    Use 'S' as the extended ISO standard pattern specifier issue 1219    Add a template value to InstantPattern (like other patterns)    Add a new roundtrip pattern for durations issue 1290 This will allow developers to test TypeConverter support straight from NuGet"
+    },
+    {
+      "name": "duration_roundtrip_pattern_preserves_fractional_seconds",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "duration.pattern.roundtrip",
+      "replay": "format_duration_roundtrip",
+      "params": {
+        "nanoseconds": 1234567890
+      },
+      "expected": {
+        "text": "0:00:00:01.23456789"
+      },
+      "mutant": "wrong_duration_roundtrip",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: 19    Add a template value to InstantPattern (like other patterns)    Add a new roundtrip pattern for durations issue 1290 This will allow developers to test TypeConverter support straight from NuGet"
+    },
+    {
+      "name": "local_time_general_iso_formats_hh_mm_ss",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-time.pattern.general",
+      "replay": "format_local_time_pattern",
+      "params": {
+        "time": "12:34:56",
+        "pattern": "general_iso"
+      },
+      "expected": {
+        "text": "12:34:56"
+      },
+      "mutant": "wrong_general_iso",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: First beta release of 3.0.0.    New features since 3.0.0-alpha01:      Provide dictionaries from TZDB ID to Windows ID and vice versa issue 274    Provide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromM"
+    },
+    {
+      "name": "local_date_month_day_pattern_uses_culture_month_day",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "local-date.pattern.month-day",
+      "replay": "format_local_date_pattern",
+      "params": {
+        "date": "2020-05-22",
+        "pattern": "M",
+        "locale": "en-US"
+      },
+      "expected": {
+        "contains": "May"
+      },
+      "mutant": "wrong_month_day_pattern",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: First beta release of 3.0.0.    New features since 3.0.0-alpha01:      Provide dictionaries from TZDB ID to Windows ID and vice versa issue 274    Provide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromM"
+    },
+    {
+      "name": "period_equality_operators_compare_components",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "period.equality",
+      "replay": "period_equals",
+      "params": {
+        "left": "P1DT2H",
+        "right": "P1DT2H"
+      },
+      "expected": {
+        "equals": true
+      },
+      "mutant": "wrong_period_equality",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: First beta release of 3.0.0.    New features since 3.0.0-alpha01:      Provide dictionaries from TZDB ID to Windows ID and vice versa issue 274    Provide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromM"
+    },
+    {
+      "name": "year_month_comparison_orders_by_year_then_month",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "year-month.compare",
+      "replay": "year_month_compare",
+      "params": {
+        "left": "2020-05",
+        "right": "2020-06"
+      },
+      "expected": {
+        "comparison": -1
+      },
+      "mutant": "wrong_year_month_compare",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: First beta release of 3.0.0.    New features since 3.0.0-alpha01:      Provide dictionaries from TZDB ID to Windows ID and vice versa issue 274    Provide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromM"
+    },
+    {
+      "name": "year_month_type_converter_roundtrips_text",
+      "origin_project": "Noda Time",
+      "version": "3.0.0-beta01",
+      "release_title": "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.",
+      "capability": "year-month.text",
+      "replay": "year_month_parse_format",
+      "params": {
+        "text": "2020-05"
+      },
+      "expected": {
+        "text": "2020 May"
+      },
+      "mutant": "wrong_year_month_text",
+      "evidence": "nodatime.org/versions+github-releases:3.0.0-beta01, released 2019-09-03 with tzdb 2019b.: First beta release of 3.0.0.    New features since 3.0.0-alpha01:      Provide dictionaries from TZDB ID to Windows ID and vice versa issue 274    Provide Zone/Clock/Calendar properties on ZonedClock issue 1362    Add LocalTime.FromHoursSinceMidnight and FromM"
+    },
+    {
+      "name": "year_month_to_string_uses_year_and_month_name",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "year-month.format",
+      "replay": "year_month_parse_format",
+      "params": {
+        "text": "2022-04"
+      },
+      "expected": {
+        "text": "2022 April"
+      },
+      "mutant": "wrong_year_month_string",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: d LocalTime    Fixed BclDateTimeZone support in .NET 6.0 on Unix    Implemented ToString method for YearMonth    Improved error messages for bad format specifiers    Added LocalDateTime.MinIsoValue and LocalDate.MaxIsoValue    Added Period.Between overload accepting YearMonth values    Added YearMonth.PlusMonths method"
+    },
+    {
+      "name": "period_between_year_months_counts_years_and_months",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "period.between.year-month",
+      "replay": "period_between_year_month",
+      "params": {
+        "start": "2022-04",
+        "end": "2024-06"
+      },
+      "expected": {
+        "iso": "P2Y2M"
+      },
+      "mutant": "wrong_period_between",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: pecifiers    Added LocalDateTime.MinIsoValue and LocalDate.MaxIsoValue    Added Period.Between overload accepting YearMonth values    Added YearMonth.PlusMonths method    Added Period.DaysBetween method (previously internal)    Various documentation improvements"
+    },
+    {
+      "name": "period_days_between_counts_date_difference",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "period.days-between",
+      "replay": "period_days_between",
+      "params": {
+        "start": "2022-04-18",
+        "end": "2022-04-21"
+      },
+      "expected": {
+        "days": 3
+      },
+      "mutant": "wrong_days_between",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: erload accepting YearMonth values    Added YearMonth.PlusMonths method    Added Period.DaysBetween method (previously internal)    Various documentation improvements"
+    },
+    {
+      "name": "local_datetime_min_iso_value_has_min_year",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "local-datetime.bounds",
+      "replay": "local_datetime_bound",
+      "params": {
+        "which": "min"
+      },
+      "expected": {
+        "year": -9998
+      },
+      "mutant": "wrong_min_local_datetime",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: hod for YearMonth    Improved error messages for bad format specifiers    Added LocalDateTime.MinIsoValue and LocalDate.MaxIsoValue    Added Period.Between overload accepting YearMonth values    Added YearMonth.PlusMonths method    Added Period.DaysBetween method (previously internal)    Various documentation improveme"
+    },
+    {
+      "name": "local_date_max_iso_value_has_max_year",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "local-date.bounds",
+      "replay": "local_date_bound",
+      "params": {
+        "which": "max"
+      },
+      "expected": {
+        "year": 9999
+      },
+      "mutant": "wrong_max_local_date",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: error messages for bad format specifiers    Added LocalDateTime.MinIsoValue and LocalDate.MaxIsoValue    Added Period.Between overload accepting YearMonth values    Added YearMonth.PlusMonths method    Added Period.DaysBetween method (previously internal)    Various documentation improvements"
+    },
+    {
+      "name": "bad_pattern_error_reports_bad_specifier",
+      "origin_project": "Noda Time",
+      "version": "3.1.0",
+      "release_title": "3.1.0, release 2022-04-18 with tzdb 2022a",
+      "capability": "text.pattern.error",
+      "replay": "bad_pattern_error",
+      "params": {
+        "pattern": "uuuu-QQ-dd"
+      },
+      "expected": {
+        "contains": "Q"
+      },
+      "mutant": "vague_bad_pattern",
+      "evidence": "nodatime.org/versions:3.1.0, release 2022-04-18 with tzdb 2022a: one support in .NET 6.0 on Unix    Implemented ToString method for YearMonth    Improved error messages for bad format specifiers    Added LocalDateTime.MinIsoValue and LocalDate.MaxIsoValue    Added Period.Between overload accepting YearMonth values    Added YearMonth.PlusMonths method    Added Period.DaysBetween meth"
+    },
+    {
+      "name": "local_datetime_iso_reduced_precision_year_month_parses",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "local-datetime.pattern.reduced-precision",
+      "replay": "parse_local_datetime_reduced",
+      "params": {
+        "text": "2024-10",
+        "precision": "year_month"
+      },
+      "expected": {
+        "local": "2024-10-01T00:00:00"
+      },
+      "mutant": "reject_reduced_precision",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: Various minor docs/examples fixes    More LocalDateTime ISO patterns with reduced precision (    More LocalTime ISO formats    Support for configurable \"2 digit year max value\" in patterns    Fixed arguments passed to base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value ("
+    },
+    {
+      "name": "local_datetime_iso_reduced_precision_date_parses",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "local-datetime.pattern.reduced-precision",
+      "replay": "parse_local_datetime_reduced",
+      "params": {
+        "text": "2024-10-13",
+        "precision": "date"
+      },
+      "expected": {
+        "local": "2024-10-13T00:00:00"
+      },
+      "mutant": "reject_date_only",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: Various minor docs/examples fixes    More LocalDateTime ISO patterns with reduced precision (    More LocalTime ISO formats    Support for configurable \"2 digit year max value\" in patterns    Fixed arguments passed to base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value ("
+    },
+    {
+      "name": "local_time_iso_hour_minute_parses",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "local-time.pattern.reduced-precision",
+      "replay": "parse_local_time_reduced",
+      "params": {
+        "text": "12:34"
+      },
+      "expected": {
+        "time": "12:34:00"
+      },
+      "mutant": "reject_hour_minute",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: s/examples fixes    More LocalDateTime ISO patterns with reduced precision (    More LocalTime ISO formats    Support for configurable \"2 digit year max value\" in patterns    Fixed arguments passed to base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value (and index) to Unparsabl"
+    },
+    {
+      "name": "local_time_iso_hour_only_parses",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "local-time.pattern.reduced-precision",
+      "replay": "parse_local_time_reduced",
+      "params": {
+        "text": "12"
+      },
+      "expected": {
+        "time": "12:00:00"
+      },
+      "mutant": "reject_hour_only",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: s/examples fixes    More LocalDateTime ISO patterns with reduced precision (    More LocalTime ISO formats    Support for configurable \"2 digit year max value\" in patterns    Fixed arguments passed to base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value (and index) to Unparsabl"
+    },
+    {
+      "name": "two_digit_year_max_value_controls_century_low",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "local-date.parse.two-digit-year-max",
+      "replay": "parse_two_digit_year_max",
+      "params": {
+        "text": "49-01-02",
+        "max": 49
+      },
+      "expected": {
+        "date": "2049-01-02"
+      },
+      "mutant": "wrong_two_digit_window",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: reduced precision (    More LocalTime ISO formats    Support for configurable \"2 digit year max value\" in patterns    Fixed arguments passed to base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value (and index) to UnparsableValueException    Made previous UnparsableValueExceptio"
+    },
+    {
+      "name": "two_digit_year_max_value_controls_century_high",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "local-date.parse.two-digit-year-max",
+      "replay": "parse_two_digit_year_max",
+      "params": {
+        "text": "50-01-02",
+        "max": 49
+      },
+      "expected": {
+        "date": "1950-01-02"
+      },
+      "mutant": "wrong_two_digit_window",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: reduced precision (    More LocalTime ISO formats    Support for configurable \"2 digit year max value\" in patterns    Fixed arguments passed to base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value (and index) to UnparsableValueException    Made previous UnparsableValueExceptio"
+    },
+    {
+      "name": "unparsable_exception_exposes_value",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "text.parse-error.detail",
+      "replay": "parse_error_detail",
+      "params": {
+        "text": "not-a-date"
+      },
+      "expected": {
+        "contains": "not-a-date"
+      },
+      "mutant": "drop_error_value",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: base constructors in AmbiguousTimeException and SkippedTimeException    Add the unparsed value (and index) to UnparsableValueException    Made previous UnparsableValueException constructors obsolete    Optimizations for text handling    Added .NET 8 target    Added Instant.ToUnixTimeSecondsAndNanoseconds    Added Durat"
+    },
+    {
+      "name": "instant_unix_seconds_and_nanoseconds_splits_fraction",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "instant.unix.split",
+      "replay": "instant_unix_seconds_nanos",
+      "params": {
+        "instant": "2024-10-13T00:00:01.234567890Z"
+      },
+      "expected": {
+        "seconds": 1728777601,
+        "nanoseconds": 234567890
+      },
+      "mutant": "drop_nanos",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: lete    Optimizations for text handling    Added .NET 8 target    Added Instant.ToUnixTimeSecondsAndNanoseconds    Added Duration.ToInt128Nanoseconds and Duration.FromNanoseconds(Int128) (.NET 8 only)    Conditionalized the dependency on System.Runtime.CompilerServices.Unsafe    Added Period.MinValue and Period.MaxValu"
+    },
+    {
+      "name": "duration_from_nanoseconds_int128_preserves_value",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "duration.nanoseconds",
+      "replay": "duration_from_nanoseconds",
+      "params": {
+        "nanoseconds": 1234567890123
+      },
+      "expected": {
+        "nanoseconds": 1234567890123
+      },
+      "mutant": "truncate_nanos",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: stant.ToUnixTimeSecondsAndNanoseconds    Added Duration.ToInt128Nanoseconds and Duration.FromNanoseconds(Int128) (.NET 8 only)    Conditionalized the dependency on System.Runtime.CompilerServices.Unsafe    Added Period.MinValue and Period.MaxValue    Added generic math support (.NET 8 only)    Added TimeProvider extens"
+    },
+    {
+      "name": "period_min_value_is_less_than_zero_period",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "period.bounds",
+      "replay": "period_bound_compare",
+      "params": {
+        "which": "min"
+      },
+      "expected": {
+        "less_than_zero": true
+      },
+      "mutant": "wrong_period_min",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: nditionalized the dependency on System.Runtime.CompilerServices.Unsafe    Added Period.MinValue and Period.MaxValue    Added generic math support (.NET 8 only)    Added TimeProvider extension methods (.NET 8 only) Changes since 3.1.x:\r \r - Various minor docs/examples fixes\r - More LocalDateTime ISO patterns with reduce"
+    },
+    {
+      "name": "period_max_value_is_greater_than_zero_period",
+      "origin_project": "Noda Time",
+      "version": "3.2.0",
+      "release_title": "3.2.0, released 2024-10-13 with tzdb 2024b",
+      "capability": "period.bounds",
+      "replay": "period_bound_compare",
+      "params": {
+        "which": "max"
+      },
+      "expected": {
+        "greater_than_zero": true
+      },
+      "mutant": "wrong_period_max",
+      "evidence": "nodatime.org/versions+github-releases:3.2.0, released 2024-10-13 with tzdb 2024b: pendency on System.Runtime.CompilerServices.Unsafe    Added Period.MinValue and Period.MaxValue    Added generic math support (.NET 8 only)    Added TimeProvider extension methods (.NET 8 only) Changes since 3.1.x:\r \r - Various minor docs/examples fixes\r - More LocalDateTime ISO patterns with reduced precision (\r - Mor"
+    },
+    {
+      "name": "period_nanoseconds_between_counts_difference",
+      "origin_project": "Noda Time",
+      "version": "3.3.0",
+      "release_title": "3.3.0, released 2026-01-03 with tzdb 2025c",
+      "capability": "period.nanoseconds-between",
+      "replay": "period_nanoseconds_between",
+      "params": {
+        "start": "2026-01-03T00:00:00.000000001",
+        "end": "2026-01-03T00:00:00.000000010"
+      },
+      "expected": {
+        "nanoseconds": 9
+      },
+      "mutant": "wrong_nanoseconds_between",
+      "evidence": "nodatime.org/versions+github-releases:3.3.0, released 2026-01-03 with tzdb 2025c: the net6.0 target framework, as .NET 6.0 has been EOL for over a year    Added Period.NanosecondsBetween method    Documentation fixes    Added a new namespace, NodaTime.HighPerformance , containing  Duration64 and Instant64 types (for high-performance scenarios where the larger size (in memory) of Duration and Instan"
+    },
+    {
+      "name": "duration64_preserves_small_nanosecond_duration",
+      "origin_project": "Noda Time",
+      "version": "3.3.0",
+      "release_title": "3.3.0, released 2026-01-03 with tzdb 2025c",
+      "capability": "high-performance.duration64",
+      "replay": "duration64",
+      "params": {
+        "nanoseconds": 123456789
+      },
+      "expected": {
+        "nanoseconds": 123456789
+      },
+      "mutant": "wrong_duration64",
+      "evidence": "nodatime.org/versions+github-releases:3.3.0, released 2026-01-03 with tzdb 2025c: entation fixes    Added a new namespace, NodaTime.HighPerformance , containing  Duration64 and Instant64 types (for high-performance scenarios where the larger size (in memory) of Duration and Instant is problematic Changes since 3.2.0:\r \r - Removal of the net6.0 target framework, as .NET 6.0 has been EOL for over a ye"
+    },
+    {
+      "name": "instant64_preserves_unix_epoch_nanoseconds",
+      "origin_project": "Noda Time",
+      "version": "3.3.0",
+      "release_title": "3.3.0, released 2026-01-03 with tzdb 2025c",
+      "capability": "high-performance.instant64",
+      "replay": "instant64",
+      "params": {
+        "epoch_nanoseconds": 123456789
+      },
+      "expected": {
+        "epoch_nanoseconds": 123456789
+      },
+      "mutant": "wrong_instant64",
+      "evidence": "nodatime.org/versions+github-releases:3.3.0, released 2026-01-03 with tzdb 2025c: Added a new namespace, NodaTime.HighPerformance , containing  Duration64 and Instant64 types (for high-performance scenarios where the larger size (in memory) of Duration and Instant is problematic Changes since 3.2.0:\r \r - Removal of the net6.0 target framework, as .NET 6.0 has been EOL for over a year\r - Added Per"
+    }
+  ],
+  "release_counts": {
+    "1.0.0, released 2012-11-07 with tzdb 2012i": 10,
+    "1.0.0-rc1, released 2012-11-01 with tzdb 2012h": 14,
+    "1.0.0-beta2, released 2012-08-04 with tzdb 2012e": 4,
+    "1.1.0, released 2013-04-06 with tzdb 2013b": 2,
+    "1.2.0, released 2013-11-16 with tzdb 2013h": 13,
+    "1.3.0, released 2014-06-27 with tzdb 2014e": 12,
+    "1.3.1, released 2015-03-06 with tzdb 2015a": 2,
+    "1.3.2, released 2016-04-14 with tzdb 2016c": 1,
+    "2.0, released 2017-03-31 with tzdb 2017b": 11,
+    "2.1.0, released 2017-07-09 with tzdb 2017b": 3,
+    "1.4.1, released 2017-10-14 with tzdb 2017b": 4,
+    "2.3.0, released 2018-05-19 with tzdb 2018e": 12,
+    "3.0.0-beta01, released 2019-09-03 with tzdb 2019b.": 12,
+    "3.1.0, release 2022-04-18 with tzdb 2022a": 6,
+    "3.2.0, released 2024-10-13 with tzdb 2024b": 11,
+    "3.3.0, released 2026-01-03 with tzdb 2025c": 3
+  }
+}

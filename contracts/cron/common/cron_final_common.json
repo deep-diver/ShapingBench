@@ -1,0 +1,3093 @@
+{
+  "contracts": [
+    {
+      "name": "cron_parser_0_3_0_cron_iteration_basic_next_92cd252b5768",
+      "cross_id": "cron-parser:0:cron_parser_0_3_0_cron_iteration_basic_next_92cd252b5768",
+      "origin": "cron-parser",
+      "version": "0.3.0",
+      "capability": "cron.iteration.basic-next",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "* * * * *",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:01:00Z",
+          "2023-01-01T00:02:00Z",
+          "2023-01-01T00:03:00Z",
+          "2023-01-01T00:04:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:01:00Z",
+          "2023-01-01T00:02:00Z",
+          "2023-01-01T00:03:00Z",
+          "2023-01-01T00:04:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "* * * * * yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_0_3_0_cron_stringify_basic_c9de98115594",
+      "cross_id": "cron-parser:1:cron_parser_0_3_0_cron_stringify_basic_c9de98115594",
+      "origin": "cron-parser",
+      "version": "0.3.0",
+      "capability": "cron.stringify.basic",
+      "source_op": "stringify",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "* * * * *",
+        "includeSeconds": false
+      },
+      "expected": {
+        "string": "* * * * *"
+      },
+      "mutant": {
+        "string": "* * * * *__mutant__"
+      },
+      "human": "* * * * * stringifies deterministically"
+    },
+    {
+      "name": "cron_parser_0_3_0_cron_iteration_basic_next_7ef237d65042",
+      "cross_id": "cron-parser:2:cron_parser_0_3_0_cron_iteration_basic_next_7ef237d65042",
+      "origin": "cron-parser",
+      "version": "0.3.0",
+      "capability": "cron.iteration.basic-next",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/5 * * * *",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:05:00Z",
+          "2023-01-01T00:10:00Z",
+          "2023-01-01T00:15:00Z",
+          "2023-01-01T00:20:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:05:00Z",
+          "2023-01-01T00:10:00Z",
+          "2023-01-01T00:15:00Z",
+          "2023-01-01T00:20:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/5 * * * * yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_0_3_0_cron_iteration_basic_next_b9219e9ecc41",
+      "cross_id": "cron-parser:4:cron_parser_0_3_0_cron_iteration_basic_next_b9219e9ecc41",
+      "origin": "cron-parser",
+      "version": "0.3.0",
+      "capability": "cron.iteration.basic-next",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "1,2,3 * * * *",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:01:00Z",
+          "2023-01-01T00:02:00Z",
+          "2023-01-01T00:03:00Z",
+          "2023-01-01T01:01:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:01:00Z",
+          "2023-01-01T00:02:00Z",
+          "2023-01-01T00:03:00Z",
+          "2023-01-01T01:01:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "1,2,3 * * * * yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_0_3_0_cron_iteration_basic_next_0895bd9922e4",
+      "cross_id": "cron-parser:6:cron_parser_0_3_0_cron_iteration_basic_next_0895bd9922e4",
+      "origin": "cron-parser",
+      "version": "0.3.0",
+      "capability": "cron.iteration.basic-next",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "10-15 * * * *",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:10:00Z",
+          "2023-01-01T00:11:00Z",
+          "2023-01-01T00:12:00Z",
+          "2023-01-01T00:13:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:10:00Z",
+          "2023-01-01T00:11:00Z",
+          "2023-01-01T00:12:00Z",
+          "2023-01-01T00:13:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "10-15 * * * * yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_0_3_0_cron_stringify_basic_3e09fde87dad",
+      "cross_id": "cron-parser:11:cron_parser_0_3_0_cron_stringify_basic_3e09fde87dad",
+      "origin": "cron-parser",
+      "version": "0.3.0",
+      "capability": "cron.stringify.basic",
+      "source_op": "stringify",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "0 0 1 1 *",
+        "includeSeconds": false
+      },
+      "expected": {
+        "string": "0 0 1 1 *"
+      },
+      "mutant": {
+        "string": "1 0 1 1 *"
+      },
+      "human": "0 0 1 1 * stringifies deterministically"
+    },
+    {
+      "name": "cron_parser_1_0_0_cron_timezone_utc_782792356c46",
+      "cross_id": "cron-parser:36:cron_parser_1_0_0_cron_timezone_utc_782792356c46",
+      "origin": "cron-parser",
+      "version": "1.0.0",
+      "capability": "cron.timezone.utc",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "0 0 * * *",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-02T00:00:00Z",
+          "2023-01-03T00:00:00Z",
+          "2023-01-04T00:00:00Z",
+          "2023-01-05T00:00:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-02T00:00:00Z",
+          "2023-01-03T00:00:00Z",
+          "2023-01-04T00:00:00Z",
+          "2023-01-05T00:00:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "0 0 * * * yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_1_0_0_cron_timezone_utc_c559cb6743ee",
+      "cross_id": "cron-parser:37:cron_parser_1_0_0_cron_timezone_utc_c559cb6743ee",
+      "origin": "cron-parser",
+      "version": "1.0.0",
+      "capability": "cron.timezone.utc",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "0 12 * * MON",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-02T12:00:00Z",
+          "2023-01-09T12:00:00Z",
+          "2023-01-16T12:00:00Z",
+          "2023-01-23T12:00:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-02T12:00:00Z",
+          "2023-01-09T12:00:00Z",
+          "2023-01-16T12:00:00Z",
+          "2023-01-23T12:00:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "0 12 * * MON yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_1_0_0_cron_timezone_utc_1d0729b6a5db",
+      "cross_id": "cron-parser:38:cron_parser_1_0_0_cron_timezone_utc_1d0729b6a5db",
+      "origin": "cron-parser",
+      "version": "1.0.0",
+      "capability": "cron.timezone.utc",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "30 2 * * *",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T02:30:00Z",
+          "2023-01-02T02:30:00Z",
+          "2023-01-03T02:30:00Z",
+          "2023-01-04T02:30:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T02:30:00Z",
+          "2023-01-02T02:30:00Z",
+          "2023-01-03T02:30:00Z",
+          "2023-01-04T02:30:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "30 2 * * * yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_2_3_0_cron_parser_whitespace_tabs_274af99e82e7",
+      "cross_id": "cron-parser:50:cron_parser_2_3_0_cron_parser_whitespace_tabs_274af99e82e7",
+      "origin": "cron-parser",
+      "version": "2.3.0",
+      "capability": "cron.parser.whitespace-tabs",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/10\t*\t*\t*\t*",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:10:00Z",
+          "2023-01-01T00:20:00Z",
+          "2023-01-01T00:30:00Z",
+          "2023-01-01T00:40:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:10:00Z",
+          "2023-01-01T00:20:00Z",
+          "2023-01-01T00:30:00Z",
+          "2023-01-01T00:40:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/10\t*\t*\t*\t* yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_2_3_0_cron_parser_whitespace_tabs_a07a76a0e69c",
+      "cross_id": "cron-parser:52:cron_parser_2_3_0_cron_parser_whitespace_tabs_a07a76a0e69c",
+      "origin": "cron-parser",
+      "version": "2.3.0",
+      "capability": "cron.parser.whitespace-tabs",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "  */15   *   *   *   *  ",
+        "count": 4,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:15:00Z",
+          "2023-01-01T00:30:00Z",
+          "2023-01-01T00:45:00Z",
+          "2023-01-01T01:00:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:15:00Z",
+          "2023-01-01T00:30:00Z",
+          "2023-01-01T00:45:00Z",
+          "2023-01-01T01:00:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "  */15   *   *   *   *   yields next 4 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_2_4_0_cron_iteration_previous_df355269e0cb",
+      "cross_id": "cron-parser:57:cron_parser_2_4_0_cron_iteration_previous_df355269e0cb",
+      "origin": "cron-parser",
+      "version": "2.4.0",
+      "capability": "cron.iteration.previous",
+      "source_op": "prev_dates",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "*/15 * * * *",
+        "count": 5,
+        "start": "2023-03-15T12:34:56.789Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-03-15T12:30:00Z",
+          "2023-03-15T12:15:00Z",
+          "2023-03-15T12:00:00Z",
+          "2023-03-15T11:45:00Z",
+          "2023-03-15T11:30:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-03-15T12:30:00Z",
+          "2023-03-15T12:15:00Z",
+          "2023-03-15T12:00:00Z",
+          "2023-03-15T11:45:00Z",
+          "2023-03-15T11:30:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/15 * * * * yields previous 5 dates from 2023-03-15T12:34:56.789Z"
+    },
+    {
+      "name": "cron_parser_2_8_0_cron_validation_invalid_range_and_characters_e48bc98d2f51",
+      "cross_id": "cron-parser:81:cron_parser_2_8_0_cron_validation_invalid_range_and_characters_e48bc98d2f51",
+      "origin": "cron-parser",
+      "version": "2.8.0",
+      "capability": "cron.validation.invalid-range-and-characters",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "10 0-z 12 8 0"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "10 0-z 12 8 0 is rejected"
+    },
+    {
+      "name": "cron_parser_2_8_0_cron_validation_invalid_range_and_characters_9e627c54f325",
+      "cross_id": "cron-parser:82:cron_parser_2_8_0_cron_validation_invalid_range_and_characters_9e627c54f325",
+      "origin": "cron-parser",
+      "version": "2.8.0",
+      "capability": "cron.validation.invalid-range-and-characters",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "10 */A 12 8 0"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "10 */A 12 8 0 is rejected"
+    },
+    {
+      "name": "cron_parser_2_9_0_cron_validation_too_many_fields_69b9cd20ac62",
+      "cross_id": "cron-parser:83:cron_parser_2_9_0_cron_validation_too_many_fields_69b9cd20ac62",
+      "origin": "cron-parser",
+      "version": "2.9.0",
+      "capability": "cron.validation.too-many-fields",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * * * * * * *ASD"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * * * * * * *ASD is rejected"
+    },
+    {
+      "name": "cron_parser_2_9_0_cron_validation_field_range_95cd1bc3e683",
+      "cross_id": "cron-parser:84:cron_parser_2_9_0_cron_validation_field_range_95cd1bc3e683",
+      "origin": "cron-parser",
+      "version": "2.9.0",
+      "capability": "cron.validation.field-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "61 * * * * *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "61 * * * * * is rejected"
+    },
+    {
+      "name": "cron_parser_2_9_0_cron_validation_field_range_1113b05e63b9",
+      "cross_id": "cron-parser:85:cron_parser_2_9_0_cron_validation_field_range_1113b05e63b9",
+      "origin": "cron-parser",
+      "version": "2.9.0",
+      "capability": "cron.validation.field-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * 12-36 * * *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * 12-36 * * * is rejected"
+    },
+    {
+      "name": "cron_parser_2_9_0_cron_validation_field_range_b81c4feeb69a",
+      "cross_id": "cron-parser:86:cron_parser_2_9_0_cron_validation_field_range_b81c4feeb69a",
+      "origin": "cron-parser",
+      "version": "2.9.0",
+      "capability": "cron.validation.field-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * * 10-15,40 * *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * * 10-15,40 * * is rejected"
+    },
+    {
+      "name": "cron_parser_2_9_0_cron_validation_field_range_d9de1dd79869",
+      "cross_id": "cron-parser:87:cron_parser_2_9_0_cron_validation_field_range_d9de1dd79869",
+      "origin": "cron-parser",
+      "version": "2.9.0",
+      "capability": "cron.validation.field-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * * * */10,12-13 *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * * * */10,12-13 * is rejected"
+    },
+    {
+      "name": "cron_parser_2_9_0_cron_validation_field_range_35af7d5f619b",
+      "cross_id": "cron-parser:88:cron_parser_2_9_0_cron_validation_field_range_35af7d5f619b",
+      "origin": "cron-parser",
+      "version": "2.9.0",
+      "capability": "cron.validation.field-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * * * * 9"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * * * * 9 is rejected"
+    },
+    {
+      "name": "cron_parser_2_11_0_cron_validation_nth_day_of_week_536973a13920",
+      "cross_id": "cron-parser:101:cron_parser_2_11_0_cron_validation_nth_day_of_week_536973a13920",
+      "origin": "cron-parser",
+      "version": "2.11.0",
+      "capability": "cron.validation.nth-day-of-week",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 0 ? * 1/2#3"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 0 ? * 1/2#3 is rejected"
+    },
+    {
+      "name": "cron_parser_2_15_0_cron_validation_repeat_values_7dd99ab60339",
+      "cross_id": "cron-parser:124:cron_parser_2_15_0_cron_validation_repeat_values_7dd99ab60339",
+      "origin": "cron-parser",
+      "version": "2.15.0",
+      "capability": "cron.validation.repeat-values",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 */0 * * *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 */0 * * * is rejected"
+    },
+    {
+      "name": "cron_parser_2_15_0_cron_validation_repeat_values_50dea22e0da0",
+      "cross_id": "cron-parser:126:cron_parser_2_15_0_cron_validation_repeat_values_50dea22e0da0",
+      "origin": "cron-parser",
+      "version": "2.15.0",
+      "capability": "cron.validation.repeat-values",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 5/5/5 * * *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 5/5/5 * * * is rejected"
+    },
+    {
+      "name": "cron_parser_2_16_0_cron_parser_range_values_fa449f8ff031",
+      "cross_id": "cron-parser:127:cron_parser_2_16_0_cron_parser_range_values_fa449f8ff031",
+      "origin": "cron-parser",
+      "version": "2.16.0",
+      "capability": "cron.parser.range-values",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "1-59 * * * *",
+        "count": 6,
+        "start": "2023-01-01T00:00:00.000Z"
+      },
+      "expected": {
+        "dates": [
+          "2023-01-01T00:01:00Z",
+          "2023-01-01T00:02:00Z",
+          "2023-01-01T00:03:00Z",
+          "2023-01-01T00:04:00Z",
+          "2023-01-01T00:05:00Z",
+          "2023-01-01T00:06:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2023-01-01T00:01:00Z",
+          "2023-01-01T00:02:00Z",
+          "2023-01-01T00:03:00Z",
+          "2023-01-01T00:04:00Z",
+          "2023-01-01T00:05:00Z",
+          "2023-01-01T00:06:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "1-59 * * * * yields next 6 dates from 2023-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_2_18_0_cron_validation_empty_comma_values_b37771e982c6",
+      "cross_id": "cron-parser:137:cron_parser_2_18_0_cron_validation_empty_comma_values_b37771e982c6",
+      "origin": "cron-parser",
+      "version": "2.18.0",
+      "capability": "cron.validation.empty-comma-values",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "*/10 * * * * ,"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "*/10 * * * * , is rejected"
+    },
+    {
+      "name": "cron_parser_2_18_0_cron_validation_empty_comma_values_f3025b48ae80",
+      "cross_id": "cron-parser:138:cron_parser_2_18_0_cron_validation_empty_comma_values_f3025b48ae80",
+      "origin": "cron-parser",
+      "version": "2.18.0",
+      "capability": "cron.validation.empty-comma-values",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "*/10 * * * * ,2"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "*/10 * * * * ,2 is rejected"
+    },
+    {
+      "name": "cron_parser_3_3_0_cron_stringify_expression_instance_ad7def30b1f8",
+      "cross_id": "cron-parser:149:cron_parser_3_3_0_cron_stringify_expression_instance_ad7def30b1f8",
+      "origin": "cron-parser",
+      "version": "3.3.0",
+      "capability": "cron.stringify.expression-instance",
+      "source_op": "stringify",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "0 0 * * 5",
+        "includeSeconds": false
+      },
+      "expected": {
+        "string": "0 0 * * 5"
+      },
+      "mutant": {
+        "string": "1 0 * * 5"
+      },
+      "human": "0 0 * * 5 stringifies deterministically"
+    },
+    {
+      "name": "cron_parser_5_0_0_cron_strict_validation_648d884956f7",
+      "cross_id": "cron-parser:199:cron_parser_5_0_0_cron_strict_validation_648d884956f7",
+      "origin": "cron-parser",
+      "version": "5.0.0",
+      "capability": "cron.strict.validation",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": ""
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": " is rejected"
+    },
+    {
+      "name": "cron_parser_5_0_0_cron_strict_validation_3625e224e267",
+      "cross_id": "cron-parser:200:cron_parser_5_0_0_cron_strict_validation_3625e224e267",
+      "origin": "cron-parser",
+      "version": "5.0.0",
+      "capability": "cron.strict.validation",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 H(1-5)/10 * * * *"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 H(1-5)/10 * * * * is rejected"
+    },
+    {
+      "name": "cron_parser_5_0_0_cron_includes_date_eeccab0e7678",
+      "cross_id": "cron-parser:201:cron_parser_5_0_0_cron_includes_date_eeccab0e7678",
+      "origin": "cron-parser",
+      "version": "5.0.0",
+      "capability": "cron.includes-date",
+      "source_op": "includes_date",
+      "canonical_op": "match",
+      "params": {
+        "expression": "0 0 0 1 * *",
+        "date": "2023-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 0 1 * * includesDate(2023-01-01T00:00:00.000Z) is observable"
+    },
+    {
+      "name": "cron_parser_5_0_0_cron_includes_date_a2c534535137",
+      "cross_id": "cron-parser:203:cron_parser_5_0_0_cron_includes_date_a2c534535137",
+      "origin": "cron-parser",
+      "version": "5.0.0",
+      "capability": "cron.includes-date",
+      "source_op": "includes_date",
+      "canonical_op": "match",
+      "params": {
+        "expression": "0 0 0 * * 1#3",
+        "date": "2023-01-16T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 0 * * 1#3 includesDate(2023-01-16T00:00:00.000Z) is observable"
+    },
+    {
+      "name": "cron_parser_5_0_4_cron_iteration_zero_milliseconds_4e6581028344",
+      "cross_id": "cron-parser:213:cron_parser_5_0_4_cron_iteration_zero_milliseconds_4e6581028344",
+      "origin": "cron-parser",
+      "version": "5.0.4",
+      "capability": "cron.iteration.zero-milliseconds",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "* * * * *",
+        "count": 3,
+        "start": "2020-03-06T10:02:01.002Z"
+      },
+      "expected": {
+        "dates": [
+          "2020-03-06T10:03:00Z",
+          "2020-03-06T10:04:00Z",
+          "2020-03-06T10:05:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2020-03-06T10:03:00Z",
+          "2020-03-06T10:04:00Z",
+          "2020-03-06T10:05:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "* * * * * yields next 3 dates from 2020-03-06T10:02:01.002Z"
+    },
+    {
+      "name": "cron_parser_5_1_0_cron_includes_date_special_day_eea40fb1b9c5",
+      "cross_id": "cron-parser:218:cron_parser_5_1_0_cron_includes_date_special_day_eea40fb1b9c5",
+      "origin": "cron-parser",
+      "version": "5.1.0",
+      "capability": "cron.includes-date.special-day",
+      "source_op": "includes_date",
+      "canonical_op": "match",
+      "params": {
+        "expression": "0 0 0 * * 1#3",
+        "date": "2023-01-09T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "value": false
+      },
+      "mutant": {
+        "value": true
+      },
+      "human": "0 0 0 * * 1#3 includesDate(2023-01-09T00:00:00.000Z) is observable"
+    },
+    {
+      "name": "cron_parser_5_6_0_cron_dst_spring_forward_hour_step_no_day_skip_a303c932562f",
+      "cross_id": "cron-parser:247:cron_parser_5_6_0_cron_dst_spring_forward_hour_step_no_day_skip_a303c932562f",
+      "origin": "cron-parser",
+      "version": "5.6.0",
+      "capability": "cron.dst.spring-forward-hour-step-no-day-skip",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "0 */2 * * *",
+        "count": 6,
+        "start": "2026-03-07T12:00:00.000Z",
+        "timezone": "America/Chicago"
+      },
+      "expected": {
+        "dates": [
+          "2026-03-07T14:00:00Z",
+          "2026-03-07T16:00:00Z",
+          "2026-03-07T18:00:00Z",
+          "2026-03-07T20:00:00Z",
+          "2026-03-07T22:00:00Z",
+          "2026-03-08T00:00:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2026-03-07T14:00:00Z",
+          "2026-03-07T16:00:00Z",
+          "2026-03-07T18:00:00Z",
+          "2026-03-07T20:00:00Z",
+          "2026-03-07T22:00:00Z",
+          "2026-03-08T00:00:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "0 */2 * * * yields next 6 dates from 2026-03-07T12:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_5_7_0_cron_validation_standalone_last_weekday_7017e36f9434",
+      "cross_id": "cron-parser:254:cron_parser_5_7_0_cron_validation_standalone_last_weekday_7017e36f9434",
+      "origin": "cron-parser",
+      "version": "5.7.0",
+      "capability": "cron.validation.standalone-last-weekday",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 0 ? * 1.2#2"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 0 ? * 1.2#2 is rejected"
+    },
+    {
+      "name": "cron_parser_5_10_0_cron_parser_short_expression_leading_padding_07f601e8ad7a",
+      "cross_id": "cron-parser:271:cron_parser_5_10_0_cron_parser_short_expression_leading_padding_07f601e8ad7a",
+      "origin": "cron-parser",
+      "version": "5.10.0",
+      "capability": "cron.parser.short-expression-leading-padding",
+      "source_op": "stringify",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "5 4 3 2 1",
+        "includeSeconds": false
+      },
+      "expected": {
+        "string": "5 4 3 2 1"
+      },
+      "mutant": {
+        "string": "6 4 3 2 1"
+      },
+      "human": "5 4 3 2 1 stringifies deterministically"
+    },
+    {
+      "name": "cron_parser_5_10_0_cron_parser_short_expression_leading_padding_c85141082022",
+      "cross_id": "cron-parser:272:cron_parser_5_10_0_cron_parser_short_expression_leading_padding_c85141082022",
+      "origin": "cron-parser",
+      "version": "5.10.0",
+      "capability": "cron.parser.short-expression-leading-padding",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "5 4 3 2 1",
+        "count": 4,
+        "start": "2026-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "dates": [
+          "2026-02-02T04:05:00Z",
+          "2026-02-03T04:05:00Z",
+          "2026-02-09T04:05:00Z",
+          "2026-02-16T04:05:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2026-02-02T04:05:00Z",
+          "2026-02-03T04:05:00Z",
+          "2026-02-09T04:05:00Z",
+          "2026-02-16T04:05:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "5 4 3 2 1 yields next 4 dates from 2026-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_5_10_0_cron_parser_short_expression_leading_padding_337c04e99b42",
+      "cross_id": "cron-parser:274:cron_parser_5_10_0_cron_parser_short_expression_leading_padding_337c04e99b42",
+      "origin": "cron-parser",
+      "version": "5.10.0",
+      "capability": "cron.parser.short-expression-leading-padding",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/5 * * * *",
+        "count": 4,
+        "start": "2026-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "dates": [
+          "2026-01-01T00:05:00Z",
+          "2026-01-01T00:10:00Z",
+          "2026-01-01T00:15:00Z",
+          "2026-01-01T00:20:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2026-01-01T00:05:00Z",
+          "2026-01-01T00:10:00Z",
+          "2026-01-01T00:15:00Z",
+          "2026-01-01T00:20:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/5 * * * * yields next 4 dates from 2026-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_parser_5_10_0_cron_parser_short_expression_leading_padding_0f515bc14135",
+      "cross_id": "cron-parser:276:cron_parser_5_10_0_cron_parser_short_expression_leading_padding_0f515bc14135",
+      "origin": "cron-parser",
+      "version": "5.10.0",
+      "capability": "cron.parser.short-expression-leading-padding",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "0 12 * * MON",
+        "count": 4,
+        "start": "2026-01-01T00:00:00.000Z",
+        "timezone": "UTC"
+      },
+      "expected": {
+        "dates": [
+          "2026-01-05T12:00:00Z",
+          "2026-01-12T12:00:00Z",
+          "2026-01-19T12:00:00Z",
+          "2026-01-26T12:00:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2026-01-05T12:00:00Z",
+          "2026-01-12T12:00:00Z",
+          "2026-01-19T12:00:00Z",
+          "2026-01-26T12:00:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "0 12 * * MON yields next 4 dates from 2026-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_parse_normalize_07e2fdfb2649",
+      "cross_id": "cron-utils:0:cron_utils_1_0_0_cron_definition_parse_normalize_07e2fdfb2649",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.parse-normalize",
+      "source_op": "parse_as_string",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "* * * * *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "string": "* * * * *"
+      },
+      "mutant": {
+        "string": "* * * * *__mutant__"
+      },
+      "human": "UNIX expression parses and normalizes: * * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_3c08493d78b1",
+      "cross_id": "cron-utils:1:cron_utils_1_0_0_cron_definition_validation_3c08493d78b1",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "* * * * *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "UNIX expression is accepted: * * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_389217be140b",
+      "cross_id": "cron-utils:3:cron_utils_1_0_0_cron_definition_validation_389217be140b",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 12 * * MON",
+        "type": "UNIX"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "UNIX expression is accepted: 0 12 * * MON"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_d9c2ecc7e9ae",
+      "cross_id": "cron-utils:5:cron_utils_1_0_0_cron_definition_validation_d9c2ecc7e9ae",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "15 9-17/2 * JAN,MAR MON-FRI",
+        "type": "UNIX"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "UNIX expression is accepted: 15 9-17/2 * JAN,MAR MON-FRI"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_parse_normalize_5b2c3ff707d4",
+      "cross_id": "cron-utils:6:cron_utils_1_0_0_cron_definition_parse_normalize_5b2c3ff707d4",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.parse-normalize",
+      "source_op": "parse_as_string",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "0 0 1 1 *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "string": "0 0 1 1 *"
+      },
+      "mutant": {
+        "string": "1 0 1 1 *"
+      },
+      "human": "UNIX expression parses and normalizes: 0 0 1 1 *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_1b9b6a2c9dcf",
+      "cross_id": "cron-utils:7:cron_utils_1_0_0_cron_definition_validation_1b9b6a2c9dcf",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 1 1 *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "UNIX expression is accepted: 0 0 1 1 *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_a171a093537f",
+      "cross_id": "cron-utils:9:cron_utils_1_0_0_cron_definition_validation_a171a093537f",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "*/20 * * * *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "UNIX expression is accepted: */20 * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_parse_normalize_6e7d94b1a7d2",
+      "cross_id": "cron-utils:10:cron_utils_1_0_0_cron_definition_parse_normalize_6e7d94b1a7d2",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.parse-normalize",
+      "source_op": "parse_as_string",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "* * * * *",
+        "type": "CRON4J"
+      },
+      "expected": {
+        "string": "* * * * *"
+      },
+      "mutant": {
+        "string": "* * * * *__mutant__"
+      },
+      "human": "CRON4J expression parses and normalizes: * * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_31d176c758fb",
+      "cross_id": "cron-utils:11:cron_utils_1_0_0_cron_definition_validation_31d176c758fb",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "* * * * *",
+        "type": "CRON4J"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "CRON4J expression is accepted: * * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_aaf4ad346150",
+      "cross_id": "cron-utils:13:cron_utils_1_0_0_cron_definition_validation_aaf4ad346150",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 12 * * MON",
+        "type": "CRON4J"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "CRON4J expression is accepted: 0 12 * * MON"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_7e1974493e82",
+      "cross_id": "cron-utils:15:cron_utils_1_0_0_cron_definition_validation_7e1974493e82",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "15 9-17/2 * JAN,MAR MON-FRI",
+        "type": "CRON4J"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "CRON4J expression is accepted: 15 9-17/2 * JAN,MAR MON-FRI"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_parse_normalize_f297f9eca817",
+      "cross_id": "cron-utils:16:cron_utils_1_0_0_cron_definition_parse_normalize_f297f9eca817",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.parse-normalize",
+      "source_op": "parse_as_string",
+      "canonical_op": "parse_normalize",
+      "params": {
+        "expression": "0 0 1 1 *",
+        "type": "CRON4J"
+      },
+      "expected": {
+        "string": "0 0 1 1 *"
+      },
+      "mutant": {
+        "string": "1 0 1 1 *"
+      },
+      "human": "CRON4J expression parses and normalizes: 0 0 1 1 *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_3d6e86cca2e3",
+      "cross_id": "cron-utils:17:cron_utils_1_0_0_cron_definition_validation_3d6e86cca2e3",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 1 1 *",
+        "type": "CRON4J"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "CRON4J expression is accepted: 0 0 1 1 *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_3a7a9715c49b",
+      "cross_id": "cron-utils:19:cron_utils_1_0_0_cron_definition_validation_3a7a9715c49b",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 * * * * ?",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "QUARTZ expression is accepted: 0 * * * * ?"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_ae3832ed1a80",
+      "cross_id": "cron-utils:23:cron_utils_1_0_0_cron_definition_validation_ae3832ed1a80",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 15 10 ? * MON-FRI",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "QUARTZ expression is accepted: 0 15 10 ? * MON-FRI"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_871538f0d912",
+      "cross_id": "cron-utils:27:cron_utils_1_0_0_cron_definition_validation_871538f0d912",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 12 ? JAN MON *",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "QUARTZ expression is accepted: 0 0 12 ? JAN MON *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_030055632544",
+      "cross_id": "cron-utils:29:cron_utils_1_0_0_cron_definition_validation_030055632544",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 * * * * *",
+        "type": "SPRING"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "SPRING expression is accepted: 0 * * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_e64497de9a34",
+      "cross_id": "cron-utils:33:cron_utils_1_0_0_cron_definition_validation_e64497de9a34",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 15 10 * * MON-FRI",
+        "type": "SPRING"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "SPRING expression is accepted: 0 15 10 * * MON-FRI"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_0e1b65fc520e",
+      "cross_id": "cron-utils:37:cron_utils_1_0_0_cron_definition_validation_0e1b65fc520e",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 * * * * *",
+        "type": "SPRING53"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "SPRING53 expression is accepted: 0 * * * * *"
+    },
+    {
+      "name": "cron_utils_1_0_0_cron_definition_validation_a38049f9a457",
+      "cross_id": "cron-utils:41:cron_utils_1_0_0_cron_definition_validation_a38049f9a457",
+      "origin": "cron-utils",
+      "version": "1.0.0",
+      "capability": "cron.definition.validation",
+      "source_op": "parse_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 15 10 * * MON-FRI",
+        "type": "SPRING53"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "SPRING53 expression is accepted: 0 15 10 * * MON-FRI"
+    },
+    {
+      "name": "cron_utils_1_1_0_cron_execution_next_6592762e44ad",
+      "cross_id": "cron-utils:48:cron_utils_1_1_0_cron_execution_next_6592762e44ad",
+      "origin": "cron-utils",
+      "version": "1.1.0",
+      "capability": "cron.execution.next",
+      "source_op": "next_execution",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/15 * * * *",
+        "type": "UNIX",
+        "count": 1,
+        "start": "2024-01-01T00:00:00Z"
+      },
+      "expected": {
+        "dates": [
+          "2024-01-01T00:15:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-01-01T00:15:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "next_execution for UNIX */15 * * * * at 2024-01-01T00:00:00Z"
+    },
+    {
+      "name": "cron_utils_1_1_0_cron_execution_last_67a5c3aa574c",
+      "cross_id": "cron-utils:49:cron_utils_1_1_0_cron_execution_last_67a5c3aa574c",
+      "origin": "cron-utils",
+      "version": "1.1.0",
+      "capability": "cron.execution.last",
+      "source_op": "last_execution",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "*/15 * * * *",
+        "type": "UNIX",
+        "count": 1,
+        "start": "2024-01-10T12:34:56Z"
+      },
+      "expected": {
+        "dates": [
+          "2024-01-10T12:30:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-01-10T12:30:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "last_execution for UNIX */15 * * * * at 2024-01-10T12:34:56Z"
+    },
+    {
+      "name": "cron_utils_1_1_1_cron_execution_month_dow_916e2abeac68",
+      "cross_id": "cron-utils:87:cron_utils_1_1_1_cron_execution_month_dow_916e2abeac68",
+      "origin": "cron-utils",
+      "version": "1.1.1",
+      "capability": "cron.execution.month-dow",
+      "source_op": "next_execution",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/15    *    *    *    *",
+        "type": "UNIX",
+        "count": 1,
+        "start": "2024-01-01T00:00:00Z"
+      },
+      "expected": {
+        "dates": [
+          "2024-01-01T00:15:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-01-01T00:15:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "next_execution for UNIX */15    *    *    *    * at 2024-01-01T00:00:00Z"
+    },
+    {
+      "name": "cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_b3716e62d8ae",
+      "cross_id": "cron-utils:90:cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_b3716e62d8ae",
+      "origin": "cron-utils",
+      "version": "1.1.2",
+      "capability": "cron.parser.invalid-characters-and-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "$ * * * *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "UNIX expression is rejected: $ * * * *"
+    },
+    {
+      "name": "cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_efdffffd3a33",
+      "cross_id": "cron-utils:91:cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_efdffffd3a33",
+      "origin": "cron-utils",
+      "version": "1.1.2",
+      "capability": "cron.parser.invalid-characters-and-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 32 * *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "UNIX expression is rejected: 0 0 32 * *"
+    },
+    {
+      "name": "cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_0d802140400d",
+      "cross_id": "cron-utils:92:cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_0d802140400d",
+      "origin": "cron-utils",
+      "version": "1.1.2",
+      "capability": "cron.parser.invalid-characters-and-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 * FOO *",
+        "type": "UNIX"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "UNIX expression is rejected: 0 0 * FOO *"
+    },
+    {
+      "name": "cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_66bca1c4af03",
+      "cross_id": "cron-utils:93:cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_66bca1c4af03",
+      "origin": "cron-utils",
+      "version": "1.1.2",
+      "capability": "cron.parser.invalid-characters-and-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 12 ? * FUNDAY",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "QUARTZ expression is rejected: 0 0 12 ? * FUNDAY"
+    },
+    {
+      "name": "cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_0d870c80e079",
+      "cross_id": "cron-utils:94:cron_utils_1_1_2_cron_parser_invalid_characters_and_ranges_0d870c80e079",
+      "origin": "cron-utils",
+      "version": "1.1.2",
+      "capability": "cron.parser.invalid-characters-and-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 12 ? * 8",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "QUARTZ expression is rejected: 0 0 12 ? * 8"
+    },
+    {
+      "name": "cron_utils_4_0_1_cron_parser_error_reporting_f14d2a4a70d2",
+      "cross_id": "cron-utils:170:cron_utils_4_0_1_cron_parser_error_reporting_f14d2a4a70d2",
+      "origin": "cron-utils",
+      "version": "4.0.1",
+      "capability": "cron.parser.error-reporting",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 $ 12 * * ?",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "QUARTZ expression is rejected: 0 $ 12 * * ?"
+    },
+    {
+      "name": "cron_utils_4_0_1_cron_parser_error_reporting_44fb13e01193",
+      "cross_id": "cron-utils:171:cron_utils_4_0_1_cron_parser_error_reporting_44fb13e01193",
+      "origin": "cron-utils",
+      "version": "4.0.1",
+      "capability": "cron.parser.error-reporting",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 12 ? * BAD",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "QUARTZ expression is rejected: 0 0 12 ? * BAD"
+    },
+    {
+      "name": "cron_utils_5_0_5_cron_execution_issue_fixes_5_0_5_bf1b70acfc65",
+      "cross_id": "cron-utils:186:cron_utils_5_0_5_cron_execution_issue_fixes_5_0_5_bf1b70acfc65",
+      "origin": "cron-utils",
+      "version": "5.0.5",
+      "capability": "cron.execution.issue-fixes-5-0-5",
+      "source_op": "next_execution",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "0 */5 * * * ?",
+        "type": "QUARTZ",
+        "count": 1,
+        "start": "2024-01-01T00:02:30Z"
+      },
+      "expected": {
+        "dates": [
+          "2024-01-01T00:05:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-01-01T00:05:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "next_execution for QUARTZ 0 */5 * * * ? at 2024-01-01T00:02:30Z"
+    },
+    {
+      "name": "cron_utils_5_0_5_cron_execution_issue_fixes_5_0_5_d88bfcd2075e",
+      "cross_id": "cron-utils:187:cron_utils_5_0_5_cron_execution_issue_fixes_5_0_5_d88bfcd2075e",
+      "origin": "cron-utils",
+      "version": "5.0.5",
+      "capability": "cron.execution.issue-fixes-5-0-5",
+      "source_op": "last_execution",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "0 */5 * * * ?",
+        "type": "QUARTZ",
+        "count": 1,
+        "start": "2024-04-01T00:00:00Z"
+      },
+      "expected": {
+        "dates": [
+          "2024-03-31T23:55:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-03-31T23:55:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "last_execution for QUARTZ 0 */5 * * * ? at 2024-04-01T00:00:00Z"
+    },
+    {
+      "name": "cron_utils_9_1_2_cron_validation_quartz_tightened_constraints_d5a6e0436ae5",
+      "cross_id": "cron-utils:225:cron_utils_9_1_2_cron_validation_quartz_tightened_constraints_d5a6e0436ae5",
+      "origin": "cron-utils",
+      "version": "9.1.2",
+      "capability": "cron.validation.quartz-tightened-constraints",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 12 ? * 8#1",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "QUARTZ expression is rejected: 0 0 12 ? * 8#1"
+    },
+    {
+      "name": "cron_utils_9_1_2_cron_validation_quartz_tightened_constraints_413993788db7",
+      "cross_id": "cron-utils:227:cron_utils_9_1_2_cron_validation_quartz_tightened_constraints_413993788db7",
+      "origin": "cron-utils",
+      "version": "9.1.2",
+      "capability": "cron.validation.quartz-tightened-constraints",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 12 32 * ?",
+        "type": "QUARTZ"
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "QUARTZ expression is rejected: 0 0 12 32 * ?"
+    },
+    {
+      "name": "cron_utils_9_1_2_cron_execution_minute_one_boundary_b9e51a600576",
+      "cross_id": "cron-utils:290:cron_utils_9_1_2_cron_execution_minute_one_boundary_b9e51a600576",
+      "origin": "cron-utils",
+      "version": "9.1.2",
+      "capability": "cron.execution.minute-one-boundary",
+      "source_op": "next_execution",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "0 1 * * * ?",
+        "type": "QUARTZ",
+        "count": 1,
+        "start": "2019-01-01T00:01:00Z"
+      },
+      "expected": {
+        "dates": [
+          "2019-01-01T01:01:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2019-01-01T01:01:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "next_execution for QUARTZ 0 1 * * * ? at 2019-01-01T00:01:00Z"
+    },
+    {
+      "name": "croniter_0_3_3_croniter_core_next_f744cee0ba2a",
+      "cross_id": "croniter:0:croniter_0_3_3_croniter_core_next_f744cee0ba2a",
+      "origin": "croniter",
+      "version": "0.3.3",
+      "capability": "croniter.core.next",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/5 * * * *",
+        "count": 4,
+        "start": "2010-01-25T04:46:00"
+      },
+      "expected": {
+        "dates": [
+          "2010-01-25T04:50:00Z",
+          "2010-01-25T04:55:00Z",
+          "2010-01-25T05:00:00Z",
+          "2010-01-25T05:05:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2010-01-25T04:50:00Z",
+          "2010-01-25T04:55:00Z",
+          "2010-01-25T05:00:00Z",
+          "2010-01-25T05:05:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/5 * * * * yields next 4 dates from 2010-01-25T04:46:00"
+    },
+    {
+      "name": "croniter_0_3_3_croniter_core_prev_edge_cases_28eeea933df7",
+      "cross_id": "croniter:6:croniter_0_3_3_croniter_core_prev_edge_cases_28eeea933df7",
+      "origin": "croniter",
+      "version": "0.3.3",
+      "capability": "croniter.core.prev-edge-cases",
+      "source_op": "prev_dates",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "*/1 * * * *",
+        "count": 3,
+        "start": "2010-08-25T15:56:00"
+      },
+      "expected": {
+        "dates": [
+          "2010-08-25T15:55:00Z",
+          "2010-08-25T15:54:00Z",
+          "2010-08-25T15:53:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2010-08-25T15:55:00Z",
+          "2010-08-25T15:54:00Z",
+          "2010-08-25T15:53:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/1 * * * * yields previous 3 dates from 2010-08-25T15:56:00"
+    },
+    {
+      "name": "croniter_0_3_3_croniter_core_prev_edge_cases_3223c82465f2",
+      "cross_id": "croniter:7:croniter_0_3_3_croniter_core_prev_edge_cases_3223c82465f2",
+      "origin": "croniter",
+      "version": "0.3.3",
+      "capability": "croniter.core.prev-edge-cases",
+      "source_op": "prev_dates",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "*/1 * * * *",
+        "count": 3,
+        "start": "2010-08-25T15:00:00"
+      },
+      "expected": {
+        "dates": [
+          "2010-08-25T14:59:00Z",
+          "2010-08-25T14:58:00Z",
+          "2010-08-25T14:57:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2010-08-25T14:59:00Z",
+          "2010-08-25T14:58:00Z",
+          "2010-08-25T14:57:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/1 * * * * yields previous 3 dates from 2010-08-25T15:00:00"
+    },
+    {
+      "name": "croniter_0_3_3_croniter_core_prev_edge_cases_64f33be68f44",
+      "cross_id": "croniter:8:croniter_0_3_3_croniter_core_prev_edge_cases_64f33be68f44",
+      "origin": "croniter",
+      "version": "0.3.3",
+      "capability": "croniter.core.prev-edge-cases",
+      "source_op": "prev_dates",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "*/1 * * * *",
+        "count": 3,
+        "start": "2010-08-25T00:00:00"
+      },
+      "expected": {
+        "dates": [
+          "2010-08-24T23:59:00Z",
+          "2010-08-24T23:58:00Z",
+          "2010-08-24T23:57:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2010-08-24T23:59:00Z",
+          "2010-08-24T23:58:00Z",
+          "2010-08-24T23:57:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/1 * * * * yields previous 3 dates from 2010-08-25T00:00:00"
+    },
+    {
+      "name": "croniter_0_3_18_croniter_validation_is_valid_ec77ef5e1e05",
+      "cross_id": "croniter:19:croniter_0_3_18_croniter_validation_is_valid_ec77ef5e1e05",
+      "origin": "croniter",
+      "version": "0.3.18",
+      "capability": "croniter.validation.is-valid",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 1 * *"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 1 * * validity is observable"
+    },
+    {
+      "name": "croniter_0_3_18_croniter_validation_is_valid_a09e506904a0",
+      "cross_id": "croniter:20:croniter_0_3_18_croniter_validation_is_valid_a09e506904a0",
+      "origin": "croniter",
+      "version": "0.3.18",
+      "capability": "croniter.validation.is-valid",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "*/15 9-17 * * mon-fri"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "*/15 9-17 * * mon-fri validity is observable"
+    },
+    {
+      "name": "croniter_0_3_32_croniter_match_basic_and_day_or_9c5c40199d55",
+      "cross_id": "croniter:25:croniter_0_3_32_croniter_match_basic_and_day_or_9c5c40199d55",
+      "origin": "croniter",
+      "version": "0.3.32",
+      "capability": "croniter.match.basic-and-day-or",
+      "source_op": "match",
+      "canonical_op": "match",
+      "params": {
+        "expression": "0 0 * * *",
+        "date": "2019-01-14T00:02:00"
+      },
+      "expected": {
+        "value": false
+      },
+      "mutant": {
+        "value": true
+      },
+      "human": "0 0 * * * match(2019-01-14T00:02:00) is observable"
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_7f21dfdd5bdc",
+      "cross_id": "croniter:48:croniter_1_0_7_croniter_validation_invalid_syntax_hardening_7f21dfdd5bdc",
+      "origin": "croniter",
+      "version": "1.0.7",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * * * * * * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * * * * * * * is rejected"
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_690620c707de",
+      "cross_id": "croniter:49:croniter_1_0_7_croniter_validation_invalid_syntax_hardening_690620c707de",
+      "origin": "croniter",
+      "version": "1.0.7",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 1__2 * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 1__2 * * is rejected"
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_4f1536126043",
+      "cross_id": "croniter:50:croniter_1_0_7_croniter_validation_invalid_syntax_hardening_4f1536126043",
+      "origin": "croniter",
+      "version": "1.0.7",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 32 * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 32 * * is rejected"
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_8d80a6411194",
+      "cross_id": "croniter:51:croniter_1_0_7_croniter_validation_invalid_syntax_hardening_8d80a6411194",
+      "origin": "croniter",
+      "version": "1.0.7",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "* * R/0 * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "* * R/0 * * is rejected"
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_f7ef8dbe9122",
+      "cross_id": "croniter:52:croniter_1_0_7_croniter_validation_invalid_syntax_hardening_f7ef8dbe9122",
+      "origin": "croniter",
+      "version": "1.0.7",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 * * 15,sat#1",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 * * 15,sat#1 is rejected"
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_f509ed37a961",
+      "cross_id": "croniter:53:croniter_1_0_7_croniter_validation_invalid_syntax_hardening_f509ed37a961",
+      "origin": "croniter",
+      "version": "1.0.7",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 * * 1,L6",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 * * 1,L6 is rejected"
+    },
+    {
+      "name": "croniter_1_2_0_croniter_validation_zero_day_month_cf108ab6b1c8",
+      "cross_id": "croniter:100:croniter_1_2_0_croniter_validation_zero_day_month_cf108ab6b1c8",
+      "origin": "croniter",
+      "version": "1.2.0",
+      "capability": "croniter.validation.zero-day-month",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 * 0 *",
+        "use_next": true
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 * 0 * is rejected"
+    },
+    {
+      "name": "croniter_1_2_0_croniter_validation_zero_day_month_41797a70d386",
+      "cross_id": "croniter:101:croniter_1_2_0_croniter_validation_zero_day_month_41797a70d386",
+      "origin": "croniter",
+      "version": "1.2.0",
+      "capability": "croniter.validation.zero-day-month",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 0 * *",
+        "use_next": true
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 0 * * is rejected"
+    },
+    {
+      "name": "croniter_1_2_0_croniter_validation_zero_day_month_64d7cbe526c3",
+      "cross_id": "croniter:102:croniter_1_2_0_croniter_validation_zero_day_month_64d7cbe526c3",
+      "origin": "croniter",
+      "version": "1.2.0",
+      "capability": "croniter.validation.zero-day-month",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 0 0 *",
+        "use_next": true
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 0 0 * is rejected"
+    },
+    {
+      "name": "croniter_1_2_0_croniter_validation_zero_day_month_2c8e799b22d3",
+      "cross_id": "croniter:103:croniter_1_2_0_croniter_validation_zero_day_month_2c8e799b22d3",
+      "origin": "croniter",
+      "version": "1.2.0",
+      "capability": "croniter.validation.zero-day-month",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 1 0 *",
+        "use_next": true
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 1 0 * is rejected"
+    },
+    {
+      "name": "croniter_1_3_13_croniter_validation_range_begin_end_ea45ae11a180",
+      "cross_id": "croniter:115:croniter_1_3_13_croniter_validation_range_begin_end_ea45ae11a180",
+      "origin": "croniter",
+      "version": "1.3.13",
+      "capability": "croniter.validation.range-begin-end",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "H(11-10) H * * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "H(11-10) H * * * is rejected"
+    },
+    {
+      "name": "croniter_1_3_13_croniter_validation_range_begin_end_1887d29985a9",
+      "cross_id": "croniter:116:croniter_1_3_13_croniter_validation_range_begin_end_1887d29985a9",
+      "origin": "croniter",
+      "version": "1.3.13",
+      "capability": "croniter.validation.range-begin-end",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "5-5/0 * * * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "5-5/0 * * * * is rejected"
+    },
+    {
+      "name": "croniter_1_3_15_croniter_match_six_field_precision_27fcaba80f17",
+      "cross_id": "croniter:123:croniter_1_3_15_croniter_match_six_field_precision_27fcaba80f17",
+      "origin": "croniter",
+      "version": "1.3.15",
+      "capability": "croniter.match.six-field-precision",
+      "source_op": "match",
+      "canonical_op": "match",
+      "params": {
+        "expression": "0 0 * * * *",
+        "date": "2019-01-14T00:00:00"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 * * * * match(2019-01-14T00:00:00) is observable"
+    },
+    {
+      "name": "croniter_1_3_15_croniter_match_six_field_precision_834c1e778b3e",
+      "cross_id": "croniter:124:croniter_1_3_15_croniter_match_six_field_precision_834c1e778b3e",
+      "origin": "croniter",
+      "version": "1.3.15",
+      "capability": "croniter.match.six-field-precision",
+      "source_op": "match",
+      "canonical_op": "match",
+      "params": {
+        "expression": "0 0 * * * *",
+        "date": "2019-01-14T00:00:00.500000"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 * * * * match(2019-01-14T00:00:00.500000) is observable"
+    },
+    {
+      "name": "croniter_3_0_0_croniter_validation_year_range_9a5e30869dc5",
+      "cross_id": "croniter:164:croniter_3_0_0_croniter_validation_year_range_9a5e30869dc5",
+      "origin": "croniter",
+      "version": "3.0.0",
+      "capability": "croniter.validation.year-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 1 1 * 0 1969",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 1 1 * 0 1969 is rejected"
+    },
+    {
+      "name": "croniter_3_0_0_croniter_validation_year_range_813d5e3f01e3",
+      "cross_id": "croniter:165:croniter_3_0_0_croniter_validation_year_range_813d5e3f01e3",
+      "origin": "croniter",
+      "version": "3.0.0",
+      "capability": "croniter.validation.year-range",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 1 1 * 0 2100",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 1 1 * 0 2100 is rejected"
+    },
+    {
+      "name": "croniter_3_0_1_croniter_update_current_option_90cabcbf59fe",
+      "cross_id": "croniter:167:croniter_3_0_1_croniter_update_current_option_90cabcbf59fe",
+      "origin": "croniter",
+      "version": "3.0.1",
+      "capability": "croniter.update-current-option",
+      "source_op": "next_dates",
+      "canonical_op": "next_dates",
+      "params": {
+        "expression": "*/10 * * * *",
+        "count": 4,
+        "start": "2024-07-23T10:01:00"
+      },
+      "expected": {
+        "dates": [
+          "2024-07-23T10:10:00Z",
+          "2024-07-23T10:20:00Z",
+          "2024-07-23T10:30:00Z",
+          "2024-07-23T10:40:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-07-23T10:10:00Z",
+          "2024-07-23T10:20:00Z",
+          "2024-07-23T10:30:00Z",
+          "2024-07-23T10:40:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/10 * * * * yields next 4 dates from 2024-07-23T10:01:00"
+    },
+    {
+      "name": "croniter_3_0_1_croniter_update_current_option_prev_67bfd057dd57",
+      "cross_id": "croniter:168:croniter_3_0_1_croniter_update_current_option_prev_67bfd057dd57",
+      "origin": "croniter",
+      "version": "3.0.1",
+      "capability": "croniter.update-current-option-prev",
+      "source_op": "prev_dates",
+      "canonical_op": "prev_dates",
+      "params": {
+        "expression": "*/10 * * * *",
+        "count": 4,
+        "start": "2024-07-23T10:59:00"
+      },
+      "expected": {
+        "dates": [
+          "2024-07-23T10:50:00Z",
+          "2024-07-23T10:40:00Z",
+          "2024-07-23T10:30:00Z",
+          "2024-07-23T10:20:00Z"
+        ]
+      },
+      "mutant": {
+        "dates": [
+          "2024-07-23T10:50:00Z",
+          "2024-07-23T10:40:00Z",
+          "2024-07-23T10:30:00Z",
+          "2024-07-23T10:20:00Z",
+          "__mutant__"
+        ]
+      },
+      "human": "*/10 * * * * yields previous 4 dates from 2024-07-23T10:59:00"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_9ef52ac719c1",
+      "cross_id": "croniter:208:croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_9ef52ac719c1",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.nearest-weekday-w-singleton-error",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 9 1W,15W * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 9 1W,15W * * is rejected"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_4670095f701e",
+      "cross_id": "croniter:210:croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_4670095f701e",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.nearest-weekday-w-singleton-error",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 9 15W,16 * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 9 15W,16 * * is rejected"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_427a5485aeeb",
+      "cross_id": "croniter:212:croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_427a5485aeeb",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.nearest-weekday-w-singleton-error",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 9 1,15W * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 9 1,15W * * is rejected"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_cf41adb6ddc9",
+      "cross_id": "croniter:214:croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_cf41adb6ddc9",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.nearest-weekday-w-singleton-error",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 9 0W * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 9 0W * * is rejected"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_682959f46fcb",
+      "cross_id": "croniter:216:croniter_6_2_0_croniter_validation_nearest_weekday_w_singleton_error_682959f46fcb",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.nearest-weekday-w-singleton-error",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 9 32W * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 9 32W * * is rejected"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_af02eb8c068a",
+      "cross_id": "croniter:219:croniter_6_2_0_croniter_validation_strict_day_month_af02eb8c068a",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 29 2 *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 29 2 * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_6066abb4f1d6",
+      "cross_id": "croniter:225:croniter_6_2_0_croniter_validation_strict_day_month_6066abb4f1d6",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 31 1 *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 31 1 * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_8486b3e9d896",
+      "cross_id": "croniter:226:croniter_6_2_0_croniter_validation_strict_day_month_8486b3e9d896",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 31 1,2 *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 31 1,2 * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_3d31cfc93a83",
+      "cross_id": "croniter:227:croniter_6_2_0_croniter_validation_strict_day_month_3d31cfc93a83",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 30 2,4 *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 30 2,4 * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_69de858bd764",
+      "cross_id": "croniter:228:croniter_6_2_0_croniter_validation_strict_day_month_69de858bd764",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 31 * *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 31 * * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_c74730e9237c",
+      "cross_id": "croniter:229:croniter_6_2_0_croniter_validation_strict_day_month_c74730e9237c",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "0 0 * 2 *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "0 0 * 2 * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_0_croniter_validation_strict_day_month_6b00f256d122",
+      "cross_id": "croniter:231:croniter_6_2_0_croniter_validation_strict_day_month_6b00f256d122",
+      "origin": "croniter",
+      "version": "6.2.0",
+      "capability": "croniter.validation.strict-day-month",
+      "source_op": "is_valid",
+      "canonical_op": "parse_valid",
+      "params": {
+        "expression": "*/5 * * * *",
+        "strict": true
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant": {
+        "value": false
+      },
+      "human": "*/5 * * * * validity is observable"
+    },
+    {
+      "name": "croniter_6_2_3_croniter_validation_zero_step_ranges_52efb11aa8fc",
+      "cross_id": "croniter:258:croniter_6_2_3_croniter_validation_zero_step_ranges_52efb11aa8fc",
+      "origin": "croniter",
+      "version": "6.2.3",
+      "capability": "croniter.validation.zero-step-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "10-5/0 * * * *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "10-5/0 * * * * is rejected"
+    },
+    {
+      "name": "croniter_6_2_3_croniter_validation_zero_step_ranges_1d703688ef38",
+      "cross_id": "croniter:259:croniter_6_2_3_croniter_validation_zero_step_ranges_1d703688ef38",
+      "origin": "croniter",
+      "version": "6.2.3",
+      "capability": "croniter.validation.zero-step-ranges",
+      "source_op": "parse_error",
+      "canonical_op": "parse_error",
+      "params": {
+        "expression": "0 0 * JAN-JAN/0 *",
+        "use_next": false
+      },
+      "expected": {
+        "error": true
+      },
+      "mutant": {
+        "error": false
+      },
+      "human": "0 0 * JAN-JAN/0 * is rejected"
+    }
+  ],
+  "domain": "Cron / schedule expression engine",
+  "rank_1": "harrisiirak/cron-parser 5.10.0",
+  "rank_2": "jmrozanec/cron-utils 9.2.1",
+  "rank_3": "pallets-eco/croniter 6.2.4",
+  "rank_4_hidden": "dragonmantank/cron-expression 3.6.0",
+  "rank_5_hidden": "floraison/fugit 1.13.0",
+  "input_latest_survivors": {
+    "cron-parser": 277,
+    "cron-utils": 331,
+    "croniter": 274
+  },
+  "origin_reports": {
+    "cron-parser": {
+      "input": 277,
+      "targets": [
+        "cron-utils",
+        "croniter"
+      ],
+      "passed_both": 83,
+      "per_target": {
+        "cron-utils": {
+          "attempted": 277,
+          "passed": 96,
+          "failed": 181,
+          "by_canonical_op": {
+            "match": {
+              "passed": 8,
+              "failed": 1
+            },
+            "next_dates": {
+              "passed": 27,
+              "failed": 101
+            },
+            "parse_error": {
+              "failed": 19,
+              "passed": 22
+            },
+            "parse_normalize": {
+              "passed": 32,
+              "failed": 37
+            },
+            "prev_dates": {
+              "failed": 5,
+              "passed": 7
+            },
+            "unsupported": {
+              "failed": 18
+            }
+          },
+          "by_origin": {
+            "cron-parser": {
+              "passed": 96,
+              "failed": 181
+            }
+          },
+          "failure_kinds": {
+            "semantic_mismatch": 117,
+            "runtime_error": 64
+          }
+        },
+        "croniter": {
+          "attempted": 277,
+          "passed": 108,
+          "failed": 169,
+          "by_canonical_op": {
+            "match": {
+              "failed": 5,
+              "passed": 4
+            },
+            "next_dates": {
+              "passed": 26,
+              "failed": 102
+            },
+            "parse_error": {
+              "passed": 38,
+              "failed": 3
+            },
+            "parse_normalize": {
+              "passed": 33,
+              "failed": 36
+            },
+            "prev_dates": {
+              "failed": 5,
+              "passed": 7
+            },
+            "unsupported": {
+              "failed": 18
+            }
+          },
+          "by_origin": {
+            "cron-parser": {
+              "passed": 108,
+              "failed": 169
+            }
+          },
+          "failure_kinds": {
+            "semantic_mismatch": 120,
+            "runtime_error": 31,
+            "unsupported": 18
+          }
+        }
+      },
+      "by_canonical_op_input": {
+        "next_dates": 128,
+        "parse_normalize": 69,
+        "unsupported": 18,
+        "parse_error": 41,
+        "prev_dates": 12,
+        "match": 9
+      },
+      "by_canonical_op_passed_both": {
+        "next_dates": 24,
+        "parse_normalize": 26,
+        "prev_dates": 7,
+        "parse_error": 22,
+        "match": 4
+      }
+    },
+    "cron-utils": {
+      "input": 331,
+      "targets": [
+        "cron-parser",
+        "croniter"
+      ],
+      "passed_both": 48,
+      "per_target": {
+        "cron-parser": {
+          "attempted": 331,
+          "passed": 58,
+          "failed": 273,
+          "by_canonical_op": {
+            "count_executions": {
+              "failed": 4
+            },
+            "match": {
+              "failed": 9
+            },
+            "next_dates": {
+              "failed": 68,
+              "passed": 9
+            },
+            "parse_error": {
+              "passed": 10,
+              "failed": 7
+            },
+            "parse_normalize": {
+              "passed": 13,
+              "failed": 40
+            },
+            "parse_valid": {
+              "passed": 22
+            },
+            "prev_dates": {
+              "failed": 28,
+              "passed": 4
+            },
+            "range_dates": {
+              "failed": 8
+            },
+            "unsupported": {
+              "failed": 109
+            }
+          },
+          "by_origin": {
+            "cron-utils": {
+              "passed": 58,
+              "failed": 273
+            }
+          },
+          "failure_kinds": {
+            "semantic_mismatch": 125,
+            "unsupported": 121,
+            "runtime_error": 27
+          }
+        },
+        "croniter": {
+          "attempted": 331,
+          "passed": 143,
+          "failed": 188,
+          "by_canonical_op": {
+            "count_executions": {
+              "failed": 4
+            },
+            "match": {
+              "passed": 8,
+              "failed": 1
+            },
+            "next_dates": {
+              "passed": 58,
+              "failed": 19
+            },
+            "parse_error": {
+              "passed": 9,
+              "failed": 8
+            },
+            "parse_normalize": {
+              "passed": 18,
+              "failed": 35
+            },
+            "parse_valid": {
+              "passed": 22
+            },
+            "prev_dates": {
+              "passed": 23,
+              "failed": 9
+            },
+            "range_dates": {
+              "passed": 5,
+              "failed": 3
+            },
+            "unsupported": {
+              "failed": 109
+            }
+          },
+          "by_origin": {
+            "cron-utils": {
+              "passed": 143,
+              "failed": 188
+            }
+          },
+          "failure_kinds": {
+            "unsupported": 113,
+            "semantic_mismatch": 56,
+            "runtime_error": 19
+          }
+        }
+      },
+      "by_canonical_op_input": {
+        "parse_normalize": 53,
+        "parse_valid": 22,
+        "next_dates": 77,
+        "prev_dates": 32,
+        "unsupported": 109,
+        "parse_error": 17,
+        "match": 9,
+        "range_dates": 8,
+        "count_executions": 4
+      },
+      "by_canonical_op_passed_both": {
+        "parse_normalize": 6,
+        "parse_valid": 22,
+        "next_dates": 7,
+        "prev_dates": 4,
+        "parse_error": 9
+      }
+    },
+    "croniter": {
+      "input": 274,
+      "targets": [
+        "cron-parser",
+        "cron-utils"
+      ],
+      "passed_both": 49,
+      "per_target": {
+        "cron-parser": {
+          "attempted": 274,
+          "passed": 58,
+          "failed": 216,
+          "by_canonical_op": {
+            "match": {
+              "failed": 14,
+              "passed": 5
+            },
+            "match_range": {
+              "passed": 3,
+              "failed": 5
+            },
+            "next_dates": {
+              "passed": 6,
+              "failed": 86
+            },
+            "parse_error": {
+              "failed": 1,
+              "passed": 25
+            },
+            "parse_valid": {
+              "passed": 15,
+              "failed": 28
+            },
+            "prev_dates": {
+              "failed": 15,
+              "passed": 4
+            },
+            "range_dates": {
+              "failed": 16
+            },
+            "unsupported": {
+              "failed": 51
+            }
+          },
+          "by_origin": {
+            "croniter": {
+              "passed": 58,
+              "failed": 216
+            }
+          },
+          "failure_kinds": {
+            "semantic_mismatch": 77,
+            "runtime_error": 72,
+            "unsupported": 67
+          }
+        },
+        "cron-utils": {
+          "attempted": 274,
+          "passed": 87,
+          "failed": 187,
+          "by_canonical_op": {
+            "match": {
+              "passed": 14,
+              "failed": 5
+            },
+            "match_range": {
+              "failed": 8
+            },
+            "next_dates": {
+              "passed": 21,
+              "failed": 71
+            },
+            "parse_error": {
+              "failed": 1,
+              "passed": 25
+            },
+            "parse_valid": {
+              "passed": 14,
+              "failed": 29
+            },
+            "prev_dates": {
+              "passed": 10,
+              "failed": 9
+            },
+            "range_dates": {
+              "failed": 13,
+              "passed": 3
+            },
+            "unsupported": {
+              "failed": 51
+            }
+          },
+          "by_origin": {
+            "croniter": {
+              "passed": 87,
+              "failed": 187
+            }
+          },
+          "failure_kinds": {
+            "runtime_error": 158,
+            "semantic_mismatch": 29
+          }
+        }
+      },
+      "by_canonical_op_input": {
+        "next_dates": 92,
+        "prev_dates": 19,
+        "parse_valid": 43,
+        "match": 19,
+        "range_dates": 16,
+        "parse_error": 26,
+        "unsupported": 51,
+        "match_range": 8
+      },
+      "by_canonical_op_passed_both": {
+        "next_dates": 5,
+        "prev_dates": 4,
+        "parse_valid": 12,
+        "match": 3,
+        "parse_error": 25
+      }
+    }
+  },
+  "common_candidates_before_dedupe": 180,
+  "semantic_duplicates_removed": 14,
+  "common_candidates_before_hidden": 166,
+  "hidden_filter": {
+    "dragonmantank-cron-expression": {
+      "attempted": 166,
+      "passed": 134,
+      "failed": 32,
+      "by_canonical_op": {
+        "match": {
+          "passed": 6
+        },
+        "next_dates": {
+          "passed": 22,
+          "failed": 14
+        },
+        "parse_error": {
+          "passed": 48,
+          "failed": 3
+        },
+        "parse_normalize": {
+          "passed": 26,
+          "failed": 1
+        },
+        "parse_valid": {
+          "passed": 25,
+          "failed": 6
+        },
+        "prev_dates": {
+          "passed": 7,
+          "failed": 8
+        }
+      },
+      "by_origin": {
+        "cron-parser": {
+          "passed": 58,
+          "failed": 17
+        },
+        "cron-utils": {
+          "passed": 37,
+          "failed": 11
+        },
+        "croniter": {
+          "passed": 39,
+          "failed": 4
+        }
+      },
+      "failure_kinds": {
+        "runtime_error": 20,
+        "semantic_mismatch": 12
+      }
+    },
+    "fugit": {
+      "attempted": 166,
+      "passed": 129,
+      "failed": 37,
+      "by_canonical_op": {
+        "match": {
+          "passed": 6
+        },
+        "next_dates": {
+          "passed": 24,
+          "failed": 12
+        },
+        "parse_error": {
+          "passed": 49,
+          "failed": 2
+        },
+        "parse_normalize": {
+          "passed": 8,
+          "failed": 19
+        },
+        "parse_valid": {
+          "passed": 31
+        },
+        "prev_dates": {
+          "passed": 11,
+          "failed": 4
+        }
+      },
+      "by_origin": {
+        "cron-parser": {
+          "passed": 44,
+          "failed": 31
+        },
+        "cron-utils": {
+          "passed": 45,
+          "failed": 3
+        },
+        "croniter": {
+          "passed": 40,
+          "failed": 3
+        }
+      },
+      "failure_kinds": {
+        "semantic_mismatch": 22,
+        "runtime_error": 15
+      }
+    }
+  },
+  "final_common": 113,
+  "final_by_origin": {
+    "cron-parser": 39,
+    "cron-utils": 35,
+    "croniter": 39
+  },
+  "final_by_canonical_op": {
+    "next_dates": 21,
+    "parse_normalize": 8,
+    "prev_dates": 7,
+    "parse_error": 46,
+    "match": 6,
+    "parse_valid": 25
+  },
+  "final_by_capability": {
+    "cron.iteration.basic-next": 4,
+    "cron.stringify.basic": 2,
+    "cron.timezone.utc": 3,
+    "cron.parser.whitespace-tabs": 2,
+    "cron.iteration.previous": 1,
+    "cron.validation.invalid-range-and-characters": 2,
+    "cron.validation.too-many-fields": 1,
+    "cron.validation.field-range": 5,
+    "cron.validation.nth-day-of-week": 1,
+    "cron.validation.repeat-values": 2,
+    "cron.parser.range-values": 1,
+    "cron.validation.empty-comma-values": 2,
+    "cron.stringify.expression-instance": 1,
+    "cron.strict.validation": 2,
+    "cron.includes-date": 2,
+    "cron.iteration.zero-milliseconds": 1,
+    "cron.includes-date.special-day": 1,
+    "cron.dst.spring-forward-hour-step-no-day-skip": 1,
+    "cron.validation.standalone-last-weekday": 1,
+    "cron.parser.short-expression-leading-padding": 4,
+    "cron.definition.parse-normalize": 4,
+    "cron.definition.validation": 16,
+    "cron.execution.next": 1,
+    "cron.execution.last": 1,
+    "cron.execution.month-dow": 1,
+    "cron.parser.invalid-characters-and-ranges": 5,
+    "cron.parser.error-reporting": 2,
+    "cron.execution.issue-fixes-5-0-5": 2,
+    "cron.validation.quartz-tightened-constraints": 2,
+    "cron.execution.minute-one-boundary": 1,
+    "croniter.core.next": 1,
+    "croniter.core.prev-edge-cases": 3,
+    "croniter.validation.is-valid": 2,
+    "croniter.match.basic-and-day-or": 1,
+    "croniter.validation.invalid-syntax-hardening": 6,
+    "croniter.validation.zero-day-month": 4,
+    "croniter.validation.range-begin-end": 2,
+    "croniter.match.six-field-precision": 2,
+    "croniter.validation.year-range": 2,
+    "croniter.update-current-option": 1,
+    "croniter.update-current-option-prev": 1,
+    "croniter.validation.nearest-weekday-w-singleton-error": 5,
+    "croniter.validation.strict-day-month": 7,
+    "croniter.validation.zero-step-ranges": 2
+  }
+}

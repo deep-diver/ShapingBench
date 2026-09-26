@@ -1,0 +1,11 @@
+domain,support_1_of_5,support_2_of_5,support_3_of_5,support_4_of_5,support_5_of_5,variable_surface,shared_core,total
+Cron and Schedule Expressions,831,140,183,165,177,1319,177,1496
+"Date, Time, and Time Zones",209,104,77,14,250,404,250,654
+HTML Sanitization,831,277,123,190,141,1421,141,1562
+HTTP Client,284,65,37,36,211,422,211,633
+JWT Signing and Verification,137,30,106,832,517,1105,517,1622
+Markdown Parsing and Rendering,371,163,223,288,1114,1045,1114,2159
+"Retry, Backoff, and Resilience Policies",313,37,29,7,133,386,133,519
+URL and IRI Processing,324,37,582,899,330,1842,330,2172
+YAML Parsing and Emission,838,370,258,373,1881,1839,1881,3720
+TOTAL,4138,1223,1618,2804,4754,9783,4754,14537

@@ -1,0 +1,8 @@
+{
+  "name": "eemeli-yaml-latest-runner",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "yaml": "2.9.0"
+  }
+}

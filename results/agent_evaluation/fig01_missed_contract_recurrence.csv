@@ -1,0 +1,46 @@
+domain_key,domain,domain_short,oss_support_stratum,failed_agent_contract_cells,total_failed_agent_contract_cells,share_of_failed_cells_percent,failed_cells_observed_in_2plus_oss,failed_cells_observed_in_2plus_oss_percent,consensus_proximal_share_percent,agent_configurations,unit,display_order
+url_iri,URL and IRI Processing,URL/IRI,1/5,2901,7205,40.263705759888964,4304,59.736294240111036,56.26648160999306,10,failed final agent-configuration x scoring-contract evaluation cell,1
+url_iri,URL and IRI Processing,URL/IRI,2/5,250,7205,3.4698126301179735,4304,59.736294240111036,56.26648160999306,10,failed final agent-configuration x scoring-contract evaluation cell,1
+url_iri,URL and IRI Processing,URL/IRI,3/5,1656,7205,22.984038861901457,4304,59.736294240111036,56.26648160999306,10,failed final agent-configuration x scoring-contract evaluation cell,1
+url_iri,URL and IRI Processing,URL/IRI,4/5,1913,7205,26.551006245662734,4304,59.736294240111036,56.26648160999306,10,failed final agent-configuration x scoring-contract evaluation cell,1
+url_iri,URL and IRI Processing,URL/IRI,5/5,485,7205,6.731436502428869,4304,59.736294240111036,56.26648160999306,10,failed final agent-configuration x scoring-contract evaluation cell,1
+markdown,Markdown Parsing and Rendering,Markdown,1/5,3327,8514,39.076814658210004,5187,60.923185341789996,47.79187221047686,10,failed final agent-configuration x scoring-contract evaluation cell,2
+markdown,Markdown Parsing and Rendering,Markdown,2/5,1118,8514,13.131313131313131,5187,60.923185341789996,47.79187221047686,10,failed final agent-configuration x scoring-contract evaluation cell,2
+markdown,Markdown Parsing and Rendering,Markdown,3/5,1036,8514,12.1681935635424,5187,60.923185341789996,47.79187221047686,10,failed final agent-configuration x scoring-contract evaluation cell,2
+markdown,Markdown Parsing and Rendering,Markdown,4/5,1093,8514,12.837679116748884,5187,60.923185341789996,47.79187221047686,10,failed final agent-configuration x scoring-contract evaluation cell,2
+markdown,Markdown Parsing and Rendering,Markdown,5/5,1940,8514,22.785999530185578,5187,60.923185341789996,47.79187221047686,10,failed final agent-configuration x scoring-contract evaluation cell,2
+datetime,"Date, Time, and Time Zones",Date/Time,1/5,2086,5293,39.410542225580954,3207,60.589457774419046,41.262044209333084,10,failed final agent-configuration x scoring-contract evaluation cell,3
+datetime,"Date, Time, and Time Zones",Date/Time,2/5,1023,5293,19.327413565085962,3207,60.589457774419046,41.262044209333084,10,failed final agent-configuration x scoring-contract evaluation cell,3
+datetime,"Date, Time, and Time Zones",Date/Time,3/5,721,5293,13.62176459474778,3207,60.589457774419046,41.262044209333084,10,failed final agent-configuration x scoring-contract evaluation cell,3
+datetime,"Date, Time, and Time Zones",Date/Time,4/5,114,5293,2.1537880219157377,3207,60.589457774419046,41.262044209333084,10,failed final agent-configuration x scoring-contract evaluation cell,3
+datetime,"Date, Time, and Time Zones",Date/Time,5/5,1349,5293,25.486491592669562,3207,60.589457774419046,41.262044209333084,10,failed final agent-configuration x scoring-contract evaluation cell,3
+jwt,JWT Signing and Verification,JWT,1/5,901,1795,50.1949860724234,894,49.8050139275766,40.33426183844011,10,failed final agent-configuration x scoring-contract evaluation cell,4
+jwt,JWT Signing and Verification,JWT,2/5,170,1795,9.470752089136491,894,49.8050139275766,40.33426183844011,10,failed final agent-configuration x scoring-contract evaluation cell,4
+jwt,JWT Signing and Verification,JWT,3/5,221,1795,12.311977715877438,894,49.8050139275766,40.33426183844011,10,failed final agent-configuration x scoring-contract evaluation cell,4
+jwt,JWT Signing and Verification,JWT,4/5,198,1795,11.030640668523677,894,49.8050139275766,40.33426183844011,10,failed final agent-configuration x scoring-contract evaluation cell,4
+jwt,JWT Signing and Verification,JWT,5/5,305,1795,16.991643454038996,894,49.8050139275766,40.33426183844011,10,failed final agent-configuration x scoring-contract evaluation cell,4
+yaml,YAML Parsing and Emission,YAML,1/5,6829,13758,49.63657508358773,6929,50.36342491641227,34.8015699956389,10,failed final agent-configuration x scoring-contract evaluation cell,5
+yaml,YAML Parsing and Emission,YAML,2/5,2141,13758,15.561854920773369,6929,50.36342491641227,34.8015699956389,10,failed final agent-configuration x scoring-contract evaluation cell,5
+yaml,YAML Parsing and Emission,YAML,3/5,1205,13758,8.758540485535688,6929,50.36342491641227,34.8015699956389,10,failed final agent-configuration x scoring-contract evaluation cell,5
+yaml,YAML Parsing and Emission,YAML,4/5,1240,13758,9.012937927024277,6929,50.36342491641227,34.8015699956389,10,failed final agent-configuration x scoring-contract evaluation cell,5
+yaml,YAML Parsing and Emission,YAML,5/5,2343,13758,17.030091583078935,6929,50.36342491641227,34.8015699956389,10,failed final agent-configuration x scoring-contract evaluation cell,5
+http,HTTP Client,HTTP,1/5,2765,4187,66.0377358490566,1422,33.9622641509434,23.07141151182231,10,failed final agent-configuration x scoring-contract evaluation cell,6
+http,HTTP Client,HTTP,2/5,456,4187,10.89085263912109,1422,33.9622641509434,23.07141151182231,10,failed final agent-configuration x scoring-contract evaluation cell,6
+http,HTTP Client,HTTP,3/5,218,4187,5.20659183186052,1422,33.9622641509434,23.07141151182231,10,failed final agent-configuration x scoring-contract evaluation cell,6
+http,HTTP Client,HTTP,4/5,167,4187,3.988535944590399,1422,33.9622641509434,23.07141151182231,10,failed final agent-configuration x scoring-contract evaluation cell,6
+http,HTTP Client,HTTP,5/5,581,4187,13.876283735371388,1422,33.9622641509434,23.07141151182231,10,failed final agent-configuration x scoring-contract evaluation cell,6
+resilience,"Retry, Backoff, and Resilience Policies",Resilience,1/5,2558,3724,68.68958109559614,1166,31.310418904403868,22.798066595059076,10,failed final agent-configuration x scoring-contract evaluation cell,7
+resilience,"Retry, Backoff, and Resilience Policies",Resilience,2/5,317,3724,8.51235230934479,1166,31.310418904403868,22.798066595059076,10,failed final agent-configuration x scoring-contract evaluation cell,7
+resilience,"Retry, Backoff, and Resilience Policies",Resilience,3/5,121,3724,3.2491944146079486,1166,31.310418904403868,22.798066595059076,10,failed final agent-configuration x scoring-contract evaluation cell,7
+resilience,"Retry, Backoff, and Resilience Policies",Resilience,4/5,40,3724,1.0741138560687433,1166,31.310418904403868,22.798066595059076,10,failed final agent-configuration x scoring-contract evaluation cell,7
+resilience,"Retry, Backoff, and Resilience Policies",Resilience,5/5,688,3724,18.474758324382385,1166,31.310418904403868,22.798066595059076,10,failed final agent-configuration x scoring-contract evaluation cell,7
+html_sanitizer,HTML Sanitization,HTML Sanit.,1/5,6917,10269,67.3580679715649,3352,32.64193202843509,15.82432564027656,10,failed final agent-configuration x scoring-contract evaluation cell,8
+html_sanitizer,HTML Sanitization,HTML Sanit.,2/5,1727,10269,16.817606388158534,3352,32.64193202843509,15.82432564027656,10,failed final agent-configuration x scoring-contract evaluation cell,8
+html_sanitizer,HTML Sanitization,HTML Sanit.,3/5,603,10269,5.872042068361087,3352,32.64193202843509,15.82432564027656,10,failed final agent-configuration x scoring-contract evaluation cell,8
+html_sanitizer,HTML Sanitization,HTML Sanit.,4/5,623,10269,6.0668029993183366,3352,32.64193202843509,15.82432564027656,10,failed final agent-configuration x scoring-contract evaluation cell,8
+html_sanitizer,HTML Sanitization,HTML Sanit.,5/5,399,10269,3.885480572597137,3352,32.64193202843509,15.82432564027656,10,failed final agent-configuration x scoring-contract evaluation cell,8
+cron,Cron and Schedule Expressions,Cron,1/5,6199,8105,76.48365206662554,1906,23.516347933374462,14.06539173349784,10,failed final agent-configuration x scoring-contract evaluation cell,9
+cron,Cron and Schedule Expressions,Cron,2/5,766,8105,9.45095619987662,1906,23.516347933374462,14.06539173349784,10,failed final agent-configuration x scoring-contract evaluation cell,9
+cron,Cron and Schedule Expressions,Cron,3/5,492,8105,6.070326958667489,1906,23.516347933374462,14.06539173349784,10,failed final agent-configuration x scoring-contract evaluation cell,9
+cron,Cron and Schedule Expressions,Cron,4/5,439,8105,5.416409623689081,1906,23.516347933374462,14.06539173349784,10,failed final agent-configuration x scoring-contract evaluation cell,9
+cron,Cron and Schedule Expressions,Cron,5/5,209,8105,2.578655151141271,1906,23.516347933374462,14.06539173349784,10,failed final agent-configuration x scoring-contract evaluation cell,9

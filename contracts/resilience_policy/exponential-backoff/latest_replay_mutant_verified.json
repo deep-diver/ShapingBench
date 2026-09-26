@@ -1,0 +1,5123 @@
+{
+  "contracts": [
+    {
+      "name": "exponential_backoff_1_0_2_backoff_returns_first_successful_result_69399a7a333e",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backOff.returns-first-successful-result",
+      "op": "backoff_call",
+      "params": {
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; backOff resolves with the first successful request value 'ok'",
+      "human": "backOff resolves with the first successful request value 'ok'",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_backoff_returns_first_successful_result_feee988e7f87",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backOff.returns-first-successful-result",
+      "op": "backoff_call",
+      "params": {
+        "outcomes": [
+          0
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; backOff resolves with the first successful request value 0",
+      "human": "backOff resolves with the first successful request value 0",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": 0,
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": 0,
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": 0,
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_backoff_returns_first_successful_result_15ebd190240b",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backOff.returns-first-successful-result",
+      "op": "backoff_call",
+      "params": {
+        "outcomes": [
+          false
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; backOff resolves with the first successful request value False",
+      "human": "backOff resolves with the first successful request value False",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": false,
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": false,
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": false,
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_backoff_returns_first_successful_result_74142e0c1643",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backOff.returns-first-successful-result",
+      "op": "backoff_call",
+      "params": {
+        "outcomes": [
+          ""
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; backOff resolves with the first successful request value ''",
+      "human": "backOff resolves with the first successful request value ''",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_backoff_returns_first_successful_result_8d7d72534f5e",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backOff.returns-first-successful-result",
+      "op": "backoff_call",
+      "params": {
+        "outcomes": [
+          {
+            "payload": "done"
+          }
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; backOff resolves with the first successful request value {'payload': 'done'}",
+      "human": "backOff resolves with the first successful request value {'payload': 'done'}",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": {
+          "payload": "done"
+        },
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": {
+          "payload": "done"
+        },
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": {
+          "payload": "done"
+        },
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_backoff_returns_first_successful_result_4cf4d8da6c91",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backOff.returns-first-successful-result",
+      "op": "backoff_call",
+      "params": {
+        "outcomes": [
+          "__undefined__"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; backOff resolves with the first successful request value '__undefined__'",
+      "human": "backOff resolves with the first successful request value '__undefined__'",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "__undefined__",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "__undefined__",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "__undefined__",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_bounds_total_invocations_a2505c9d1cb9",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.bounds-total-invocations",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 0,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; numOfAttempts=0 bounds total calls, with values below one sanitized to one",
+      "human": "numOfAttempts=0 bounds total calls, with values below one sanitized to one",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_bounds_total_invocations_eb8d58cfca57",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.bounds-total-invocations",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": -3,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; numOfAttempts=-3 bounds total calls, with values below one sanitized to one",
+      "human": "numOfAttempts=-3 bounds total calls, with values below one sanitized to one",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_bounds_total_invocations_1cbc9b27bace",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.bounds-total-invocations",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 1,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; numOfAttempts=1 bounds total calls, with values below one sanitized to one",
+      "human": "numOfAttempts=1 bounds total calls, with values below one sanitized to one",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_bounds_total_invocations_b389a017d585",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.bounds-total-invocations",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 2,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; numOfAttempts=2 bounds total calls, with values below one sanitized to one",
+      "human": "numOfAttempts=2 bounds total calls, with values below one sanitized to one",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_bounds_total_invocations_9b2cf6796ce5",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.bounds-total-invocations",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 3,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; numOfAttempts=3 bounds total calls, with values below one sanitized to one",
+      "human": "numOfAttempts=3 bounds total calls, with values below one sanitized to one",
+      "pass": true,
+      "expected": {
+        "attempts": 3,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 3,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 3,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_bounds_total_invocations_1e8134b18a99",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.bounds-total-invocations",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 5,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; numOfAttempts=5 bounds total calls, with values below one sanitized to one",
+      "human": "numOfAttempts=5 bounds total calls, with values below one sanitized to one",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          2,
+          2,
+          4,
+          8
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_success_before_limit_e8bdd1b4e005",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.success-before-limit",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 2,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; request succeeds when a later attempt before numOfAttempts=2 succeeds",
+      "human": "request succeeds when a later attempt before numOfAttempts=2 succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_success_before_limit_91ed366cde3d",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.success-before-limit",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 3,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; request succeeds when a later attempt before numOfAttempts=3 succeeds",
+      "human": "request succeeds when a later attempt before numOfAttempts=3 succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_success_before_limit_57d1e44558d6",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.success-before-limit",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 4,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; request succeeds when a later attempt before numOfAttempts=4 succeeds",
+      "human": "request succeeds when a later attempt before numOfAttempts=4 succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          2,
+          4
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_numofattempts_success_before_limit_76acba451d1c",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "numOfAttempts.success-before-limit",
+      "op": "backoff_call",
+      "params": {
+        "numOfAttempts": 5,
+        "startingDelay": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; request succeeds when a later attempt before numOfAttempts=5 succeeds",
+      "human": "request succeeds when a later attempt before numOfAttempts=5 succeeds",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          2,
+          4,
+          8
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_first_retry_delay_without_first_delay_1f324160dbae",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.first-retry-delay-without-first-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 0,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; startingDelay=0 is the first retry wait when delayFirstAttempt is false",
+      "human": "startingDelay=0 is the first retry wait when delayFirstAttempt is false",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_first_retry_delay_without_first_delay_0e010fe68d4e",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.first-retry-delay-without-first-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 1,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; startingDelay=1 is the first retry wait when delayFirstAttempt is false",
+      "human": "startingDelay=1 is the first retry wait when delayFirstAttempt is false",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_first_retry_delay_without_first_delay_6c2d1d3b6ff0",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.first-retry-delay-without-first-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 7,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; startingDelay=7 is the first retry wait when delayFirstAttempt is false",
+      "human": "startingDelay=7 is the first retry wait when delayFirstAttempt is false",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          7
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          7
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_first_retry_delay_without_first_delay_770538f02a9a",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.first-retry-delay-without-first-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 25,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; startingDelay=25 is the first retry wait when delayFirstAttempt is false",
+      "human": "startingDelay=25 is the first retry wait when delayFirstAttempt is false",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          25
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          26
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          25
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_first_retry_delay_without_first_delay_7c2202f6c7aa",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.first-retry-delay-without-first-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 100,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; startingDelay=100 is the first retry wait when delayFirstAttempt is false",
+      "human": "startingDelay=100 is the first retry wait when delayFirstAttempt is false",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          100
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          101
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          100
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_repeated_constant_when_multiple_one_e66e332e4e0f",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.repeated-constant-when-multiple-one",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 1,
+        "timeMultiple": 1,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=1 keeps every retry wait equal to startingDelay=1",
+      "human": "timeMultiple=1 keeps every retry wait equal to startingDelay=1",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_repeated_constant_when_multiple_one_42bb1ef3dada",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.repeated-constant-when-multiple-one",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 7,
+        "timeMultiple": 1,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=1 keeps every retry wait equal to startingDelay=7",
+      "human": "timeMultiple=1 keeps every retry wait equal to startingDelay=7",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          7,
+          7,
+          7
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          7,
+          7
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          7,
+          7,
+          7
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_startingdelay_repeated_constant_when_multiple_one_c250e34f0a1c",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "startingDelay.repeated-constant-when-multiple-one",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 25,
+        "timeMultiple": 1,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=1 keeps every retry wait equal to startingDelay=25",
+      "human": "timeMultiple=1 keeps every retry wait equal to startingDelay=25",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          25,
+          25,
+          25
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          26,
+          25,
+          25
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          25,
+          25,
+          25
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_ad70cb3ea89c",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 0,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=0 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=0 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          0,
+          0,
+          0
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          0,
+          0,
+          0
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_c961e4cd4054",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 0.5,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=0.5 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=0.5 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          4,
+          2,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_050ffcff1965",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 1,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=1 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=1 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          8,
+          8,
+          8
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_f5d24585a325",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 1.5,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=1.5 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=1.5 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          12,
+          18,
+          27
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          12,
+          18,
+          27
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          12,
+          18,
+          27
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_c4abd9cdbc33",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 2,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=2 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=2 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          16,
+          32,
+          64
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          16,
+          32,
+          64
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          16,
+          32,
+          64
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_9207a1f3645d",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 3,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=3 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=3 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          24,
+          72,
+          216
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          24,
+          72,
+          216
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          24,
+          72,
+          216
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_exponential_retry_delay_sequence_6d700b2996e6",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.exponential-retry-delay-sequence",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 8,
+        "timeMultiple": 4,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; timeMultiple=4 shapes the retry delay sequence from startingDelay",
+      "human": "timeMultiple=4 shapes the retry delay sequence from startingDelay",
+      "pass": true,
+      "expected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          32,
+          128,
+          512
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          32,
+          128,
+          512
+        ]
+      },
+      "actual": {
+        "attempts": 5,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          32,
+          128,
+          512
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_fractional_and_nondefault_base_006e7743d3ca",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.fractional-and-nondefault-base",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 3,
+        "timeMultiple": 3,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; non-default startingDelay=3 and timeMultiple=3 compose multiplicatively",
+      "human": "non-default startingDelay=3 and timeMultiple=3 compose multiplicatively",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          3,
+          9,
+          27
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          4,
+          9,
+          27
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          3,
+          9,
+          27
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_fractional_and_nondefault_base_88fcc63ae529",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.fractional-and-nondefault-base",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 4,
+        "timeMultiple": 2.5,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; non-default startingDelay=4 and timeMultiple=2.5 compose multiplicatively",
+      "human": "non-default startingDelay=4 and timeMultiple=2.5 compose multiplicatively",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          4,
+          10,
+          25
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10,
+          25
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          4,
+          10,
+          25
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_timemultiple_fractional_and_nondefault_base_c5a8ea393ab9",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "timeMultiple.fractional-and-nondefault-base",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 9,
+        "timeMultiple": 1.25,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; non-default startingDelay=9 and timeMultiple=1.25 compose multiplicatively",
+      "human": "non-default startingDelay=9 and timeMultiple=1.25 compose multiplicatively",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          11.25,
+          14.0625
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          11.25,
+          14.0625
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          11.25,
+          14.0625
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_true_delays_before_initial_call_784139147db9",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.true-delays-before-initial-call",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 5,
+        "timeMultiple": 2,
+        "numOfAttempts": 2,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=true applies startingDelay=5 before the first request",
+      "human": "delayFirstAttempt=true applies startingDelay=5 before the first request",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6
+        ]
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_true_delays_before_initial_call_d118c2f5ce06",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.true-delays-before-initial-call",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 5,
+        "timeMultiple": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=true applies startingDelay=5 before the first request",
+      "human": "delayFirstAttempt=true applies startingDelay=5 before the first request",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6,
+          10
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_true_delays_before_initial_call_9f28460d841a",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.true-delays-before-initial-call",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 9,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=true applies startingDelay=9 before the first request",
+      "human": "delayFirstAttempt=true applies startingDelay=9 before the first request",
+      "pass": true,
+      "expected": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          18,
+          36
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          18,
+          36
+        ]
+      },
+      "actual": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          18,
+          36
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_true_delays_before_initial_call_282e6b8b815c",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.true-delays-before-initial-call",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 11,
+        "timeMultiple": 2,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=true applies startingDelay=11 before the first request",
+      "human": "delayFirstAttempt=true applies startingDelay=11 before the first request",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          22,
+          44,
+          88
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          22,
+          44,
+          88
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          22,
+          44,
+          88
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_false_skips_initial_delay_a886e799fbd4",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.false-skips-initial-delay",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": false,
+        "startingDelay": 5,
+        "timeMultiple": 2,
+        "numOfAttempts": 2,
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "human": "delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_false_skips_initial_delay_623949eeaea7",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.false-skips-initial-delay",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": false,
+        "startingDelay": 5,
+        "timeMultiple": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "human": "delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_false_skips_initial_delay_a695db838cd4",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.false-skips-initial-delay",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": false,
+        "startingDelay": 9,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "human": "delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "pass": true,
+      "expected": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          18
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          18
+        ]
+      },
+      "actual": {
+        "attempts": 3,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          18
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_delayfirstattempt_false_skips_initial_delay_868e90d94b09",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "delayFirstAttempt.false-skips-initial-delay",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": false,
+        "startingDelay": 11,
+        "timeMultiple": 2,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "human": "delayFirstAttempt=false invokes the first request immediately before retry waits",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          22,
+          44
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          22,
+          44
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          22,
+          44
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_cdf64ae2a32b",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 0,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=0 caps every computed exponential retry delay",
+      "human": "maxDelay=0 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_abd846074258",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 1,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=1 caps every computed exponential retry delay",
+      "human": "maxDelay=1 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_d507a8555dc5",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 9,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=9 caps every computed exponential retry delay",
+      "human": "maxDelay=9 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          9,
+          9,
+          9,
+          9
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          9,
+          9,
+          9,
+          9
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          9,
+          9,
+          9,
+          9
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_9f15e57bfde1",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 10,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=10 caps every computed exponential retry delay",
+      "human": "maxDelay=10 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_a614ed7a6c47",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 15,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=15 caps every computed exponential retry delay",
+      "human": "maxDelay=15 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_1d9ef59345c4",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 17,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=17 caps every computed exponential retry delay",
+      "human": "maxDelay=17 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          17,
+          17,
+          17,
+          17
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          17,
+          17,
+          17,
+          17
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          17,
+          17,
+          17,
+          17
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_caps_each_computed_delay_e4bfc2d2a8c4",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.caps-each-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 10,
+        "timeMultiple": 2,
+        "maxDelay": 40,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=40 caps every computed exponential retry delay",
+      "human": "maxDelay=40 caps every computed exponential retry delay",
+      "pass": true,
+      "expected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40,
+          40,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40,
+          40,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": 6,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40,
+          40,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_composes_with_delayfirstattempt_ecc1ba9d2983",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.composes-with-delayFirstAttempt",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 10,
+        "timeMultiple": 3,
+        "maxDelay": 6,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=6 also caps the initial delay when delayFirstAttempt=true",
+      "human": "maxDelay=6 also caps the initial delay when delayFirstAttempt=true",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6,
+          6,
+          6,
+          6
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          7,
+          6,
+          6,
+          6
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6,
+          6,
+          6,
+          6
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_composes_with_delayfirstattempt_d768c2856da5",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.composes-with-delayFirstAttempt",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 10,
+        "timeMultiple": 3,
+        "maxDelay": 12,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=12 also caps the initial delay when delayFirstAttempt=true",
+      "human": "maxDelay=12 also caps the initial delay when delayFirstAttempt=true",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          12,
+          12,
+          12
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          12,
+          12,
+          12
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          12,
+          12,
+          12
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_2_2_0_maxdelay_composes_with_delayfirstattempt_9a3842ddae60",
+      "version": "2.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "maxDelay.composes-with-delayFirstAttempt",
+      "op": "backoff_call",
+      "params": {
+        "delayFirstAttempt": true,
+        "startingDelay": 10,
+        "timeMultiple": 3,
+        "maxDelay": 24,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 2.2.0 (2019-11-04T16:32:59.058Z): public package exposes backOff/BackOffOptions behavior; maxDelay=24 also caps the initial delay when delayFirstAttempt=true",
+      "human": "maxDelay=24 also caps the initial delay when delayFirstAttempt=true",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          24,
+          24,
+          24
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          24,
+          24,
+          24
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          24,
+          24,
+          24
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_full_randomizes_rounded_delay_09c01892d17a",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.full-randomizes-rounded-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "full",
+        "random": 0,
+        "startingDelay": 20,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; full jitter uses Math.random=0 and rounds within each computed delay",
+      "human": "full jitter uses Math.random=0 and rounds within each computed delay",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0,
+          0,
+          0
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          0,
+          0
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0,
+          0,
+          0
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_full_randomizes_rounded_delay_70fc88732409",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.full-randomizes-rounded-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "full",
+        "random": 0.24,
+        "startingDelay": 20,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; full jitter uses Math.random=0.24 and rounds within each computed delay",
+      "human": "full jitter uses Math.random=0.24 and rounds within each computed delay",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10,
+          19
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          6,
+          10,
+          19
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          5,
+          10,
+          19
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_full_randomizes_rounded_delay_3fec20214f42",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.full-randomizes-rounded-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "full",
+        "random": 0.5,
+        "startingDelay": 20,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; full jitter uses Math.random=0.5 and rounds within each computed delay",
+      "human": "full jitter uses Math.random=0.5 and rounds within each computed delay",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          11,
+          20,
+          40
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          10,
+          20,
+          40
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_full_randomizes_rounded_delay_f03156855af7",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.full-randomizes-rounded-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "full",
+        "random": 0.75,
+        "startingDelay": 20,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; full jitter uses Math.random=0.75 and rounds within each computed delay",
+      "human": "full jitter uses Math.random=0.75 and rounds within each computed delay",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          15,
+          30,
+          60
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          16,
+          30,
+          60
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          15,
+          30,
+          60
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_full_randomizes_rounded_delay_3f26f0370bf3",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.full-randomizes-rounded-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "full",
+        "random": 1,
+        "startingDelay": 20,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; full jitter uses Math.random=1 and rounds within each computed delay",
+      "human": "full jitter uses Math.random=1 and rounds within each computed delay",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          20,
+          40,
+          80
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          21,
+          40,
+          80
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          20,
+          40,
+          80
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_none_and_unknown_fall_back_to_computed_delay_abb170fc1984",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.none-and-unknown-fall-back-to-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "none",
+        "random": 0.12,
+        "startingDelay": 12,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; jitter='none' leaves the computed delay sequence unchanged unless it is exactly full",
+      "human": "jitter='none' leaves the computed delay sequence unchanged unless it is exactly full",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          24,
+          48
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          24,
+          48
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          24,
+          48
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_none_and_unknown_fall_back_to_computed_delay_ffab8c2d77df",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.none-and-unknown-fall-back-to-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "unknown",
+        "random": 0.12,
+        "startingDelay": 12,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; jitter='unknown' leaves the computed delay sequence unchanged unless it is exactly full",
+      "human": "jitter='unknown' leaves the computed delay sequence unchanged unless it is exactly full",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          24,
+          48
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          24,
+          48
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          24,
+          48
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_2_0_jitter_none_and_unknown_fall_back_to_computed_delay_4bcad6aba803",
+      "version": "1.2.0",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "jitter.none-and-unknown-fall-back-to-computed-delay",
+      "op": "backoff_call",
+      "params": {
+        "jitter": "FULL",
+        "random": 0.12,
+        "startingDelay": 12,
+        "timeMultiple": 2,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.2.0 (2019-02-07T17:04:16.809Z): public package exposes backOff/BackOffOptions behavior; jitter='FULL' leaves the computed delay sequence unchanged unless it is exactly full",
+      "human": "jitter='FULL' leaves the computed delay sequence unchanged unless it is exactly full",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          24,
+          48
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          13,
+          24,
+          48
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          12,
+          24,
+          48
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_never_stops_after_first_failure_c7f0b7f7f067",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-never-stops-after-first-failure",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "never",
+        "startingDelay": 1,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback returning false stops after the first failed attempt",
+      "human": "retry callback returning false stops after the first failed attempt",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_never_stops_after_first_failure_30d74252a956",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-never-stops-after-first-failure",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "never",
+        "startingDelay": 1,
+        "numOfAttempts": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback returning false stops after the first failed attempt",
+      "human": "retry callback returning false stops after the first failed attempt",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_never_stops_after_first_failure_094ac08d8bf9",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-never-stops-after-first-failure",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "never",
+        "startingDelay": 1,
+        "numOfAttempts": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback returning false stops after the first failed attempt",
+      "human": "retry callback returning false stops after the first failed attempt",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_attempt_number_controls_continuation_639e83423e42",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-attempt-number-controls-continuation",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "untilAttemptLessThan",
+        "retryUntil": 1,
+        "startingDelay": 1,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=1",
+      "human": "retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=1",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_attempt_number_controls_continuation_b05285562dd1",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-attempt-number-controls-continuation",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "untilAttemptLessThan",
+        "retryUntil": 2,
+        "startingDelay": 1,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=2",
+      "human": "retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=2",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_attempt_number_controls_continuation_ef7030922f3c",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-attempt-number-controls-continuation",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "untilAttemptLessThan",
+        "retryUntil": 3,
+        "startingDelay": 1,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=3",
+      "human": "retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=3",
+      "pass": true,
+      "expected": {
+        "attempts": 3,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 3,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          2,
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 3,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_attempt_number_controls_continuation_fc062aa0fc90",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-attempt-number-controls-continuation",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "untilAttemptLessThan",
+        "retryUntil": 4,
+        "startingDelay": 1,
+        "numOfAttempts": 6,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=4",
+      "human": "retry callback receives 1-based failed-attempt numbers and can stop before retryUntil=4",
+      "pass": true,
+      "expected": {
+        "attempts": 4,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 4,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          2,
+          2,
+          4
+        ]
+      },
+      "actual": {
+        "attempts": 4,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 2,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 3,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          },
+          {
+            "attemptNumber": 4,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1,
+          2,
+          4
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_classifies_last_error_d65819ec0fef",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-classifies-last-error",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "onlyTransient",
+        "startingDelay": 1,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback mode onlyTransient makes continuation depend on the last error",
+      "human": "retry callback mode onlyTransient makes continuation depend on the last error",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_classifies_last_error_43b06e19c9f9",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-classifies-last-error",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "onlyTransient",
+        "startingDelay": 1,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:fatal",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback mode onlyTransient makes continuation depend on the last error",
+      "human": "retry callback mode onlyTransient makes continuation depend on the last error",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "fatal",
+            "errorMessage": "fatal",
+            "errorType": "FatalError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "fatal",
+            "errorMessage": "fatal",
+            "errorType": "FatalError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "fatal",
+            "errorMessage": "fatal",
+            "errorType": "FatalError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_classifies_last_error_843e5910dea3",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-classifies-last-error",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "excludeFatal",
+        "startingDelay": 1,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:other",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback mode excludeFatal makes continuation depend on the last error",
+      "human": "retry callback mode excludeFatal makes continuation depend on the last error",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "other",
+            "errorMessage": "other",
+            "errorType": "OtherError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "other",
+            "errorMessage": "other",
+            "errorType": "OtherError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "other",
+            "errorMessage": "other",
+            "errorType": "OtherError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_classifies_last_error_9aa50a9756d2",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-classifies-last-error",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "excludeFatal",
+        "startingDelay": 1,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:fatal",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback mode excludeFatal makes continuation depend on the last error",
+      "human": "retry callback mode excludeFatal makes continuation depend on the last error",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "fatal",
+            "errorMessage": "fatal",
+            "errorType": "FatalError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "fatal",
+            "errorMessage": "fatal",
+            "errorType": "FatalError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "fatal",
+        "errorMessage": "fatal",
+        "errorType": "FatalError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "fatal",
+            "errorMessage": "fatal",
+            "errorType": "FatalError"
+          }
+        ],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_may_return_a_promise_52d2574750de",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-may-return-a-promise",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "promiseTrue",
+        "retryDelayMs": 0,
+        "startingDelay": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback may asynchronously resolve promiseTrue after 0ms before backOff continues",
+      "human": "retry callback may asynchronously resolve promiseTrue after 0ms before backOff continues",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0,
+          2
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1,
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          0,
+          2
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_may_return_a_promise_8837b828aa09",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-may-return-a-promise",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "promiseTrue",
+        "retryDelayMs": 3,
+        "startingDelay": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback may asynchronously resolve promiseTrue after 3ms before backOff continues",
+      "human": "retry callback may asynchronously resolve promiseTrue after 3ms before backOff continues",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          3,
+          2
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          4,
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          3,
+          2
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_may_return_a_promise_8735ffd38aab",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-may-return-a-promise",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "promiseTrue",
+        "retryDelayMs": 8,
+        "startingDelay": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback may asynchronously resolve promiseTrue after 8ms before backOff continues",
+      "human": "retry callback may asynchronously resolve promiseTrue after 8ms before backOff continues",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          2
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          9,
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          8,
+          2
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_may_return_a_promise_51e6c33bc2a3",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-may-return-a-promise",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "promiseFalse",
+        "retryDelayMs": 0,
+        "startingDelay": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback may asynchronously resolve promiseFalse after 0ms before backOff continues",
+      "human": "retry callback may asynchronously resolve promiseFalse after 0ms before backOff continues",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          0
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          1
+        ]
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          0
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_may_return_a_promise_e79db00a0aed",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-may-return-a-promise",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "promiseFalse",
+        "retryDelayMs": 3,
+        "startingDelay": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback may asynchronously resolve promiseFalse after 3ms before backOff continues",
+      "human": "retry callback may asynchronously resolve promiseFalse after 3ms before backOff continues",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          3
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          4
+        ]
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          3
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_callback_may_return_a_promise_3cd4e0239341",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.callback-may-return-a-promise",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "promiseFalse",
+        "retryDelayMs": 8,
+        "startingDelay": 2,
+        "numOfAttempts": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; retry callback may asynchronously resolve promiseFalse after 8ms before backOff continues",
+      "human": "retry callback may asynchronously resolve promiseFalse after 8ms before backOff continues",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          8
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          9
+        ]
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [
+          {
+            "attemptNumber": 1,
+            "errorKind": "transient",
+            "errorMessage": "transient",
+            "errorType": "TransientError"
+          }
+        ],
+        "status": "thrown",
+        "waits": [
+          8
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_request_failure_style_is_propagated_4801d04fd681",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "request-failure-style-is-propagated",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 1,
+        "numOfAttempts": 1,
+        "outcomes": [
+          "throw:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; single-attempt failure throw:transient is propagated without retry conversion",
+      "human": "single-attempt failure throw:transient is propagated without retry conversion",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_request_failure_style_is_propagated_35682a85fd0f",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "request-failure-style-is-propagated",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 1,
+        "numOfAttempts": 1,
+        "outcomes": [
+          "reject:transient"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; single-attempt failure reject:transient is propagated without retry conversion",
+      "human": "single-attempt failure reject:transient is propagated without retry conversion",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "transient",
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_request_failure_style_is_propagated_12c786c91459",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "request-failure-style-is-propagated",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 1,
+        "numOfAttempts": 1,
+        "outcomes": [
+          "throw:string"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; single-attempt failure throw:string is propagated without retry conversion",
+      "human": "single-attempt failure throw:string is propagated without retry conversion",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": null,
+        "errorMessage": "string-failure",
+        "errorType": "string",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": null,
+        "errorMessage": "string-failure",
+        "errorType": "string",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": null,
+        "errorMessage": "string-failure",
+        "errorType": "string",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_request_failure_style_is_propagated_5dbbe4c69103",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "request-failure-style-is-propagated",
+      "op": "backoff_call",
+      "params": {
+        "startingDelay": 1,
+        "numOfAttempts": 1,
+        "outcomes": [
+          "throw:object"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; single-attempt failure throw:object is propagated without retry conversion",
+      "human": "single-attempt failure throw:object is propagated without retry conversion",
+      "pass": true,
+      "expected": {
+        "attempts": 1,
+        "errorKind": "object",
+        "errorMessage": "{\"kind\":\"object\",\"name\":\"ObjectFailure\"}",
+        "errorType": "object",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "errorKind": "object",
+        "errorMessage": "{\"kind\":\"object\",\"name\":\"ObjectFailure\"}",
+        "errorType": "object",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "actual": {
+        "attempts": 1,
+        "errorKind": "object",
+        "errorMessage": "{\"kind\":\"object\",\"name\":\"ObjectFailure\"}",
+        "errorType": "object",
+        "retryCalls": [],
+        "status": "thrown",
+        "waits": []
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_handles_rejected_and_non_error_failures_6e45dabf85bb",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.handles-rejected-and-non-error-failures",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "default",
+        "startingDelay": 1,
+        "numOfAttempts": 2,
+        "outcomes": [
+          "reject:transient",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; default retry handles reject:transient before later success",
+      "human": "default retry handles reject:transient before later success",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_handles_rejected_and_non_error_failures_5a8afbbdf5f1",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.handles-rejected-and-non-error-failures",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "default",
+        "startingDelay": 1,
+        "numOfAttempts": 2,
+        "outcomes": [
+          "throw:string",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; default retry handles throw:string before later success",
+      "human": "default retry handles throw:string before later success",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    },
+    {
+      "name": "exponential_backoff_1_0_2_retry_handles_rejected_and_non_error_failures_6399526babcd",
+      "version": "1.0.2",
+      "project": "coveooss/exponential-backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.handles-rejected-and-non-error-failures",
+      "op": "backoff_call",
+      "params": {
+        "retryMode": "default",
+        "startingDelay": 1,
+        "numOfAttempts": 2,
+        "outcomes": [
+          "throw:object",
+          "ok"
+        ]
+      },
+      "evidence": "exponential-backoff npm release 1.0.2 (2018-07-06T19:14:56.577Z): public package exposes backOff/BackOffOptions behavior; default retry handles throw:object before later success",
+      "human": "default retry handles throw:object before later success",
+      "pass": true,
+      "expected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "mutantExpected": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          2
+        ]
+      },
+      "actual": {
+        "attempts": 2,
+        "retryCalls": [],
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1
+        ]
+      },
+      "replayPass": true,
+      "mutantRejected": true
+    }
+  ],
+  "summary": {
+    "npm_versions_seen": 18,
+    "github_releases_seen": 1,
+    "prior_signature_families_seen": 194,
+    "candidate_contracts": 84,
+    "exclusion_note": "Exact deterministic de-duplication across resilience-policy APIs is not meaningful; generation avoided generic circuit-breaker/rate-limiter/broad decorator surfaces and focused on exponential-backoff-specific public option semantics.",
+    "latest_target": "exponential-backoff@3.1.3",
+    "replay_passed": 84,
+    "mutant_rejected": 84,
+    "latest_survivors": 84,
+    "survivors_by_origin_version": {
+      "1.0.2": 58,
+      "1.2.0": 16,
+      "2.2.0": 10
+    },
+    "survivors_by_capability": {
+      "backOff.returns-first-successful-result": 6,
+      "delayFirstAttempt.false-skips-initial-delay": 4,
+      "delayFirstAttempt.true-delays-before-initial-call": 4,
+      "jitter.full-randomizes-rounded-delay": 5,
+      "jitter.none-and-unknown-fall-back-to-computed-delay": 3,
+      "maxDelay.caps-each-computed-delay": 7,
+      "maxDelay.composes-with-delayFirstAttempt": 3,
+      "numOfAttempts.bounds-total-invocations": 6,
+      "numOfAttempts.success-before-limit": 4,
+      "request-failure-style-is-propagated": 4,
+      "retry.callback-attempt-number-controls-continuation": 4,
+      "retry.callback-classifies-last-error": 4,
+      "retry.callback-may-return-a-promise": 6,
+      "retry.callback-never-stops-after-first-failure": 3,
+      "retry.handles-rejected-and-non-error-failures": 3,
+      "startingDelay.first-retry-delay-without-first-delay": 5,
+      "startingDelay.repeated-constant-when-multiple-one": 3,
+      "timeMultiple.exponential-retry-delay-sequence": 7,
+      "timeMultiple.fractional-and-nondefault-base": 3
+    }
+  }
+}

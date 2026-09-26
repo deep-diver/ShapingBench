@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "commonmark": "0.31.2",
+    "entities": "6.0.1",
+    "marked": "18.0.11"
+  }
+}

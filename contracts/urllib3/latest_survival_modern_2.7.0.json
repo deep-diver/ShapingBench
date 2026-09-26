@@ -1,0 +1,1776 @@
+{
+  "latest_version": "2.7.0",
+  "runner_family": "modern",
+  "total": 221,
+  "survived": 187,
+  "results": [
+    {
+      "source_version": "2.7.0",
+      "contract": "streaming_decompression_bomb_guard_limits_output",
+      "key": "2.7.0:streaming_decompression_bomb_guard_limits_output",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.3",
+      "contract": "streaming_decompression_bomb_guard_limits_output",
+      "key": "2.6.3:streaming_decompression_bomb_guard_limits_output",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "streaming_decompression_bomb_guard_limits_output",
+      "key": "2.6.0:streaming_decompression_bomb_guard_limits_output",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.3",
+      "contract": "retry_after_header_is_capped_at_six_hours",
+      "key": "2.6.3:retry_after_header_is_capped_at_six_hours",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.1",
+      "contract": "response_legacy_header_accessors_are_available",
+      "key": "2.6.1:response_legacy_header_accessors_are_available",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "response_legacy_header_accessors_are_removed",
+      "key": "2.6.0:response_legacy_header_accessors_are_removed",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 4, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "http_header_dict_accepts_bytes_keys",
+      "key": "2.6.0:http_header_dict_accepts_bytes_keys",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "connection_string_representation_includes_host_and_port",
+      "key": "2.6.0:connection_string_representation_includes_host_and_port",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "sslkeylogfile_expands_environment_variables",
+      "key": "2.6.0:sslkeylogfile_expands_environment_variables",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.7.0",
+      "contract": "response_stream_amt_zero_yields_empty_without_consuming",
+      "key": "2.7.0:response_stream_amt_zero_yields_empty_without_consuming",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.7.0",
+      "contract": "response_stream_continues_with_buffered_decompressed_data",
+      "key": "2.7.0:response_stream_continues_with_buffered_decompressed_data",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.7.0",
+      "contract": "response_stream_continues_with_buffered_decompressed_data_2",
+      "key": "2.7.0:response_stream_continues_with_buffered_decompressed_data_2",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.2",
+      "contract": "response_stream_continues_with_buffered_decompressed_data",
+      "key": "2.6.2:response_stream_continues_with_buffered_decompressed_data",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.2",
+      "contract": "response_stream_continues_with_buffered_decompressed_data",
+      "key": "2.0.2:response_stream_continues_with_buffered_decompressed_data",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "content_encoding_chain_is_limited_to_five",
+      "key": "2.6.0:content_encoding_chain_is_limited_to_five",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.5",
+      "contract": "default_blocksize_is_16k",
+      "key": "2.0.5:default_blocksize_is_16k",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.6",
+      "contract": "tilde_in_url_path_is_not_percent_encoded",
+      "key": "1.25.6:tilde_in_url_path_is_not_percent_encoded",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.20",
+      "contract": "url_scheme_and_host_are_normalized_lowercase",
+      "key": "1.20:url_scheme_and_host_are_normalized_lowercase",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.17",
+      "contract": "url_scheme_and_host_are_normalized_lowercase",
+      "key": "1.17:url_scheme_and_host_are_normalized_lowercase",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.20",
+      "contract": "url_ipv6_zone_identifier_is_accepted",
+      "key": "1.20:url_ipv6_zone_identifier_is_accepted",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 4, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "custom_retry_backoff_max_limits_backoff",
+      "key": "2.0.0:custom_retry_backoff_max_limits_backoff",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "retry_backoff_jitter_is_added_within_bounds",
+      "key": "2.0.0:retry_backoff_jitter_is_added_within_bounds",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "retry_backoff_constant_is_renamed_without_value_change",
+      "key": "2.0.0:retry_backoff_constant_is_renamed_without_value_change",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "default_blocksize_is_16k",
+      "key": "2.0.0:default_blocksize_is_16k",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.4",
+      "contract": "http_header_dict_supports_union_operators",
+      "key": "2.0.4:http_header_dict_supports_union_operators",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "http_header_dict_can_repeat_or_combine_values",
+      "key": "2.0.0:http_header_dict_can_repeat_or_combine_values",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "proxy_certificate_hostname_assertion_is_configurable",
+      "key": "2.0.0:proxy_certificate_hostname_assertion_is_configurable",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "json_request_sets_content_type_when_missing",
+      "key": "2.0.0:json_request_sets_content_type_when_missing",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "multipart_header_control_characters_are_not_percent_encoded",
+      "key": "2.0.0:multipart_header_control_characters_are_not_percent_encoded",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "response_read_respects_buffered_io_semantics",
+      "key": "2.0.0:response_read_respects_buffered_io_semantics",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.1",
+      "contract": "response_read_zero_returns_empty_without_error",
+      "key": "2.0.1:response_read_zero_returns_empty_without_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.2",
+      "contract": "response_read_negative_amt_behaves_like_read_all",
+      "key": "2.2.2:response_read_negative_amt_behaves_like_read_all",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "response_read1_is_available_and_reads_bytes",
+      "key": "2.2.0:response_read1_is_available_and_reads_bytes",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.16",
+      "contract": "poolmanager_many_origins_does_not_close_in_use_pools",
+      "key": "1.26.16:poolmanager_many_origins_does_not_close_in_use_pools",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.15",
+      "contract": "url_ipv6_zone_identifier_is_accepted",
+      "key": "1.26.15:url_ipv6_zone_identifier_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.14",
+      "contract": "url_port_zero_is_preserved",
+      "key": "1.26.14:url_port_zero_is_preserved",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.13",
+      "contract": "url_port_with_leading_zeroes_is_accepted",
+      "key": "1.26.13:url_port_with_leading_zeroes_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.7",
+      "contract": "empty_query_section_is_preserved",
+      "key": "1.25.7:empty_query_section_is_preserved",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.7",
+      "contract": "chunked_parameter_is_preserved_on_retries",
+      "key": "1.25.7:chunked_parameter_is_preserved_on_retries",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 35, in <module>\nTypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist'\n"
+    },
+    {
+      "source_version": "1.25.4",
+      "contract": "url_auth_invalid_chars_are_percent_encoded",
+      "key": "1.25.4:url_auth_invalid_chars_are_percent_encoded",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.4",
+      "contract": "url_path_query_fragment_invalid_chars_are_percent_encoded",
+      "key": "1.25.4:url_path_query_fragment_invalid_chars_are_percent_encoded",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.2",
+      "contract": "url_path_query_fragment_invalid_chars_are_percent_encoded",
+      "key": "1.25.2:url_path_query_fragment_invalid_chars_are_percent_encoded",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.19",
+      "contract": "url_port_rejects_integerish_unicode",
+      "key": "1.19:url_port_rejects_integerish_unicode",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.8",
+      "contract": "parse_url_handles_at_in_username_and_blank_port",
+      "key": "1.8:parse_url_handles_at_in_username_and_blank_port",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 4, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.8",
+      "contract": "same_host_accepts_default_port_equivalence",
+      "key": "1.8:same_host_accepts_default_port_equivalence",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10",
+      "contract": "max_retry_error_reason_is_exception",
+      "key": "1.10:max_retry_error_reason_is_exception",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10.4",
+      "contract": "chunked_keep_alive_preserves_request_boundaries",
+      "key": "1.10.4:chunked_keep_alive_preserves_request_boundaries",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.9.1",
+      "contract": "only_fingerprint_verification_is_supported",
+      "key": "1.9.1:only_fingerprint_verification_is_supported",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": "<string>:17: FutureWarning: HTTPSConnection.set_cert() is deprecated and will be removed in urllib3 v3.0. Instead provide the parameters to the HTTPSConnection constructor.\n"
+    },
+    {
+      "source_version": "1.10.4",
+      "contract": "chunked_head_response_without_body_does_not_hang",
+      "key": "1.10.4:chunked_head_response_without_body_does_not_hang",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10.3",
+      "contract": "multiple_set_cookie_headers_are_preserved",
+      "key": "1.10.3:multiple_set_cookie_headers_are_preserved",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10.1",
+      "contract": "header_values_with_commas_are_preserved",
+      "key": "1.10.1:header_values_with_commas_are_preserved",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.15",
+      "contract": "retry_raise_on_status_false_returns_error_response",
+      "key": "1.15:retry_raise_on_status_false_returns_error_response",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.4",
+      "contract": "retry_after_setting_propagates_to_subsequent_retries",
+      "key": "1.25.4:retry_after_setting_propagates_to_subsequent_retries",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.4",
+      "contract": "retry_after_can_be_explicitly_ignored",
+      "key": "1.25.4:retry_after_can_be_explicitly_ignored",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.12",
+      "contract": "new_connection_failure_raises_new_connection_error",
+      "key": "1.12:new_connection_failure_raises_new_connection_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.0",
+      "contract": "default_user_agent_header_is_sent",
+      "key": "1.26.0:default_user_agent_header_is_sent",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 3, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.26.0",
+      "contract": "skip_header_suppresses_automatic_headers",
+      "key": "1.26.0:skip_header_suppresses_automatic_headers",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.1",
+      "contract": "bytes_user_agent_header_does_not_duplicate",
+      "key": "1.26.1:bytes_user_agent_header_does_not_duplicate",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "http_header_dict_is_usable_as_request_headers",
+      "key": "1.11:http_header_dict_is_usable_as_request_headers",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "pool_default_headers_apply_to_get_query_requests",
+      "key": "1.11:pool_default_headers_apply_to_get_query_requests",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "incorrect_proxy_scheme_raises_value_error",
+      "key": "1.11:incorrect_proxy_scheme_raises_value_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "pool_is_replenished_after_release_conn_false_error",
+      "key": "1.11:pool_is_replenished_after_release_conn_false_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "connection_is_discarded_after_read_error",
+      "key": "1.11:connection_is_discarded_after_read_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.6",
+      "contract": "explicit_transfer_encoding_chunked_header_is_not_duplicated",
+      "key": "1.26.6:explicit_transfer_encoding_chunked_header_is_not_duplicated",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.19",
+      "contract": "user_supplied_host_header_is_preserved_for_chunked_upload",
+      "key": "1.19:user_supplied_host_header_is_preserved_for_chunked_upload",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.7",
+      "contract": "http_303_redirect_switches_method_to_get_and_strips_body",
+      "key": "2.0.7:http_303_redirect_switches_method_to_get_and_strips_body",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.18",
+      "contract": "http_303_redirect_switches_method_to_get_and_strips_body",
+      "key": "1.26.18:http_303_redirect_switches_method_to_get_and_strips_body",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.6",
+      "contract": "cross_host_redirect_strips_cookie_header",
+      "key": "2.0.6:cross_host_redirect_strips_cookie_header",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.2",
+      "contract": "cross_host_redirect_strips_proxy_authorization_header",
+      "key": "2.2.2:cross_host_redirect_strips_proxy_authorization_header",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.7.0",
+      "contract": "cross_host_redirect_strips_configured_sensitive_header",
+      "key": "2.7.0:cross_host_redirect_strips_configured_sensitive_header",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "headers_input_is_not_mutated_by_json_request",
+      "key": "2.2.0:headers_input_is_not_mutated_by_json_request",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "url_authority_includes_userinfo_and_host",
+      "key": "2.0.0:url_authority_includes_userinfo_and_host",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "tls_minimum_and_maximum_versions_configure_context",
+      "key": "2.0.0:tls_minimum_and_maximum_versions_configure_context",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "tls_minimum_and_maximum_versions_configure_context_2",
+      "key": "2.0.0:tls_minimum_and_maximum_versions_configure_context_2",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.11",
+      "contract": "retry_after_http_date_uses_utc",
+      "key": "1.25.11:retry_after_http_date_uses_utc",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.11",
+      "contract": "empty_sslkeylogfile_does_not_configure_keylog",
+      "key": "1.25.11:empty_sslkeylogfile_does_not_configure_keylog",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.10",
+      "contract": "sslkeylogfile_environment_enables_tls_key_logging",
+      "key": "1.25.10:sslkeylogfile_environment_enables_tls_key_logging",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 18, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/ssl_.py\", line 294, in create_urllib3_context\n    context.verify_flags |= verify_flags\n    ^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'FakeContext' object has no attribute 'verify_flags'\n"
+    },
+    {
+      "source_version": "1.15",
+      "contract": "chunked_request_sets_transfer_encoding_header",
+      "key": "1.15:chunked_request_sets_transfer_encoding_header",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.17",
+      "contract": "response_length_remaining_tracks_unread_body",
+      "key": "1.17:response_length_remaining_tracks_unread_body",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.1.0",
+      "contract": "read_chunked_handles_gzip_encoded_chunks",
+      "key": "2.1.0:read_chunked_handles_gzip_encoded_chunks",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.13",
+      "contract": "read_chunked_handles_gzip_encoded_chunks",
+      "key": "1.13:read_chunked_handles_gzip_encoded_chunks",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.13",
+      "contract": "response_read_error_closes_original_response_and_connection",
+      "key": "1.13:response_read_error_closes_original_response_and_connection",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10.1",
+      "contract": "read_chunked_handles_gzip_encoded_chunks",
+      "key": "1.10.1:read_chunked_handles_gzip_encoded_chunks",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.17",
+      "contract": "cross_host_redirect_strips_cookie_header",
+      "key": "1.26.17:cross_host_redirect_strips_cookie_header",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.19",
+      "contract": "cross_host_redirect_strips_proxy_authorization_header",
+      "key": "1.26.19:cross_host_redirect_strips_proxy_authorization_header",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.7",
+      "contract": "relative_redirect_location_is_followed",
+      "key": "1.7:relative_redirect_location_is_followed",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.7",
+      "contract": "relative_redirect_location_is_followed_2",
+      "key": "1.7:relative_redirect_location_is_followed_2",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.7",
+      "contract": "assert_hostname_false_skips_hostname_verification",
+      "key": "1.7:assert_hostname_false_skips_hostname_verification",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 11, in <module>\nAttributeError: module 'urllib3.connectionpool' has no attribute 'socket'\n"
+    },
+    {
+      "source_version": "1.7",
+      "contract": "https_proxy_to_https_target_is_supported",
+      "key": "1.7:https_proxy_to_https_target_is_supported",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.7.0",
+      "contract": "relative_path_resembling_schemeless_uri_is_accepted",
+      "key": "2.7.0:relative_path_resembling_schemeless_uri_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "incomplete_response_body_raises_when_content_length_enforced",
+      "key": "2.0.0:incomplete_response_body_raises_when_content_length_enforced",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.17",
+      "contract": "incomplete_response_body_raises_when_content_length_enforced",
+      "key": "1.17:incomplete_response_body_raises_when_content_length_enforced",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.1",
+      "contract": "invalid_chunk_length_raises_protocol_error",
+      "key": "2.2.1:invalid_chunk_length_raises_protocol_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.1",
+      "contract": "incomplete_read_error_reports_excess_content",
+      "key": "2.2.1:incomplete_read_error_reports_excess_content",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.6.0",
+      "contract": "poolmanager_integer_retries_limits_redirects",
+      "key": "2.6.0:poolmanager_integer_retries_limits_redirects",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.5.0",
+      "contract": "poolmanager_integer_retries_limits_redirects",
+      "key": "2.5.0:poolmanager_integer_retries_limits_redirects",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.3",
+      "contract": "bytes_and_string_header_keys_compare_equal",
+      "key": "1.26.3:bytes_and_string_header_keys_compare_equal",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.3",
+      "contract": "proxy_url_without_scheme_raises_actionable_error",
+      "key": "1.26.3:proxy_url_without_scheme_raises_actionable_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "cert_reqs_accepts_string_policy_values",
+      "key": "1.6:cert_reqs_accepts_string_policy_values",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "default_headers_are_sent",
+      "key": "1.6:default_headers_are_sent",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "max_retry_error_reason_is_none_for_redirect_exhaustion",
+      "key": "1.6:max_retry_error_reason_is_none_for_redirect_exhaustion",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "urllib3.exceptions.ResponseError: too many redirects\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"<string>\", line 24, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 923, in urlopen\n    return self.urlopen(\n           ^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 913, in urlopen\n    retries = retries.increment(method, url, response=response, _pool=self)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/retry.py\", line 543, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=55554): Max retries exceeded with url: /loop (Caused by ResponseError('too many redirects'))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 26, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.6",
+      "contract": "connection_closes_when_no_data_is_received",
+      "key": "1.6:connection_closes_when_no_data_is_received",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "le \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 842, in urlopen\n    retries = retries.increment(\n              ^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/retry.py\", line 473, in increment\n    raise reraise(type(error), error, _stacktrace)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/util.py\", line 38, in reraise\n    raise value.with_traceback(tb)\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 788, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 534, in _make_request\n    response = conn.getresponse()\n               ^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connection.py\", line 571, in getresponse\n    httplib_response = super().getresponse()\n                       ^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.12/http/client.py\", line 1430, in getresponse\n    response.begin()\n  File \"/opt/miniconda3/lib/python3.12/http/client.py\", line 331, in begin\n    version, status, reason = self._read_status()\n                              ^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.12/http/client.py\", line 300, in _read_status\n    raise RemoteDisconnected(\"Remote end closed connection without\"\nurllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))\n"
+    },
+    {
+      "source_version": "1.6",
+      "contract": "connection_refused_is_retried",
+      "key": "1.6:connection_refused_is_retried",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 31, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.3",
+      "contract": "multipart_list_of_tuples_preserves_duplicate_field_names",
+      "key": "1.3:multipart_list_of_tuples_preserves_duplicate_field_names",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.3",
+      "contract": "multiple_set_cookie_headers_are_merged_without_loss",
+      "key": "1.3:multiple_set_cookie_headers_are_merged_without_loss",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 16, in <module>\nAttributeError: type object 'HTTPResponse' has no attribute 'from_httplib'\n"
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "pool_block_true_full_pool_raises_full_pool_error",
+      "key": "2.0.0:pool_block_true_full_pool_raises_full_pool_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "connection_state_properties_track_lifecycle",
+      "key": "2.0.0:connection_state_properties_track_lifecycle",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "remove_headers_on_redirect_does_not_mutate_input_headers",
+      "key": "2.0.0:remove_headers_on_redirect_does_not_mutate_input_headers",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.7",
+      "contract": "url_fragment_is_not_sent_in_request_target",
+      "key": "1.25.7:url_fragment_is_not_sent_in_request_target",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.19",
+      "contract": "multipart_file_empty_filename_is_emitted",
+      "key": "1.19:multipart_file_empty_filename_is_emitted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.9",
+      "contract": "generic_raised_errors_extend_http_exception",
+      "key": "1.9:generic_raised_errors_extend_http_exception",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "response_read_decode_mode_cannot_change_after_decoding",
+      "key": "2.0.0:response_read_decode_mode_cannot_change_after_decoding",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "poolmanager_many_origins_does_not_close_in_use_pools",
+      "key": "2.0.0:poolmanager_many_origins_does_not_close_in_use_pools",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "pyopenssl_syscall_error_preserves_errno",
+      "key": "2.0.0:pyopenssl_syscall_error_preserves_errno",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.1",
+      "contract": "fingerprint_or_hostname_failure_does_not_leak_socket",
+      "key": "2.0.1:fingerprint_or_hostname_failure_does_not_leak_socket",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "chunked_boundaries_are_lowercase",
+      "key": "2.0.0:chunked_boundaries_are_lowercase",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.21",
+      "contract": "status_forcelist_retry_increments_retry_counter",
+      "key": "1.21:status_forcelist_retry_increments_retry_counter",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.9",
+      "contract": "url_empty_host_is_rejected",
+      "key": "1.9:url_empty_host_is_rejected",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "dns_failure_raises_name_resolution_error",
+      "key": "2.0.0:dns_failure_raises_name_resolution_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "socket_options_are_applied_before_connect",
+      "key": "2.0.0:socket_options_are_applied_before_connect",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "failed_connect_does_not_leak_socket",
+      "key": "2.0.0:failed_connect_does_not_leak_socket",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.9.1",
+      "contract": "socket_options_are_applied_before_connect",
+      "key": "1.9.1:socket_options_are_applied_before_connect",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.9",
+      "contract": "socket_options_are_applied_before_connect",
+      "key": "1.9:socket_options_are_applied_before_connect",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.13",
+      "contract": "ca_certificate_directory_is_accepted",
+      "key": "1.13:ca_certificate_directory_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "ca_certs_imply_certificate_required",
+      "key": "1.11:ca_certs_imply_certificate_required",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 5, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.19",
+      "contract": "retry_after_header_is_respected_for_retry_statuses",
+      "key": "1.19:retry_after_header_is_respected_for_retry_statuses",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.24.1",
+      "contract": "custom_ciphers_parameter_is_applied_to_tls_context",
+      "key": "1.24.1:custom_ciphers_parameter_is_applied_to_tls_context",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.24",
+      "contract": "message_content_type_header_is_accepted",
+      "key": "1.24:message_content_type_header_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10",
+      "contract": "read_timeout_is_wrapped_as_timeout_error",
+      "key": "1.10:read_timeout_is_wrapped_as_timeout_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.10",
+      "contract": "fingerprint_or_hostname_failure_does_not_leak_socket",
+      "key": "1.10:fingerprint_or_hostname_failure_does_not_leak_socket",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 788, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 13, in <lambda>\n  File \"<string>\", line 13, in <genexpr>\nurllib3.util.ssl_match_hostname.CertificateError: hostname mismatch\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 15, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 837, in urlopen\n    ) and (conn and conn.proxy and not conn.has_connected_to_proxy):\n                    ^^^^^^^^^^\nAttributeError: 'FakeConn' object has no attribute 'proxy'\n"
+    },
+    {
+      "source_version": "1.10.2",
+      "contract": "failed_connect_does_not_leak_socket",
+      "key": "1.10.2:failed_connect_does_not_leak_socket",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 788, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 22, in <lambda>\n  File \"<string>\", line 22, in <genexpr>\nhttp.client.HTTPException: broken\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 31, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 837, in urlopen\n    ) and (conn and conn.proxy and not conn.has_connected_to_proxy):\n                    ^^^^^^^^^^\nAttributeError: 'FakeConn' object has no attribute 'proxy'\n"
+    },
+    {
+      "source_version": "1.9",
+      "contract": "read_timeout_is_wrapped_as_timeout_error",
+      "key": "1.9:read_timeout_is_wrapped_as_timeout_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.8.3",
+      "contract": "read_timeout_is_wrapped_as_timeout_error",
+      "key": "1.8.3:read_timeout_is_wrapped_as_timeout_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.8",
+      "contract": "fingerprint_or_hostname_failure_does_not_leak_socket",
+      "key": "1.8:fingerprint_or_hostname_failure_does_not_leak_socket",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 788, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 10, in <lambda>\n  File \"<string>\", line 10, in <genexpr>\nurllib3.util.ssl_match_hostname.CertificateError: hostname mismatch\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 837, in urlopen\n    ) and (conn and conn.proxy and not conn.has_connected_to_proxy):\n                    ^^^^^^^^^^\nAttributeError: 'FakeConn' object has no attribute 'proxy'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 12, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 857, in urlopen\n    conn.close()\n    ^^^^^^^^^^\nAttributeError: 'FakeConn' object has no attribute 'close'\n"
+    },
+    {
+      "source_version": "1.25",
+      "contract": "url_parser_is_rfc3986_compliant",
+      "key": "1.25:url_parser_is_rfc3986_compliant",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25",
+      "contract": "multipart_html5_header_encoder_is_default",
+      "key": "1.25:multipart_html5_header_encoder_is_default",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25",
+      "contract": "encrypted_client_key_password_is_accepted",
+      "key": "1.25:encrypted_client_key_password_is_accepted",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 16, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/ssl_.py\", line 431, in ssl_wrap_socket\n    context.set_alpn_protocols(ALPN_PROTOCOLS)\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'FakeContext' object has no attribute 'set_alpn_protocols'\n"
+    },
+    {
+      "source_version": "1.25",
+      "contract": "encrypted_client_key_without_password_raises_ssl_error",
+      "key": "1.25:encrypted_client_key_without_password_raises_ssl_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25",
+      "contract": "response_iter_yields_body_lines_efficiently",
+      "key": "1.25:response_iter_yields_body_lines_efficiently",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.7",
+      "contract": "url_ipv6_requires_brackets",
+      "key": "1.7:url_ipv6_requires_brackets",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.4",
+      "contract": "response_auto_close_false_keeps_underlying_stream_open",
+      "key": "1.25.4:response_auto_close_false_keeps_underlying_stream_open",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.2",
+      "contract": "ipvfuture_address_is_not_treated_as_ip_address",
+      "key": "1.25.2:ipvfuture_address_is_not_treated_as_ip_address",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.9",
+      "contract": "method_rejects_control_characters",
+      "key": "1.25.9:method_rejects_control_characters",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.9",
+      "contract": "redirect_drain_releases_blocking_pool_connection",
+      "key": "1.25.9:redirect_drain_releases_blocking_pool_connection",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.21",
+      "contract": "pool_key_uses_entire_request_context",
+      "key": "1.21:pool_key_uses_entire_request_context",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.9",
+      "contract": "http_url_does_not_forward_server_hostname_to_pool",
+      "key": "1.26.9:http_url_does_not_forward_server_hostname_to_pool",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "incomplete_response_read_is_wrapped_as_protocol_error",
+      "key": "1.11:incomplete_response_read_is_wrapped_as_protocol_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.9",
+      "contract": "incomplete_response_read_is_wrapped_as_protocol_error",
+      "key": "1.9:incomplete_response_read_is_wrapped_as_protocol_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.11",
+      "contract": "ipv6_proxy_host_is_parsed_correctly",
+      "key": "1.11:ipv6_proxy_host_is_parsed_correctly",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.24.2",
+      "contract": "authorization_header_stripping_is_case_insensitive",
+      "key": "1.24.2:authorization_header_stripping_is_case_insensitive",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.3.0",
+      "contract": "response_shutdown_stops_future_reads",
+      "key": "2.3.0:response_shutdown_stops_future_reads",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 13, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/response.py\", line 1280, in shutdown\n    raise RuntimeError(\nRuntimeError: Cannot shutdown as connection has already been released to the pool\n"
+    },
+    {
+      "source_version": "2.5.0",
+      "contract": "response_shutdown_after_pool_release_raises",
+      "key": "2.5.0:response_shutdown_after_pool_release_raises",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.3",
+      "contract": "chunked_request_body_uses_utf8",
+      "key": "2.2.3:chunked_request_body_uses_utf8",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "multipart_file_explicit_content_type_is_sent",
+      "key": "1.6:multipart_file_explicit_content_type_is_sent",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "multipart_plain_fields_do_not_default_to_text_plain",
+      "key": "1.6:multipart_plain_fields_do_not_default_to_text_plain",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.15",
+      "contract": "request_response_header_order_is_preserved",
+      "key": "1.15:request_response_header_order_is_preserved",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.1",
+      "contract": "non_proxy_headers_are_not_cast_to_headerdict",
+      "key": "2.2.1:non_proxy_headers_are_not_cast_to_headerdict",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "tunnel_scheme_controls_origin_tunnel_metadata",
+      "key": "2.0.0:tunnel_scheme_controls_origin_tunnel_metadata",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.5.0",
+      "contract": "proxy_connect_ipv6_target_uses_brackets",
+      "key": "2.5.0:proxy_connect_ipv6_target_uses_brackets",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.22",
+      "contract": "proxy_connect_ipv6_target_uses_brackets",
+      "key": "1.22:proxy_connect_ipv6_target_uses_brackets",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.3.0",
+      "contract": "proxy_connection_exposes_tunneling_state",
+      "key": "2.3.0:proxy_connection_exposes_tunneling_state",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "proxy_connection_verification_state_is_boolean",
+      "key": "2.2.0:proxy_connection_verification_state_is_boolean",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "https_proxy_to_http_target_is_not_marked_verified",
+      "key": "2.2.0:https_proxy_to_http_target_is_not_marked_verified",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "trailing_dot_hostname_through_proxy_connects",
+      "key": "2.2.0:trailing_dot_hostname_through_proxy_connects",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "proxy_errors_wrap_connection_failures",
+      "key": "2.0.0:proxy_errors_wrap_connection_failures",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "https_proxy_misconfiguration_reports_http_proxy_hint",
+      "key": "2.2.0:https_proxy_misconfiguration_reports_http_proxy_hint",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.19",
+      "contract": "https_proxy_misconfiguration_reports_http_proxy_hint",
+      "key": "1.26.19:https_proxy_misconfiguration_reports_http_proxy_hint",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.10",
+      "contract": "https_proxy_misconfiguration_reports_http_proxy_hint",
+      "key": "1.26.10:https_proxy_misconfiguration_reports_http_proxy_hint",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.9",
+      "contract": "failed_connect_does_not_leak_socket",
+      "key": "1.26.9:failed_connect_does_not_leak_socket",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 16, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connection.py\", line 776, in connect\n    self._tunnel()\n  File \"/opt/miniconda3/lib/python3.12/http/client.py\", line 966, in _tunnel\n    self.send(b\"\".join(headers))\n  File \"/opt/miniconda3/lib/python3.12/http/client.py\", line 1057, in send\n    self.sock.sendall(data)\n    ^^^^^^^^^^^^^^^^^\nAttributeError: 'FakeSock' object has no attribute 'sendall'\n"
+    },
+    {
+      "source_version": "1.26.0",
+      "contract": "tls_alpn_http11_identifier_is_sent",
+      "key": "1.26.0:tls_alpn_http11_identifier_is_sent",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.0",
+      "contract": "body_is_not_written_after_server_closes_socket",
+      "key": "1.26.0:body_is_not_written_after_server_closes_socket",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.0",
+      "contract": "https_proxy_to_https_target_is_supported",
+      "key": "1.26.0:https_proxy_to_https_target_is_supported",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 13, in <module>\nAttributeError: 'HTTPSConnection' object has no attribute 'tls_in_tls_required'\n"
+    },
+    {
+      "source_version": "1.26.0",
+      "contract": "socket_ssl_error_is_wrapped_as_ssl_error",
+      "key": "1.26.0:socket_ssl_error_is_wrapped_as_ssl_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.3",
+      "contract": "http2_major_version_four_is_required",
+      "key": "2.2.3:http2_major_version_four_is_required",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.3",
+      "contract": "http2_request_does_not_send_transfer_encoding_chunked",
+      "key": "2.2.3:http2_request_does_not_send_transfer_encoding_chunked",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.3",
+      "contract": "http2_request_body_is_sent",
+      "key": "2.2.3:http2_request_body_is_sent",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.3",
+      "contract": "http2_origin_support_is_probed_with_alpn",
+      "key": "2.2.3:http2_origin_support_is_probed_with_alpn",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "http2_basic_request_succeeds",
+      "key": "2.2.0:http2_basic_request_succeeds",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 46, in <module>\nAttributeError: module 'urllib3.http2' has no attribute 'HTTP2Connection'. Did you mean: 'orig_HTTPSConnection'?\n"
+    },
+    {
+      "source_version": "2.0.3",
+      "contract": "zstd_response_with_multiple_frames_decodes_completely",
+      "key": "2.0.3:zstd_response_with_multiple_frames_decodes_completely",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 8, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "zstd_response_decodes_single_frame",
+      "key": "2.0.0:zstd_response_decodes_single_frame",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 7, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.25.10",
+      "contract": "brotli_decoder_handles_objects_without_decompress_attr",
+      "key": "1.25.10:brotli_decoder_handles_objects_without_decompress_attr",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.23",
+      "contract": "socks_proxy_auth_info_in_url_is_supported",
+      "key": "1.23:socks_proxy_auth_info_in_url_is_supported",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.20",
+      "contract": "socks_remote_dns_schemes_are_supported",
+      "key": "1.20:socks_remote_dns_schemes_are_supported",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.14",
+      "contract": "socks_proxy_basic_request_succeeds",
+      "key": "1.14:socks_proxy_basic_request_succeeds",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.3.0",
+      "contract": "http_debug_log_formats_version_as_http11",
+      "key": "2.3.0:http_debug_log_formats_version_as_http11",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": "send: b'GET / HTTP/1.1\\r\\nHost: 127.0.0.1:55697\\r\\nAccept-Encoding: identity\\r\\nUser-Agent: python-urllib3/2.7.0\\r\\n\\r\\n'\nreply: 'HTTP/1.0 200 OK\\r\\n'\nheader: Server: BaseHTTP/0.6 Python/3.12.9\nheader: Date: Tue, 25 Aug 2026 04:17:03 GMT\nheader: Content-Length: 2\n"
+    },
+    {
+      "source_version": "1.6",
+      "contract": "content_encoding_header_is_case_insensitive",
+      "key": "1.6:content_encoding_header_is_case_insensitive",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "streaming_decompression_is_supported",
+      "key": "1.6:streaming_decompression_is_supported",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.2.0",
+      "contract": "tls13_post_handshake_auth_works_when_validation_disabled",
+      "key": "2.2.0:tls13_post_handshake_auth_works_when_validation_disabled",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "system_cipher_suites_are_not_overridden_by_default",
+      "key": "2.0.0:system_cipher_suites_are_not_overridden_by_default",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.8.3",
+      "contract": "socket_options_are_applied_before_connect",
+      "key": "1.8.3:socket_options_are_applied_before_connect",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connection.py\", line 204, in _new_conn\n    sock = connection.create_connection(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/connection.py\", line 60, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/miniconda3/lib/python3.12/socket.py\", line 978, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsocket.gaierror: [Errno 8] nodename nor servname provided, or not known\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 19, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connection.py\", line 331, in connect\n    self.sock = self._new_conn()\n                ^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connection.py\", line 211, in _new_conn\n    raise NameResolutionError(self.host, self, e) from e\nurllib3.exceptions.NameResolutionError: HTTPConnection(host='example.test', port=80): Failed to resolve 'example.test' ([Errno 8] nodename nor servname provided, or not known)\n"
+    },
+    {
+      "source_version": "1.7",
+      "contract": "response_iter_yields_body_lines_efficiently",
+      "key": "1.7:response_iter_yields_body_lines_efficiently",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.24",
+      "contract": "multiple_content_encodings_are_decoded_in_order",
+      "key": "1.24:multiple_content_encodings_are_decoded_in_order",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25.3",
+      "contract": "https_loads_system_certs_when_no_ca_options_are_set",
+      "key": "1.25.3:https_loads_system_certs_when_no_ca_options_are_set",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.25",
+      "contract": "https_validates_certificates_by_default",
+      "key": "1.25:https_validates_certificates_by_default",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 19, in <module>\nAttributeError: 'NoneType' object has no attribute 'verify_mode'\n"
+    },
+    {
+      "source_version": "1.24.2",
+      "contract": "explicit_ca_options_disable_default_system_cert_loading",
+      "key": "1.24.2:explicit_ca_options_disable_default_system_cert_loading",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 15, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/util/ssl_.py\", line 411, in ssl_wrap_socket\n    context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)\nTypeError: FakeContext.load_verify_locations() takes from 2 to 3 positional arguments but 4 were given\n"
+    },
+    {
+      "source_version": "1.22",
+      "contract": "broken_connection_is_retried_until_success",
+      "key": "1.22:broken_connection_is_retried_until_success",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.22",
+      "contract": "redirect_drain_releases_blocking_pool_connection",
+      "key": "1.22:redirect_drain_releases_blocking_pool_connection",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.6",
+      "contract": "proxy_manager_adds_host_header_when_missing",
+      "key": "1.6:proxy_manager_adds_host_header_when_missing",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.5",
+      "contract": "proxy_request_uri_strips_scheme_and_host",
+      "key": "1.5:proxy_request_uri_strips_scheme_and_host",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.5",
+      "contract": "http_303_redirect_switches_method_to_get",
+      "key": "1.5:http_303_redirect_switches_method_to_get",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 23, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 473, in urlopen\n    retries = kw.get(\"retries\", response.retries)\n                                ^^^^^^^^^^^^^^^^\nAttributeError: 'Response' object has no attribute 'retries'\n"
+    },
+    {
+      "source_version": "1.5",
+      "contract": "pool_eviction_closes_evicted_idle_connections",
+      "key": "1.5:pool_eviction_closes_evicted_idle_connections",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 15, in <module>\nAssertionError\n"
+    },
+    {
+      "source_version": "1.2.1",
+      "contract": "location_parse_error_is_value_error",
+      "key": "1.2.1:location_parse_error_is_value_error",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 2, in <module>\nImportError: cannot import name 'get_host' from 'urllib3.connectionpool' (<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/connectionpool.py)\n"
+    },
+    {
+      "source_version": "1.2",
+      "contract": "same_origin_requests_reuse_one_connection",
+      "key": "1.2:same_origin_requests_reuse_one_connection",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.2",
+      "contract": "cross_scheme_redirect_completes",
+      "key": "1.2:cross_scheme_redirect_completes",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 30, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 457, in urlopen\n    response = conn.urlopen(method, u.request_uri, **kw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 18, in urlopen\nurllib3.exceptions.HostChangedError: http://origin.test: Tried to open a foreign host with url: https://secure.test/target\n"
+    },
+    {
+      "source_version": "1.0",
+      "contract": "explicit_multipart_boundary_is_used",
+      "key": "1.0:explicit_multipart_boundary_is_used",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 4, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/filepost.py\", line 72, in encode_multipart_formdata\n    writer(body).write(field.render_headers())\nTypeError: a bytes-like object is required, not 'str'\n"
+    },
+    {
+      "source_version": "1.1",
+      "contract": "decode_content_option_controls_response_decoding",
+      "key": "1.1:decode_content_option_controls_response_decoding",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.1",
+      "contract": "read_timeout_is_wrapped_as_timeout_error",
+      "key": "1.1:read_timeout_is_wrapped_as_timeout_error",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.20",
+      "contract": "read_timeout_retry_respects_method_allowlist",
+      "key": "1.20:read_timeout_retry_respects_method_allowlist",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 26, in <module>\nTypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist'\n"
+    },
+    {
+      "source_version": "1.24",
+      "contract": "tls_sni_hostname_can_be_overridden",
+      "key": "1.24:tls_sni_hostname_can_be_overridden",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.23",
+      "contract": "chunked_head_response_releases_connection",
+      "key": "1.23:chunked_head_response_releases_connection",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.16",
+      "contract": "pool_key_function_can_be_overridden_by_scheme",
+      "key": "1.16:pool_key_function_can_be_overridden_by_scheme",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 14, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 384, in connection_from_url\n    return self.connection_from_host(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 317, in connection_from_host\n    return self.connection_from_context(request_context)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 340, in connection_from_context\n    pool_key = pool_key_constructor(request_context)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<string>\", line 8, in constant_pool_key\nAttributeError: module 'urllib3.poolmanager' has no attribute 'HTTPPoolKey'\n"
+    },
+    {
+      "source_version": "1.16",
+      "contract": "url_scheme_and_host_are_normalized_lowercase",
+      "key": "1.16:url_scheme_and_host_are_normalized_lowercase",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 5, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 317, in connection_from_host\n    return self.connection_from_context(request_context)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 342, in connection_from_context\n    return self.connection_from_pool_key(pool_key, request_context=request_context)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 365, in connection_from_pool_key\n    pool = self._new_pool(scheme, host, port, request_context=request_context)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/.replay/venvs/modern/urllib3-2.7.0/lib/python3.12/site-packages/urllib3/poolmanager.py\", line 259, in _new_pool\n    pool_cls: type[HTTPConnectionPool] = self.pool_classes_by_scheme[scheme]\n                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\nKeyError: 'HTTP'\n"
+    },
+    {
+      "source_version": "1.16",
+      "contract": "ipv6_dns_is_disabled_when_ipv6_connections_are_unavailable",
+      "key": "1.16:ipv6_dns_is_disabled_when_ipv6_connections_are_unavailable",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.3",
+      "contract": "assert_hostname_false_skips_hostname_verification",
+      "key": "2.0.3:assert_hostname_false_skips_hostname_verification",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "connection_timeout_is_applied_before_reading_response",
+      "key": "2.0.0:connection_timeout_is_applied_before_reading_response",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "1.26.7",
+      "contract": "ip_address_hostname_verification_without_sni_succeeds",
+      "key": "1.26.7:ip_address_hostname_verification_without_sni_succeeds",
+      "survived_latest": false,
+      "exit_code": 1,
+      "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n  File \"<LOCAL_HOME>/Documents/ChatGPT/ShapingBench/tools/replay/replay_urllib3_modern.py\", line 8921, in run_snippet\n    exec(textwrap.dedent(code), namespace)\n  File \"<string>\", line 2, in <module>\nModuleNotFoundError: No module named 'urllib3.packages'\n"
+    },
+    {
+      "source_version": "1.26.7",
+      "contract": "ipv6_braces_are_stripped_for_certificate_matching",
+      "key": "1.26.7:ipv6_braces_are_stripped_for_certificate_matching",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": "<string>:23: FutureWarning: HTTPSConnection.set_cert() is deprecated and will be removed in urllib3 v3.0. Instead provide the parameters to the HTTPSConnection constructor.\n"
+    },
+    {
+      "source_version": "1.24.2",
+      "contract": "certificate_ipv6_subject_alt_name_is_accepted",
+      "key": "1.24.2:certificate_ipv6_subject_alt_name_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": "<string>:23: FutureWarning: HTTPSConnection.set_cert() is deprecated and will be removed in urllib3 v3.0. Instead provide the parameters to the HTTPSConnection constructor.\n"
+    },
+    {
+      "source_version": "1.18",
+      "contract": "certificate_ipv6_subject_alt_name_is_accepted",
+      "key": "1.18:certificate_ipv6_subject_alt_name_is_accepted",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": "<string>:23: FutureWarning: HTTPSConnection.set_cert() is deprecated and will be removed in urllib3 v3.0. Instead provide the parameters to the HTTPSConnection constructor.\n"
+    },
+    {
+      "source_version": "1.26.15",
+      "contract": "reused_connection_uses_new_socket_timeout",
+      "key": "1.26.15:reused_connection_uses_new_socket_timeout",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "source_version": "2.0.0",
+      "contract": "reused_connection_uses_new_socket_timeout",
+      "key": "2.0.0:reused_connection_uses_new_socket_timeout",
+      "survived_latest": true,
+      "exit_code": 0,
+      "output_tail": ""
+    }
+  ]
+}

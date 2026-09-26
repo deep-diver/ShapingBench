@@ -1,0 +1,5733 @@
+{
+  "contracts": [
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_72b180da24b1",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 1,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 0,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=1, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_c98b25fef15d",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 1,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-1",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-1",
+        "attempts": 1,
+        "events": {
+          "error": 2,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=1, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_f6c2f460706d",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 1,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-1",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-1",
+        "attempts": 1,
+        "events": {
+          "error": 2,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=1, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_79fc93fc4ba9",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 0,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=2, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_6f7636dda599",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=2, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_3ece165b38f1",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "events": {
+          "error": 2,
+          "retry": 1,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=2, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_cc3f06b0e46f",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "events": {
+          "error": 2,
+          "retry": 1,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=2, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_275795bde418",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 0,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=3, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_e66ea4eea075",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=3, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_ac3e0551c863",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 0,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=3, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_79c8e76610c8",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "events": {
+          "error": 2,
+          "retry": 2,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=3, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_4d325bf37f1b",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "events": {
+          "error": 2,
+          "retry": 2,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=3, failures=4",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_d33fbb4268f5",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 0,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=4, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_a672c230d755",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=4, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_95d1bfb13179",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 0,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=4, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_38b85c28e05e",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "events": {
+          "error": 0,
+          "retry": 3,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 4
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "events": {
+          "error": 1,
+          "retry": 3,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 4
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=4, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_48796da9c447",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-4",
+        "attempts": 4,
+        "events": {
+          "error": 1,
+          "retry": 3,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 4
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-4",
+        "attempts": 4,
+        "events": {
+          "error": 2,
+          "retry": 3,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 4
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=4, failures=4",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_88f2e0e4561b",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 0,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "events": {
+          "error": 1,
+          "retry": 0,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 1,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 0,
+          "total": 1
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=5, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_74f33fe7c4ec",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=5, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_54abbd2e121c",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 0,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=5, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_efeeda426b09",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "events": {
+          "error": 0,
+          "retry": 3,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 4
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "events": {
+          "error": 1,
+          "retry": 3,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 4
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=5, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_max_attempts_boundary_c53d68472bc1",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.max-attempts-boundary",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 5,
+        "events": {
+          "error": 0,
+          "retry": 4,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 5
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 5,
+        "events": {
+          "error": 1,
+          "retry": 4,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 5
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry returns success only if transient failures fit within maxAttempts=5, failures=4",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_exhaustion_2f8e598013f3",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.exhaustion",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "events": {
+          "error": 2,
+          "retry": 1,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry stops after maxAttempts=2 and exposes final exception",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_exhaustion_ff8b6c2c1a78",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.exhaustion",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "events": {
+          "error": 2,
+          "retry": 2,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry stops after maxAttempts=3 and exposes final exception",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_exception_exhaustion_0f74d00ec823",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.exception.exhaustion",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-4",
+        "attempts": 4,
+        "events": {
+          "error": 1,
+          "retry": 3,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 4
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-4",
+        "attempts": 4,
+        "events": {
+          "error": 2,
+          "retry": 3,
+          "success": 0,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 0,
+          "failureWithRetry": 1,
+          "total": 4
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry stops after maxAttempts=4 and exposes final exception",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_events_published_per_retry_54aa74a88a5a",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.events.published-per-retry",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry publishes one retry event for each retry attempt before success (1)",
+      "pass": "pass2"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_events_published_per_retry_4215c3f044aa",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.events.published-per-retry",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 0,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "events": {
+          "error": 1,
+          "retry": 2,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 3
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry publishes one retry event for each retry attempt before success (2)",
+      "pass": "pass2"
+    },
+    {
+      "name": "resilience4j_0_7_1_retry_events_published_per_retry_ef1778fd72e6",
+      "version": "0.7.1",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.events.published-per-retry",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "events": {
+          "error": 0,
+          "retry": 3,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 4
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "events": {
+          "error": 1,
+          "retry": 3,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 4
+        }
+      },
+      "evidence": "GitHub release v0.7.1: - Added rxjava 2.0.1 as a dependency - Issue #13: CircuitBreaker should publish events as an event stream and clients should be able to subscribe - Issue #10: Reorder arguments in decorator methods - PR #19: Add a backoff function feature, to modify the waiting interval between failures - Renamed ro",
+      "human": "retry publishes one retry event for each retry attempt before success (3)",
+      "pass": "pass2"
+    },
+    {
+      "name": "resilience4j_0_14_0_retry_checked_exception_callable_9c8b3a178786",
+      "version": "0.14.0",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.checked-exception-callable",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "checked"
+        ],
+        "outcomes": [
+          "throw:checked",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.14.0: * Issue #196: Added a new resilience4j-feign module * Issue #241: Added support to configure automaticTransitionFromOpenToHalfOpenEnabled in Spring Boot * Issue #248: Support The Use Of @CircuitBreaker on methods that return a mono Or flux * Issue #286: Spring Boot emitted warnings about invalid act",
+      "human": "retry decorated callable handles checked exceptions, not only runtime exceptions",
+      "pass": "pass1"
+    },
+    {
+      "name": "resilience4j_0_17_0_retry_zero_wait_duration_28b5a9352bc5",
+      "version": "0.17.0",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.zero-wait-duration",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v0.17.0: * Removed all deprecated methods in preparation for v1.0.0 * Issue #500: Fiex bug where default external configs in Ratpack apps are not honored * Issue #506: Fixed bug where resilience4j-ratpack fails to run when Dropwizard metrics in not on classpath * Issue #515: Added Aspect ordering feature in ",
+      "human": "retry accepts zero waitDuration",
+      "pass": "pass2"
+    },
+    {
+      "name": "resilience4j_2_3_0_retry_instance_decorate_supplier_behavior_2e44b0ff0da6",
+      "version": "2.3.0",
+      "project": "resilience4j/resilience4j",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "retry.instance-decorate-supplier-behavior",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "waitMillis": 0,
+        "retryExceptions": [
+          "runtime"
+        ],
+        "outcomes": [
+          "throw:runtime",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 0,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "events": {
+          "error": 1,
+          "retry": 1,
+          "success": 1,
+          "ignoredError": 0,
+          "consumeResultBeforeRetry": 0
+        },
+        "metrics": {
+          "successNoRetry": 0,
+          "failureNoRetry": 0,
+          "successWithRetry": 1,
+          "failureWithRetry": 0,
+          "total": 2
+        }
+      },
+      "evidence": "GitHub release v2.3.0: # Enhancements * Issue #2234: Allow passing custom Clock to CircuitBreaker without needing to use internal API. * Issue #2131: Added support for RxJava3 in Spring projects. * Issue #2029: Include `decorateSupplier` as a `Retry` instance method. * Issue #2246: Add handling for the case where a non-ch",
+      "human": "Retry instance decorator preserves retry behavior for suppliers",
+      "pass": "pass2"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_30fb4f212336",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 1,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 0,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 1,
+          "maxRetries": 0,
+          "allowsRetries": false,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 1,
+          "maxRetries": 0,
+          "allowsRetries": false,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=1 controls attempts and listener counts for 0 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_6e3816b78ee3",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 0,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 2,
+          "maxRetries": 1,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 2,
+          "maxRetries": 1,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=2 controls attempts and listener counts for 0 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_2ac89950e9fb",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 2,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 2,
+          "maxRetries": 1,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 2,
+          "maxRetries": 1,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=2 controls attempts and listener counts for 1 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_5912de2c0e49",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 0,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=3 controls attempts and listener counts for 0 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_c065caf60787",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=3 controls attempts and listener counts for 1 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_b93b224ddbce",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=3 controls attempts and listener counts for 2 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_0b704a031eae",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 0,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=4 controls attempts and listener counts for 0 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_8e5e62982885",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=4 controls attempts and listener counts for 1 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_1079c15770d6",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=4 controls attempts and listener counts for 2 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_f9c140a8fd24",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 4,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 3,
+          "retryScheduled": 3,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "listeners": {
+          "failedAttempt": 4,
+          "retry": 3,
+          "retryScheduled": 3,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=4 controls attempts and listener counts for 3 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_2d85d97cd256",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 0,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=5 controls attempts and listener counts for 0 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_655ccbef4e3f",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=5 controls attempts and listener counts for 1 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_1bc8ca98db9b",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=5 controls attempts and listener counts for 2 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_2e1aab3f973d",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 3,
+          "retryScheduled": 3,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 4,
+        "listeners": {
+          "failedAttempt": 4,
+          "retry": 3,
+          "retryScheduled": 3,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=5 controls attempts and listener counts for 3 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_attempts_with_listeners_3b9353e31342",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-attempts-with-listeners",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 5,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 5,
+        "listeners": {
+          "failedAttempt": 4,
+          "retry": 4,
+          "retryScheduled": 4,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 5,
+        "listeners": {
+          "failedAttempt": 5,
+          "retry": 4,
+          "retryScheduled": 4,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 5,
+          "maxRetries": 4,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry maxAttempts=5 controls attempts and listener counts for 4 handled failures",
+      "pass": "pass1"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_retries_alias_ad56b52313f4",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-retries-alias",
+      "op": "retry_call",
+      "params": {
+        "maxRetries": 0,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-1",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 1,
+          "maxRetries": 0,
+          "allowsRetries": false,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-1",
+        "attempts": 1,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 0,
+          "retryScheduled": 0,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 1,
+          "maxRetries": 0,
+          "allowsRetries": false,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "withMaxRetries=0 defines attempts and retries-exceeded behavior",
+      "pass": "pass2"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_retries_alias_1305059ad551",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-retries-alias",
+      "op": "retry_call",
+      "params": {
+        "maxRetries": 1,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 2,
+          "maxRetries": 1,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-2",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 2,
+          "maxRetries": 1,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "withMaxRetries=1 defines attempts and retries-exceeded behavior",
+      "pass": "pass2"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_retries_alias_e69eaaeef90c",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-retries-alias",
+      "op": "retry_call",
+      "params": {
+        "maxRetries": 2,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 3,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-3",
+        "attempts": 3,
+        "listeners": {
+          "failedAttempt": 4,
+          "retry": 2,
+          "retryScheduled": 2,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "withMaxRetries=2 defines attempts and retries-exceeded behavior",
+      "pass": "pass2"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_max_retries_alias_1625cb81c069",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.max-retries-alias",
+      "op": "retry_call",
+      "params": {
+        "maxRetries": 3,
+        "handle": [
+          "transient"
+        ],
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ]
+      },
+      "expected": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-4",
+        "attempts": 4,
+        "listeners": {
+          "failedAttempt": 4,
+          "retry": 3,
+          "retryScheduled": 3,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "mutant": {
+        "status": "raised",
+        "errorType": "TransientFailure",
+        "errorMessagePrefix": "transient-4",
+        "attempts": 4,
+        "listeners": {
+          "failedAttempt": 5,
+          "retry": 3,
+          "retryScheduled": 3,
+          "retriesExceeded": 1,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 4,
+          "maxRetries": 3,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 0
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "withMaxRetries=3 defines attempts and retries-exceeded behavior",
+      "pass": "pass2"
+    },
+    {
+      "name": "failsafe_0_3_0_failsafe_retry_handle_exception_classification_75c92838a34f",
+      "version": "0.3.0",
+      "project": "failsafe-lib/failsafe",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "failsafe.retry.handle-exception-classification",
+      "op": "retry_call",
+      "params": {
+        "maxAttempts": 3,
+        "handle": [
+          "transient"
+        ],
+        "abortOn": "fatal",
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ]
+      },
+      "expected": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 1,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 1
+        }
+      },
+      "mutant": {
+        "status": "returned",
+        "value": "ok",
+        "attempts": 2,
+        "listeners": {
+          "failedAttempt": 2,
+          "retry": 1,
+          "retryScheduled": 1,
+          "retriesExceeded": 0,
+          "abort": 0
+        },
+        "config": {
+          "maxAttempts": 3,
+          "maxRetries": 2,
+          "allowsRetries": true,
+          "delayMillis": 0,
+          "delayFactor": 0.0,
+          "jitterFactor": 0.0,
+          "failureConditions": 1,
+          "abortConditions": 1
+        }
+      },
+      "evidence": "CHANGELOG 0.3.0: * Initial Release",
+      "human": "retry handle/abort exception classification for transient",
+      "pass": "pass2"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_7d9e91987161",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 1,
+        "outcomes": [
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=1, failures=0",
+      "human": "on_exception retries handled exceptions until max_tries=1, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_cc00b839c8da",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 1,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=1, failures=1",
+      "human": "on_exception retries handled exceptions until max_tries=1, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_aff6ea4ec473",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=1, failures=2",
+      "human": "on_exception retries handled exceptions until max_tries=1, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_b12aac3deaf8",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 2,
+        "outcomes": [
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=2, failures=0",
+      "human": "on_exception retries handled exceptions until max_tries=2, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_bf8a0a618af7",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 2,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=2, failures=1",
+      "human": "on_exception retries handled exceptions until max_tries=2, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_1ebe61a8caf0",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 2,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=2, failures=2",
+      "human": "on_exception retries handled exceptions until max_tries=2, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_c84342a408d6",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 2,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=2, failures=3",
+      "human": "on_exception retries handled exceptions until max_tries=2, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_3723d0759200",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=3, failures=0",
+      "human": "on_exception retries handled exceptions until max_tries=3, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_eded2af32790",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=3, failures=1",
+      "human": "on_exception retries handled exceptions until max_tries=3, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_264a79eec557",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 3,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 3
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 3,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 3
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=3, failures=2",
+      "human": "on_exception retries handled exceptions until max_tries=3, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_5d3802e3c290",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 3,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 3,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=3, failures=3",
+      "human": "on_exception retries handled exceptions until max_tries=3, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_2176cfbe6cd8",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 3,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 3,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=3, failures=4",
+      "human": "on_exception retries handled exceptions until max_tries=3, failures=4",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_63c8516ab1c1",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 4,
+        "outcomes": [
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=4, failures=0",
+      "human": "on_exception retries handled exceptions until max_tries=4, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_aaf77740262a",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 4,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=4, failures=1",
+      "human": "on_exception retries handled exceptions until max_tries=4, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_8d9f1edd5314",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 3,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 3
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 3,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 3
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=4, failures=2",
+      "human": "on_exception retries handled exceptions until max_tries=4, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_0414f3389957",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 4,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 4
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 4,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 4
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=4, failures=3",
+      "human": "on_exception retries handled exceptions until max_tries=4, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_53c6f94f409a",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 4,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 4
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 4,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 4
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=4, failures=4",
+      "human": "on_exception retries handled exceptions until max_tries=4, failures=4",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_0e7ff40b7c97",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 5,
+        "outcomes": [
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "events": {
+          "backoff": [],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 1
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=5, failures=0",
+      "human": "on_exception retries handled exceptions until max_tries=5, failures=0",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_3b7174df4589",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 5,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=5, failures=1",
+      "human": "on_exception retries handled exceptions until max_tries=5, failures=1",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_daa4f413124d",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 3,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 3
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 3,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 3
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=5, failures=2",
+      "human": "on_exception retries handled exceptions until max_tries=5, failures=2",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_69c01a93fdaf",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 4,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 4
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 4,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 4
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=5, failures=3",
+      "human": "on_exception retries handled exceptions until max_tries=5, failures=3",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_max_tries_2f980ab9797f",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.max-tries",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 5,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 5,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 4,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 5
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 5,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 4,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 5
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception retries handled exceptions until max_tries=5, failures=4",
+      "human": "on_exception retries handled exceptions until max_tries=5, failures=4",
+      "pass": "pass1"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_raise_on_giveup_842af5d76e60",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.raise-on-giveup",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 1,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient"
+        ],
+        "raise_on_giveup": true,
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 1,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": []
+      },
+      "mutant": {
+        "attempts": 1,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: raise_on_giveup=True re-raises final handled exception after 1 tries",
+      "human": "raise_on_giveup=True re-raises final handled exception after 1 tries",
+      "pass": "pass2"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_raise_on_giveup_371d4a7e2c18",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.raise-on-giveup",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 2,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ],
+        "raise_on_giveup": true,
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: raise_on_giveup=True re-raises final handled exception after 2 tries",
+      "human": "raise_on_giveup=True re-raises final handled exception after 2 tries",
+      "pass": "pass2"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_raise_on_giveup_5b40ee9caacf",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.raise-on-giveup",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ],
+        "raise_on_giveup": true,
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 3,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 3,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: raise_on_giveup=True re-raises final handled exception after 3 tries",
+      "human": "raise_on_giveup=True re-raises final handled exception after 3 tries",
+      "pass": "pass2"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_raise_on_giveup_9a513b0b9412",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.raise-on-giveup",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 4,
+        "outcomes": [
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient",
+          "throw:transient"
+        ],
+        "raise_on_giveup": true,
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 4,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 4
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 4,
+        "errorMessage": "transient",
+        "errorType": "TransientError",
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 2,
+              "wait": 1.0
+            },
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 3,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 4
+            }
+          ],
+          "success": []
+        },
+        "status": "raised",
+        "waits": [
+          1.0,
+          1.0,
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: raise_on_giveup=True re-raises final handled exception after 4 tries",
+      "human": "raise_on_giveup=True re-raises final handled exception after 4 tries",
+      "pass": "pass2"
+    },
+    {
+      "name": "backoff_1_0_backoff_on_exception_exception_classification_8f95bb33b569",
+      "version": "1.0",
+      "project": "litl/backoff",
+      "domain": "retry_backoff_resilience_policy_engine",
+      "capability": "backoff.on-exception.exception-classification",
+      "op": "on_exception",
+      "params": {
+        "exceptions": [
+          "transient"
+        ],
+        "interval": 1,
+        "jitter": "none",
+        "max_tries": 3,
+        "outcomes": [
+          "throw:transient",
+          "ok"
+        ],
+        "wait_gen": "constant"
+      },
+      "expected": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0
+        ]
+      },
+      "mutant": {
+        "attempts": 2,
+        "events": {
+          "backoff": [
+            {
+              "args": [],
+              "exceptionMessage": "transient",
+              "exceptionType": "TransientError",
+              "kwargs": {},
+              "tries": 1,
+              "wait": 1.0
+            }
+          ],
+          "giveup": [],
+          "success": [
+            {
+              "args": [],
+              "kwargs": {},
+              "tries": 2
+            }
+          ]
+        },
+        "status": "returned",
+        "value": "ok",
+        "waits": [
+          1.0,
+          "__mutant__"
+        ]
+      },
+      "evidence": "backoff release 1.0 from PyPI: on_exception only retries configured exception class, observed with transient",
+      "human": "on_exception only retries configured exception class, observed with transient",
+      "pass": "pass2"
+    }
+  ],
+  "summary": {
+    "rank1_source": "resilience4j/resilience4j",
+    "rank2_source": "failsafe-lib/failsafe",
+    "rank3_source": "litl/backoff",
+    "rank4_hidden": "coveooss/exponential-backoff",
+    "rank5_hidden": "vercel/async-retry",
+    "origin_contracts": {
+      "rank1": 168,
+      "rank2": 112,
+      "rank3": 84
+    },
+    "phase_counts": {
+      "r1_on_r2_r3": {
+        "attempted": 336,
+        "projected": 78,
+        "feature_absent": 258,
+        "passed": 73,
+        "failed": 263,
+        "by_semantic_kind": {
+          "wait_sequence": 14,
+          "retry_sequence": 10,
+          "feature_absent": 234,
+          "retry_exception": 66,
+          "retry_result": 12
+        }
+      },
+      "r2_on_r1_r3": {
+        "attempted": 224,
+        "projected": 80,
+        "feature_absent": 144,
+        "passed": 76,
+        "failed": 148,
+        "by_semantic_kind": {
+          "retry_sequence": 8,
+          "feature_absent": 128,
+          "retry_observability": 8,
+          "retry_exception": 58,
+          "retry_result": 22
+        }
+      },
+      "r3_on_r1_r2": {
+        "attempted": 168,
+        "projected": 108,
+        "feature_absent": 60,
+        "passed": 74,
+        "failed": 94,
+        "by_semantic_kind": {
+          "wait_sequence": 12,
+          "feature_absent": 46,
+          "async_retry_exception": 6,
+          "retry_exception": 74,
+          "retry_result": 30
+        }
+      }
+    },
+    "phase_common_counts": {
+      "r1_on_r2_r3": 36,
+      "r2_on_r1_r3": 37,
+      "r3_on_r1_r2": 34
+    },
+    "common_candidates_before_hidden_filter": 107,
+    "hidden_filter_counts": {
+      "attempted": 214,
+      "projected": 170,
+      "feature_absent": 44,
+      "passed": 163,
+      "failed": 51,
+      "by_semantic_kind": {
+        "retry_result": 44,
+        "retry_exception": 170
+      }
+    },
+    "final_common_count": 78,
+    "final_common_by_origin": {
+      "resilience4j/resilience4j": 31,
+      "failsafe-lib/failsafe": 20,
+      "litl/backoff": 27
+    },
+    "final_common_by_semantic_kind": {
+      "retry_exception": 78
+    }
+  }
+}

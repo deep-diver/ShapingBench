@@ -1,0 +1,1672 @@
+{
+    "summary": {
+        "source_project": "merged_common",
+        "source_baseline": "contracts/common/merged_common.json",
+        "target_project": "guzzle",
+        "target_latest_version": "8.x runtime package 8.1.0",
+        "target_latest_source": "Packagist p2/guzzlehttp/guzzle.json",
+        "mode": "aggressive_no_not_applicable",
+        "rule": "A merged common contract counts as surviving Guzzle only when an executed Guzzle adapter test passed. Unmapped or absent equivalents count as failed.",
+        "total_merged_common": 119,
+        "guzzle_survived": 114,
+        "guzzle_failed": 5,
+        "adapter_tests": {
+            "total": 88,
+            "passed": 83,
+            "failed": 5
+        },
+        "by_origin": {
+            "axios": {
+                "total": 4,
+                "survived": 4,
+                "failed": 0
+            },
+            "okhttp": {
+                "total": 26,
+                "survived": 23,
+                "failed": 3
+            },
+            "urllib3": {
+                "total": 89,
+                "survived": 87,
+                "failed": 2
+            }
+        }
+    },
+    "raw_runner": {
+        "tests": [
+            {
+                "name": "connection_reuse",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "query_params",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "post_form",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "arbitrary_put_method",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_file_upload",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "redirect_observable_without_following",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "redirect_followed_by_default",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "read_timeout_error",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "https_basic",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "decompression_buffer_continues_after_partial_read",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_scheme_and_host_normalized_lowercase",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "json_request_sets_content_type",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_control_chars_not_percent_encoded",
+                "passed": false,
+                "error": "InvalidArgumentException: Multipart part header \"Content-Disposition\" contains an invalid control character."
+            },
+            {
+                "name": "url_port_with_leading_zeroes_accepted",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_auth_invalid_chars_percent_encoded",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_port_rejects_unicode_digits",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_default_port_equivalence",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "chunked_keep_alive_preserves_request_boundaries",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "fingerprint_verification_is_supported",
+                "passed": false,
+                "error": "GuzzleHttp\\Exception\\InvalidArgumentException: Passing CURLOPT_PINNEDPUBLICKEY (10230) in the \"curl\" request option is not supported because it is outside the built-in cURL handlers' allow-list."
+            },
+            {
+                "name": "chunked_head_response_without_body_does_not_hang",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multiple_set_cookie_headers_preserved",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "comma_header_value_preserved",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "connection_refused_error",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "duplicate_user_agent_not_added",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "headers_mapping_accepted",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "session_default_headers_apply_to_get_query",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "explicit_transfer_encoding_chunked_not_duplicated",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "user_supplied_host_header_preserved",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "http_303_redirect_switches_method_to_get",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "request_header_input_not_mutated",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_authority_includes_userinfo_and_host",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "chunked_request_sets_transfer_encoding",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "gzip_response_decoded",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "relative_redirect_location_followed",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "https_request_through_http_connect_proxy_succeeds",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "incomplete_content_length_raises",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "invalid_chunk_length_raises",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "default_headers_sent",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_duplicate_field_names_preserved",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "redirect_header_input_not_mutated",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "fragment_not_sent_in_request_target",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "chunked_boundaries_are_lowercase",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "dns_failure_error",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "message_content_type_header_accepted",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_html5_filename_formatting",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "response_body_lines_streamed",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_ipv6_requires_brackets",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "redirect_body_is_released_before_following",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "ipv6_proxy_host_is_parsed_correctly",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "cross_host_redirect_strips_authorization",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "chunked_request_body_uses_utf8",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_explicit_content_type_sent",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_plain_fields_have_no_default_content_type",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "request_header_order_preserved",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "trailing_dot_hostname_through_proxy_connects",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "gzip_content_encoding_case_insensitive",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "request_target_is_origin_form",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "reused_connection_uses_new_socket_timeout",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "disabled_redirect_policy_is_honored",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "encoded_query_plus_is_preserved",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "form_body_builder_accepts_explicit_charset",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "form_body_encodes_space_as_plus",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "headers_to_multimap_is_case_insensitive",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "http10_requests_are_not_sent",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "http1_100_continue_status_lines_are_ignored_until_final",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "http_307_308_redirects_preserve_non_get_post_method_and_body",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "http_308_permanent_redirect_is_handled",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "http_408_retry_respects_retry_on_connection_failure",
+                "passed": false,
+                "error": "RuntimeException: Guzzle has no built-in 408 retry policy"
+            },
+            {
+                "name": "https_tunnel_does_not_leak_origin_headers_to_proxy",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "idn_uses_uts46_nontransitional_processing",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "ipv4_mapped_ipv6_url_does_not_crash",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_filename_allows_non_ascii",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "multipart_fixed_length_body_emits_content_length",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "mutual_tls_client_certificate_is_sent_when_required",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "options_request_body_is_allowed",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "port_out_of_range_fails_early",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "query_method_redirects_follow_rfc10008",
+                "passed": false,
+                "error": "RuntimeException: QUERY redirect policy differs"
+            },
+            {
+                "name": "query_parameter_builder_escapes_ascii_punctuation",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "request_bodies_allowed_for_methods_except_get_and_head",
+                "passed": false,
+                "error": "RuntimeException: Guzzle accepts GET request bodies"
+            },
+            {
+                "name": "response_body_is_non_null_for_all_responses",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "timeout_failures_are_not_retried",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "unsafe_non_ascii_header_values_can_be_added",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "url_fragment_preserves_non_ascii_characters",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "webdav_methods_are_supported",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "delete_request_sends_config_data",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "missing_url_rejects_before_dispatch",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "same_origin_redirect_preserves_basic_auth",
+                "passed": true,
+                "error": ""
+            },
+            {
+                "name": "zstd_response_decompression_supported",
+                "passed": true,
+                "error": ""
+            }
+        ]
+    },
+    "results": [
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "same_origin_sequential_requests_reuse_one_connection",
+            "capability": "http.connection.pooling",
+            "key": "0.3:same_origin_sequential_requests_reuse_one_connection",
+            "guzzle_test": "connection_reuse",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "get_query_fields_are_sent_as_url_parameters",
+            "capability": "http.request.query-params",
+            "key": "0.3:get_query_fields_are_sent_as_url_parameters",
+            "guzzle_test": "query_params",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "post_form_fields_are_sent_as_request_parameters",
+            "capability": "http.request.form-params",
+            "key": "0.3:post_form_fields_are_sent_as_request_parameters",
+            "guzzle_test": "post_form",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "arbitrary_http_method_is_sent_unchanged",
+            "capability": "http.request.method",
+            "key": "0.3:arbitrary_http_method_is_sent_unchanged",
+            "guzzle_test": "arbitrary_put_method",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "multipart_file_post_preserves_file_name_and_size",
+            "capability": "http.multipart.file-upload",
+            "key": "0.3:multipart_file_post_preserves_file_name_and_size",
+            "guzzle_test": "multipart_file_upload",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "redirect_can_be_observed_without_following",
+            "capability": "http.redirect.optional",
+            "key": "0.3:redirect_can_be_observed_without_following",
+            "guzzle_test": "redirect_observable_without_following",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "redirect_is_followed_by_default",
+            "capability": "http.redirect.follow",
+            "key": "0.3:redirect_is_followed_by_default",
+            "guzzle_test": "redirect_followed_by_default",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "slow_response_exceeding_socket_timeout_fails",
+            "capability": "http.timeout.error-kind",
+            "key": "0.3:slow_response_exceeding_socket_timeout_fails",
+            "guzzle_test": "read_timeout_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "0.3",
+            "contract": "https_origin_request_succeeds",
+            "capability": "https.basic-request",
+            "key": "0.3:https_origin_request_succeeds",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.7.0",
+            "contract": "response_stream_continues_with_buffered_decompressed_data",
+            "capability": "http.response.decompression-buffer",
+            "key": "2.7.0:response_stream_continues_with_buffered_decompressed_data",
+            "guzzle_test": "decompression_buffer_continues_after_partial_read",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.7.0",
+            "contract": "response_stream_continues_with_buffered_decompressed_data_2",
+            "capability": "http.response.decompression-buffer",
+            "key": "2.7.0:response_stream_continues_with_buffered_decompressed_data_2",
+            "guzzle_test": "decompression_buffer_continues_after_partial_read",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.6.2",
+            "contract": "response_stream_continues_with_buffered_decompressed_data",
+            "capability": "http.response.decompression-buffer",
+            "key": "2.6.2:response_stream_continues_with_buffered_decompressed_data",
+            "guzzle_test": "decompression_buffer_continues_after_partial_read",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.2",
+            "contract": "response_stream_continues_with_buffered_decompressed_data",
+            "capability": "http.response.decompression-buffer",
+            "key": "2.0.2:response_stream_continues_with_buffered_decompressed_data",
+            "guzzle_test": "decompression_buffer_continues_after_partial_read",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.20",
+            "contract": "url_scheme_and_host_are_normalized_lowercase",
+            "capability": "http.connection.pool-key",
+            "key": "1.20:url_scheme_and_host_are_normalized_lowercase",
+            "guzzle_test": "url_scheme_and_host_normalized_lowercase",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.17",
+            "contract": "url_scheme_and_host_are_normalized_lowercase",
+            "capability": "http.url.normalization",
+            "key": "1.17:url_scheme_and_host_are_normalized_lowercase",
+            "guzzle_test": "url_scheme_and_host_normalized_lowercase",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "json_request_sets_content_type_when_missing",
+            "capability": "http.request.json",
+            "key": "2.0.0:json_request_sets_content_type_when_missing",
+            "guzzle_test": "json_request_sets_content_type",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "multipart_header_control_characters_are_not_percent_encoded",
+            "capability": "http.multipart.header-formatting",
+            "key": "2.0.0:multipart_header_control_characters_are_not_percent_encoded",
+            "guzzle_test": "multipart_control_chars_not_percent_encoded",
+            "guzzle_status": "failed",
+            "error": "InvalidArgumentException: Multipart part header \"Content-Disposition\" contains an invalid control character."
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.26.13",
+            "contract": "url_port_with_leading_zeroes_is_accepted",
+            "capability": "http.url.port",
+            "key": "1.26.13:url_port_with_leading_zeroes_is_accepted",
+            "guzzle_test": "url_port_with_leading_zeroes_accepted",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.25.4",
+            "contract": "url_auth_invalid_chars_are_percent_encoded",
+            "capability": "http.url.percent-encoding",
+            "key": "1.25.4:url_auth_invalid_chars_are_percent_encoded",
+            "guzzle_test": "url_auth_invalid_chars_percent_encoded",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.19",
+            "contract": "url_port_rejects_integerish_unicode",
+            "capability": "http.url.port",
+            "key": "1.19:url_port_rejects_integerish_unicode",
+            "guzzle_test": "url_port_rejects_unicode_digits",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.8",
+            "contract": "same_host_accepts_default_port_equivalence",
+            "capability": "http.url.origin-equivalence",
+            "key": "1.8:same_host_accepts_default_port_equivalence",
+            "guzzle_test": "url_default_port_equivalence",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.10.4",
+            "contract": "chunked_keep_alive_preserves_request_boundaries",
+            "capability": "http.chunked.keep-alive-framing",
+            "key": "1.10.4:chunked_keep_alive_preserves_request_boundaries",
+            "guzzle_test": "chunked_keep_alive_preserves_request_boundaries",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.9.1",
+            "contract": "only_fingerprint_verification_is_supported",
+            "capability": "tls.fingerprint-verification",
+            "key": "1.9.1:only_fingerprint_verification_is_supported",
+            "guzzle_test": "fingerprint_verification_is_supported",
+            "guzzle_status": "failed",
+            "error": "GuzzleHttp\\Exception\\InvalidArgumentException: Passing CURLOPT_PINNEDPUBLICKEY (10230) in the \"curl\" request option is not supported because it is outside the built-in cURL handlers' allow-list."
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.10.4",
+            "contract": "chunked_head_response_without_body_does_not_hang",
+            "capability": "http.chunked.head-response",
+            "key": "1.10.4:chunked_head_response_without_body_does_not_hang",
+            "guzzle_test": "chunked_head_response_without_body_does_not_hang",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.10.3",
+            "contract": "multiple_set_cookie_headers_are_preserved",
+            "capability": "http.headers.multi-value",
+            "key": "1.10.3:multiple_set_cookie_headers_are_preserved",
+            "guzzle_test": "multiple_set_cookie_headers_preserved",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.10.1",
+            "contract": "header_values_with_commas_are_preserved",
+            "capability": "http.headers.comma-values",
+            "key": "1.10.1:header_values_with_commas_are_preserved",
+            "guzzle_test": "comma_header_value_preserved",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.12",
+            "contract": "new_connection_failure_raises_new_connection_error",
+            "capability": "http.error.new-connection",
+            "key": "1.12:new_connection_failure_raises_new_connection_error",
+            "guzzle_test": "connection_refused_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.26.1",
+            "contract": "bytes_user_agent_header_does_not_duplicate",
+            "capability": "http.headers.duplicate-user-agent",
+            "key": "1.26.1:bytes_user_agent_header_does_not_duplicate",
+            "guzzle_test": "duplicate_user_agent_not_added",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.11",
+            "contract": "http_header_dict_is_usable_as_request_headers",
+            "capability": "http.headers.input-types",
+            "key": "1.11:http_header_dict_is_usable_as_request_headers",
+            "guzzle_test": "headers_mapping_accepted",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.11",
+            "contract": "pool_default_headers_apply_to_get_query_requests",
+            "capability": "http.headers.default-headers",
+            "key": "1.11:pool_default_headers_apply_to_get_query_requests",
+            "guzzle_test": "session_default_headers_apply_to_get_query",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.26.6",
+            "contract": "explicit_transfer_encoding_chunked_header_is_not_duplicated",
+            "capability": "http.headers.transfer-encoding",
+            "key": "1.26.6:explicit_transfer_encoding_chunked_header_is_not_duplicated",
+            "guzzle_test": "explicit_transfer_encoding_chunked_not_duplicated",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.19",
+            "contract": "user_supplied_host_header_is_preserved_for_chunked_upload",
+            "capability": "http.headers.host",
+            "key": "1.19:user_supplied_host_header_is_preserved_for_chunked_upload",
+            "guzzle_test": "user_supplied_host_header_preserved",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.7",
+            "contract": "http_303_redirect_switches_method_to_get_and_strips_body",
+            "capability": "http.redirect.method-rewrite",
+            "key": "2.0.7:http_303_redirect_switches_method_to_get_and_strips_body",
+            "guzzle_test": "http_303_redirect_switches_method_to_get",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.26.18",
+            "contract": "http_303_redirect_switches_method_to_get_and_strips_body",
+            "capability": "http.redirect.method-rewrite",
+            "key": "1.26.18:http_303_redirect_switches_method_to_get_and_strips_body",
+            "guzzle_test": "http_303_redirect_switches_method_to_get",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.2.0",
+            "contract": "headers_input_is_not_mutated_by_json_request",
+            "capability": "http.request.header-mutation",
+            "key": "2.2.0:headers_input_is_not_mutated_by_json_request",
+            "guzzle_test": "request_header_input_not_mutated",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "url_authority_includes_userinfo_and_host",
+            "capability": "http.url.authority",
+            "key": "2.0.0:url_authority_includes_userinfo_and_host",
+            "guzzle_test": "url_authority_includes_userinfo_and_host",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "tls_minimum_and_maximum_versions_configure_context",
+            "capability": "tls.version-bounds",
+            "key": "2.0.0:tls_minimum_and_maximum_versions_configure_context",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "tls_minimum_and_maximum_versions_configure_context_2",
+            "capability": "tls.version-bounds",
+            "key": "2.0.0:tls_minimum_and_maximum_versions_configure_context_2",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.15",
+            "contract": "chunked_request_sets_transfer_encoding_header",
+            "capability": "http.chunked.request-framing",
+            "key": "1.15:chunked_request_sets_transfer_encoding_header",
+            "guzzle_test": "chunked_request_sets_transfer_encoding",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.1.0",
+            "contract": "read_chunked_handles_gzip_encoded_chunks",
+            "capability": "http.response.content-decoding",
+            "key": "2.1.0:read_chunked_handles_gzip_encoded_chunks",
+            "guzzle_test": "gzip_response_decoded",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.13",
+            "contract": "read_chunked_handles_gzip_encoded_chunks",
+            "capability": "http.response.content-decoding",
+            "key": "1.13:read_chunked_handles_gzip_encoded_chunks",
+            "guzzle_test": "gzip_response_decoded",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.10.1",
+            "contract": "read_chunked_handles_gzip_encoded_chunks",
+            "capability": "http.response.content-decoding",
+            "key": "1.10.1:read_chunked_handles_gzip_encoded_chunks",
+            "guzzle_test": "gzip_response_decoded",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.7",
+            "contract": "relative_redirect_location_is_followed",
+            "capability": "http.redirect.relative-location",
+            "key": "1.7:relative_redirect_location_is_followed",
+            "guzzle_test": "relative_redirect_location_followed",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.7",
+            "contract": "relative_redirect_location_is_followed_2",
+            "capability": "http.redirect.relative-location",
+            "key": "1.7:relative_redirect_location_is_followed_2",
+            "guzzle_test": "relative_redirect_location_followed",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.7",
+            "contract": "https_proxy_to_https_target_is_supported",
+            "capability": "http.proxy.https-to-https",
+            "key": "1.7:https_proxy_to_https_target_is_supported",
+            "guzzle_test": "https_request_through_http_connect_proxy_succeeds",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "incomplete_response_body_raises_when_content_length_enforced",
+            "capability": "http.response.content-length",
+            "key": "2.0.0:incomplete_response_body_raises_when_content_length_enforced",
+            "guzzle_test": "incomplete_content_length_raises",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.17",
+            "contract": "incomplete_response_body_raises_when_content_length_enforced",
+            "capability": "http.response.content-length",
+            "key": "1.17:incomplete_response_body_raises_when_content_length_enforced",
+            "guzzle_test": "incomplete_content_length_raises",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.2.1",
+            "contract": "invalid_chunk_length_raises_protocol_error",
+            "capability": "http.response.chunked-error",
+            "key": "2.2.1:invalid_chunk_length_raises_protocol_error",
+            "guzzle_test": "invalid_chunk_length_raises",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.6",
+            "contract": "default_headers_are_sent",
+            "capability": "http.request.default-headers",
+            "key": "1.6:default_headers_are_sent",
+            "guzzle_test": "default_headers_sent",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.3",
+            "contract": "multipart_list_of_tuples_preserves_duplicate_field_names",
+            "capability": "http.multipart.duplicate-fields",
+            "key": "1.3:multipart_list_of_tuples_preserves_duplicate_field_names",
+            "guzzle_test": "multipart_duplicate_field_names_preserved",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "remove_headers_on_redirect_does_not_mutate_input_headers",
+            "capability": "http.redirect.header-mutation",
+            "key": "2.0.0:remove_headers_on_redirect_does_not_mutate_input_headers",
+            "guzzle_test": "redirect_header_input_not_mutated",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.25.7",
+            "contract": "url_fragment_is_not_sent_in_request_target",
+            "capability": "http.url.request-target",
+            "key": "1.25.7:url_fragment_is_not_sent_in_request_target",
+            "guzzle_test": "fragment_not_sent_in_request_target",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "chunked_boundaries_are_lowercase",
+            "capability": "http.chunked.request-framing",
+            "key": "2.0.0:chunked_boundaries_are_lowercase",
+            "guzzle_test": "chunked_boundaries_are_lowercase",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "dns_failure_raises_name_resolution_error",
+            "capability": "http.error.name-resolution",
+            "key": "2.0.0:dns_failure_raises_name_resolution_error",
+            "guzzle_test": "dns_failure_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.24.1",
+            "contract": "custom_ciphers_parameter_is_applied_to_tls_context",
+            "capability": "tls.cipher-configuration",
+            "key": "1.24.1:custom_ciphers_parameter_is_applied_to_tls_context",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.24",
+            "contract": "message_content_type_header_is_accepted",
+            "capability": "http.headers.message-content-type",
+            "key": "1.24:message_content_type_header_is_accepted",
+            "guzzle_test": "message_content_type_header_accepted",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.10",
+            "contract": "read_timeout_is_wrapped_as_timeout_error",
+            "capability": "http.timeout.error-kind",
+            "key": "1.10:read_timeout_is_wrapped_as_timeout_error",
+            "guzzle_test": "read_timeout_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.9",
+            "contract": "read_timeout_is_wrapped_as_timeout_error",
+            "capability": "http.timeout.error-kind",
+            "key": "1.9:read_timeout_is_wrapped_as_timeout_error",
+            "guzzle_test": "read_timeout_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.8.3",
+            "contract": "read_timeout_is_wrapped_as_timeout_error",
+            "capability": "http.timeout.error-kind",
+            "key": "1.8.3:read_timeout_is_wrapped_as_timeout_error",
+            "guzzle_test": "read_timeout_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.25",
+            "contract": "multipart_html5_header_encoder_is_default",
+            "capability": "http.multipart.header-formatting",
+            "key": "1.25:multipart_html5_header_encoder_is_default",
+            "guzzle_test": "multipart_html5_filename_formatting",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.25",
+            "contract": "response_iter_yields_body_lines_efficiently",
+            "capability": "http.response.streaming",
+            "key": "1.25:response_iter_yields_body_lines_efficiently",
+            "guzzle_test": "response_body_lines_streamed",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.7",
+            "contract": "url_ipv6_requires_brackets",
+            "capability": "http.url.ipv6",
+            "key": "1.7:url_ipv6_requires_brackets",
+            "guzzle_test": "url_ipv6_requires_brackets",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.25.9",
+            "contract": "redirect_drain_releases_blocking_pool_connection",
+            "capability": "http.redirect.connection-lifecycle",
+            "key": "1.25.9:redirect_drain_releases_blocking_pool_connection",
+            "guzzle_test": "redirect_body_is_released_before_following",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.11",
+            "contract": "incomplete_response_read_is_wrapped_as_protocol_error",
+            "capability": "http.response.incomplete-read-error",
+            "key": "1.11:incomplete_response_read_is_wrapped_as_protocol_error",
+            "guzzle_test": "incomplete_content_length_raises",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.9",
+            "contract": "incomplete_response_read_is_wrapped_as_protocol_error",
+            "capability": "http.response.incomplete-read-error",
+            "key": "1.9:incomplete_response_read_is_wrapped_as_protocol_error",
+            "guzzle_test": "incomplete_content_length_raises",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.11",
+            "contract": "ipv6_proxy_host_is_parsed_correctly",
+            "capability": "http.proxy.ipv6",
+            "key": "1.11:ipv6_proxy_host_is_parsed_correctly",
+            "guzzle_test": "ipv6_proxy_host_is_parsed_correctly",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.24.2",
+            "contract": "authorization_header_stripping_is_case_insensitive",
+            "capability": "http.redirect.header-stripping",
+            "key": "1.24.2:authorization_header_stripping_is_case_insensitive",
+            "guzzle_test": "cross_host_redirect_strips_authorization",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.2.3",
+            "contract": "chunked_request_body_uses_utf8",
+            "capability": "http.chunked.request-encoding",
+            "key": "2.2.3:chunked_request_body_uses_utf8",
+            "guzzle_test": "chunked_request_body_uses_utf8",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.6",
+            "contract": "multipart_file_explicit_content_type_is_sent",
+            "capability": "http.multipart.content-type",
+            "key": "1.6:multipart_file_explicit_content_type_is_sent",
+            "guzzle_test": "multipart_explicit_content_type_sent",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.6",
+            "contract": "multipart_plain_fields_do_not_default_to_text_plain",
+            "capability": "http.multipart.content-type",
+            "key": "1.6:multipart_plain_fields_do_not_default_to_text_plain",
+            "guzzle_test": "multipart_plain_fields_have_no_default_content_type",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.15",
+            "contract": "request_response_header_order_is_preserved",
+            "capability": "http.headers.order",
+            "key": "1.15:request_response_header_order_is_preserved",
+            "guzzle_test": "request_header_order_preserved",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.2.1",
+            "contract": "non_proxy_headers_are_not_cast_to_headerdict",
+            "capability": "http.headers.input-preservation",
+            "key": "2.2.1:non_proxy_headers_are_not_cast_to_headerdict",
+            "guzzle_test": "request_header_input_not_mutated",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.2.0",
+            "contract": "trailing_dot_hostname_through_proxy_connects",
+            "capability": "http.proxy.hostname",
+            "key": "2.2.0:trailing_dot_hostname_through_proxy_connects",
+            "guzzle_test": "trailing_dot_hostname_through_proxy_connects",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.6",
+            "contract": "content_encoding_header_is_case_insensitive",
+            "capability": "http.response.content-decoding",
+            "key": "1.6:content_encoding_header_is_case_insensitive",
+            "guzzle_test": "gzip_content_encoding_case_insensitive",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.6",
+            "contract": "streaming_decompression_is_supported",
+            "capability": "http.response.content-decoding",
+            "key": "1.6:streaming_decompression_is_supported",
+            "guzzle_test": "gzip_response_decoded",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.7",
+            "contract": "response_iter_yields_body_lines_efficiently",
+            "capability": "http.response.streaming",
+            "key": "1.7:response_iter_yields_body_lines_efficiently",
+            "guzzle_test": "response_body_lines_streamed",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.22",
+            "contract": "redirect_drain_releases_blocking_pool_connection",
+            "capability": "http.redirect.connection-lifecycle",
+            "key": "1.22:redirect_drain_releases_blocking_pool_connection",
+            "guzzle_test": "redirect_body_is_released_before_following",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.6",
+            "contract": "proxy_manager_adds_host_header_when_missing",
+            "capability": "http.proxy.host-header",
+            "key": "1.6:proxy_manager_adds_host_header_when_missing",
+            "guzzle_test": "default_headers_sent",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.5",
+            "contract": "proxy_request_uri_strips_scheme_and_host",
+            "capability": "http.proxy.request-target",
+            "key": "1.5:proxy_request_uri_strips_scheme_and_host",
+            "guzzle_test": "request_target_is_origin_form",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.2",
+            "contract": "same_origin_requests_reuse_one_connection",
+            "capability": "http.connection.pooling",
+            "key": "1.2:same_origin_requests_reuse_one_connection",
+            "guzzle_test": "connection_reuse",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.1",
+            "contract": "read_timeout_is_wrapped_as_timeout_error",
+            "capability": "http.timeout.error-kind",
+            "key": "1.1:read_timeout_is_wrapped_as_timeout_error",
+            "guzzle_test": "read_timeout_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.23",
+            "contract": "chunked_head_response_releases_connection",
+            "capability": "http.chunked.connection-lifecycle",
+            "key": "1.23:chunked_head_response_releases_connection",
+            "guzzle_test": "chunked_head_response_without_body_does_not_hang",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.3",
+            "contract": "assert_hostname_false_skips_hostname_verification",
+            "capability": "tls.hostname-verification",
+            "key": "2.0.3:assert_hostname_false_skips_hostname_verification",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "connection_timeout_is_applied_before_reading_response",
+            "capability": "http.connection.timeout-lifecycle",
+            "key": "2.0.0:connection_timeout_is_applied_before_reading_response",
+            "guzzle_test": "read_timeout_error",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.26.7",
+            "contract": "ipv6_braces_are_stripped_for_certificate_matching",
+            "capability": "tls.ipv6-verification",
+            "key": "1.26.7:ipv6_braces_are_stripped_for_certificate_matching",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.24.2",
+            "contract": "certificate_ipv6_subject_alt_name_is_accepted",
+            "capability": "tls.ip-address-verification",
+            "key": "1.24.2:certificate_ipv6_subject_alt_name_is_accepted",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.18",
+            "contract": "certificate_ipv6_subject_alt_name_is_accepted",
+            "capability": "tls.ip-address-verification",
+            "key": "1.18:certificate_ipv6_subject_alt_name_is_accepted",
+            "guzzle_test": "https_basic",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "1.26.15",
+            "contract": "reused_connection_uses_new_socket_timeout",
+            "capability": "http.connection.timeout-reset",
+            "key": "1.26.15:reused_connection_uses_new_socket_timeout",
+            "guzzle_test": "reused_connection_uses_new_socket_timeout",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "urllib3",
+            "source_version": "2.0.0",
+            "contract": "reused_connection_uses_new_socket_timeout",
+            "capability": "http.connection.timeout-reset",
+            "key": "2.0.0:reused_connection_uses_new_socket_timeout",
+            "guzzle_test": "reused_connection_uses_new_socket_timeout",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.1.0-RC1",
+            "contract": "disabled_redirect_policy_is_honored",
+            "capability": "http.redirect.disable-policy",
+            "key": "okhttp:2.1.0-RC1:disabled_redirect_policy_is_honored",
+            "guzzle_test": "disabled_redirect_policy_is_honored",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.6.0",
+            "contract": "encoded_query_plus_is_preserved",
+            "capability": "http.url.encoded-query-plus-preservation",
+            "key": "okhttp:2.6.0:encoded_query_plus_is_preserved",
+            "guzzle_test": "encoded_query_plus_is_preserved",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.9.0",
+            "contract": "form_body_builder_accepts_explicit_charset",
+            "capability": "http.request.form-urlencoded-charset",
+            "key": "okhttp:3.9.0:form_body_builder_accepts_explicit_charset",
+            "guzzle_test": "form_body_builder_accepts_explicit_charset",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "5.0.0-alpha.2",
+            "contract": "form_body_encodes_space_as_plus",
+            "capability": "http.request.form-urlencoded-space",
+            "key": "okhttp:5.0.0-alpha.2:form_body_encodes_space_as_plus",
+            "guzzle_test": "form_body_encodes_space_as_plus",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.4.0",
+            "contract": "headers_to_multimap_is_case_insensitive",
+            "capability": "http.headers.multimap-case-insensitive",
+            "key": "okhttp:3.4.0:headers_to_multimap_is_case_insensitive",
+            "guzzle_test": "headers_to_multimap_is_case_insensitive",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.6.0",
+            "contract": "http10_requests_are_not_sent",
+            "capability": "http.request.protocol-version",
+            "key": "okhttp:2.6.0:http10_requests_are_not_sent",
+            "guzzle_test": "http10_requests_are_not_sent",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.10.0",
+            "contract": "http1_100_continue_status_lines_are_ignored_until_final",
+            "capability": "http.response.informational-100-continue",
+            "key": "okhttp:3.10.0:http1_100_continue_status_lines_are_ignored_until_final",
+            "guzzle_test": "http1_100_continue_status_lines_are_ignored_until_final",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "4.6.0",
+            "contract": "http_307_308_redirects_preserve_non_get_post_method_and_body",
+            "capability": "http.redirect.307-308-nonstandard-method",
+            "key": "okhttp:4.6.0:http_307_308_redirects_preserve_non_get_post_method_and_body",
+            "guzzle_test": "http_307_308_redirects_preserve_non_get_post_method_and_body",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.1.0-RC1",
+            "contract": "http_308_permanent_redirect_is_handled",
+            "capability": "http.redirect.308-permanent",
+            "key": "okhttp:2.1.0-RC1:http_308_permanent_redirect_is_handled",
+            "guzzle_test": "http_308_permanent_redirect_is_handled",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.9.0",
+            "contract": "http_408_retry_respects_retry_on_connection_failure",
+            "capability": "http.retry.408-policy",
+            "key": "okhttp:3.9.0:http_408_retry_respects_retry_on_connection_failure",
+            "guzzle_test": "http_408_retry_respects_retry_on_connection_failure",
+            "guzzle_status": "failed",
+            "error": "RuntimeException: Guzzle has no built-in 408 retry policy"
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.6.0",
+            "contract": "https_tunnel_does_not_leak_origin_headers_to_proxy",
+            "capability": "http.proxy.tunnel-header-isolation",
+            "key": "okhttp:2.6.0:https_tunnel_does_not_leak_origin_headers_to_proxy",
+            "guzzle_test": "https_tunnel_does_not_leak_origin_headers_to_proxy",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "5.0.0-alpha.12",
+            "contract": "idn_uses_uts46_nontransitional_processing",
+            "capability": "http.url.idna-uts46",
+            "key": "okhttp:5.0.0-alpha.12:idn_uses_uts46_nontransitional_processing",
+            "guzzle_test": "idn_uses_uts46_nontransitional_processing",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.13.0",
+            "contract": "ipv4_mapped_ipv6_url_does_not_crash",
+            "capability": "http.url.ipv4-mapped-ipv6",
+            "key": "okhttp:3.13.0:ipv4_mapped_ipv6_url_does_not_crash",
+            "guzzle_test": "ipv4_mapped_ipv6_url_does_not_crash",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.13.0",
+            "contract": "multipart_filename_allows_non_ascii",
+            "capability": "http.multipart.filename-encoding",
+            "key": "okhttp:3.13.0:multipart_filename_allows_non_ascii",
+            "guzzle_test": "multipart_filename_allows_non_ascii",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.3.0",
+            "contract": "multipart_fixed_length_body_emits_content_length",
+            "capability": "http.multipart.fixed-length-content-length",
+            "key": "okhttp:2.3.0:multipart_fixed_length_body_emits_content_length",
+            "guzzle_test": "multipart_fixed_length_body_emits_content_length",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.11.0",
+            "contract": "mutual_tls_client_certificate_is_sent_when_required",
+            "capability": "tls.client-authentication",
+            "key": "okhttp:3.11.0:mutual_tls_client_certificate_is_sent_when_required",
+            "guzzle_test": "mutual_tls_client_certificate_is_sent_when_required",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.6.0",
+            "contract": "options_request_body_is_allowed",
+            "capability": "http.request.options-body",
+            "key": "okhttp:2.6.0:options_request_body_is_allowed",
+            "guzzle_test": "options_request_body_is_allowed",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.3.0",
+            "contract": "port_out_of_range_fails_early",
+            "capability": "http.url.port-range",
+            "key": "okhttp:2.3.0:port_out_of_range_fails_early",
+            "guzzle_test": "port_out_of_range_fails_early",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "5.5.0",
+            "contract": "query_method_redirects_follow_rfc10008",
+            "capability": "http.redirect.query-method",
+            "key": "okhttp:5.5.0:query_method_redirects_follow_rfc10008",
+            "guzzle_test": "query_method_redirects_follow_rfc10008",
+            "guzzle_status": "failed",
+            "error": "RuntimeException: QUERY redirect policy differs"
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.10.0",
+            "contract": "query_parameter_builder_escapes_ascii_punctuation",
+            "capability": "http.url.query-parameter-escaping",
+            "key": "okhttp:3.10.0:query_parameter_builder_escapes_ascii_punctuation",
+            "guzzle_test": "query_parameter_builder_escapes_ascii_punctuation",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.10.0",
+            "contract": "request_bodies_allowed_for_methods_except_get_and_head",
+            "capability": "http.request.method-body-policy",
+            "key": "okhttp:3.10.0:request_bodies_allowed_for_methods_except_get_and_head",
+            "guzzle_test": "request_bodies_allowed_for_methods_except_get_and_head",
+            "guzzle_status": "failed",
+            "error": "RuntimeException: Guzzle accepts GET request bodies"
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "5.0.0-alpha.7",
+            "contract": "response_body_is_non_null_for_all_responses",
+            "capability": "http.response.body-presence",
+            "key": "okhttp:5.0.0-alpha.7:response_body_is_non_null_for_all_responses",
+            "guzzle_test": "response_body_is_non_null_for_all_responses",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.2.0",
+            "contract": "timeout_failures_are_not_retried",
+            "capability": "http.retry.no-timeout-retry",
+            "key": "okhttp:2.2.0:timeout_failures_are_not_retried",
+            "guzzle_test": "timeout_failures_are_not_retried",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "3.12.0",
+            "contract": "unsafe_non_ascii_header_values_can_be_added",
+            "capability": "http.headers.unsafe-non-ascii-values",
+            "key": "okhttp:3.12.0:unsafe_non_ascii_header_values_can_be_added",
+            "guzzle_test": "unsafe_non_ascii_header_values_can_be_added",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.6.0",
+            "contract": "url_fragment_preserves_non_ascii_characters",
+            "capability": "http.url.fragment-non-ascii-preservation",
+            "key": "okhttp:2.6.0:url_fragment_preserves_non_ascii_characters",
+            "guzzle_test": "url_fragment_preserves_non_ascii_characters",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "okhttp",
+            "source_version": "2.6.0",
+            "contract": "webdav_methods_are_supported",
+            "capability": "http.request.webdav-methods",
+            "key": "okhttp:2.6.0:webdav_methods_are_supported",
+            "guzzle_test": "webdav_methods_are_supported",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "axios",
+            "source_version": "1.19.0",
+            "contract": "delete_request_sends_config_data",
+            "capability": "http.request.delete-config-data-body",
+            "key": "axios:1.19.0:delete_request_sends_config_data",
+            "guzzle_test": "delete_request_sends_config_data",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "axios",
+            "source_version": "1.19.0",
+            "contract": "missing_url_rejects_before_dispatch",
+            "capability": "http.url.missing-url-rejection",
+            "key": "axios:1.19.0:missing_url_rejects_before_dispatch",
+            "guzzle_test": "missing_url_rejects_before_dispatch",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "axios",
+            "source_version": "1.19.0",
+            "contract": "same_origin_redirect_preserves_basic_auth",
+            "capability": "http.redirect.same-origin-basic-auth-preservation",
+            "key": "axios:1.19.0:same_origin_redirect_preserves_basic_auth",
+            "guzzle_test": "same_origin_redirect_preserves_basic_auth",
+            "guzzle_status": "passed",
+            "error": ""
+        },
+        {
+            "origin": "axios",
+            "source_version": "1.19.0",
+            "contract": "zstd_response_decompression_supported",
+            "capability": "http.response.zstd-decompression",
+            "key": "axios:1.19.0:zstd_response_decompression_supported",
+            "guzzle_test": "zstd_response_decompression_supported",
+            "guzzle_status": "passed",
+            "error": ""
+        }
+    ]
+}

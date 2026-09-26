@@ -1,0 +1,15 @@
+{
+  "caveat": "The origin is a visual zero-implementation reference, not an evaluated checkpoint.",
+  "first_observed_step_range": [
+    47.5,
+    285.9
+  ],
+  "left_extension": {
+    "agentic_steps": 0,
+    "pass_percent": 0
+  },
+  "observed_rows": "analysis/empirical_support_paper_bundle_9domains/data/fig02_agentic_steps_grouped.csv",
+  "observed_segments": "solid, using source rows without interpolation",
+  "opening_segment": "solid line from (0, 0) to first observed checkpoint",
+  "origin_status": "visual left extension; not an evaluated checkpoint"
+}

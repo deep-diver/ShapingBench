@@ -1,0 +1,3742 @@
+{
+  "domain": "HTML Sanitizer",
+  "project": "jsoup/jsoup",
+  "latest_version": "1.23.2",
+  "input_contracts": 115,
+  "latest_replay_passed": 90,
+  "latest_replay_failed": 25,
+  "latest_mutant_killed": 90,
+  "latest_survivors": 90,
+  "by_capability": {
+    "html-sanitize.attribute-policy": 5,
+    "html-sanitize.default-html": 12,
+    "html-sanitize.html5-structure-balancing": 1,
+    "html-sanitize.link-rel-policy": 2,
+    "html-sanitize.parser-xss-hardening": 10,
+    "html-sanitize.relative-url-resolution": 15,
+    "html-sanitize.url-attribute-policy": 22,
+    "html-sanitize.validity-check": 23
+  },
+  "by_op": {
+    "jsoup_clean": 59,
+    "jsoup_clean_document": 8,
+    "jsoup_is_valid": 19,
+    "jsoup_is_valid_document": 4
+  },
+  "survivors": [
+    {
+      "name": "0.1.1:cleanertest_java_clean:1",
+      "version": "0.1.1",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p class=foo><a href='http://evil.com'>Hello <b id=bar>there</b>!</a></div>",
+        "base_uri": null,
+        "safelist": {
+          "base": "simpleText",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "Hello <b>there</b>!"
+      },
+      "mutant": {
+        "clean": "Hello <b>there</b>!__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.1.1:cleanertest_java_clean:2",
+      "version": "0.1.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "Hello <b>there</b>!",
+        "base_uri": null,
+        "safelist": {
+          "base": "simpleText",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "Hello <b>there</b>!"
+      },
+      "mutant": {
+        "clean": "Hello <b>there</b>!__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.1.1:cleanertest_java_clean:6",
+      "version": "0.1.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<p>Hello<!-- no --></p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p>Hello</p>"
+      },
+      "mutant": {
+        "clean": "<p>Hello</p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.1.1:cleanertest_java_clean:7",
+      "version": "0.1.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<?import namespace=\"xss\"><p>Hello</p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p>Hello</p>"
+      },
+      "mutant": {
+        "clean": "<p>Hello</p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.1.1:cleanertest_java_clean:8",
+      "version": "0.1.1",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<SCRIPT SRC=//ha.ckers.org/.j><SCRIPT>alert(/XSS/.source)</SCRIPT>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": ""
+      },
+      "mutant": {
+        "clean": "__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.1.1:cleanertest_java_clean:10",
+      "version": "0.1.1",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<A HREF=\"javascript:document.location='http://www.google.com/'\">XSS</A>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a>XSS</a>"
+      },
+      "mutant": {
+        "clean": "<a>XSS</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.1.2:cleanertest_java_clean:11",
+      "version": "0.1.2",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<p><custom foo=true>Test</custom></p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p>Test</p>"
+      },
+      "mutant": {
+        "clean": "<p>Test</p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.1.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.2.2:cleanertest_java_clean:12",
+      "version": "0.2.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p class=foo><a href='http://evil.com'>Hello <b id=bar>there</b>!</a></div>",
+        "base_uri": null,
+        "safelist": {
+          "base": "simpleText",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "Hello <b>there</b>!"
+      },
+      "mutant": {
+        "clean": "Hello <b>there</b>!__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.2.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.2.2:cleanertest_java_clean:13",
+      "version": "0.2.2",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "Hello <b>there</b>!",
+        "base_uri": null,
+        "safelist": {
+          "base": "simpleText",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "Hello <b>there</b>!"
+      },
+      "mutant": {
+        "clean": "Hello <b>there</b>!__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-0.2.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "0.3.1:cleanertest_java_isvalid:15",
+      "version": "0.3.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>Test <b><a href='http://example.com/'>OK</a></b></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-0.3.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "0.3.1:cleanertest_java_isvalid:16",
+      "version": "0.3.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p><script></script>Not <b>OK</b></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-0.3.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "0.3.1:cleanertest_java_isvalid:17",
+      "version": "0.3.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p align=right>Test Not <b>OK</b></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-0.3.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.1.1:cleanertest_java_clean:20",
+      "version": "1.1.1",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='/foo'>Link</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.1.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.6.0:cleanertest_java_clean:22",
+      "version": "1.6.0",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p><a href='javascript:sendAllMoney()'>Dodgy</a> <A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>"
+      },
+      "mutant": {
+        "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.6.0",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.6.0:cleanertest_java_clean:23",
+      "version": "1.6.0",
+      "capability": "html-sanitize.html5-structure-balancing",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<h1>Head</h1><table><tr><td>One<td>Two</td></tr></table>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<h1>Head</h1><table><tbody><tr><td>One</td><td>Two</td></tr></tbody></table>"
+      },
+      "mutant": {
+        "clean": "<h1>Head</h1><table><tbody><tr><td>One</td><td>Two</td></tr></tbody></table>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.6.0",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.6.3:cleanertest_java_clean:28",
+      "version": "1.6.3",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<p class='foo' src='bar'><a class='qux'>link</a></p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "empty",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "p",
+                "a"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                ":all",
+                "class"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                "p",
+                "style"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p class=\"foo\"><a class=\"qux\">link</a></p>"
+      },
+      "mutant": {
+        "clean": "<p class=\"foo\"><a class=\"qux\">link</a></p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.6.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.6.3:cleanertest_java_clean:29",
+      "version": "1.6.3",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<p class='foo' src='bar'>One</p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "empty",
+          "steps": [
+            {
+              "method": "addAttributes",
+              "args": [
+                "p",
+                "class"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p class=\"foo\">One</p>"
+      },
+      "mutant": {
+        "clean": "<p class=\"foo\">One</p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.6.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.7.1:cleanertest_java_clean:31",
+      "version": "1.7.1",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p>&bernou;</p></div>",
+        "base_uri": "http://foo.com/",
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<div>\n <p>\u212c</p>\n</div>"
+      },
+      "mutant": {
+        "clean": "<div>\n <p>\u212c</p>\n</div>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.7.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.7.1:cleanertest_java_clean:33",
+      "version": "1.7.1",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": ""
+      },
+      "mutant": {
+        "clean": "__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.7.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.7.1:cleanertest_java_clean:34",
+      "version": "1.7.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "\u043f\u0440\u0438\u0432\u0435\u0442",
+        "base_uri": null,
+        "safelist": {
+          "base": "none",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "\u043f\u0440\u0438\u0432\u0435\u0442"
+      },
+      "mutant": {
+        "clean": "\u043f\u0440\u0438\u0432\u0435\u0442__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.7.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.7.2:cleanertest_java_isvalid:35",
+      "version": "1.7.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<!-- comment --><p>Not OK</p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.7.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.7.2:cleanertest_java_clean:36",
+      "version": "1.7.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p>&bernou;</p></div>",
+        "base_uri": "http://foo.com/",
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": {
+          "pretty_print": false,
+          "escape_mode": "base",
+          "charset": "ASCII",
+          "syntax": null
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<div><p>&#x212c;</p></div>"
+      },
+      "mutant": {
+        "clean": "<div><p>&#x212c;</p></div>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.7.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.1.a:cleanertest_java_clean:37",
+      "version": "1.8.1.a",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p><img src='http://example.com/' alt=Image></p><p><img src='ftp://ftp.example.com'></p></div>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basicWithImages",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<p><img src=\"http://example.com/\" alt=\"Image\"></p><p><img></p>"
+      },
+      "mutant": {
+        "clean": "<p><img src=\"http://example.com/\" alt=\"Image\"></p><p><img></p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.1.a",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.1.a:cleanertest_java_clean:38",
+      "version": "1.8.1.a",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<IMG SRC=\"javascript:alert('XSS')\">",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<img>"
+      },
+      "mutant": {
+        "clean": "<img>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.1.a",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.1.a:cleanertest_java_clean:39",
+      "version": "1.8.1.a",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<img alt=\"\" src= unknown=''>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basicWithImages",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<img alt=\"\">"
+      },
+      "mutant": {
+        "clean": "<img alt=\"\">__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.1.a",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.1.a:cleanertest_java_isvalid:45",
+      "version": "1.8.1.a",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "Hello<script>alert('Doh')</script>World !",
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "script"
+              ]
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.1.a",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:46",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p><A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "removeTags",
+              "args": [
+                "a"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<p>Nice</p><blockquote>Hello</blockquote>"
+      },
+      "mutant": {
+        "clean": "<p>Nice</p><blockquote>Hello</blockquote>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:47",
+      "version": "1.8.2",
+      "capability": "html-sanitize.attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p>Nice</p><blockquote cite='http://example.com/quotations'>Hello</blockquote>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "removeAttributes",
+              "args": [
+                "blockquote",
+                "cite"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<p>Nice</p><blockquote>Hello</blockquote>"
+      },
+      "mutant": {
+        "clean": "<p>Nice</p><blockquote>Hello</blockquote>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:48",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p><A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "removeEnforcedAttribute",
+              "args": [
+                "a",
+                "rel"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<p><a href=\"http://nice.com\">Nice</a></p><blockquote>Hello</blockquote>"
+      },
+      "mutant": {
+        "clean": "<p><a href=\"http://nice.com\">Nice</a></p><blockquote>Hello</blockquote>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:49",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<p>Contact me <a href='mailto:info@example.com'>here</a></p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "removeProtocols",
+              "args": [
+                "a",
+                "href",
+                "ftp",
+                "mailto"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<p>Contact me <a rel=\"nofollow\">here</a></p>"
+      },
+      "mutant": {
+        "clean": "<p>Contact me <a rel=\"nofollow\">here</a></p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:50",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"#valid\">Valid anchor</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a>Valid anchor</a>"
+      },
+      "mutant": {
+        "clean": "<a>Valid anchor</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:51",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"#anchor with spaces\">Invalid anchor</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a>Invalid anchor</a>"
+      },
+      "mutant": {
+        "clean": "<a>Invalid anchor</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:52",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"#valid\">Valid anchor</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addProtocols",
+              "args": [
+                "a",
+                "href",
+                "#"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"#valid\">Valid anchor</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"#valid\">Valid anchor</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.8.2:cleanertest_java_clean:53",
+      "version": "1.8.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"#anchor with spaces\">Invalid anchor</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addProtocols",
+              "args": [
+                "a",
+                "href",
+                "#"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a>Invalid anchor</a>"
+      },
+      "mutant": {
+        "clean": "<a>Invalid anchor</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.8.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.10.1:cleanertest_java_clean:54",
+      "version": "1.10.1",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div><p>&bernou;</p></div>",
+        "base_uri": "http://foo.com/",
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": {
+          "pretty_print": false,
+          "escape_mode": "extended",
+          "charset": "ascii",
+          "syntax": null
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<div><p>&Bscr;</p></div>"
+      },
+      "mutant": {
+        "clean": "<div><p>&Bscr;</p></div>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:55",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:56",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<html><head>Foo</head><body><b>OK</b></body></html>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:57",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:58",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>Test <b><a href='http://example.com/'>OK</b></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:59",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>Test <b><a href='http://example.com/' rel='nofollow'>OK</a></b></p>",
+        "safelist": {
+          "base": "none",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:60",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "</div>What",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.2:cleanertest_java_isvalid:61",
+      "version": "1.10.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid_document",
+      "params": {
+        "html": "<html><head></head><body><p>Hello</p></body><html>",
+        "base_uri": null,
+        "parse_mode": "parse",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.10.3:cleanertest_java_clean:62",
+      "version": "1.10.3",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"SOMETHING://x\"></a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "none",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "a"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                "a",
+                "href"
+              ]
+            },
+            {
+              "method": "addProtocols",
+              "args": [
+                "a",
+                "href",
+                "something"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<a href=\"SOMETHING://x\"></a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"SOMETHING://x\"></a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.10.3:cleanertest_java_clean:63",
+      "version": "1.10.3",
+      "capability": "html-sanitize.link-rel-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a/\u0006>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\"></a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\"></a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.10.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.11.1:htmlparsertest_java_isvalid:64",
+      "version": "1.11.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>test<br/>test<br/></p>",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-1.11.1",
+        "source": "HtmlParserTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.11.1:htmlparsertest_java_isvalid:66",
+      "version": "1.11.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>test</p><div /><div>Two</div>",
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.11.1",
+        "source": "HtmlParserTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.11.2:cleanertest_java_clean:67",
+      "version": "1.11.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href>Clean</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Clean</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Clean</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.11.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.12.2:cleanertest_java_clean:69",
+      "version": "1.12.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a>One</a> <a href>Two</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addProtocols",
+              "args": [
+                "a",
+                "href",
+                "#"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a>One</a> <a>Two</a>"
+      },
+      "mutant": {
+        "clean": "<a>One</a> <a>Two</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "1.12.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.12.2:cleanertest_java_clean:70",
+      "version": "1.12.2",
+      "capability": "html-sanitize.attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div style=\"font-family: 'Calibri'\">Will (not) fail</div>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addAttributes",
+              "args": [
+                "div",
+                "style"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<div style=\"font-family: 'Calibri'\">Will (not) fail</div>"
+      },
+      "mutant": {
+        "clean": "<div style=\"font-family: 'Calibri'\">Will (not) fail</div>__mutant__"
+      },
+      "evidence": {
+        "tag": "1.12.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.12.2:cleanertest_java_isvalid:71",
+      "version": "1.12.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<div style=\"font-family: 'Calibri'\">Will (not) fail</div>",
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addAttributes",
+              "args": [
+                "div",
+                "style"
+              ]
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "1.12.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.12.2:htmlparsertest_java_clean:72",
+      "version": "1.12.2",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "H<sub>2</sub>O",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "H<sub>2</sub>O"
+      },
+      "mutant": {
+        "clean": "H<sub>2</sub>O__mutant__"
+      },
+      "evidence": {
+        "tag": "1.12.2",
+        "source": "HtmlParserTest.java.clean"
+      }
+    },
+    {
+      "name": "1.12.2:htmlparsertest_java_clean:73",
+      "version": "1.12.2",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "t<u>es</u>t <b>on</b> <i>f</i><u>ir</u>e",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "t<u>es</u>t <b>on</b> <i>f</i><u>ir</u>e"
+      },
+      "mutant": {
+        "clean": "t<u>es</u>t <b>on</b> <i>f</i><u>ir</u>e__mutant__"
+      },
+      "evidence": {
+        "tag": "1.12.2",
+        "source": "HtmlParserTest.java.clean"
+      }
+    },
+    {
+      "name": "1.14.3:htmlparsertest_java_isvalid:75",
+      "version": "1.14.3",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<p>test</p>\n\n<div /><div>Two</div>",
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.14.3",
+        "source": "HtmlParserTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.15.2:cleanertest_java_clean:78",
+      "version": "1.15.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<img src='cid:12345' /> <img src='data:gzzt' />",
+        "base_uri": null,
+        "safelist": {
+          "base": "basicWithImages",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<img> <img>"
+      },
+      "mutant": {
+        "clean": "<img> <img>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.2:cleanertest_java_clean:79",
+      "version": "1.15.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<img src='cid:12345' /> <img src='data:gzzt' />",
+        "base_uri": null,
+        "safelist": {
+          "base": "basicWithImages",
+          "steps": [
+            {
+              "method": "addProtocols",
+              "args": [
+                "img",
+                "src",
+                "cid",
+                "data"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<img src=\"cid:12345\"> <img src=\"data:gzzt\">"
+      },
+      "mutant": {
+        "clean": "<img src=\"cid:12345\"> <img src=\"data:gzzt\">__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.3:cleanertest_java_clean:80",
+      "version": "1.15.3",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"&#0013;ja&Tab;va&Tab;script&#0010;:alert(1)\">Link</a>",
+        "base_uri": "https://",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.3:cleanertest_java_clean:81",
+      "version": "1.15.3",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"ja&Tab;va&Tab;script&colon;alert(1)\">Link</a>",
+        "base_uri": "https://",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.3:cleanertest_java_clean:82",
+      "version": "1.15.3",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href=\"ja&Tab;vas&#0013;cript:alert(1)\">Link</a>",
+        "base_uri": "https://",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": false
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.3",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.4:cleanertest_java_clean:83",
+      "version": "1.15.4",
+      "capability": "html-sanitize.attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div class=foo data=true><p class=bar>Text</p></div><blockquote cite='https://example.com'>Foo",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addAttributes",
+              "args": [
+                ":all",
+                "class"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                "div",
+                "data"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<div class=\"foo\" data=\"true\"><p class=\"bar\">Text</p></div><blockquote cite=\"https://example.com\">Foo</blockquote>"
+      },
+      "mutant": {
+        "clean": "<div class=\"foo\" data=\"true\"><p class=\"bar\">Text</p></div><blockquote cite=\"https://example.com\">Foo</blockquote>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.4",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.4:cleanertest_java_clean:84",
+      "version": "1.15.4",
+      "capability": "html-sanitize.attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<div class=foo data=true><p class=bar>Text</p></div><blockquote cite='https://example.com'>Foo",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addAttributes",
+              "args": [
+                ":all",
+                "class"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                "div",
+                "data"
+              ]
+            },
+            {
+              "method": "removeAttributes",
+              "args": [
+                ":all",
+                "class",
+                "cite"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": true
+      },
+      "expected": {
+        "clean": "<div data=\"true\"><p>Text</p></div><blockquote>Foo</blockquote>"
+      },
+      "mutant": {
+        "clean": "<div data=\"true\"><p>Text</p></div><blockquote>Foo</blockquote>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.4",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.4:cleanertest_java_clean:85",
+      "version": "1.15.4",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='any://example.com'>Link</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a>Link</a>"
+      },
+      "mutant": {
+        "clean": "<a>Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.4",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.15.4:cleanertest_java_clean:86",
+      "version": "1.15.4",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='any://example.com'>Link</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "removeProtocols",
+              "args": [
+                "a",
+                "href",
+                "ftp",
+                "http",
+                "https",
+                "mailto"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"any://example.com\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"any://example.com\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.15.4",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.17.1:cleanertest_java_clean:88",
+      "version": "1.17.1",
+      "capability": "html-sanitize.attribute-policy",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<svg><feMerge baseFrequency=2><feMergeNode kernelMatrix=1 /><feMergeNode><clipPath /></feMergeNode><feMergeNode />",
+        "base_uri": null,
+        "safelist": {
+          "base": "none",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "svg",
+                "feMerge",
+                "feMergeNode",
+                "clipPath"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                ":all",
+                "kernelMatrix",
+                "baseFrequency"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<svg>\n <feMerge baseFrequency=\"2\">\n  <feMergeNode kernelMatrix=\"1\" />\n  <feMergeNode>\n   <clipPath />\n  </feMergeNode>\n  <feMergeNode />\n </feMerge>\n</svg>"
+      },
+      "mutant": {
+        "clean": "<svg>\n <feMerge baseFrequency=\"2\">\n  <feMergeNode kernelMatrix=\"1\" />\n  <feMergeNode>\n   <clipPath />\n  </feMergeNode>\n  <feMergeNode />\n </feMerge>\n</svg>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.17.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_clean:89",
+      "version": "1.19.1",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='/foo'>Link</a><img src='/bar'>",
+        "base_uri": "http://example.com/",
+        "safelist": {
+          "base": "basicWithImages",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"http://example.com/foo\">Link</a><img src=\"http://example.com/bar\">"
+      },
+      "mutant": {
+        "clean": "<a href=\"http://example.com/foo\">Link</a><img src=\"http://example.com/bar\">__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_clean:90",
+      "version": "1.19.1",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='/foo'>Link</a><img src='/bar'> <img src='javascript:alert()'>",
+        "base_uri": "http://example.com/",
+        "safelist": {
+          "base": "basicWithImages",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"/foo\">Link</a><img src=\"/bar\"> <img>"
+      },
+      "mutant": {
+        "clean": "<a href=\"/foo\">Link</a><img src=\"/bar\"> <img>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_clean:91",
+      "version": "1.19.1",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='javascript:alert()'>One</a>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">One</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">One</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_isvalid:92",
+      "version": "1.19.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<a href='javascript:alert()'>One</a>",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_isvalid:93",
+      "version": "1.19.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<a href=\"&#0013;ja&Tab;va&Tab;script&#0010;:alert(1)\">Link</a>",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_isvalid:94",
+      "version": "1.19.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<a href=\"ja&Tab;va&Tab;script&colon;alert(1)\">Link</a>",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.19.1:cleanertest_java_isvalid:95",
+      "version": "1.19.1",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid",
+      "params": {
+        "html": "<a href=\"ja&Tab;vas&#0013;cript:alert(1)\">Link</a>",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.19.1",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.20.1:cleanertest_java_clean:96",
+      "version": "1.20.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<p>test<br></p>",
+        "base_uri": null,
+        "parse_mode": "parse",
+        "preserve_case": false,
+        "output_settings": {
+          "pretty_print": null,
+          "escape_mode": "xhtml",
+          "charset": null,
+          "syntax": "xml"
+        },
+        "safelist": {
+          "base": "none",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "p",
+                "br"
+              ]
+            }
+          ]
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p>test\n <br /></p>"
+      },
+      "mutant": {
+        "clean": "<p>test\n <br /></p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.20.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.20.1:htmlparsertest_java_clean:97",
+      "version": "1.20.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<p>test<br/>test<br/></p>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<p>test\n <br>\n test\n <br></p>"
+      },
+      "mutant": {
+        "clean": "<p>test\n <br>\n test\n <br></p>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.20.1",
+        "source": "HtmlParserTest.java.clean"
+      }
+    },
+    {
+      "name": "1.21.1:cleanertest_java_clean:98",
+      "version": "1.21.1",
+      "capability": "html-sanitize.parser-xss-hardening",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<svg><script> a < b </script></svg>",
+        "base_uri": null,
+        "safelist": {
+          "base": "none",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "svg"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<svg></svg>"
+      },
+      "mutant": {
+        "clean": "<svg></svg>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.21.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.21.1:cleanertest_java_clean:99",
+      "version": "1.21.1",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<iframe>content is <data></iframe>",
+        "base_uri": null,
+        "safelist": {
+          "base": "relaxed",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "iframe"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<iframe>content is <data></iframe>"
+      },
+      "mutant": {
+        "clean": "<iframe>content is <data></iframe>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.21.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_clean:100",
+      "version": "1.22.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a href='/foo'>Link</a>",
+        "base_uri": "http://example.com/",
+        "parse_mode": "body_fragment",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"http://example.com/foo\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"http://example.com/foo\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_isvalid:101",
+      "version": "1.22.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid_document",
+      "params": {
+        "html": "<a href='/foo'>Link</a>",
+        "base_uri": "http://example.com/",
+        "parse_mode": "body_fragment",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_clean:102",
+      "version": "1.22.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a href='/foo'>Link</a>",
+        "base_uri": "http://example.com/",
+        "parse_mode": "body_fragment",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "empty",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "a"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                ":all",
+                "href"
+              ]
+            },
+            {
+              "method": "addProtocols",
+              "args": [
+                ":all",
+                "href",
+                "http",
+                "https"
+              ]
+            }
+          ]
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"http://example.com/foo\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"http://example.com/foo\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_clean:103",
+      "version": "1.22.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a href='/foo'>Link</a>",
+        "base_uri": "http://example.com/",
+        "parse_mode": "body_fragment",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "empty",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "a"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                "a",
+                "href"
+              ]
+            },
+            {
+              "method": "addAttributes",
+              "args": [
+                ":all",
+                "href"
+              ]
+            },
+            {
+              "method": "addProtocols",
+              "args": [
+                ":all",
+                "href",
+                "http",
+                "https"
+              ]
+            }
+          ]
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"/foo\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"/foo\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_isvalid:104",
+      "version": "1.22.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid_document",
+      "params": {
+        "html": "<a href='http://example.com/' REL='nofollow'>Link</a>",
+        "base_uri": "",
+        "parse_mode": "parse",
+        "preserve_case": true,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        }
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant": {
+        "valid": false
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_clean:105",
+      "version": "1.22.2",
+      "capability": "html-sanitize.link-rel-policy",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a REL='external'>One</a>",
+        "base_uri": "",
+        "parse_mode": "parse",
+        "preserve_case": true,
+        "output_settings": null,
+        "safelist": {
+          "base": "none",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "a"
+              ]
+            },
+            {
+              "method": "addEnforcedAttribute",
+              "args": [
+                "a",
+                "rel",
+                "external"
+              ]
+            }
+          ]
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"external\">One</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"external\">One</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_clean:106",
+      "version": "1.22.2",
+      "capability": "html-sanitize.url-attribute-policy",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a href='http://external.com/' REL='nofollow'>One</a>",
+        "base_uri": "",
+        "parse_mode": "parse",
+        "preserve_case": true,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"http://external.com/\" rel=\"nofollow\">One</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"http://external.com/\" rel=\"nofollow\">One</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.22.2:cleanertest_java_clean:107",
+      "version": "1.22.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a href='http://example.com/foo' REL='nofollow'>One</a>",
+        "base_uri": "http://example.com/",
+        "parse_mode": "parse",
+        "preserve_case": true,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"http://example.com/foo\" REL=\"nofollow\">One</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"http://example.com/foo\" REL=\"nofollow\">One</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.22.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.1:cleanertest_java_clean:108",
+      "version": "1.23.1",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='https://example.com.test/path'>Link</a>",
+        "base_uri": "https://example.com",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"https://example.com.test/path\" rel=\"nofollow\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"https://example.com.test/path\" rel=\"nofollow\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.1:cleanertest_java_clean:109",
+      "version": "1.23.1",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='http://example.com:8080/other'>Link</a>",
+        "base_uri": "https://example.com:8443/path/page",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"http://example.com:8080/other\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"http://example.com:8080/other\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.1",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.2:cleanertest_java_clean:110",
+      "version": "1.23.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='https:/foo/bar'>Cross scheme</a><a href='https://'>Empty host</a><a href='https://?query'>Query without host</a>",
+        "base_uri": "http://example.com/a/b",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Cross scheme</a><a rel=\"nofollow\">Empty host</a><a rel=\"nofollow\">Query without host</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Cross scheme</a><a rel=\"nofollow\">Empty host</a><a rel=\"nofollow\">Query without host</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.2:cleanertest_java_clean:111",
+      "version": "1.23.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='https:/foo/bar'>Link</a>",
+        "base_uri": "https://example.com/a/b",
+        "safelist": {
+          "base": "basic",
+          "steps": []
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"https://example.com/foo/bar\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"https://example.com/foo/bar\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.2:cleanertest_java_isvalid:112",
+      "version": "1.23.2",
+      "capability": "html-sanitize.validity-check",
+      "op": "jsoup_is_valid_document",
+      "params": {
+        "html": "<a href='https:/foo/bar'>Link</a>",
+        "base_uri": "http://example.com/a/b",
+        "parse_mode": "body_fragment",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "mutant": {
+        "valid": true
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.2",
+        "source": "CleanerTest.java.isValid"
+      }
+    },
+    {
+      "name": "1.23.2:cleanertest_java_clean:113",
+      "version": "1.23.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean_document",
+      "params": {
+        "html": "<a href='https:/foo/bar'>Link</a>",
+        "base_uri": "http://example.com/a/b",
+        "parse_mode": "body_fragment",
+        "preserve_case": false,
+        "output_settings": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        },
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a rel=\"nofollow\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a rel=\"nofollow\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.2:cleanertest_java_clean:114",
+      "version": "1.23.2",
+      "capability": "html-sanitize.relative-url-resolution",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<a href='https:/foo/bar'>Link</a>",
+        "base_uri": "https://example.com/a/b",
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "preserveRelativeLinks",
+              "value": true
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<a href=\"https:/foo/bar\">Link</a>"
+      },
+      "mutant": {
+        "clean": "<a href=\"https:/foo/bar\">Link</a>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.2",
+        "source": "CleanerTest.java.clean"
+      }
+    },
+    {
+      "name": "1.23.2:cleanertest_java_clean:115",
+      "version": "1.23.2",
+      "capability": "html-sanitize.default-html",
+      "op": "jsoup_clean",
+      "params": {
+        "html": "<style></t</style><img>",
+        "base_uri": null,
+        "safelist": {
+          "base": "basic",
+          "steps": [
+            {
+              "method": "addTags",
+              "args": [
+                "style"
+              ]
+            }
+          ]
+        },
+        "output_settings": null,
+        "strip_newlines": false
+      },
+      "expected": {
+        "clean": "<style></t</style>"
+      },
+      "mutant": {
+        "clean": "<style></t</style>__mutant__"
+      },
+      "evidence": {
+        "tag": "jsoup-1.23.2",
+        "source": "CleanerTest.java.clean"
+      }
+    }
+  ],
+  "failed": [
+    {
+      "contract": {
+        "name": "0.1.1:cleanertest_java_clean:3",
+        "version": "0.1.1",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<div><p><a href='javascript:sendAllMoney()'>Dodgy</a> <A HREF='HTTP://nice.com'>Nice</p><blockquote>Hello</blockquote>",
+          "base_uri": null,
+          "safelist": {
+            "base": "basic",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": true
+        },
+        "expected": {
+          "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"HTTP://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>"
+        },
+        "mutant": {
+          "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"HTTP://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-0.1.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "0.1.1:cleanertest_java_clean:3",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote><a href=\"http://nice.com\" rel=\"nofollow\">Hello</a></blockquote>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "0.1.1:cleanertest_java_clean:4",
+        "version": "0.1.1",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<div><p><img src='http://example.com/' alt=Image></p><p><img src='ftp://ftp.example.com'></p></div>",
+          "base_uri": null,
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": true
+        },
+        "expected": {
+          "clean": "<p><img src=\"http://example.com/\" alt=\"Image\" /></p><p><img /></p>"
+        },
+        "mutant": {
+          "clean": "<p><img src=\"http://example.com/\" alt=\"Image\" /></p><p><img /></p>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-0.1.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "0.1.1:cleanertest_java_clean:4",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<p><img src=\"http://example.com/\" alt=\"Image\"></p><p><img></p>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "0.1.1:cleanertest_java_clean:5",
+        "version": "0.1.1",
+        "capability": "html-sanitize.html5-structure-balancing",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<h1>Head</h1><td>One<td>Two</td>",
+          "base_uri": null,
+          "safelist": {
+            "base": "relaxed",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": true
+        },
+        "expected": {
+          "clean": "<h1>Head</h1><table><tr><td>One</td><td>Two</td></tr></table>"
+        },
+        "mutant": {
+          "clean": "<h1>Head</h1><table><tr><td>One</td><td>Two</td></tr></table>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-0.1.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "0.1.1:cleanertest_java_clean:5",
+        "capability": "html-sanitize.html5-structure-balancing",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<h1>Head</h1>OneTwo"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "0.1.1:cleanertest_java_clean:9",
+        "version": "0.1.1",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<IMG SRC=\"javascript:alert('XSS')\">",
+          "base_uri": null,
+          "safelist": {
+            "base": "relaxed",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<img />"
+        },
+        "mutant": {
+          "clean": "<img />__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-0.1.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "0.1.1:cleanertest_java_clean:9",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<img>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "0.3.1:cleanertest_java_clean:14",
+        "version": "0.3.1",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<img alt=\"\" src= unknown=''>",
+          "base_uri": null,
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<img alt=\"\" />"
+        },
+        "mutant": {
+          "clean": "<img alt=\"\" />__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-0.3.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "0.3.1:cleanertest_java_clean:14",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<img alt=\"\">"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.1.1:cleanertest_java_clean:18",
+        "version": "1.1.1",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<div><p><a href='javascript:sendAllMoney()'>Dodgy</a> <A HREF='HTTP://nice.com'>Nice</p><blockquote>Hello</blockquote>",
+          "base_uri": null,
+          "safelist": {
+            "base": "basic",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": true
+        },
+        "expected": {
+          "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>"
+        },
+        "mutant": {
+          "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.1.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.1.1:cleanertest_java_clean:18",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote><a href=\"http://nice.com\" rel=\"nofollow\">Hello</a></blockquote>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.1.1:cleanertest_java_clean:19",
+        "version": "1.1.1",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basic",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a>"
+        },
+        "mutant": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.1.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.1.1:cleanertest_java_clean:19",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"http://example.com/foo\">Link</a>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.2.3:cleanertest_java_clean:21",
+        "version": "1.2.3",
+        "capability": "html-sanitize.html5-structure-balancing",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<h1>Head</h1><td>One<td>Two</td>",
+          "base_uri": null,
+          "safelist": {
+            "base": "relaxed",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": true
+        },
+        "expected": {
+          "clean": "<h1>Head</h1><table><tbody><tr><td>One</td><td>Two</td></tr></tbody></table>"
+        },
+        "mutant": {
+          "clean": "<h1>Head</h1><table><tbody><tr><td>One</td><td>Two</td></tr></tbody></table>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.2.3",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.2.3:cleanertest_java_clean:21",
+        "capability": "html-sanitize.html5-structure-balancing",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<h1>Head</h1>OneTwo"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.6.2:cleanertest_java_clean:24",
+        "version": "1.6.2",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a><img src='/bar'>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a>\n<img src=\"http://example.com/bar\" />"
+        },
+        "mutant": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a>\n<img src=\"http://example.com/bar\" />__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.6.2",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.6.2:cleanertest_java_clean:24",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"http://example.com/foo\">Link</a><img src=\"http://example.com/bar\">"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.6.2:cleanertest_java_clean:25",
+        "version": "1.6.2",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a><img src='/bar'> <img src='javascript:alert()'>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": [
+              {
+                "method": "preserveRelativeLinks",
+                "value": true
+              }
+            ]
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"/foo\" rel=\"nofollow\">Link</a>\n<img src=\"/bar\" /> \n<img />"
+        },
+        "mutant": {
+          "clean": "<a href=\"/foo\" rel=\"nofollow\">Link</a>\n<img src=\"/bar\" /> \n<img />__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.6.2",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.6.2:cleanertest_java_clean:25",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"/foo\">Link</a><img src=\"/bar\"> <img>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.6.2:cleanertest_java_clean:26",
+        "version": "1.6.2",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<img src='cid:12345' /> <img src='data:gzzt' />",
+          "base_uri": null,
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<img /> \n<img />"
+        },
+        "mutant": {
+          "clean": "<img /> \n<img />__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.6.2",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.6.2:cleanertest_java_clean:26",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<img> <img>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.6.2:cleanertest_java_clean:27",
+        "version": "1.6.2",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<img src='cid:12345' /> <img src='data:gzzt' />",
+          "base_uri": null,
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": [
+              {
+                "method": "addProtocols",
+                "args": [
+                  "img",
+                  "src",
+                  "cid",
+                  "data"
+                ]
+              }
+            ]
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<img src=\"cid:12345\" /> \n<img src=\"data:gzzt\" />"
+        },
+        "mutant": {
+          "clean": "<img src=\"cid:12345\" /> \n<img src=\"data:gzzt\" />__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.6.2",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.6.2:cleanertest_java_clean:27",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<img src=\"cid:12345\"> <img src=\"data:gzzt\">"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.7.1:cleanertest_java_clean:30",
+        "version": "1.7.1",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<div><p>&bernou;</p></div>",
+          "base_uri": "http://foo.com/",
+          "safelist": {
+            "base": "relaxed",
+            "steps": []
+          },
+          "output_settings": {
+            "pretty_print": false,
+            "escape_mode": "extended",
+            "charset": null,
+            "syntax": null
+          },
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<div><p>&bernou;</p></div>"
+        },
+        "mutant": {
+          "clean": "<div><p>&bernou;</p></div>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.7.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.7.1:cleanertest_java_clean:30",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<div><p>\u212c</p></div>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.7.1:cleanertest_java_clean:32",
+        "version": "1.7.1",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<div><p>&bernou;</p></div>",
+          "base_uri": "http://foo.com/",
+          "safelist": {
+            "base": "relaxed",
+            "steps": []
+          },
+          "output_settings": {
+            "pretty_print": false,
+            "escape_mode": "base",
+            "charset": "ASCII",
+            "syntax": null
+          },
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<div><p>&#8492;</p></div>"
+        },
+        "mutant": {
+          "clean": "<div><p>&#8492;</p></div>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.7.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.7.1:cleanertest_java_clean:32",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<div><p>&#x212c;</p></div>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.8.1.a:cleanertest_java_clean:40",
+        "version": "1.8.1.a",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a><img src='/bar'>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a>\n<img src=\"http://example.com/bar\">"
+        },
+        "mutant": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a>\n<img src=\"http://example.com/bar\">__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.8.1.a",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.8.1.a:cleanertest_java_clean:40",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"http://example.com/foo\">Link</a><img src=\"http://example.com/bar\">"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.8.1.a:cleanertest_java_clean:41",
+        "version": "1.8.1.a",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a><img src='/bar'> <img src='javascript:alert()'>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": [
+              {
+                "method": "preserveRelativeLinks",
+                "value": true
+              }
+            ]
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"/foo\" rel=\"nofollow\">Link</a>\n<img src=\"/bar\"> \n<img>"
+        },
+        "mutant": {
+          "clean": "<a href=\"/foo\" rel=\"nofollow\">Link</a>\n<img src=\"/bar\"> \n<img>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.8.1.a",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.8.1.a:cleanertest_java_clean:41",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"/foo\">Link</a><img src=\"/bar\"> <img>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.8.1.a:cleanertest_java_clean:42",
+        "version": "1.8.1.a",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<img src='cid:12345' /> <img src='data:gzzt' />",
+          "base_uri": null,
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<img> \n<img>"
+        },
+        "mutant": {
+          "clean": "<img> \n<img>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.8.1.a",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.8.1.a:cleanertest_java_clean:42",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<img> <img>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.8.1.a:cleanertest_java_clean:43",
+        "version": "1.8.1.a",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<img src='cid:12345' /> <img src='data:gzzt' />",
+          "base_uri": null,
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": [
+              {
+                "method": "addProtocols",
+                "args": [
+                  "img",
+                  "src",
+                  "cid",
+                  "data"
+                ]
+              }
+            ]
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<img src=\"cid:12345\"> \n<img src=\"data:gzzt\">"
+        },
+        "mutant": {
+          "clean": "<img src=\"cid:12345\"> \n<img src=\"data:gzzt\">__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.8.1.a",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.8.1.a:cleanertest_java_clean:43",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<img src=\"cid:12345\"> <img src=\"data:gzzt\">"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.8.1.a:cleanertest_java_clean:44",
+        "version": "1.8.1.a",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<div><p>&bernou;</p></div>",
+          "base_uri": "http://foo.com/",
+          "safelist": {
+            "base": "relaxed",
+            "steps": []
+          },
+          "output_settings": {
+            "pretty_print": false,
+            "escape_mode": "extended",
+            "charset": "ascii",
+            "syntax": null
+          },
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<div><p>&bernou;</p></div>"
+        },
+        "mutant": {
+          "clean": "<div><p>&bernou;</p></div>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.8.1.a",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.8.1.a:cleanertest_java_clean:44",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<div><p>&Bscr;</p></div>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.11.1:htmlparsertest_java_clean:65",
+        "version": "1.11.1",
+        "capability": "html-sanitize.default-html",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<p>test<br/>test<br/></p>",
+          "base_uri": null,
+          "safelist": {
+            "base": "basic",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<p>test<br>test<br></p>"
+        },
+        "mutant": {
+          "clean": "<p>test<br>test<br></p>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.11.1",
+          "source": "HtmlParserTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.11.1:htmlparsertest_java_clean:65",
+        "capability": "html-sanitize.default-html",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<p>test\n <br>\n test\n <br></p>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.12.1:cleanertest_java_clean:68",
+        "version": "1.12.1",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a>One</a> <a href>Two</a>",
+          "base_uri": null,
+          "safelist": {
+            "base": "relaxed",
+            "steps": [
+              {
+                "method": "addProtocols",
+                "args": [
+                  "a",
+                  "href",
+                  "#"
+                ]
+              }
+            ]
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a>One</a> \n<a>Two</a>"
+        },
+        "mutant": {
+          "clean": "<a>One</a> \n<a>Two</a>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.12.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.12.1:cleanertest_java_clean:68",
+        "capability": "html-sanitize.url-attribute-policy",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a>One</a> <a>Two</a>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.14.1:cleanertest_java_clean:74",
+        "version": "1.14.1",
+        "capability": "html-sanitize.default-html",
+        "op": "jsoup_clean_document",
+        "params": {
+          "html": "<p>test<br></p>",
+          "base_uri": null,
+          "parse_mode": "parse",
+          "preserve_case": false,
+          "output_settings": {
+            "pretty_print": null,
+            "escape_mode": "xhtml",
+            "charset": null,
+            "syntax": "xml"
+          },
+          "safelist": {
+            "base": "none",
+            "steps": [
+              {
+                "method": "addTags",
+                "args": [
+                  "p",
+                  "br"
+                ]
+              }
+            ]
+          },
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<p>test<br /></p>"
+        },
+        "mutant": {
+          "clean": "<p>test<br /></p>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.14.1",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.14.1:cleanertest_java_clean:74",
+        "capability": "html-sanitize.default-html",
+        "op": "jsoup_clean_document",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<p>test\n <br /></p>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.15.2:cleanertest_java_clean:76",
+        "version": "1.15.2",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a><img src='/bar'>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a><img src=\"http://example.com/bar\">"
+        },
+        "mutant": {
+          "clean": "<a href=\"http://example.com/foo\" rel=\"nofollow\">Link</a><img src=\"http://example.com/bar\">__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.15.2",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.15.2:cleanertest_java_clean:76",
+        "capability": "html-sanitize.relative-url-resolution",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"http://example.com/foo\">Link</a><img src=\"http://example.com/bar\">"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.15.2:cleanertest_java_clean:77",
+        "version": "1.15.2",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<a href='/foo'>Link</a><img src='/bar'> <img src='javascript:alert()'>",
+          "base_uri": "http://example.com/",
+          "safelist": {
+            "base": "basicWithImages",
+            "steps": [
+              {
+                "method": "preserveRelativeLinks",
+                "value": true
+              }
+            ]
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<a href=\"/foo\" rel=\"nofollow\">Link</a><img src=\"/bar\"> <img>"
+        },
+        "mutant": {
+          "clean": "<a href=\"/foo\" rel=\"nofollow\">Link</a><img src=\"/bar\"> <img>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.15.2",
+          "source": "CleanerTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.15.2:cleanertest_java_clean:77",
+        "capability": "html-sanitize.parser-xss-hardening",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<a href=\"/foo\">Link</a><img src=\"/bar\"> <img>"
+        }
+      }
+    },
+    {
+      "contract": {
+        "name": "1.15.4:htmlparsertest_java_clean:87",
+        "version": "1.15.4",
+        "capability": "html-sanitize.default-html",
+        "op": "jsoup_clean",
+        "params": {
+          "html": "<p>test<br/>test<br/></p>",
+          "base_uri": null,
+          "safelist": {
+            "base": "basic",
+            "steps": []
+          },
+          "output_settings": null,
+          "strip_newlines": false
+        },
+        "expected": {
+          "clean": "<p>test<br>\n test<br></p>"
+        },
+        "mutant": {
+          "clean": "<p>test<br>\n test<br></p>__mutant__"
+        },
+        "evidence": {
+          "tag": "jsoup-1.15.4",
+          "source": "HtmlParserTest.java.clean"
+        }
+      },
+      "result": {
+        "name": "1.15.4:htmlparsertest_java_clean:87",
+        "capability": "html-sanitize.default-html",
+        "op": "jsoup_clean",
+        "replay_passed": false,
+        "mutant_rejected": false,
+        "actual": {
+          "clean": "<p>test\n <br>\n test\n <br></p>"
+        }
+      }
+    }
+  ]
+}

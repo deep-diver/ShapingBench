@@ -1,0 +1,5020 @@
+{
+  "summary": {
+    "project": "Joda-Time",
+    "target_version": "2.14.3",
+    "contracts_total": 244,
+    "replay_passed": 244,
+    "mutant_rejected": 244,
+    "verified": 244,
+    "failed": 0
+  },
+  "results": [
+    {
+      "name": "coptic_calendar_has_thirteen_months",
+      "version": "0.95",
+      "capability": "chronology.coptic",
+      "replay": "chronology_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "valid: expected False, got true",
+      "actual": {
+        "valid": "true"
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant_expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "coptic_chronology_has_thirteenth_month",
+      "version": "0.95",
+      "capability": "chronology.coptic",
+      "replay": "chronology_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "valid: expected False, got true",
+      "actual": {
+        "valid": "true"
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant_expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "duration_can_be_constructed_from_millis",
+      "version": "0.95",
+      "capability": "duration.core",
+      "replay": "duration_from_millis",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected 1235, got 1234",
+      "actual": {
+        "millis": "1234"
+      },
+      "expected": {
+        "millis": 1234
+      },
+      "mutant_expected": {
+        "millis": 1235
+      }
+    },
+    {
+      "name": "interval_preserves_start_and_end_instants",
+      "version": "0.95",
+      "capability": "interval.core",
+      "replay": "parse_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2004-01-01T00:00:00Z__mutant__, got 2004-01-01T00:00:00Z",
+      "actual": {
+        "start": "2004-01-01T00:00:00.000Z",
+        "end": "2004-01-01T01:00:00.000Z",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "start": "2004-01-01T00:00:00Z",
+        "end": "2004-01-01T01:00:00Z"
+      },
+      "mutant_expected": {
+        "start": "2004-01-01T00:00:00Z__mutant__",
+        "end": "2004-01-01T01:00:00Z"
+      }
+    },
+    {
+      "name": "abutting_interval_is_after_previous_interval",
+      "version": "0.99",
+      "capability": "interval.relation",
+      "replay": "interval_relation",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "value: expected False, got true",
+      "actual": {
+        "value": "true"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant_expected": {
+        "value": false
+      }
+    },
+    {
+      "name": "default_fixed_offset_zone_is_not_coerced_to_utc",
+      "version": "0.99",
+      "capability": "timezone.fixed-offset",
+      "replay": "fixed_offset_roundtrip",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +02:30__mutant__, got +02:30",
+      "actual": {
+        "offset": "+02:30"
+      },
+      "expected": {
+        "offset": "+02:30"
+      },
+      "mutant_expected": {
+        "offset": "+02:30__mutant__"
+      }
+    },
+    {
+      "name": "formatter_text_fields_use_formatter_zone",
+      "version": "0.99",
+      "capability": "datetime.format.zone-text",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected BST__mutant__, got BST",
+      "actual": {
+        "text": "BST",
+        "contains_time": "false",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "BST"
+      },
+      "mutant_expected": {
+        "text": "BST__mutant__"
+      }
+    },
+    {
+      "name": "month_day_preserves_leap_day",
+      "version": "0.99",
+      "capability": "partial.month-day",
+      "replay": "parse_month_day",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "month_day: expected --02-29__mutant__, got --02-29",
+      "actual": {
+        "month_day": "--02-29"
+      },
+      "expected": {
+        "month_day": "--02-29"
+      },
+      "mutant_expected": {
+        "month_day": "--02-29__mutant__"
+      }
+    },
+    {
+      "name": "pattern_zz_formats_offset",
+      "version": "0.99",
+      "capability": "datetime.format.pattern-zone",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected +08:00__mutant__, got +08:00",
+      "actual": {
+        "text": "+08:00",
+        "contains_time": "true",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "+08:00"
+      },
+      "mutant_expected": {
+        "text": "+08:00__mutant__"
+      }
+    },
+    {
+      "name": "pattern_zzzz_formats_zone_id",
+      "version": "0.99",
+      "capability": "datetime.format.pattern-zone",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected Asia/Singapore__mutant__, got Asia/Singapore",
+      "actual": {
+        "text": "Asia/Singapore",
+        "contains_time": "false",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "Asia/Singapore"
+      },
+      "mutant_expected": {
+        "text": "Asia/Singapore__mutant__"
+      }
+    },
+    {
+      "name": "period_fractional_seconds_scale_to_millis",
+      "version": "0.99",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected 235, got 234",
+      "actual": {
+        "iso": "PT1.234S",
+        "millis": "234"
+      },
+      "expected": {
+        "millis": 234
+      },
+      "mutant_expected": {
+        "millis": 235
+      }
+    },
+    {
+      "name": "period_time_fields_require_t_separator",
+      "version": "0.99",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "message": "java.lang.IllegalArgumentException: Invalid format: \"P1H\" is malformed at \"1H\""
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "period_time_only_form_parses",
+      "version": "0.99",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected PT2H30M__mutant__, got PT2H30M",
+      "actual": {
+        "iso": "PT2H30M",
+        "millis": "0"
+      },
+      "expected": {
+        "iso": "PT2H30M"
+      },
+      "mutant_expected": {
+        "iso": "PT2H30M__mutant__"
+      }
+    },
+    {
+      "name": "time_of_day_add_wraps_over_midnight",
+      "version": "0.99",
+      "capability": "local-time.arithmetic",
+      "replay": "local_time_add",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 00:30:00__mutant__, got 00:30:00",
+      "actual": {
+        "time": "00:30:00.000"
+      },
+      "expected": {
+        "time": "00:30:00"
+      },
+      "mutant_expected": {
+        "time": "00:30:00__mutant__"
+      }
+    },
+    {
+      "name": "time_style_formatter_outputs_time_not_date",
+      "version": "0.99",
+      "capability": "datetime.format.localized-style",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "contains_time: expected False, got true",
+      "actual": {
+        "text": "3:04 AM",
+        "contains_time": "true",
+        "contains_date": "false"
+      },
+      "expected": {
+        "contains_time": true,
+        "contains_date": false
+      },
+      "mutant_expected": {
+        "contains_time": false,
+        "contains_date": false
+      }
+    },
+    {
+      "name": "two_digit_year_pattern_uses_pivot_window",
+      "version": "0.99",
+      "capability": "datetime.parse.two-digit-year",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2005-01-02__mutant__, got 2005-01-02",
+      "actual": {
+        "date": "2005-01-02",
+        "year": "2005",
+        "month": "1",
+        "day": "2"
+      },
+      "expected": {
+        "date": "2005-01-02"
+      },
+      "mutant_expected": {
+        "date": "2005-01-02__mutant__"
+      }
+    },
+    {
+      "name": "year_month_plus_months_rolls_year",
+      "version": "0.99",
+      "capability": "partial.year-month",
+      "replay": "year_month_add",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "year_month: expected 2016-02__mutant__, got 2016-02",
+      "actual": {
+        "year_month": "2016-02"
+      },
+      "expected": {
+        "year_month": "2016-02"
+      },
+      "mutant_expected": {
+        "year_month": "2016-02__mutant__"
+      }
+    },
+    {
+      "name": "athens_summer_time_after_1980_is_enabled",
+      "version": "1.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +03:00__mutant__, got +03:00",
+      "actual": {
+        "offset": "+03:00"
+      },
+      "expected": {
+        "offset": "+03:00"
+      },
+      "mutant_expected": {
+        "offset": "+03:00__mutant__"
+      }
+    },
+    {
+      "name": "interval_gap_returns_between_abutting_nonoverlap",
+      "version": "1.1",
+      "capability": "interval.set-ops",
+      "replay": "interval_gap",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "interval: expected 2000-01-01T01:00:00Z/2000-01-01T02:00:00Z__mutant__, got 2000-01-01T01:00:00Z/2000-01-01T02:00:00Z",
+      "actual": {
+        "interval": "2000-01-01T01:00:00.000Z/2000-01-01T02:00:00.000Z"
+      },
+      "expected": {
+        "interval": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z"
+      },
+      "mutant_expected": {
+        "interval": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z__mutant__"
+      }
+    },
+    {
+      "name": "interval_overlap_returns_intersection",
+      "version": "1.1",
+      "capability": "interval.set-ops",
+      "replay": "interval_overlap",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "interval: expected 2000-01-01T01:00:00Z/2000-01-01T02:00:00Z__mutant__, got 2000-01-01T01:00:00Z/2000-01-01T02:00:00Z",
+      "actual": {
+        "interval": "2000-01-01T01:00:00.000Z/2000-01-01T02:00:00.000Z"
+      },
+      "expected": {
+        "interval": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z"
+      },
+      "mutant_expected": {
+        "interval": "2000-01-01T01:00:00Z/2000-01-01T02:00:00Z__mutant__"
+      }
+    },
+    {
+      "name": "numeric_parser_rejects_multiple_signs",
+      "version": "1.1",
+      "capability": "datetime.parse.signed-number",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "message": "java.lang.IllegalArgumentException: Invalid format: \"++2005-01-01\""
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "ordinal_date_formats_day_of_year",
+      "version": "1.1",
+      "capability": "datetime.format.ordinal-date",
+      "replay": "format_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 2005-161__mutant__, got 2005-161",
+      "actual": {
+        "text": "2005-161"
+      },
+      "expected": {
+        "text": "2005-161"
+      },
+      "mutant_expected": {
+        "text": "2005-161__mutant__"
+      }
+    },
+    {
+      "name": "period_plus_days_adds_days_field",
+      "version": "1.1",
+      "capability": "period.arithmetic",
+      "replay": "period_add_field",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P1M2D__mutant__, got P1M2D",
+      "actual": {
+        "iso": "P1M2D"
+      },
+      "expected": {
+        "iso": "P1M2D"
+      },
+      "mutant_expected": {
+        "iso": "P1M2D__mutant__"
+      }
+    },
+    {
+      "name": "removed_non_genuine_zone_asia_riyadh87",
+      "version": "1.1",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unknown-zone, got unknown-zone",
+      "mutant_reason": "expected throw __no_throw_expected__, got unknown-zone",
+      "actual": {
+        "throws": "unknown-zone",
+        "message": "java.lang.IllegalArgumentException: The datetime zone id 'Asia/Riyadh87' is not recognised"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "removed_non_genuine_zone_asia_riyadh88",
+      "version": "1.1",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unknown-zone, got unknown-zone",
+      "mutant_reason": "expected throw __no_throw_expected__, got unknown-zone",
+      "actual": {
+        "throws": "unknown-zone",
+        "message": "java.lang.IllegalArgumentException: The datetime zone id 'Asia/Riyadh88' is not recognised"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "removed_non_genuine_zone_asia_riyadh89",
+      "version": "1.1",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unknown-zone, got unknown-zone",
+      "mutant_reason": "expected throw __no_throw_expected__, got unknown-zone",
+      "actual": {
+        "throws": "unknown-zone",
+        "message": "java.lang.IllegalArgumentException: The datetime zone id 'Asia/Riyadh89' is not recognised"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "day_property_to_interval_spans_one_day",
+      "version": "1.2",
+      "capability": "interval.property",
+      "replay": "property_to_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2015-01-02T00:00:00Z__mutant__, got 2015-01-02T00:00:00Z",
+      "actual": {
+        "start": "2015-01-02T00:00:00.000Z",
+        "end": "2015-01-03T00:00:00.000Z"
+      },
+      "expected": {
+        "start": "2015-01-02T00:00:00Z",
+        "end": "2015-01-03T00:00:00Z"
+      },
+      "mutant_expected": {
+        "start": "2015-01-02T00:00:00Z__mutant__",
+        "end": "2015-01-03T00:00:00Z"
+      }
+    },
+    {
+      "name": "ethiopic_chronology_has_thirteenth_month",
+      "version": "1.2",
+      "capability": "chronology.ethiopic",
+      "replay": "chronology_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "valid: expected False, got true",
+      "actual": {
+        "valid": "true"
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant_expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "islamic_chronology_month_length_is_calendar_specific",
+      "version": "1.2",
+      "capability": "chronology.islamic",
+      "replay": "chronology_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "valid: expected False, got true",
+      "actual": {
+        "valid": "true"
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant_expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "month_property_to_interval_spans_month",
+      "version": "1.2",
+      "capability": "interval.property",
+      "replay": "property_to_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2005-02-01T00:00:00Z__mutant__, got 2005-02-01T00:00:00Z",
+      "actual": {
+        "start": "2005-02-01T00:00:00.000Z",
+        "end": "2005-03-01T00:00:00.000Z"
+      },
+      "expected": {
+        "start": "2005-02-01T00:00:00Z",
+        "end": "2005-03-01T00:00:00Z"
+      },
+      "mutant_expected": {
+        "start": "2005-02-01T00:00:00Z__mutant__",
+        "end": "2005-03-01T00:00:00Z"
+      }
+    },
+    {
+      "name": "pattern_k_prints_hour_of_halfday_zero_to_eleven",
+      "version": "1.2",
+      "capability": "datetime.format.pattern-hour",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected 0__mutant__, got 0",
+      "actual": {
+        "text": "0",
+        "contains_time": "false",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "0"
+      },
+      "mutant_expected": {
+        "text": "0__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2005q_contains_london_zone",
+      "version": "1.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2005q_new_york_summer_offset",
+      "version": "1.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "zone_name_near_dst_transition_uses_correct_side",
+      "version": "1.2",
+      "capability": "timezone.format-name",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected BST__mutant__, got BST",
+      "actual": {
+        "text": "BST",
+        "contains_time": "false",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "BST"
+      },
+      "mutant_expected": {
+        "text": "BST__mutant__"
+      }
+    },
+    {
+      "name": "date_optional_time_parser_accepts_date_only",
+      "version": "1.3",
+      "capability": "datetime.parse.optional-time",
+      "replay": "parse_local_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2005-06-10T00:00:00__mutant__, got 2005-06-10T00:00:00",
+      "actual": {
+        "local": "2005-06-10T00:00:00.000"
+      },
+      "expected": {
+        "local": "2005-06-10T00:00:00"
+      },
+      "mutant_expected": {
+        "local": "2005-06-10T00:00:00__mutant__"
+      }
+    },
+    {
+      "name": "instant_conversion_preserves_zone",
+      "version": "1.3",
+      "capability": "instant.conversion",
+      "replay": "convert_datetime_zone",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "zone": "Europe/London"
+      },
+      "mutant_expected": {
+        "zone": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "local_date_leap_year_plus_year_clamps",
+      "version": "1.3",
+      "capability": "local-date.year-arithmetic",
+      "replay": "local_date_add",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2017-02-28__mutant__, got 2017-02-28",
+      "actual": {
+        "date": "2017-02-28"
+      },
+      "expected": {
+        "date": "2017-02-28"
+      },
+      "mutant_expected": {
+        "date": "2017-02-28__mutant__"
+      }
+    },
+    {
+      "name": "local_date_plus_months_clamps_to_last_day",
+      "version": "1.3",
+      "capability": "local-date.month-arithmetic",
+      "replay": "local_date_add",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2015-02-28__mutant__, got 2015-02-28",
+      "actual": {
+        "date": "2015-02-28"
+      },
+      "expected": {
+        "date": "2015-02-28"
+      },
+      "mutant_expected": {
+        "date": "2015-02-28__mutant__"
+      }
+    },
+    {
+      "name": "local_time_parser_rejects_date_fields",
+      "version": "1.3",
+      "capability": "local-time.parse",
+      "replay": "parse_local_time",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "message": "java.lang.IllegalArgumentException: Invalid format: \"2005-01-01T12:00:00\" is malformed at \"05-01-01T12:00:00\""
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "tzdb_2006g_contains_london_zone",
+      "version": "1.3",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2006g_new_york_summer_offset",
+      "version": "1.3",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "chronology_equality_is_structural",
+      "version": "1.4",
+      "capability": "chronology.equality",
+      "replay": "chronology_equals",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "equals: expected False, got true",
+      "actual": {
+        "equals": "true"
+      },
+      "expected": {
+        "equals": true
+      },
+      "mutant_expected": {
+        "equals": false
+      }
+    },
+    {
+      "name": "period_zero_formats_as_empty_iso_period",
+      "version": "1.4",
+      "capability": "period.constant",
+      "replay": "period_constant",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected PT0S__mutant__, got PT0S",
+      "actual": {
+        "iso": "PT0S"
+      },
+      "expected": {
+        "iso": "PT0S"
+      },
+      "mutant_expected": {
+        "iso": "PT0S__mutant__"
+      }
+    },
+    {
+      "name": "single_field_days_to_standard_hours",
+      "version": "1.4",
+      "capability": "period.single-field",
+      "replay": "single_field_period_convert",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "value: expected 49, got 48",
+      "actual": {
+        "value": "48"
+      },
+      "expected": {
+        "value": 48
+      },
+      "mutant_expected": {
+        "value": 49
+      }
+    },
+    {
+      "name": "tzdb_2006o_contains_london_zone",
+      "version": "1.4",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2006o_new_york_summer_offset",
+      "version": "1.4",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "duration_standard_seconds_truncates_millis",
+      "version": "1.5",
+      "capability": "duration.standard-units",
+      "replay": "duration_standard_seconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "seconds: expected 2, got 1",
+      "actual": {
+        "seconds": "1"
+      },
+      "expected": {
+        "seconds": 1
+      },
+      "mutant_expected": {
+        "seconds": 2
+      }
+    },
+    {
+      "name": "fixed_offset_zone_converts_to_same_offset",
+      "version": "1.5",
+      "capability": "timezone.fixed-offset",
+      "replay": "fixed_offset_roundtrip",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +05:45__mutant__, got +05:45",
+      "actual": {
+        "offset": "+05:45"
+      },
+      "expected": {
+        "offset": "+05:45"
+      },
+      "mutant_expected": {
+        "offset": "+05:45__mutant__"
+      }
+    },
+    {
+      "name": "localdate_start_of_day_avoids_missing_midnight",
+      "version": "1.5",
+      "capability": "local-date.start-of-day",
+      "replay": "start_of_day",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local_date: expected 2011-12-31__mutant__, got 2011-12-31",
+      "actual": {
+        "local_date": "2011-12-31",
+        "local_time": "00:00:00.000",
+        "local_time_not": "00:00:00.000",
+        "offset": "+14:00"
+      },
+      "expected": {
+        "local_date": "2011-12-31"
+      },
+      "mutant_expected": {
+        "local_date": "2011-12-31__mutant__"
+      }
+    },
+    {
+      "name": "localized_month_text_with_number_parses",
+      "version": "1.5",
+      "capability": "datetime.parse.localized-text",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2007-01-01__mutant__, got 2007-01-01",
+      "actual": {
+        "date": "2007-01-01",
+        "year": "2007",
+        "month": "1",
+        "day": "1"
+      },
+      "expected": {
+        "date": "2007-01-01"
+      },
+      "mutant_expected": {
+        "date": "2007-01-01__mutant__"
+      }
+    },
+    {
+      "name": "localized_month_text_with_punctuation_parses",
+      "version": "1.5",
+      "capability": "datetime.parse.localized-text",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2007-01-01__mutant__, got 2007-01-01",
+      "actual": {
+        "date": "2007-01-01",
+        "year": "2007",
+        "month": "1",
+        "day": "1"
+      },
+      "expected": {
+        "date": "2007-01-01"
+      },
+      "mutant_expected": {
+        "date": "2007-01-01__mutant__"
+      }
+    },
+    {
+      "name": "period_normalized_standard_carries_months_to_years",
+      "version": "1.5",
+      "capability": "period.normalize",
+      "replay": "period_normalize",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P1Y3M__mutant__, got P1Y3M",
+      "actual": {
+        "iso": "P1Y3M"
+      },
+      "expected": {
+        "iso": "P1Y3M"
+      },
+      "mutant_expected": {
+        "iso": "P1Y3M__mutant__"
+      }
+    },
+    {
+      "name": "period_to_standard_days_uses_24_hour_days",
+      "version": "1.5",
+      "capability": "period.standard-units",
+      "replay": "period_to_standard",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "hours: expected 49, got 48",
+      "actual": {
+        "hours": "48"
+      },
+      "expected": {
+        "hours": 48
+      },
+      "mutant_expected": {
+        "hours": 49
+      }
+    },
+    {
+      "name": "same_abbreviation_zone_name_still_uses_correct_offset",
+      "version": "1.5",
+      "capability": "timezone.name-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +10:00__mutant__, got +10:00",
+      "actual": {
+        "offset": "+10:00"
+      },
+      "expected": {
+        "offset": "+10:00"
+      },
+      "mutant_expected": {
+        "offset": "+10:00__mutant__"
+      }
+    },
+    {
+      "name": "spring_forward_add_hour_skips_gap",
+      "version": "1.5",
+      "capability": "timezone.dst-gap",
+      "replay": "zoned_add",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2015-03-29T03:30:00__mutant__, got 2015-03-29T03:30:00",
+      "actual": {
+        "local": "2015-03-29T03:30:00.000",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "local": "2015-03-29T03:30:00",
+        "offset": "+02:00"
+      },
+      "mutant_expected": {
+        "local": "2015-03-29T03:30:00__mutant__",
+        "offset": "+02:00"
+      }
+    },
+    {
+      "name": "standard_offset_differs_from_dst_offset",
+      "version": "1.5",
+      "capability": "timezone.standard-offset",
+      "replay": "standard_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "standard_offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "standard_offset": "+00:00",
+        "actual_offset": "+01:00"
+      },
+      "expected": {
+        "standard_offset": "+00:00",
+        "actual_offset": "+01:00"
+      },
+      "mutant_expected": {
+        "standard_offset": "+00:00__mutant__",
+        "actual_offset": "+01:00"
+      }
+    },
+    {
+      "name": "tzdb_2007h_contains_london_zone",
+      "version": "1.5",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2007h_new_york_summer_offset",
+      "version": "1.5",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "month_text_parser_accepts_lowercase_locale_text",
+      "version": "1.5.1",
+      "capability": "datetime.parse.text-case",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2007-01-01__mutant__, got 2007-01-01",
+      "actual": {
+        "date": "2007-01-01",
+        "year": "2007",
+        "month": "1",
+        "day": "1"
+      },
+      "expected": {
+        "date": "2007-01-01"
+      },
+      "mutant_expected": {
+        "date": "2007-01-01__mutant__"
+      }
+    },
+    {
+      "name": "month_text_parser_accepts_uppercase_locale_text",
+      "version": "1.5.1",
+      "capability": "datetime.parse.text-case",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2007-01-01__mutant__, got 2007-01-01",
+      "actual": {
+        "date": "2007-01-01",
+        "year": "2007",
+        "month": "1",
+        "day": "1"
+      },
+      "expected": {
+        "date": "2007-01-01"
+      },
+      "mutant_expected": {
+        "date": "2007-01-01__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2007j_contains_london_zone",
+      "version": "1.5.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2007j_new_york_summer_offset",
+      "version": "1.5.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "convert_gap_local_time_rejects_nonexistent_time",
+      "version": "1.5.2",
+      "capability": "timezone.dst-gap",
+      "replay": "convert_local_to_utc",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw illegal-instant, got illegal-instant",
+      "mutant_reason": "expected throw __no_throw_expected__, got illegal-instant",
+      "actual": {
+        "throws": "illegal-instant",
+        "message": "org.joda.time.IllegalInstantException: Illegal instant due to time zone offset transition (daylight savings time 'gap'): 2015-03-29T02:30:00.000 (Europe/Paris)"
+      },
+      "expected": {
+        "throws": "illegal-instant"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "tzdb_2007k_contains_london_zone",
+      "version": "1.5.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2007k_new_york_summer_offset",
+      "version": "1.5.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "basic_iso_date_rejects_extended_separator",
+      "version": "1.6",
+      "capability": "datetime.parse.iso-basic",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "message": "java.lang.IllegalArgumentException: Invalid format: \"2008-01-01\" is malformed at \"-01-01\""
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "iso_millisecond_fraction_scales_to_millis",
+      "version": "1.6",
+      "capability": "datetime.parse.fraction",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis_of_second: expected 401, got 400",
+      "actual": {
+        "zone": "Etc/UTC",
+        "offset": "+00:00",
+        "local": "2008-01-01T12:00:00.400",
+        "millis_of_second": "400",
+        "zone_name_contains": "Coordinated Universal Time"
+      },
+      "expected": {
+        "millis_of_second": 400
+      },
+      "mutant_expected": {
+        "millis_of_second": 401
+      }
+    },
+    {
+      "name": "local_datetime_gap_detects_spring_forward_gap",
+      "version": "1.6",
+      "capability": "timezone.dst-gap",
+      "replay": "local_datetime_gap",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "gap: expected False, got true",
+      "actual": {
+        "gap": "true"
+      },
+      "expected": {
+        "gap": true
+      },
+      "mutant_expected": {
+        "gap": false
+      }
+    },
+    {
+      "name": "period_print_zero_rarely_first_can_print_zero_seconds",
+      "version": "1.6",
+      "capability": "period.format.zero",
+      "replay": "format_period_custom",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "0__mutant__ not contained in 0",
+      "actual": {
+        "text": "0",
+        "contains": "0"
+      },
+      "expected": {
+        "contains": "0"
+      },
+      "mutant_expected": {
+        "contains": "0__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2008i_contains_london_zone",
+      "version": "1.6",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2008i_new_york_summer_offset",
+      "version": "1.6",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "local_date_interval_handles_missing_midnight",
+      "version": "1.6.1",
+      "capability": "local-date.interval",
+      "replay": "local_date_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "duration_hours: expected 1, got 0",
+      "actual": {
+        "duration_hours": "0"
+      },
+      "expected": {
+        "duration_hours": 0
+      },
+      "mutant_expected": {
+        "duration_hours": 1
+      }
+    },
+    {
+      "name": "local_time_from_pre_epoch_date_fields_preserves_time",
+      "version": "1.6.1",
+      "capability": "local-time.from-date",
+      "replay": "local_time_from_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "time: expected 12:34:56__mutant__, got 12:34:56",
+      "actual": {
+        "time": "12:34:56.000"
+      },
+      "expected": {
+        "time": "12:34:56"
+      },
+      "mutant_expected": {
+        "time": "12:34:56__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2010k_contains_london_zone",
+      "version": "1.6.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2010k_new_york_summer_offset",
+      "version": "1.6.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_24_hour_rule_rolls_to_next_day",
+      "version": "1.6.1",
+      "capability": "timezone.tzdb-24-hour",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "offset": "+00:00"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant_expected": {
+        "offset": "+00:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2010l_contains_london_zone",
+      "version": "1.6.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2010l_new_york_summer_offset",
+      "version": "1.6.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "datetime_with_time_preserves_date_and_zone",
+      "version": "2.0",
+      "capability": "datetime.with-time",
+      "replay": "datetime_with_time",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2015-01-01T01:02:03__mutant__, got 2015-01-01T01:02:03",
+      "actual": {
+        "local": "2015-01-01T01:02:03.000",
+        "zone": "Europe/Paris"
+      },
+      "expected": {
+        "local": "2015-01-01T01:02:03",
+        "zone": "Europe/Paris"
+      },
+      "mutant_expected": {
+        "local": "2015-01-01T01:02:03__mutant__",
+        "zone": "Europe/Paris"
+      }
+    },
+    {
+      "name": "duration_to_period_uses_standard_fields",
+      "version": "2.0",
+      "capability": "duration.to-period",
+      "replay": "duration_to_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P1DT1H1M1S__mutant__, got P1DT1H1M1S",
+      "actual": {
+        "iso": "P1DT1H1M1S"
+      },
+      "expected": {
+        "iso": "P1DT1H1M1S"
+      },
+      "mutant_expected": {
+        "iso": "P1DT1H1M1S__mutant__"
+      }
+    },
+    {
+      "name": "duration_to_string_uses_iso_seconds",
+      "version": "2.0",
+      "capability": "duration.format.iso",
+      "replay": "format_duration",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected PT1.500S__mutant__, got PT1.500S",
+      "actual": {
+        "text": "PT1.500S"
+      },
+      "expected": {
+        "text": "PT1.500S"
+      },
+      "mutant_expected": {
+        "text": "PT1.500S__mutant__"
+      }
+    },
+    {
+      "name": "formatter_parses_common_zone_name",
+      "version": "2.0",
+      "capability": "timezone.parse-zone-name",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -05:00__mutant__, got -05:00",
+      "actual": {
+        "zone": "America/New_York",
+        "offset": "-05:00",
+        "local": "2010-01-01T00:00:00.000",
+        "millis_of_second": "0",
+        "zone_name_contains": "Eastern Standard Time"
+      },
+      "expected": {
+        "offset": "-05:00"
+      },
+      "mutant_expected": {
+        "offset": "-05:00__mutant__"
+      }
+    },
+    {
+      "name": "formatter_parses_region_zone_id",
+      "version": "2.0",
+      "capability": "timezone.parse-zone-id",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "zone": "Europe/London",
+        "offset": "+01:00",
+        "local": "2010-06-01T12:00:00.000",
+        "millis_of_second": "0",
+        "zone_name_contains": "British Summer Time"
+      },
+      "expected": {
+        "zone": "Europe/London",
+        "offset": "+01:00"
+      },
+      "mutant_expected": {
+        "zone": "Europe/London__mutant__",
+        "offset": "+01:00"
+      }
+    },
+    {
+      "name": "month_day_parser_accepts_february_29_without_year",
+      "version": "2.0",
+      "capability": "partial.month-day.parse",
+      "replay": "parse_month_day",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "month_day: expected --02-29__mutant__, got --02-29",
+      "actual": {
+        "month_day": "--02-29"
+      },
+      "expected": {
+        "month_day": "--02-29"
+      },
+      "mutant_expected": {
+        "month_day": "--02-29__mutant__"
+      }
+    },
+    {
+      "name": "offset_parser_accepts_literal_z_as_utc",
+      "version": "2.0",
+      "capability": "timezone.parse-offset",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "zone": "Etc/UTC",
+        "offset": "+00:00",
+        "local": "2010-01-01T00:00:00.000",
+        "millis_of_second": "0",
+        "zone_name_contains": "Coordinated Universal Time"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant_expected": {
+        "offset": "+00:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2011h_contains_london_zone",
+      "version": "2.0",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2011h_new_york_summer_offset",
+      "version": "2.0",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "with_time_at_start_of_day_returns_first_valid_time",
+      "version": "2.0",
+      "capability": "local-date.start-of-day",
+      "replay": "start_of_day",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local_time: expected 00:00:00__mutant__, got 00:00:00",
+      "actual": {
+        "local_date": "2015-03-29",
+        "local_time": "00:00:00.000",
+        "local_time_not": "00:00:00.000",
+        "offset": "+01:00"
+      },
+      "expected": {
+        "local_time": "00:00:00",
+        "offset": "+01:00"
+      },
+      "mutant_expected": {
+        "local_time": "00:00:00__mutant__",
+        "offset": "+01:00"
+      }
+    },
+    {
+      "name": "word_based_period_format_pluralizes_days",
+      "version": "2.0",
+      "capability": "period.format.words",
+      "replay": "format_period_words",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "2 days__mutant__ not contained in 2 days",
+      "actual": {
+        "text": "2 days",
+        "contains": "2 days"
+      },
+      "expected": {
+        "contains": "2 days"
+      },
+      "mutant_expected": {
+        "contains": "2 days__mutant__"
+      }
+    },
+    {
+      "name": "zone_id_lookup_is_case_sensitive",
+      "version": "2.0",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unknown-zone, got unknown-zone",
+      "mutant_reason": "expected throw __no_throw_expected__, got unknown-zone",
+      "actual": {
+        "throws": "unknown-zone",
+        "message": "java.lang.IllegalArgumentException: The datetime zone id 'europe/london' is not recognised"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "zone_id_parser_accepts_slash_region_ids",
+      "version": "2.0",
+      "capability": "timezone.parse-zone-id",
+      "replay": "parse_zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "zone": "Europe/London"
+      },
+      "expected": {
+        "zone": "Europe/London"
+      },
+      "mutant_expected": {
+        "zone": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "ambiguous_london_fall_back_picks_summer_offset",
+      "version": "2.1",
+      "capability": "timezone.dst-overlap",
+      "replay": "resolve_local",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +01:00__mutant__, got +01:00",
+      "actual": {
+        "offset": "+01:00"
+      },
+      "expected": {
+        "offset": "+01:00"
+      },
+      "mutant_expected": {
+        "offset": "+01:00__mutant__"
+      }
+    },
+    {
+      "name": "julian_chronology_accepts_julian_leap_day",
+      "version": "2.1",
+      "capability": "chronology.julian",
+      "replay": "chronology_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "valid: expected False, got true",
+      "actual": {
+        "valid": "true"
+      },
+      "expected": {
+        "valid": true
+      },
+      "mutant_expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "timezone_parser_prefers_longest_zone_id",
+      "version": "2.1",
+      "capability": "timezone.parse-longest-id",
+      "replay": "parse_zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected America/Dawson_Creek__mutant__, got America/Dawson_Creek",
+      "actual": {
+        "zone": "America/Dawson_Creek"
+      },
+      "expected": {
+        "zone": "America/Dawson_Creek"
+      },
+      "mutant_expected": {
+        "zone": "America/Dawson_Creek__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2011n_contains_london_zone",
+      "version": "2.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2011n_new_york_summer_offset",
+      "version": "2.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "with_earlier_offset_at_overlap_uses_pre_transition_offset",
+      "version": "2.1",
+      "capability": "timezone.dst-overlap",
+      "replay": "overlap_offset_choice",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "with_later_offset_at_overlap_uses_post_transition_offset",
+      "version": "2.1",
+      "capability": "timezone.dst-overlap",
+      "replay": "overlap_offset_choice",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -05:00__mutant__, got -05:00",
+      "actual": {
+        "offset": "-05:00"
+      },
+      "expected": {
+        "offset": "-05:00"
+      },
+      "mutant_expected": {
+        "offset": "-05:00__mutant__"
+      }
+    },
+    {
+      "name": "duration_parse_small_negative_fraction",
+      "version": "2.2",
+      "capability": "duration.parse.iso",
+      "replay": "parse_duration",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected -499, got -500",
+      "actual": {
+        "millis": "-500"
+      },
+      "expected": {
+        "millis": -500
+      },
+      "mutant_expected": {
+        "millis": -499
+      }
+    },
+    {
+      "name": "month_day_plus_days_wraps_year_boundary",
+      "version": "2.2",
+      "capability": "partial.month-day",
+      "replay": "month_day_add",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "month_day: expected --01-01__mutant__, got --01-01",
+      "actual": {
+        "month_day": "--01-01"
+      },
+      "expected": {
+        "month_day": "--01-01"
+      },
+      "mutant_expected": {
+        "month_day": "--01-01__mutant__"
+      }
+    },
+    {
+      "name": "parse_into_month_day_retains_existing_year",
+      "version": "2.2",
+      "capability": "datetime.parse-into",
+      "replay": "parse_into",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2012-02-03__mutant__, got 2012-02-03",
+      "actual": {
+        "date": "2012-02-03"
+      },
+      "expected": {
+        "date": "2012-02-03"
+      },
+      "mutant_expected": {
+        "date": "2012-02-03__mutant__"
+      }
+    },
+    {
+      "name": "parse_only_formatter_throws_when_printing",
+      "version": "2.2",
+      "capability": "datetime.formatter-capability",
+      "replay": "formatter_capability",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unsupported, got unsupported",
+      "mutant_reason": "expected throw __no_throw_expected__, got unsupported",
+      "actual": {
+        "throws": "unsupported",
+        "message": "java.lang.UnsupportedOperationException: parser-only formatter cannot print"
+      },
+      "expected": {
+        "throws": "unsupported"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "tzdb_2012j_contains_london_zone",
+      "version": "2.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2012j_new_york_summer_offset",
+      "version": "2.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "interval_is_equal_compares_bounds",
+      "version": "2.3",
+      "capability": "interval.relation",
+      "replay": "interval_relation",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "value: expected False, got true",
+      "actual": {
+        "value": "true"
+      },
+      "expected": {
+        "value": true
+      },
+      "mutant_expected": {
+        "value": false
+      }
+    },
+    {
+      "name": "negative_subhour_offset_is_allowed",
+      "version": "2.3",
+      "capability": "timezone.offset-range",
+      "replay": "fixed_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -00:30__mutant__, got -00:30",
+      "actual": {
+        "offset": "-00:30"
+      },
+      "expected": {
+        "offset": "-00:30"
+      },
+      "mutant_expected": {
+        "offset": "-00:30__mutant__"
+      }
+    },
+    {
+      "name": "short_timezone_name_parser_uses_short_name_offset",
+      "version": "2.3",
+      "capability": "timezone.parse-longest-name",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -08:00__mutant__, got -08:00",
+      "actual": {
+        "zone": "America/Los_Angeles",
+        "offset": "-08:00",
+        "local": "2013-01-01T00:00:00.000",
+        "millis_of_second": "0",
+        "zone_name_contains": "Pacific Standard Time"
+      },
+      "expected": {
+        "offset": "-08:00"
+      },
+      "mutant_expected": {
+        "offset": "-08:00__mutant__"
+      }
+    },
+    {
+      "name": "timezone_offset_rejects_full_24_hours",
+      "version": "2.3",
+      "capability": "timezone.offset-range",
+      "replay": "fixed_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw invalid-offset, got invalid-offset",
+      "mutant_reason": "expected throw __no_throw_expected__, got invalid-offset",
+      "actual": {
+        "throws": "invalid-offset",
+        "message": "java.lang.IllegalArgumentException: Hours out of range: 24"
+      },
+      "expected": {
+        "throws": "invalid-offset"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "tzdb_2013d_contains_london_zone",
+      "version": "2.3",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2013d_new_york_summer_offset",
+      "version": "2.3",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "day_field_is_leap_reports_feb_29",
+      "version": "2.4",
+      "capability": "local-date.leap",
+      "replay": "field_is_leap",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "is_leap: expected False, got true",
+      "actual": {
+        "is_leap": "true"
+      },
+      "expected": {
+        "is_leap": true
+      },
+      "mutant_expected": {
+        "is_leap": false
+      }
+    },
+    {
+      "name": "duration_multiplied_by_scales_millis",
+      "version": "2.4",
+      "capability": "duration.multiplication",
+      "replay": "duration_multiply",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected 4501, got 4500",
+      "actual": {
+        "millis": "4500"
+      },
+      "expected": {
+        "millis": 4500
+      },
+      "mutant_expected": {
+        "millis": 4501
+      }
+    },
+    {
+      "name": "duration_negated_flips_sign",
+      "version": "2.4",
+      "capability": "duration.negation",
+      "replay": "duration_negate",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected -1499, got -1500",
+      "actual": {
+        "millis": "-1500"
+      },
+      "expected": {
+        "millis": -1500
+      },
+      "mutant_expected": {
+        "millis": -1499
+      }
+    },
+    {
+      "name": "partial_rejects_inconsistent_year_weekyear",
+      "version": "2.4",
+      "capability": "partial.validation",
+      "replay": "partial_create",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw invalid-partial, got invalid-partial",
+      "mutant_reason": "expected throw __no_throw_expected__, got invalid-partial",
+      "actual": {
+        "throws": "invalid-partial",
+        "message": "java.lang.IllegalArgumentException: Types array must be in order largest-smallest, for year-based fields, years is defined as being largest: weekyear < year"
+      },
+      "expected": {
+        "throws": "invalid-partial"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "period_normalized_standard_normalizes_minutes",
+      "version": "2.4",
+      "capability": "period.normalize",
+      "replay": "period_normalize",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected PT1H30M__mutant__, got PT1H30M",
+      "actual": {
+        "iso": "PT1H30M"
+      },
+      "expected": {
+        "iso": "PT1H30M"
+      },
+      "mutant_expected": {
+        "iso": "PT1H30M__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2014e_contains_london_zone",
+      "version": "2.4",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2014e_new_york_summer_offset",
+      "version": "2.4",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "localdate_to_datetime_with_time_uses_supplied_time",
+      "version": "2.5",
+      "capability": "local-date.combine",
+      "replay": "combine_local_date_time",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2014-01-01T23:45:00__mutant__, got 2014-01-01T23:45:00",
+      "actual": {
+        "local": "2014-01-01T23:45:00.000"
+      },
+      "expected": {
+        "local": "2014-01-01T23:45:00"
+      },
+      "mutant_expected": {
+        "local": "2014-01-01T23:45:00__mutant__"
+      }
+    },
+    {
+      "name": "manifest_exposes_timezone_database_version",
+      "version": "2.5",
+      "capability": "timezone.tzdb-version",
+      "replay": "tzdb_version",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "2026cgtz does not match __never_matches__",
+      "actual": {
+        "value": "2026cgtz"
+      },
+      "expected": {
+        "matches": "\\\\d{4}[a-z].*"
+      },
+      "mutant_expected": {
+        "matches": "__never_matches__"
+      }
+    },
+    {
+      "name": "period_regex_formatter_parses_selected_fields",
+      "version": "2.5",
+      "capability": "period.format.regex",
+      "replay": "parse_period_regex",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P2W__mutant__, got P2W",
+      "actual": {
+        "iso": "P2W"
+      },
+      "expected": {
+        "iso": "P2W"
+      },
+      "mutant_expected": {
+        "iso": "P2W__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2014h_contains_london_zone",
+      "version": "2.5",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2014h_new_york_summer_offset",
+      "version": "2.5",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2014j_contains_london_zone",
+      "version": "2.6",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2014j_new_york_summer_offset",
+      "version": "2.6",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "asia_dhaka_offset_matches_tzdb",
+      "version": "2.7",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +06:00__mutant__, got +06:00",
+      "actual": {
+        "offset": "+06:00"
+      },
+      "expected": {
+        "offset": "+06:00"
+      },
+      "mutant_expected": {
+        "offset": "+06:00__mutant__"
+      }
+    },
+    {
+      "name": "datetime_with_date_preserves_time_and_zone",
+      "version": "2.7",
+      "capability": "datetime.with-date",
+      "replay": "datetime_with_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2015-02-03T12:34:56__mutant__, got 2015-02-03T12:34:56",
+      "actual": {
+        "local": "2015-02-03T12:34:56.000",
+        "zone": "Europe/Paris"
+      },
+      "expected": {
+        "local": "2015-02-03T12:34:56",
+        "zone": "Europe/Paris"
+      },
+      "mutant_expected": {
+        "local": "2015-02-03T12:34:56__mutant__",
+        "zone": "Europe/Paris"
+      }
+    },
+    {
+      "name": "period_formatter_with_locale_controls_words",
+      "version": "2.7",
+      "capability": "period.format.locale",
+      "replay": "format_period_words",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "jour__mutant__ not contained in 1 jour",
+      "actual": {
+        "text": "1 jour",
+        "contains": "1 jour"
+      },
+      "expected": {
+        "contains": "jour"
+      },
+      "mutant_expected": {
+        "contains": "jour__mutant__"
+      }
+    },
+    {
+      "name": "etc_gmt_formats_using_gmt_name_data",
+      "version": "2.8",
+      "capability": "timezone.format-name",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected GMT__mutant__, got GMT",
+      "actual": {
+        "text": "GMT",
+        "contains_time": "false",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "GMT"
+      },
+      "mutant_expected": {
+        "text": "GMT__mutant__"
+      }
+    },
+    {
+      "name": "period_parse_roundtrips_standard_fields",
+      "version": "2.8",
+      "capability": "period.parse.iso",
+      "replay": "parse_period",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P1Y2M3DT4H5M6S__mutant__, got P1Y2M3DT4H5M6S",
+      "actual": {
+        "iso": "P1Y2M3DT4H5M6S",
+        "millis": "0"
+      },
+      "expected": {
+        "iso": "P1Y2M3DT4H5M6S"
+      },
+      "mutant_expected": {
+        "iso": "P1Y2M3DT4H5M6S__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015d_contains_london_zone",
+      "version": "2.8",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015d_new_york_summer_offset",
+      "version": "2.8",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "gmt_zone_formats_as_gmt_name",
+      "version": "2.8.1",
+      "capability": "timezone.format-name",
+      "replay": "format_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "text: expected GMT__mutant__, got GMT",
+      "actual": {
+        "text": "GMT",
+        "contains_time": "false",
+        "contains_date": "false"
+      },
+      "expected": {
+        "text": "GMT"
+      },
+      "mutant_expected": {
+        "text": "GMT__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015e_contains_london_zone",
+      "version": "2.8.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015e_new_york_summer_offset",
+      "version": "2.8.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015f_contains_london_zone",
+      "version": "2.8.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015f_new_york_summer_offset",
+      "version": "2.8.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "basic_iso_date_accepts_redundant_plus_year",
+      "version": "2.9",
+      "capability": "datetime.parse.iso-basic",
+      "replay": "parse_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2015-10-30__mutant__, got 2015-10-30",
+      "actual": {
+        "date": "2015-10-30",
+        "year": "2015",
+        "month": "10",
+        "day": "30"
+      },
+      "expected": {
+        "date": "2015-10-30"
+      },
+      "mutant_expected": {
+        "date": "2015-10-30__mutant__"
+      }
+    },
+    {
+      "name": "interval_parse_with_offset_preserves_fixed_offset",
+      "version": "2.9",
+      "capability": "interval.parse-offset",
+      "replay": "parse_interval",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2015-01-01T00:00:00+02:00__mutant__, got 2015-01-01T00:00:00+02:00",
+      "actual": {
+        "start": "2015-01-01T00:00:00.000+02:00",
+        "end": "2015-01-01T01:00:00.000+02:00",
+        "offset": "+02:00"
+      },
+      "expected": {
+        "start": "2015-01-01T00:00:00+02:00",
+        "end": "2015-01-01T01:00:00+02:00",
+        "offset": "+02:00"
+      },
+      "mutant_expected": {
+        "start": "2015-01-01T00:00:00+02:00__mutant__",
+        "end": "2015-01-01T01:00:00+02:00",
+        "offset": "+02:00"
+      }
+    },
+    {
+      "name": "tzdb_2015g_contains_london_zone",
+      "version": "2.9",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2015g_new_york_summer_offset",
+      "version": "2.9",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "timezone_parse_does_not_require_zone_at_end",
+      "version": "2.9.2",
+      "capability": "timezone.parse-position",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "zone: expected America/Dawson_Creek__mutant__, got America/Dawson_Creek",
+      "actual": {
+        "zone": "America/Dawson_Creek",
+        "offset": "-07:00",
+        "local": "2016-01-01T00:00:00.000",
+        "millis_of_second": "0",
+        "zone_name_contains": "Mountain Standard Time"
+      },
+      "expected": {
+        "zone": "America/Dawson_Creek",
+        "local": "2016-01-01T00:00:00"
+      },
+      "mutant_expected": {
+        "zone": "America/Dawson_Creek__mutant__",
+        "local": "2016-01-01T00:00:00"
+      }
+    },
+    {
+      "name": "tzdb_2016a_contains_london_zone",
+      "version": "2.9.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016a_new_york_summer_offset",
+      "version": "2.9.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "add_max_int_months_rejects_overflow",
+      "version": "2.9.3",
+      "capability": "period.months.overflow",
+      "replay": "plus_months_extreme",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 178958970-08-01__mutant__, got 178958970-08-01",
+      "actual": {
+        "date": "178958970-08-01"
+      },
+      "expected": {
+        "date": "178958970-08-01"
+      },
+      "mutant_expected": {
+        "date": "178958970-08-01__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016c_contains_london_zone",
+      "version": "2.9.3",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016c_new_york_summer_offset",
+      "version": "2.9.3",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016d_contains_london_zone",
+      "version": "2.9.4",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016d_new_york_summer_offset",
+      "version": "2.9.4",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "duration_divided_by_down_truncates",
+      "version": "2.9.5",
+      "capability": "duration.division",
+      "replay": "duration_divide",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected 3, got 2",
+      "actual": {
+        "millis": "2"
+      },
+      "expected": {
+        "millis": 2
+      },
+      "mutant_expected": {
+        "millis": 3
+      }
+    },
+    {
+      "name": "duration_divided_by_half_up_rounds",
+      "version": "2.9.5",
+      "capability": "duration.division",
+      "replay": "duration_divide",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "millis: expected 4, got 3",
+      "actual": {
+        "millis": "3"
+      },
+      "expected": {
+        "millis": 3
+      },
+      "mutant_expected": {
+        "millis": 4
+      }
+    },
+    {
+      "name": "tzdb_2016i_contains_london_zone",
+      "version": "2.9.5",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016i_new_york_summer_offset",
+      "version": "2.9.5",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "timezone_display_name_with_non_ascii_digits_converts",
+      "version": "2.9.6",
+      "capability": "timezone.jdk-conversion",
+      "replay": "java_timezone_name_digits",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +03:00__mutant__, got +03:00",
+      "actual": {
+        "offset": "+03:00"
+      },
+      "expected": {
+        "offset": "+03:00"
+      },
+      "mutant_expected": {
+        "offset": "+03:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016j_contains_london_zone",
+      "version": "2.9.7",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2016j_new_york_summer_offset",
+      "version": "2.9.7",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "plus_max_int_months_does_not_overflow_silently",
+      "version": "2.9.8",
+      "capability": "period.months.overflow",
+      "replay": "plus_months_extreme",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 178958970-08-01__mutant__, got 178958970-08-01",
+      "actual": {
+        "date": "178958970-08-01"
+      },
+      "expected": {
+        "date": "178958970-08-01"
+      },
+      "mutant_expected": {
+        "date": "178958970-08-01__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2017b_contains_london_zone",
+      "version": "2.9.8",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2017b_new_york_summer_offset",
+      "version": "2.9.8",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "instant_epoch_is_unix_epoch",
+      "version": "2.10",
+      "capability": "instant.epoch",
+      "replay": "instant_constant",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "epoch_millis: expected 1, got 0",
+      "actual": {
+        "epoch_millis": "0"
+      },
+      "expected": {
+        "epoch_millis": 0
+      },
+      "mutant_expected": {
+        "epoch_millis": 1
+      }
+    },
+    {
+      "name": "instant_of_epoch_milli_preserves_millis",
+      "version": "2.10",
+      "capability": "instant.factory",
+      "replay": "instant_from_epoch_millis",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected 1970-01-02T10:17:36.789Z__mutant__, got 1970-01-02T10:17:36.789Z",
+      "actual": {
+        "iso": "1970-01-02T10:17:36.789Z"
+      },
+      "expected": {
+        "iso": "1970-01-02T10:17:36.789Z"
+      },
+      "mutant_expected": {
+        "iso": "1970-01-02T10:17:36.789Z__mutant__"
+      }
+    },
+    {
+      "name": "instant_of_epoch_second_preserves_seconds",
+      "version": "2.10",
+      "capability": "instant.factory",
+      "replay": "instant_from_epoch_seconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected 1973-11-29T21:33:09.000Z__mutant__, got 1973-11-29T21:33:09Z",
+      "actual": {
+        "iso": "1973-11-29T21:33:09.000Z"
+      },
+      "expected": {
+        "iso": "1973-11-29T21:33:09.000Z"
+      },
+      "mutant_expected": {
+        "iso": "1973-11-29T21:33:09.000Z__mutant__"
+      }
+    },
+    {
+      "name": "lenient_chronology_adds_overflow_once",
+      "version": "2.10",
+      "capability": "chronology.lenient-addition",
+      "replay": "lenient_local_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2014-02-01T01:00:00__mutant__, got 2014-02-01T01:00:00",
+      "actual": {
+        "local": "2014-02-01T01:00:00.000"
+      },
+      "expected": {
+        "local": "2014-02-01T01:00:00"
+      },
+      "mutant_expected": {
+        "local": "2014-02-01T01:00:00__mutant__"
+      }
+    },
+    {
+      "name": "negative_dst_save_values_preserve_dublin_summer",
+      "version": "2.10",
+      "capability": "timezone.negative-dst",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +01:00__mutant__, got +01:00",
+      "actual": {
+        "offset": "+01:00"
+      },
+      "expected": {
+        "offset": "+01:00"
+      },
+      "mutant_expected": {
+        "offset": "+01:00__mutant__"
+      }
+    },
+    {
+      "name": "negative_dst_save_values_preserve_dublin_winter",
+      "version": "2.10",
+      "capability": "timezone.negative-dst",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "offset": "+00:00"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant_expected": {
+        "offset": "+00:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2018e_contains_london_zone",
+      "version": "2.10",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2018e_new_york_summer_offset",
+      "version": "2.10",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "namibia_post_2017_no_longer_observes_dst",
+      "version": "2.10.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +02:00__mutant__, got +02:00",
+      "actual": {
+        "offset": "+02:00"
+      },
+      "expected": {
+        "offset": "+02:00"
+      },
+      "mutant_expected": {
+        "offset": "+02:00__mutant__"
+      }
+    },
+    {
+      "name": "tokyo_historic_offset_uses_tzdb_compiler_result",
+      "version": "2.10.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +10:00__mutant__, got +10:00",
+      "actual": {
+        "offset": "+10:00"
+      },
+      "expected": {
+        "offset": "+10:00"
+      },
+      "mutant_expected": {
+        "offset": "+10:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2018g_contains_london_zone",
+      "version": "2.10.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2018g_new_york_summer_offset",
+      "version": "2.10.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "period_years_factory_returns_year_period",
+      "version": "2.10.2",
+      "capability": "period.factory",
+      "replay": "period_factory",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "iso: expected P2Y__mutant__, got P2Y",
+      "actual": {
+        "iso": "P2Y"
+      },
+      "expected": {
+        "iso": "P2Y"
+      },
+      "mutant_expected": {
+        "iso": "P2Y__mutant__"
+      }
+    },
+    {
+      "name": "start_of_day_skips_midnight_dst_gap",
+      "version": "2.10.2",
+      "capability": "local-date.start-of-day",
+      "replay": "start_of_day",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local_time: expected 01:00:00__mutant__, got 01:00:00",
+      "actual": {
+        "local_date": "2018-11-04",
+        "local_time": "01:00:00.000",
+        "local_time_not": "01:00:00.000",
+        "offset": "-02:00"
+      },
+      "expected": {
+        "local_time": "01:00:00",
+        "offset": "-02:00"
+      },
+      "mutant_expected": {
+        "local_time": "01:00:00__mutant__",
+        "offset": "-02:00"
+      }
+    },
+    {
+      "name": "tzdb_2019a_contains_london_zone",
+      "version": "2.10.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2019a_new_york_summer_offset",
+      "version": "2.10.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2019b_contains_london_zone",
+      "version": "2.10.3",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2019b_new_york_summer_offset",
+      "version": "2.10.3",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2019c_contains_london_zone",
+      "version": "2.10.4",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2019c_new_york_summer_offset",
+      "version": "2.10.4",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020a_contains_london_zone",
+      "version": "2.10.6",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020a_new_york_summer_offset",
+      "version": "2.10.6",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "removed_tzdb_zone_pacific_new",
+      "version": "2.10.7",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unknown-zone, got unknown-zone",
+      "mutant_reason": "expected throw __no_throw_expected__, got unknown-zone",
+      "actual": {
+        "throws": "unknown-zone",
+        "message": "java.lang.IllegalArgumentException: The datetime zone id 'Pacific/New' is not recognised"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "removed_tzdb_zone_systemv_est5",
+      "version": "2.10.7",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw unknown-zone, got unknown-zone",
+      "mutant_reason": "expected throw __no_throw_expected__, got unknown-zone",
+      "actual": {
+        "throws": "unknown-zone",
+        "message": "java.lang.IllegalArgumentException: The datetime zone id 'SystemV/EST5' is not recognised"
+      },
+      "expected": {
+        "throws": "unknown-zone"
+      },
+      "mutant_expected": {
+        "throws": "__no_throw_expected__"
+      }
+    },
+    {
+      "name": "russian_month_name_formats_in_locale",
+      "version": "2.10.7",
+      "capability": "datetime.format.locale",
+      "replay": "format_local_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "март__mutant__ not contained in марта",
+      "actual": {
+        "text": "марта"
+      },
+      "expected": {
+        "contains": "март"
+      },
+      "mutant_expected": {
+        "contains": "март__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020c_contains_london_zone",
+      "version": "2.10.7",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020c_new_york_summer_offset",
+      "version": "2.10.7",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020d_contains_london_zone",
+      "version": "2.10.8",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020d_new_york_summer_offset",
+      "version": "2.10.8",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020e_contains_london_zone",
+      "version": "2.10.9",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2020e_new_york_summer_offset",
+      "version": "2.10.9",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2021a_contains_london_zone",
+      "version": "2.10.10",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2021a_new_york_summer_offset",
+      "version": "2.10.10",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "timezone_provider_rejects_destructive_empty_data",
+      "version": "2.10.11",
+      "capability": "timezone.provider-safety",
+      "replay": "available_zone_ids",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "Europe/London__mutant__ not contained in Africa/Abidjan,Africa/Accra,Africa/Addis_Ababa,Africa/Algiers,Africa/Asmara,Africa/Asmera,Africa/Bamako,Africa/Bangui,Africa/Banjul,Africa/Bissau,Africa/Blantyre,Africa/Brazzaville,Africa/Bujumbura,Africa/Cairo,Africa/Casablanca,Africa/Ceuta,Africa/Conakry,Africa/Dakar,Africa/Dar_es_Salaam,Africa/Djibouti,Africa/Douala,Africa/El_Aaiun,Africa/Freetown,Africa/Gaborone,Africa/Harare,Africa/Johannesburg,Africa/Juba,Africa/Kampala,Africa/Khartoum,Africa/Kigali,Africa/Kinshasa,Africa/Lagos,Africa/Libreville,Africa/Lome,Africa/Luanda,Africa/Lubumbashi,Africa/Lusaka,Africa/Malabo,Africa/Maputo,Africa/Maseru,Africa/Mbabane,Africa/Mogadishu,Africa/Monrovia,Africa/Nairobi,Africa/Ndjamena,Africa/Niamey,Africa/Nouakchott,Africa/Ouagadougou,Africa/Porto-Novo,Africa/Sao_Tome,Africa/Timbuktu,Africa/Tripoli,Africa/Tunis,Africa/Windhoek,America/Adak,America/Anchorage,America/Anguilla,America/Antigua,America/Araguaina,America/Argentina/Buenos_Aires,America/Argentina/Catamarca,America/Argentina/ComodRivadavia,America/Argentina/Cordoba,America/Argentina/Jujuy,America/Argentina/La_Rioja,America/Argentina/Mendoza,America/Argentina/Rio_Gallegos,America/Argentina/Salta,America/Argentina/San_Juan,America/Argentina/San_Luis,America/Argentina/Tucuman,America/Argentina/Ushuaia,America/Aruba,America/Asuncion,America/Atikokan,America/Atka,America/Bahia,America/Bahia_Banderas,America/Barbados,America/Belem,America/Belize,America/Blanc-Sablon,America/Boa_Vista,America/Bogota,America/Boise,America/Buenos_Aires,America/Cambridge_Bay,America/Campo_Grande,America/Cancun,America/Caracas,America/Catamarca,America/Cayenne,America/Cayman,America/Chicago,America/Chihuahua,America/Ciudad_Juarez,America/Coral_Harbour,America/Cordoba,America/Costa_Rica,America/Coyhaique,America/Creston,America/Cuiaba,America/Curacao,America/Danmarkshavn,America/Dawson,America/Dawson_Creek,America/Denver,America/Detroit,America/Dominica,America/Edmonton,America/Eirunepe,America/El_Salvador,America/Ensenada,America/Fort_Nelson,America/Fort_Wayne,America/Fortaleza,America/Glace_Bay,America/Godthab,America/Goose_Bay,America/Grand_Turk,America/Grenada,America/Guadeloupe,America/Guatemala,America/Guayaquil,America/Guyana,America/Halifax,America/Havana,America/Hermosillo,America/Indiana/Indianapolis,America/Indiana/Knox,America/Indiana/Marengo,America/Indiana/Petersburg,America/Indiana/Tell_City,America/Indiana/Vevay,America/Indiana/Vincennes,America/Indiana/Winamac,America/Indianapolis,America/Inuvik,America/Iqaluit,America/Jamaica,America/Jujuy,America/Juneau,America/Kentucky/Louisville,America/Kentucky/Monticello,America/Knox_IN,America/Kralendijk,America/La_Paz,America/Lima,America/Los_Angeles,America/Louisville,America/Lower_Princes,America/Maceio,America/Managua,America/Manaus,America/Marigot,America/Martinique,America/Matamoros,America/Mazatlan,America/Mendoza,America/Menominee,America/Merida,America/Metlakatla,America/Mexico_City,America/Miquelon,America/Moncton,America/Monterrey,America/Montevideo,America/Montreal,America/Montserrat,America/Nassau,America/New_York,America/Nipigon,America/Nome,America/Noronha,America/North_Dakota/Beulah,America/North_Dakota/Center,America/North_Dakota/New_Salem,America/Nuuk,America/Ojinaga,America/Panama,America/Pangnirtung,America/Paramaribo,America/Phoenix,America/Port-au-Prince,America/Port_of_Spain,America/Porto_Acre,America/Porto_Velho,America/Puerto_Rico,America/Punta_Arenas,America/Rainy_River,America/Rankin_Inlet,America/Recife,America/Regina,America/Resolute,America/Rio_Branco,America/Rosario,America/Santa_Isabel,America/Santarem,America/Santiago,America/Santo_Domingo,America/Sao_Paulo,America/Scoresbysund,America/Shiprock,America/Sitka,America/St_Barthelemy,America/St_Johns,America/St_Kitts,America/St_Lucia,America/St_Thomas,America/St_Vincent,America/Swift_Current,America/Tegucigalpa,America/Thule,America/Thunder_Bay,America/Tijuana,America/Toronto,America/Tortola,America/Vancouver,America/Virgin,America/Whitehorse,America/Winnipeg,America/Yakutat,America/Yellowknife,Antarctica/Casey,Antarctica/Davis,Antarctica/DumontDUrville,Antarctica/Macquarie,Antarctica/Mawson,Antarctica/McMurdo,Antarctica/Palmer,Antarctica/Rothera,Antarctica/South_Pole,Antarctica/Syowa,Antarctica/Troll,Antarctica/Vostok,Arctic/Longyearbyen,Asia/Aden,Asia/Almaty,Asia/Amman,Asia/Anadyr,Asia/Aqtau,Asia/Aqtobe,Asia/Ashgabat,Asia/Ashkhabad,Asia/Atyrau,Asia/Baghdad,Asia/Bahrain,Asia/Baku,Asia/Bangkok,Asia/Barnaul,Asia/Beirut,Asia/Bishkek,Asia/Brunei,Asia/Calcutta,Asia/Chita,Asia/Choibalsan,Asia/Chongqing,Asia/Chungking,Asia/Colombo,Asia/Dacca,Asia/Damascus,Asia/Dhaka,Asia/Dili,Asia/Dubai,Asia/Dushanbe,Asia/Famagusta,Asia/Gaza,Asia/Harbin,Asia/Hebron,Asia/Ho_Chi_Minh,Asia/Hong_Kong,Asia/Hovd,Asia/Irkutsk,Asia/Istanbul,Asia/Jakarta,Asia/Jayapura,Asia/Jerusalem,Asia/Kabul,Asia/Kamchatka,Asia/Karachi,Asia/Kashgar,Asia/Kathmandu,Asia/Katmandu,Asia/Khandyga,Asia/Kolkata,Asia/Krasnoyarsk,Asia/Kuala_Lumpur,Asia/Kuching,Asia/Kuwait,Asia/Macao,Asia/Macau,Asia/Magadan,Asia/Makassar,Asia/Manila,Asia/Muscat,Asia/Nicosia,Asia/Novokuznetsk,Asia/Novosibirsk,Asia/Omsk,Asia/Oral,Asia/Phnom_Penh,Asia/Pontianak,Asia/Pyongyang,Asia/Qatar,Asia/Qostanay,Asia/Qyzylorda,Asia/Rangoon,Asia/Riyadh,Asia/Saigon,Asia/Sakhalin,Asia/Samarkand,Asia/Seoul,Asia/Shanghai,Asia/Singapore,Asia/Srednekolymsk,Asia/Taipei,Asia/Tashkent,Asia/Tbilisi,Asia/Tehran,Asia/Tel_Aviv,Asia/Thimbu,Asia/Thimphu,Asia/Tokyo,Asia/Tomsk,Asia/Ujung_Pandang,Asia/Ulaanbaatar,Asia/Ulan_Bator,Asia/Urumqi,Asia/Ust-Nera,Asia/Vientiane,Asia/Vladivostok,Asia/Yakutsk,Asia/Yangon,Asia/Yekaterinburg,Asia/Yerevan,Atlantic/Azores,Atlantic/Bermuda,Atlantic/Canary,Atlantic/Cape_Verde,Atlantic/Faeroe,Atlantic/Faroe,Atlantic/Jan_Mayen,Atlantic/Madeira,Atlantic/Reykjavik,Atlantic/South_Georgia,Atlantic/St_Helena,Atlantic/Stanley,Australia/ACT,Australia/Adelaide,Australia/Brisbane,Australia/Broken_Hill,Australia/Canberra,Australia/Currie,Australia/Darwin,Australia/Eucla,Australia/Hobart,Australia/LHI,Australia/Lindeman,Australia/Lord_Howe,Australia/Melbourne,Australia/NSW,Australia/North,Australia/Perth,Australia/Queensland,Australia/South,Australia/Sydney,Australia/Tasmania,Australia/Victoria,Australia/West,Australia/Yancowinna,Brazil/Acre,Brazil/DeNoronha,Brazil/East,Brazil/West,CET,CST6CDT,Canada/Atlantic,Canada/Central,Canada/Eastern,Canada/Mountain,Canada/Newfoundland,Canada/Pacific,Canada/Saskatchewan,Canada/Yukon,Chile/Continental,Chile/EasterIsland,Cuba,EET,EST,EST5EDT,Egypt,Eire,Etc/GMT,Etc/GMT+0,Etc/GMT+1,Etc/GMT+10,Etc/GMT+11,Etc/GMT+12,Etc/GMT+2,Etc/GMT+3,Etc/GMT+4,Etc/GMT+5,Etc/GMT+6,Etc/GMT+7,Etc/GMT+8,Etc/GMT+9,Etc/GMT-0,Etc/GMT-1,Etc/GMT-10,Etc/GMT-11,Etc/GMT-12,Etc/GMT-13,Etc/GMT-14,Etc/GMT-2,Etc/GMT-3,Etc/GMT-4,Etc/GMT-5,Etc/GMT-6,Etc/GMT-7,Etc/GMT-8,Etc/GMT-9,Etc/GMT0,Etc/Greenwich,Etc/UCT,Etc/UTC,Etc/Universal,Etc/Zulu,Europe/Amsterdam,Europe/Andorra,Europe/Astrakhan,Europe/Athens,Europe/Belfast,Europe/Belgrade,Europe/Berlin,Europe/Bratislava,Europe/Brussels,Europe/Bucharest,Europe/Budapest,Europe/Busingen,Europe/Chisinau,Europe/Copenhagen,Europe/Dublin,Europe/Gibraltar,Europe/Guernsey,Europe/Helsinki,Europe/Isle_of_Man,Europe/Istanbul,Europe/Jersey,Europe/Kaliningrad,Europe/Kiev,Europe/Kirov,Europe/Kyiv,Europe/Lisbon,Europe/Ljubljana,Europe/London,Europe/Luxembourg,Europe/Madrid,Europe/Malta,Europe/Mariehamn,Europe/Minsk,Europe/Monaco,Europe/Moscow,Europe/Nicosia,Europe/Oslo,Europe/Paris,Europe/Podgorica,Europe/Prague,Europe/Riga,Europe/Rome,Europe/Samara,Europe/San_Marino,Europe/Sarajevo,Europe/Saratov,Europe/Simferopol,Europe/Skopje,Europe/Sofia,Europe/Stockholm,Europe/Tallinn,Europe/Tirane,Europe/Tiraspol,Europe/Ulyanovsk,Europe/Uzhgorod,Europe/Vaduz,Europe/Vatican,Europe/Vienna,Europe/Vilnius,Europe/Volgograd,Europe/Warsaw,Europe/Zagreb,Europe/Zaporozhye,Europe/Zurich,GB,GB-Eire,GMT,GMT+0,GMT-0,GMT0,Greenwich,HST,Hongkong,Iceland,Indian/Antananarivo,Indian/Chagos,Indian/Christmas,Indian/Cocos,Indian/Comoro,Indian/Kerguelen,Indian/Mahe,Indian/Maldives,Indian/Mauritius,Indian/Mayotte,Indian/Reunion,Iran,Israel,Jamaica,Japan,Kwajalein,Libya,MET,MST,MST7MDT,Mexico/BajaNorte,Mexico/BajaSur,Mexico/General,NZ,NZ-CHAT,Navajo,PRC,PST8PDT,Pacific/Apia,Pacific/Auckland,Pacific/Bougainville,Pacific/Chatham,Pacific/Chuuk,Pacific/Easter,Pacific/Efate,Pacific/Enderbury,Pacific/Fakaofo,Pacific/Fiji,Pacific/Funafuti,Pacific/Galapagos,Pacific/Gambier,Pacific/Guadalcanal,Pacific/Guam,Pacific/Honolulu,Pacific/Johnston,Pacific/Kanton,Pacific/Kiritimati,Pacific/Kosrae,Pacific/Kwajalein,Pacific/Majuro,Pacific/Marquesas,Pacific/Midway,Pacific/Nauru,Pacific/Niue,Pacific/Norfolk,Pacific/Noumea,Pacific/Pago_Pago,Pacific/Palau,Pacific/Pitcairn,Pacific/Pohnpei,Pacific/Ponape,Pacific/Port_Moresby,Pacific/Rarotonga,Pacific/Saipan,Pacific/Samoa,Pacific/Tahiti,Pacific/Tarawa,Pacific/Tongatapu,Pacific/Truk,Pacific/Wake,Pacific/Wallis,Pacific/Yap,Poland,Portugal,ROC,ROK,Singapore,Turkey,UCT,US/Alaska,US/Aleutian,US/Arizona,US/Central,US/East-Indiana,US/Eastern,US/Hawaii,US/Indiana-Starke,US/Michigan,US/Mountain,US/Pacific,US/Samoa,UTC,Universal,W-SU,WET,Zulu",
+      "actual": {
+        "ids": "Africa/Abidjan,Africa/Accra,Africa/Addis_Ababa,Africa/Algiers,Africa/Asmara,Africa/Asmera,Africa/Bamako,Africa/Bangui,Africa/Banjul,Africa/Bissau,Africa/Blantyre,Africa/Brazzaville,Africa/Bujumbura,Africa/Cairo,Africa/Casablanca,Africa/Ceuta,Africa/Conakry,Africa/Dakar,Africa/Dar_es_Salaam,Africa/Djibouti,Africa/Douala,Africa/El_Aaiun,Africa/Freetown,Africa/Gaborone,Africa/Harare,Africa/Johannesburg,Africa/Juba,Africa/Kampala,Africa/Khartoum,Africa/Kigali,Africa/Kinshasa,Africa/Lagos,Africa/Libreville,Africa/Lome,Africa/Luanda,Africa/Lubumbashi,Africa/Lusaka,Africa/Malabo,Africa/Maputo,Africa/Maseru,Africa/Mbabane,Africa/Mogadishu,Africa/Monrovia,Africa/Nairobi,Africa/Ndjamena,Africa/Niamey,Africa/Nouakchott,Africa/Ouagadougou,Africa/Porto-Novo,Africa/Sao_Tome,Africa/Timbuktu,Africa/Tripoli,Africa/Tunis,Africa/Windhoek,America/Adak,America/Anchorage,America/Anguilla,America/Antigua,America/Araguaina,America/Argentina/Buenos_Aires,America/Argentina/Catamarca,America/Argentina/ComodRivadavia,America/Argentina/Cordoba,America/Argentina/Jujuy,America/Argentina/La_Rioja,America/Argentina/Mendoza,America/Argentina/Rio_Gallegos,America/Argentina/Salta,America/Argentina/San_Juan,America/Argentina/San_Luis,America/Argentina/Tucuman,America/Argentina/Ushuaia,America/Aruba,America/Asuncion,America/Atikokan,America/Atka,America/Bahia,America/Bahia_Banderas,America/Barbados,America/Belem,America/Belize,America/Blanc-Sablon,America/Boa_Vista,America/Bogota,America/Boise,America/Buenos_Aires,America/Cambridge_Bay,America/Campo_Grande,America/Cancun,America/Caracas,America/Catamarca,America/Cayenne,America/Cayman,America/Chicago,America/Chihuahua,America/Ciudad_Juarez,America/Coral_Harbour,America/Cordoba,America/Costa_Rica,America/Coyhaique,America/Creston,America/Cuiaba,America/Curacao,America/Danmarkshavn,America/Dawson,America/Dawson_Creek,America/Denver,America/Detroit,America/Dominica,America/Edmonton,America/Eirunepe,America/El_Salvador,America/Ensenada,America/Fort_Nelson,America/Fort_Wayne,America/Fortaleza,America/Glace_Bay,America/Godthab,America/Goose_Bay,America/Grand_Turk,America/Grenada,America/Guadeloupe,America/Guatemala,America/Guayaquil,America/Guyana,America/Halifax,America/Havana,America/Hermosillo,America/Indiana/Indianapolis,America/Indiana/Knox,America/Indiana/Marengo,America/Indiana/Petersburg,America/Indiana/Tell_City,America/Indiana/Vevay,America/Indiana/Vincennes,America/Indiana/Winamac,America/Indianapolis,America/Inuvik,America/Iqaluit,America/Jamaica,America/Jujuy,America/Juneau,America/Kentucky/Louisville,America/Kentucky/Monticello,America/Knox_IN,America/Kralendijk,America/La_Paz,America/Lima,America/Los_Angeles,America/Louisville,America/Lower_Princes,America/Maceio,America/Managua,America/Manaus,America/Marigot,America/Martinique,America/Matamoros,America/Mazatlan,America/Mendoza,America/Menominee,America/Merida,America/Metlakatla,America/Mexico_City,America/Miquelon,America/Moncton,America/Monterrey,America/Montevideo,America/Montreal,America/Montserrat,America/Nassau,America/New_York,America/Nipigon,America/Nome,America/Noronha,America/North_Dakota/Beulah,America/North_Dakota/Center,America/North_Dakota/New_Salem,America/Nuuk,America/Ojinaga,America/Panama,America/Pangnirtung,America/Paramaribo,America/Phoenix,America/Port-au-Prince,America/Port_of_Spain,America/Porto_Acre,America/Porto_Velho,America/Puerto_Rico,America/Punta_Arenas,America/Rainy_River,America/Rankin_Inlet,America/Recife,America/Regina,America/Resolute,America/Rio_Branco,America/Rosario,America/Santa_Isabel,America/Santarem,America/Santiago,America/Santo_Domingo,America/Sao_Paulo,America/Scoresbysund,America/Shiprock,America/Sitka,America/St_Barthelemy,America/St_Johns,America/St_Kitts,America/St_Lucia,America/St_Thomas,America/St_Vincent,America/Swift_Current,America/Tegucigalpa,America/Thule,America/Thunder_Bay,America/Tijuana,America/Toronto,America/Tortola,America/Vancouver,America/Virgin,America/Whitehorse,America/Winnipeg,America/Yakutat,America/Yellowknife,Antarctica/Casey,Antarctica/Davis,Antarctica/DumontDUrville,Antarctica/Macquarie,Antarctica/Mawson,Antarctica/McMurdo,Antarctica/Palmer,Antarctica/Rothera,Antarctica/South_Pole,Antarctica/Syowa,Antarctica/Troll,Antarctica/Vostok,Arctic/Longyearbyen,Asia/Aden,Asia/Almaty,Asia/Amman,Asia/Anadyr,Asia/Aqtau,Asia/Aqtobe,Asia/Ashgabat,Asia/Ashkhabad,Asia/Atyrau,Asia/Baghdad,Asia/Bahrain,Asia/Baku,Asia/Bangkok,Asia/Barnaul,Asia/Beirut,Asia/Bishkek,Asia/Brunei,Asia/Calcutta,Asia/Chita,Asia/Choibalsan,Asia/Chongqing,Asia/Chungking,Asia/Colombo,Asia/Dacca,Asia/Damascus,Asia/Dhaka,Asia/Dili,Asia/Dubai,Asia/Dushanbe,Asia/Famagusta,Asia/Gaza,Asia/Harbin,Asia/Hebron,Asia/Ho_Chi_Minh,Asia/Hong_Kong,Asia/Hovd,Asia/Irkutsk,Asia/Istanbul,Asia/Jakarta,Asia/Jayapura,Asia/Jerusalem,Asia/Kabul,Asia/Kamchatka,Asia/Karachi,Asia/Kashgar,Asia/Kathmandu,Asia/Katmandu,Asia/Khandyga,Asia/Kolkata,Asia/Krasnoyarsk,Asia/Kuala_Lumpur,Asia/Kuching,Asia/Kuwait,Asia/Macao,Asia/Macau,Asia/Magadan,Asia/Makassar,Asia/Manila,Asia/Muscat,Asia/Nicosia,Asia/Novokuznetsk,Asia/Novosibirsk,Asia/Omsk,Asia/Oral,Asia/Phnom_Penh,Asia/Pontianak,Asia/Pyongyang,Asia/Qatar,Asia/Qostanay,Asia/Qyzylorda,Asia/Rangoon,Asia/Riyadh,Asia/Saigon,Asia/Sakhalin,Asia/Samarkand,Asia/Seoul,Asia/Shanghai,Asia/Singapore,Asia/Srednekolymsk,Asia/Taipei,Asia/Tashkent,Asia/Tbilisi,Asia/Tehran,Asia/Tel_Aviv,Asia/Thimbu,Asia/Thimphu,Asia/Tokyo,Asia/Tomsk,Asia/Ujung_Pandang,Asia/Ulaanbaatar,Asia/Ulan_Bator,Asia/Urumqi,Asia/Ust-Nera,Asia/Vientiane,Asia/Vladivostok,Asia/Yakutsk,Asia/Yangon,Asia/Yekaterinburg,Asia/Yerevan,Atlantic/Azores,Atlantic/Bermuda,Atlantic/Canary,Atlantic/Cape_Verde,Atlantic/Faeroe,Atlantic/Faroe,Atlantic/Jan_Mayen,Atlantic/Madeira,Atlantic/Reykjavik,Atlantic/South_Georgia,Atlantic/St_Helena,Atlantic/Stanley,Australia/ACT,Australia/Adelaide,Australia/Brisbane,Australia/Broken_Hill,Australia/Canberra,Australia/Currie,Australia/Darwin,Australia/Eucla,Australia/Hobart,Australia/LHI,Australia/Lindeman,Australia/Lord_Howe,Australia/Melbourne,Australia/NSW,Australia/North,Australia/Perth,Australia/Queensland,Australia/South,Australia/Sydney,Australia/Tasmania,Australia/Victoria,Australia/West,Australia/Yancowinna,Brazil/Acre,Brazil/DeNoronha,Brazil/East,Brazil/West,CET,CST6CDT,Canada/Atlantic,Canada/Central,Canada/Eastern,Canada/Mountain,Canada/Newfoundland,Canada/Pacific,Canada/Saskatchewan,Canada/Yukon,Chile/Continental,Chile/EasterIsland,Cuba,EET,EST,EST5EDT,Egypt,Eire,Etc/GMT,Etc/GMT+0,Etc/GMT+1,Etc/GMT+10,Etc/GMT+11,Etc/GMT+12,Etc/GMT+2,Etc/GMT+3,Etc/GMT+4,Etc/GMT+5,Etc/GMT+6,Etc/GMT+7,Etc/GMT+8,Etc/GMT+9,Etc/GMT-0,Etc/GMT-1,Etc/GMT-10,Etc/GMT-11,Etc/GMT-12,Etc/GMT-13,Etc/GMT-14,Etc/GMT-2,Etc/GMT-3,Etc/GMT-4,Etc/GMT-5,Etc/GMT-6,Etc/GMT-7,Etc/GMT-8,Etc/GMT-9,Etc/GMT0,Etc/Greenwich,Etc/UCT,Etc/UTC,Etc/Universal,Etc/Zulu,Europe/Amsterdam,Europe/Andorra,Europe/Astrakhan,Europe/Athens,Europe/Belfast,Europe/Belgrade,Europe/Berlin,Europe/Bratislava,Europe/Brussels,Europe/Bucharest,Europe/Budapest,Europe/Busingen,Europe/Chisinau,Europe/Copenhagen,Europe/Dublin,Europe/Gibraltar,Europe/Guernsey,Europe/Helsinki,Europe/Isle_of_Man,Europe/Istanbul,Europe/Jersey,Europe/Kaliningrad,Europe/Kiev,Europe/Kirov,Europe/Kyiv,Europe/Lisbon,Europe/Ljubljana,Europe/London,Europe/Luxembourg,Europe/Madrid,Europe/Malta,Europe/Mariehamn,Europe/Minsk,Europe/Monaco,Europe/Moscow,Europe/Nicosia,Europe/Oslo,Europe/Paris,Europe/Podgorica,Europe/Prague,Europe/Riga,Europe/Rome,Europe/Samara,Europe/San_Marino,Europe/Sarajevo,Europe/Saratov,Europe/Simferopol,Europe/Skopje,Europe/Sofia,Europe/Stockholm,Europe/Tallinn,Europe/Tirane,Europe/Tiraspol,Europe/Ulyanovsk,Europe/Uzhgorod,Europe/Vaduz,Europe/Vatican,Europe/Vienna,Europe/Vilnius,Europe/Volgograd,Europe/Warsaw,Europe/Zagreb,Europe/Zaporozhye,Europe/Zurich,GB,GB-Eire,GMT,GMT+0,GMT-0,GMT0,Greenwich,HST,Hongkong,Iceland,Indian/Antananarivo,Indian/Chagos,Indian/Christmas,Indian/Cocos,Indian/Comoro,Indian/Kerguelen,Indian/Mahe,Indian/Maldives,Indian/Mauritius,Indian/Mayotte,Indian/Reunion,Iran,Israel,Jamaica,Japan,Kwajalein,Libya,MET,MST,MST7MDT,Mexico/BajaNorte,Mexico/BajaSur,Mexico/General,NZ,NZ-CHAT,Navajo,PRC,PST8PDT,Pacific/Apia,Pacific/Auckland,Pacific/Bougainville,Pacific/Chatham,Pacific/Chuuk,Pacific/Easter,Pacific/Efate,Pacific/Enderbury,Pacific/Fakaofo,Pacific/Fiji,Pacific/Funafuti,Pacific/Galapagos,Pacific/Gambier,Pacific/Guadalcanal,Pacific/Guam,Pacific/Honolulu,Pacific/Johnston,Pacific/Kanton,Pacific/Kiritimati,Pacific/Kosrae,Pacific/Kwajalein,Pacific/Majuro,Pacific/Marquesas,Pacific/Midway,Pacific/Nauru,Pacific/Niue,Pacific/Norfolk,Pacific/Noumea,Pacific/Pago_Pago,Pacific/Palau,Pacific/Pitcairn,Pacific/Pohnpei,Pacific/Ponape,Pacific/Port_Moresby,Pacific/Rarotonga,Pacific/Saipan,Pacific/Samoa,Pacific/Tahiti,Pacific/Tarawa,Pacific/Tongatapu,Pacific/Truk,Pacific/Wake,Pacific/Wallis,Pacific/Yap,Poland,Portugal,ROC,ROK,Singapore,Turkey,UCT,US/Alaska,US/Aleutian,US/Arizona,US/Central,US/East-Indiana,US/Eastern,US/Hawaii,US/Indiana-Starke,US/Michigan,US/Mountain,US/Pacific,US/Samoa,UTC,Universal,W-SU,WET,Zulu"
+      },
+      "expected": {
+        "contains": "Europe/London"
+      },
+      "mutant_expected": {
+        "contains": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2021bfork3_contains_london_zone",
+      "version": "2.10.12",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2021bfork3_new_york_summer_offset",
+      "version": "2.10.12",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2021efork_contains_london_zone",
+      "version": "2.10.13",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2021efork_new_york_summer_offset",
+      "version": "2.10.13",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "global_tz_retains_pre_1970_zone_data",
+      "version": "2.10.14",
+      "capability": "timezone.pre-1970",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset unexpectedly equals +00:43",
+      "actual": {
+        "offset": "+00:43"
+      },
+      "expected": {
+        "not_offset": "+01:00"
+      },
+      "mutant_expected": {
+        "not_offset": "+00:43"
+      }
+    },
+    {
+      "name": "tzdb_2022agtz_contains_london_zone",
+      "version": "2.10.14",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022agtz_new_york_summer_offset",
+      "version": "2.10.14",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022bgtz_contains_london_zone",
+      "version": "2.11.0",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022bgtz_new_york_summer_offset",
+      "version": "2.11.0",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022cgtz_contains_london_zone",
+      "version": "2.11.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022cgtz_new_york_summer_offset",
+      "version": "2.11.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022dgtz_contains_london_zone",
+      "version": "2.11.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022dgtz_new_york_summer_offset",
+      "version": "2.11.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022egtz_contains_london_zone",
+      "version": "2.12.0",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022egtz_new_york_summer_offset",
+      "version": "2.12.0",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022fgtz_contains_london_zone",
+      "version": "2.12.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022fgtz_new_york_summer_offset",
+      "version": "2.12.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022ggtz_contains_london_zone",
+      "version": "2.12.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2022ggtz_new_york_summer_offset",
+      "version": "2.12.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023agtz_contains_london_zone",
+      "version": "2.12.3",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023agtz_new_york_summer_offset",
+      "version": "2.12.3",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023bgtz_contains_london_zone",
+      "version": "2.12.4",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023bgtz_new_york_summer_offset",
+      "version": "2.12.4",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023cgtz_contains_london_zone",
+      "version": "2.12.5",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023cgtz_new_york_summer_offset",
+      "version": "2.12.5",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "offset_zone_id_plus_hour_parses",
+      "version": "2.12.6",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +01:00__mutant__, got +01:00",
+      "actual": {
+        "canonical_id": "+01:00",
+        "offset": "+01:00"
+      },
+      "expected": {
+        "offset": "+01:00"
+      },
+      "mutant_expected": {
+        "offset": "+01:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023dgtz_contains_london_zone",
+      "version": "2.12.6",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2023dgtz_new_york_summer_offset",
+      "version": "2.12.6",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "zone_id_z_maps_to_utc",
+      "version": "2.12.6",
+      "capability": "timezone.zone-id",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected UTC__mutant__, got UTC",
+      "actual": {
+        "canonical_id": "UTC",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "canonical_id": "UTC"
+      },
+      "mutant_expected": {
+        "canonical_id": "UTC__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2024agtz_contains_london_zone",
+      "version": "2.12.7",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2024agtz_new_york_summer_offset",
+      "version": "2.12.7",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "european_short_zone_id_cet_retained",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected CET__mutant__, got CET",
+      "actual": {
+        "canonical_id": "CET"
+      },
+      "expected": {
+        "canonical_id": "CET"
+      },
+      "mutant_expected": {
+        "canonical_id": "CET__mutant__"
+      }
+    },
+    {
+      "name": "european_short_zone_id_eet_retained",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected EET__mutant__, got EET",
+      "actual": {
+        "canonical_id": "EET"
+      },
+      "expected": {
+        "canonical_id": "EET"
+      },
+      "mutant_expected": {
+        "canonical_id": "EET__mutant__"
+      }
+    },
+    {
+      "name": "european_short_zone_id_wet_retained",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected WET__mutant__, got WET",
+      "actual": {
+        "canonical_id": "WET"
+      },
+      "expected": {
+        "canonical_id": "WET"
+      },
+      "mutant_expected": {
+        "canonical_id": "WET__mutant__"
+      }
+    },
+    {
+      "name": "met_short_zone_id_maps_to_cet",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected CET__mutant__, got CET",
+      "actual": {
+        "canonical_id": "CET"
+      },
+      "expected": {
+        "canonical_id": "CET"
+      },
+      "mutant_expected": {
+        "canonical_id": "CET__mutant__"
+      }
+    },
+    {
+      "name": "short_zone_id_est_maps_to_region",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected America/Panama__mutant__, got America/Panama",
+      "actual": {
+        "canonical_id": "America/Panama"
+      },
+      "expected": {
+        "canonical_id": "America/Panama"
+      },
+      "mutant_expected": {
+        "canonical_id": "America/Panama__mutant__"
+      }
+    },
+    {
+      "name": "short_zone_id_hst_maps_to_region",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Pacific/Honolulu__mutant__, got Pacific/Honolulu",
+      "actual": {
+        "canonical_id": "Pacific/Honolulu"
+      },
+      "expected": {
+        "canonical_id": "Pacific/Honolulu"
+      },
+      "mutant_expected": {
+        "canonical_id": "Pacific/Honolulu__mutant__"
+      }
+    },
+    {
+      "name": "short_zone_id_mst_maps_to_region",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected America/Phoenix__mutant__, got America/Phoenix",
+      "actual": {
+        "canonical_id": "America/Phoenix"
+      },
+      "expected": {
+        "canonical_id": "America/Phoenix"
+      },
+      "mutant_expected": {
+        "canonical_id": "America/Phoenix__mutant__"
+      }
+    },
+    {
+      "name": "short_zone_id_pst8pdt_maps_to_region",
+      "version": "2.13.0",
+      "capability": "timezone.zone-id-alias",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected America/Los_Angeles__mutant__, got America/Los_Angeles",
+      "actual": {
+        "canonical_id": "America/Los_Angeles"
+      },
+      "expected": {
+        "canonical_id": "America/Los_Angeles"
+      },
+      "mutant_expected": {
+        "canonical_id": "America/Los_Angeles__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2024bgtz_contains_london_zone",
+      "version": "2.13.0",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2024bgtz_new_york_summer_offset",
+      "version": "2.13.0",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2025agtz_contains_london_zone",
+      "version": "2.13.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2025agtz_new_york_summer_offset",
+      "version": "2.13.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2025bgtz_contains_london_zone",
+      "version": "2.14.0",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2025bgtz_new_york_summer_offset",
+      "version": "2.14.0",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "timezone_name_key_is_not_raw_percent_z",
+      "version": "2.14.1",
+      "capability": "timezone.name-key",
+      "replay": "zone_name_key",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "value unexpectedly equals GMT",
+      "actual": {
+        "value": "GMT"
+      },
+      "expected": {
+        "not_equals": "%z"
+      },
+      "mutant_expected": {
+        "not_equals": "GMT"
+      }
+    },
+    {
+      "name": "tzdb_2026agtz_contains_london_zone",
+      "version": "2.14.1",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2026agtz_new_york_summer_offset",
+      "version": "2.14.1",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2026bgtz_contains_london_zone",
+      "version": "2.14.2",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2026bgtz_new_york_summer_offset",
+      "version": "2.14.2",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2026cgtz_contains_london_zone",
+      "version": "2.14.3",
+      "capability": "timezone.tzdb-presence",
+      "replay": "zone_id",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "canonical_id: expected Europe/London__mutant__, got Europe/London",
+      "actual": {
+        "canonical_id": "Europe/London"
+      },
+      "expected": {
+        "canonical_id": "Europe/London"
+      },
+      "mutant_expected": {
+        "canonical_id": "Europe/London__mutant__"
+      }
+    },
+    {
+      "name": "tzdb_2026cgtz_new_york_summer_offset",
+      "version": "2.14.3",
+      "capability": "timezone.tzdb-offset",
+      "replay": "zone_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -04:00__mutant__, got -04:00",
+      "actual": {
+        "offset": "-04:00"
+      },
+      "expected": {
+        "offset": "-04:00"
+      },
+      "mutant_expected": {
+        "offset": "-04:00__mutant__"
+      }
+    }
+  ]
+}

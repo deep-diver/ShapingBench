@@ -1,0 +1,1610 @@
+{
+  "summary": {
+    "project": "python-dateutil",
+    "target_version": "2.9.0.post0",
+    "contracts_total": 85,
+    "replay_passed": 85,
+    "mutant_rejected": 85,
+    "verified": 85,
+    "failed": 0
+  },
+  "results": [
+    {
+      "name": "two_digit_zero_year_parses_as_2000",
+      "version": "0.5",
+      "capability": "parser.two-digit-year.zero",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2000-12-31__mutant__, got 2000-12-31",
+      "actual": {
+        "date": "2000-12-31",
+        "time": "00:00:00",
+        "datetime": "2000-12-31T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2000-12-31"
+      }
+    },
+    {
+      "name": "rruleset_rdate_iteration_is_sorted",
+      "version": "0.5",
+      "capability": "rruleset.ordering",
+      "replay": "rruleset_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2020-01-01,2020-01-03__mutant__, got 2020-01-01,2020-01-03",
+      "actual": {
+        "dates": "2020-01-01,2020-01-03",
+        "count": "2"
+      },
+      "expected": {
+        "dates": "2020-01-01,2020-01-03"
+      }
+    },
+    {
+      "name": "rruleset_exdate_is_applied_before_iteration",
+      "version": "0.5",
+      "capability": "rruleset.exdate",
+      "replay": "rruleset_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2020-01-01__mutant__, got 2020-01-01",
+      "actual": {
+        "dates": "2020-01-01",
+        "count": "1"
+      },
+      "expected": {
+        "dates": "2020-01-01"
+      }
+    },
+    {
+      "name": "rrule_between_empty_before_start_is_empty",
+      "version": "0.5",
+      "capability": "rrule.between",
+      "replay": "rrule_between",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "count: expected 1, got 0",
+      "actual": {
+        "count": "0",
+        "dates": ""
+      },
+      "expected": {
+        "count": 0
+      }
+    },
+    {
+      "name": "parserinfo_instance_controls_month_names",
+      "version": "0.9",
+      "capability": "parser.parserinfo",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-01-15__mutant__, got 2020-01-15",
+      "actual": {
+        "date": "2020-01-15",
+        "time": "00:00:00",
+        "datetime": "2020-01-15T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2020-01-15"
+      }
+    },
+    {
+      "name": "weekday_without_n_reports_none",
+      "version": "0.9",
+      "capability": "weekday.n",
+      "replay": "weekday_n",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "n_is_none: expected False, got true",
+      "actual": {
+        "n_is_none": "true"
+      },
+      "expected": {
+        "n_is_none": true
+      }
+    },
+    {
+      "name": "tzoffset_pickles_roundtrip_offset",
+      "version": "0.9",
+      "capability": "timezone.pickle",
+      "replay": "tz_pickle_roundtrip",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset_seconds: expected 19801, got 19800",
+      "actual": {
+        "offset_seconds": "19800"
+      },
+      "expected": {
+        "offset_seconds": 19800
+      }
+    },
+    {
+      "name": "zoneinfo_gettz_returns_internal_zone",
+      "version": "0.9",
+      "capability": "timezone.zoneinfo-internal",
+      "replay": "zoneinfo_gettz",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "has_tzinfo": "true",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "offset": "+00:00"
+      }
+    },
+    {
+      "name": "parser_parses_xxhxxm_time_after_date",
+      "version": "1.0",
+      "capability": "parser.hms-token",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2003-09-25__mutant__, got 2003-09-25",
+      "actual": {
+        "date": "2003-09-25",
+        "time": "10:36:00",
+        "datetime": "2003-09-25T10:36:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2003-09-25",
+        "time": "10:36:00"
+      }
+    },
+    {
+      "name": "rrule_contains_finds_generated_occurrence",
+      "version": "1.0",
+      "capability": "rrule.contains",
+      "replay": "rrule_contains",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "contains: expected False, got true",
+      "actual": {
+        "contains": "true"
+      },
+      "expected": {
+        "contains": true
+      }
+    },
+    {
+      "name": "rrule_byyearday_negative_selects_last_day",
+      "version": "1.1",
+      "capability": "rrule.byyearday",
+      "replay": "rrule_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2020-12-31__mutant__, got 2020-12-31",
+      "actual": {
+        "count": "1",
+        "dates": "2020-12-31",
+        "times": "00:00:00",
+        "has_tzinfo": "false"
+      },
+      "expected": {
+        "dates": "2020-12-31"
+      }
+    },
+    {
+      "name": "gettz_without_argument_returns_local_zone",
+      "version": "1.1",
+      "capability": "timezone.local-default",
+      "replay": "gettz_default",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "has_tzinfo: expected False, got true",
+      "actual": {
+        "has_tzinfo": "true"
+      },
+      "expected": {
+        "has_tzinfo": true
+      }
+    },
+    {
+      "name": "tzoffset_subminute_rounds_to_full_minute_legacy_surface",
+      "version": "1.2",
+      "capability": "timezone.subminute-legacy",
+      "replay": "tzoffset_seconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset_seconds: expected 91, got 90",
+      "actual": {
+        "offset_seconds": "90",
+        "offset": "+00:01"
+      },
+      "expected": {
+        "offset_seconds": 90
+      }
+    },
+    {
+      "name": "parser_decimal_seconds_preserve_microseconds",
+      "version": "1.3",
+      "capability": "parser.fractional-second",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "microsecond: expected 123457, got 123456",
+      "actual": {
+        "date": "2003-09-25",
+        "time": "10:36:28.123456",
+        "datetime": "2003-09-25T10:36:28.123456",
+        "microsecond": "123456",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "microsecond": 123456
+      }
+    },
+    {
+      "name": "module_exposes_version_string",
+      "version": "1.3",
+      "capability": "module.version",
+      "replay": "module_version",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "2.9.0.post0 does not match 2\\\\.9\\\\.0.*__mutant__",
+      "actual": {
+        "value": "2.9.0.post0"
+      },
+      "expected": {
+        "matches": "2\\\\.9\\\\.0.*"
+      }
+    },
+    {
+      "name": "gettz_gmt_plus_3_uses_human_sign",
+      "version": "1.4",
+      "capability": "timezone.gmt-offset-name",
+      "replay": "gettz_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +03:00__mutant__, got +03:00",
+      "actual": {
+        "offset": "+03:00"
+      },
+      "expected": {
+        "offset": "+03:00"
+      }
+    },
+    {
+      "name": "gettz_utc_minus_2_uses_human_sign",
+      "version": "1.4",
+      "capability": "timezone.gmt-offset-name",
+      "replay": "gettz_offset",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected -02:00__mutant__, got -02:00",
+      "actual": {
+        "offset": "-02:00"
+      },
+      "expected": {
+        "offset": "-02:00"
+      }
+    },
+    {
+      "name": "tzstr_without_dst_rules_stays_fixed",
+      "version": "1.4",
+      "capability": "timezone.tzstr-no-dst",
+      "replay": "tzstr_offset_pair",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "winter_offset: expected -05:00__mutant__, got -05:00",
+      "actual": {
+        "winter_offset": "-05:00",
+        "summer_offset": "-05:00"
+      },
+      "expected": {
+        "winter_offset": "-05:00",
+        "summer_offset": "-05:00"
+      }
+    },
+    {
+      "name": "fuzzy_with_tokens_returns_ignored_tokens",
+      "version": "2.2",
+      "capability": "parser.fuzzy-tokens",
+      "replay": "parse_fuzzy_tokens",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2047-01-01__mutant__, got 2047-01-01",
+      "actual": {
+        "date": "2047-01-01",
+        "ignored": "Today is   at ",
+        "ignored_contains": "Today is   at "
+      },
+      "expected": {
+        "date": "2047-01-01",
+        "ignored_contains": "Today is "
+      }
+    },
+    {
+      "name": "rrule_monthly_byweekday_terminates",
+      "version": "2.4.0",
+      "capability": "rrule.termination",
+      "replay": "rrule_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "count: expected 4, got 3",
+      "actual": {
+        "count": "3",
+        "dates": "2015-01-05,2015-01-12,2015-01-19",
+        "times": "00:00:00,00:00:00,00:00:00",
+        "has_tzinfo": "false"
+      },
+      "expected": {
+        "count": 3
+      }
+    },
+    {
+      "name": "parser_rejects_13_pm",
+      "version": "2.4.1",
+      "capability": "parser.validation.hour-ampm",
+      "replay": "parse_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "class": "ParserError",
+        "message": "Unknown string format: 2015-01-01 13 PM"
+      },
+      "expected": {
+        "throws": "parse"
+      }
+    },
+    {
+      "name": "rrule_byweekday_parameter_is_honored",
+      "version": "2.4.1",
+      "capability": "rrule.byweekday",
+      "replay": "rrule_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2015-01-05,2015-01-12__mutant__, got 2015-01-05,2015-01-12",
+      "actual": {
+        "count": "2",
+        "dates": "2015-01-05,2015-01-12",
+        "times": "00:00:00,00:00:00",
+        "has_tzinfo": "false"
+      },
+      "expected": {
+        "dates": "2015-01-05,2015-01-12"
+      }
+    },
+    {
+      "name": "relativedelta_zero_is_false",
+      "version": "2.4.1",
+      "capability": "relativedelta.bool",
+      "replay": "relativedelta_bool",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "value: expected True, got false",
+      "actual": {
+        "value": "false"
+      },
+      "expected": {
+        "value": false
+      }
+    },
+    {
+      "name": "fuzzy_parse_keeps_skipped_ampm_like_token",
+      "version": "2.4.2",
+      "capability": "parser.fuzzy-ampm",
+      "replay": "parse_fuzzy_tokens",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2015-01-01__mutant__, got 2015-01-01",
+      "actual": {
+        "date": "2015-01-01",
+        "ignored": "Meet me at the ham place on ",
+        "ignored_contains": "Meet me at the ham place on "
+      },
+      "expected": {
+        "date": "2015-01-01",
+        "ignored_contains": "ham"
+      }
+    },
+    {
+      "name": "rrule_xafter_returns_multiple_after_date",
+      "version": "2.5.0",
+      "capability": "rrule.xafter",
+      "replay": "rrule_xafter",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2020-01-03,2020-01-04__mutant__, got 2020-01-03,2020-01-04",
+      "actual": {
+        "dates": "2020-01-03,2020-01-04"
+      },
+      "expected": {
+        "dates": "2020-01-03,2020-01-04"
+      }
+    },
+    {
+      "name": "rrule_string_is_rfc_compliant",
+      "version": "2.5.0",
+      "capability": "rrule.format",
+      "replay": "rrule_to_string",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "FREQ=DAILY__mutant__ not contained in DTSTART:20200101T000000\nRRULE:FREQ=DAILY;COUNT=2",
+      "actual": {
+        "text": "DTSTART:20200101T000000\nRRULE:FREQ=DAILY;COUNT=2",
+        "contains": "DTSTART:20200101T000000\nRRULE:FREQ=DAILY;COUNT=2"
+      },
+      "expected": {
+        "contains": "FREQ=DAILY"
+      }
+    },
+    {
+      "name": "relativedelta_weeks_property_roundtrips",
+      "version": "2.5.0",
+      "capability": "relativedelta.weeks",
+      "replay": "relativedelta_weeks",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "weeks: expected 3, got 2",
+      "actual": {
+        "weeks": "2",
+        "days": "14"
+      },
+      "expected": {
+        "weeks": 2,
+        "days": 14
+      }
+    },
+    {
+      "name": "relativedelta_fractional_days_are_supported",
+      "version": "2.5.0",
+      "capability": "relativedelta.fractional",
+      "replay": "relativedelta_apply",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "datetime: expected 2020-01-02T12:00:00__mutant__, got 2020-01-02T12:00:00",
+      "actual": {
+        "date": "2020-01-02",
+        "datetime": "2020-01-02T12:00:00"
+      },
+      "expected": {
+        "datetime": "2020-01-02T12:00:00"
+      }
+    },
+    {
+      "name": "relativedelta_equality_includes_microseconds",
+      "version": "2.5.0",
+      "capability": "relativedelta.equality",
+      "replay": "relativedelta_equal",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "equals: expected True, got false",
+      "actual": {
+        "equals": "false"
+      },
+      "expected": {
+        "equals": false
+      }
+    },
+    {
+      "name": "parser_empty_string_raises_value_error",
+      "version": "2.5.0",
+      "capability": "parser.empty",
+      "replay": "parse_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "class": "ParserError",
+        "message": "String does not contain a date: "
+      },
+      "expected": {
+        "throws": "parse"
+      }
+    },
+    {
+      "name": "parser_missing_day_uses_month_end_when_default_day_too_large",
+      "version": "2.5.0",
+      "capability": "parser.default-eom",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2015-02-28__mutant__, got 2015-02-28",
+      "actual": {
+        "date": "2015-02-28",
+        "time": "00:00:00",
+        "datetime": "2015-02-28T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2015-02-28"
+      }
+    },
+    {
+      "name": "parser_iso_comma_fraction_parses",
+      "version": "2.5.0",
+      "capability": "parser.comma-fraction",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "microsecond: expected 500001, got 500000",
+      "actual": {
+        "date": "2015-01-01",
+        "time": "12:00:00.500000",
+        "datetime": "2015-01-01T12:00:00.500000",
+        "microsecond": "500000",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "microsecond": 500000
+      }
+    },
+    {
+      "name": "rrulestr_missing_byday_raises_error",
+      "version": "2.5.1",
+      "capability": "rrule.parse.validation",
+      "replay": "rrulestr_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "message": "invalid 'BYDAY': "
+      },
+      "expected": {
+        "throws": "parse"
+      }
+    },
+    {
+      "name": "rruleset_cache_respects_exdate",
+      "version": "2.5.1",
+      "capability": "rruleset.cache",
+      "replay": "rruleset_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2020-01-01,2020-01-03__mutant__, got 2020-01-01,2020-01-03",
+      "actual": {
+        "dates": "2020-01-01,2020-01-03",
+        "count": "2"
+      },
+      "expected": {
+        "dates": "2020-01-01,2020-01-03"
+      }
+    },
+    {
+      "name": "parser_no_separator_respects_yearfirst",
+      "version": "2.5.2",
+      "capability": "parser.no-separator-order",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2016-03-04__mutant__, got 2016-03-04",
+      "actual": {
+        "date": "2016-03-04",
+        "time": "00:00:00",
+        "datetime": "2016-03-04T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2016-03-04"
+      }
+    },
+    {
+      "name": "parser_no_separator_respects_dayfirst",
+      "version": "2.5.2",
+      "capability": "parser.no-separator-order",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2016-03-04__mutant__, got 2016-03-04",
+      "actual": {
+        "date": "2016-03-04",
+        "time": "00:00:00",
+        "datetime": "2016-03-04T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2016-03-04"
+      }
+    },
+    {
+      "name": "datetime_ambiguous_detects_fall_back",
+      "version": "2.6.0",
+      "capability": "timezone.ambiguous",
+      "replay": "datetime_ambiguous",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "ambiguous: expected False, got true",
+      "actual": {
+        "ambiguous": "true"
+      },
+      "expected": {
+        "ambiguous": true
+      }
+    },
+    {
+      "name": "datetime_exists_detects_spring_gap",
+      "version": "2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "datetime_exists",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "exists: expected True, got false",
+      "actual": {
+        "exists": "false"
+      },
+      "expected": {
+        "exists": false
+      }
+    },
+    {
+      "name": "resolve_imaginary_moves_gap_forward",
+      "version": "2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "resolve_imaginary",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "local: expected 2017-03-12T03:30:00__mutant__, got 2017-03-12T03:30:00",
+      "actual": {
+        "local": "2017-03-12T03:30:00",
+        "offset": "-04:00"
+      },
+      "expected": {
+        "local": "2017-03-12T03:30:00",
+        "offset": "-04:00"
+      }
+    },
+    {
+      "name": "tzrange_transitions_returns_start_and_end",
+      "version": "2.6.0",
+      "capability": "timezone.tzrange.transitions",
+      "replay": "tzrange_transitions",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "start: expected 2020-04-05T02:00:00__mutant__, got 2020-04-05T02:00:00",
+      "actual": {
+        "start": "2020-04-05T02:00:00",
+        "end": "2020-10-25T01:00:00"
+      },
+      "expected": {
+        "start": "2020-04-05T02:00:00",
+        "end": "2020-10-25T01:00:00"
+      }
+    },
+    {
+      "name": "tzoffset_accepts_timedelta",
+      "version": "2.6.0",
+      "capability": "timezone.tzoffset.timedelta",
+      "replay": "tzoffset_seconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset_seconds: expected 5401, got 5400",
+      "actual": {
+        "offset_seconds": "5400",
+        "offset": "+01:30"
+      },
+      "expected": {
+        "offset_seconds": 5400
+      }
+    },
+    {
+      "name": "timedelta_adds_to_relativedelta",
+      "version": "2.6.0",
+      "capability": "relativedelta.timedelta-add",
+      "replay": "relativedelta_plus_timedelta",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "days: expected 2, got 1",
+      "actual": {
+        "days": "1",
+        "hours": "1",
+        "seconds": "0"
+      },
+      "expected": {
+        "days": 1,
+        "hours": 1
+      }
+    },
+    {
+      "name": "rrule_replace_changes_count",
+      "version": "2.6.0",
+      "capability": "rrule.replace",
+      "replay": "rrule_replace",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "count: expected 2, got 1",
+      "actual": {
+        "count": "1",
+        "dates": "2020-01-01"
+      },
+      "expected": {
+        "count": 1,
+        "dates": "2020-01-01"
+      }
+    },
+    {
+      "name": "rrule_string_includes_wkst",
+      "version": "2.6.0",
+      "capability": "rrule.format.wkst",
+      "replay": "rrule_to_string",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "WKST=SU__mutant__ not contained in DTSTART:20200101T000000\nRRULE:FREQ=WEEKLY;WKST=SU;COUNT=1",
+      "actual": {
+        "text": "DTSTART:20200101T000000\nRRULE:FREQ=WEEKLY;WKST=SU;COUNT=1",
+        "contains": "DTSTART:20200101T000000\nRRULE:FREQ=WEEKLY;WKST=SU;COUNT=1"
+      },
+      "expected": {
+        "contains": "WKST=SU"
+      }
+    },
+    {
+      "name": "parser_non_string_argument_raises_type_error",
+      "version": "2.6.0",
+      "capability": "parser.input-type",
+      "replay": "parse_non_string_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw type, got type",
+      "mutant_reason": "expected throw __no_throw_expected__, got type",
+      "actual": {
+        "throws": "type",
+        "message": "Parser must be a string or character stream, not int"
+      },
+      "expected": {
+        "throws": "type"
+      }
+    },
+    {
+      "name": "tzfile_time_object_has_name",
+      "version": "2.6.0",
+      "capability": "timezone.time-object",
+      "replay": "tzname_for_time",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "name: expected UTC__mutant__, got UTC",
+      "actual": {
+        "name": "UTC"
+      },
+      "expected": {
+        "name": "UTC"
+      }
+    },
+    {
+      "name": "rrule_count_zero_yields_empty",
+      "version": "2.6.1",
+      "capability": "rrule.count-zero",
+      "replay": "rrule_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "count: expected 1, got 0",
+      "actual": {
+        "count": "0",
+        "dates": "",
+        "times": "",
+        "has_tzinfo": "false"
+      },
+      "expected": {
+        "count": 0
+      }
+    },
+    {
+      "name": "parser_short_weekday_parses",
+      "version": "2.6.1",
+      "capability": "parser.short-weekday",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2017-01-02__mutant__, got 2017-01-02",
+      "actual": {
+        "date": "2017-01-02",
+        "time": "00:00:00",
+        "datetime": "2017-01-02T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2017-01-02"
+      }
+    },
+    {
+      "name": "fuzzy_tokens_preserve_ampm_like_skipped_token",
+      "version": "2.6.1",
+      "capability": "parser.fuzzy-tokens",
+      "replay": "parse_fuzzy_tokens",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2017-01-02__mutant__, got 2017-01-02",
+      "actual": {
+        "date": "2017-01-02",
+        "ignored": "Meet at ham ",
+        "ignored_contains": "Meet at ham "
+      },
+      "expected": {
+        "date": "2017-01-02",
+        "ignored_contains": "ham"
+      }
+    },
+    {
+      "name": "relativedelta_abs_makes_components_positive",
+      "version": "2.6.1",
+      "capability": "relativedelta.abs",
+      "replay": "relativedelta_abs",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "repr_contains: expected substring days=+2__mutant__, got relativedelta(days=+2, hours=+3)",
+      "actual": {
+        "repr": "relativedelta(days=+2, hours=+3)",
+        "repr_contains": "relativedelta(days=+2, hours=+3)"
+      },
+      "expected": {
+        "repr_contains": "days=+2"
+      }
+    },
+    {
+      "name": "relativedelta_hash_equal_for_equal_values",
+      "version": "2.6.1",
+      "capability": "relativedelta.hash",
+      "replay": "relativedelta_hash_equal",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "same_hash: expected False, got true",
+      "actual": {
+        "same_hash": "true"
+      },
+      "expected": {
+        "same_hash": true
+      }
+    },
+    {
+      "name": "relativedelta_weeks_getter_handles_negative_days",
+      "version": "2.6.1",
+      "capability": "relativedelta.weeks",
+      "replay": "relativedelta_weeks_from_days",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "weeks: expected 0, got -1",
+      "actual": {
+        "weeks": "-1",
+        "days": "-10"
+      },
+      "expected": {
+        "weeks": -1
+      }
+    },
+    {
+      "name": "london_zero_standard_offset_dst_transition_has_dst",
+      "version": "2.6.1",
+      "capability": "timezone.zero-standard-dst",
+      "replay": "datetime_ambiguous",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "ambiguous: expected False, got true",
+      "actual": {
+        "ambiguous": "true"
+      },
+      "expected": {
+        "ambiguous": true
+      }
+    },
+    {
+      "name": "utils_default_tzinfo_attaches_missing_zone",
+      "version": "2.7.0",
+      "capability": "utils.default_tzinfo",
+      "replay": "utils_default_tzinfo",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "has_tzinfo: expected False, got true",
+      "actual": {
+        "has_tzinfo": "true",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "has_tzinfo": true,
+        "offset": "+00:00"
+      }
+    },
+    {
+      "name": "utils_within_delta_accepts_close_datetimes",
+      "version": "2.7.0",
+      "capability": "utils.within_delta",
+      "replay": "utils_within_delta",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "within: expected False, got true",
+      "actual": {
+        "within": "true"
+      },
+      "expected": {
+        "within": true
+      }
+    },
+    {
+      "name": "isoparse_parses_calendar_date",
+      "version": "2.7.0",
+      "capability": "parser.isoparse",
+      "replay": "isoparse",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2018-03-24__mutant__, got 2018-03-24",
+      "actual": {
+        "date": "2018-03-24",
+        "time": "00:00:00",
+        "datetime": "2018-03-24T00:00:00",
+        "microsecond": "0"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      }
+    },
+    {
+      "name": "isoparse_parses_week_date",
+      "version": "2.7.0",
+      "capability": "parser.isoparse.week-date",
+      "replay": "isoparse",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2018-03-24__mutant__, got 2018-03-24",
+      "actual": {
+        "date": "2018-03-24",
+        "time": "00:00:00",
+        "datetime": "2018-03-24T00:00:00",
+        "microsecond": "0"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      }
+    },
+    {
+      "name": "parser_bytearray_input_parses",
+      "version": "2.7.0",
+      "capability": "parser.bytearray",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2018-03-24__mutant__, got 2018-03-24",
+      "actual": {
+        "date": "2018-03-24",
+        "time": "00:00:00",
+        "datetime": "2018-03-24T00:00:00",
+        "microsecond": "0",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      }
+    },
+    {
+      "name": "unknown_timezone_emits_warning",
+      "version": "2.7.0",
+      "capability": "parser.unknown-tz-warning",
+      "replay": "parse_warning",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "warning: expected False, got true",
+      "actual": {
+        "warning": "true",
+        "messages": "tzname XYZ identified but not understood.  Pass `tzinfos` argument in order to correctly return a timezone-aware datetime.  In a future version, this will raise an exception."
+      },
+      "expected": {
+        "warning": true
+      }
+    },
+    {
+      "name": "parser_invalid_hour_rejected",
+      "version": "2.7.0",
+      "capability": "parser.validation.hour",
+      "replay": "parse_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "class": "ParserError",
+        "message": "hour must be in 0..23: 2018-03-24 25:00"
+      },
+      "expected": {
+        "throws": "parse"
+      }
+    },
+    {
+      "name": "parser_trailing_colon_rejected_as_value_error",
+      "version": "2.7.0",
+      "capability": "parser.validation.trailing-colon",
+      "replay": "parse_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "class": "ParserError",
+        "message": "Unknown string format: 2018-03-24 12:"
+      },
+      "expected": {
+        "throws": "parse"
+      }
+    },
+    {
+      "name": "parser_fractional_components_round_correctly",
+      "version": "2.7.0",
+      "capability": "parser.fractional-rounding",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "microsecond: expected 1000000, got 999999",
+      "actual": {
+        "date": "2018-03-24",
+        "time": "12:00:00.999999",
+        "datetime": "2018-03-24T12:00:00.999999",
+        "microsecond": "999999",
+        "has_tzinfo": "false",
+        "fold": "0"
+      },
+      "expected": {
+        "microsecond": 999999
+      }
+    },
+    {
+      "name": "parser_unambiguous_fold_sets_fold_value",
+      "version": "2.7.0",
+      "capability": "parser.fold",
+      "replay": "parse_datetime",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "fold: expected 2, got 1",
+      "actual": {
+        "date": "2011-11-06",
+        "time": "01:30:00",
+        "datetime": "2011-11-06T01:30:00",
+        "microsecond": "0",
+        "has_tzinfo": "true",
+        "fold": "1",
+        "offset": "-05:00"
+      },
+      "expected": {
+        "fold": 1
+      }
+    },
+    {
+      "name": "rrule_dtstart_until_mismatch_raises_clear_error",
+      "version": "2.7.1",
+      "capability": "rrule.validation.aware-until",
+      "replay": "rrule_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw invalid, got invalid",
+      "mutant_reason": "expected throw __no_throw_expected__, got invalid",
+      "actual": {
+        "throws": "invalid",
+        "message": "RRULE UNTIL values must be specified in UTC when DTSTART is timezone-aware"
+      },
+      "expected": {
+        "throws": "invalid"
+      }
+    },
+    {
+      "name": "rrulestr_exdate_parameter_excludes_date",
+      "version": "0.5",
+      "capability": "rrule.parse.exdate",
+      "replay": "rrulestr_dates",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "dates: expected 2019-02-01,2019-02-03__mutant__, got 2019-02-01,2019-02-03",
+      "actual": {
+        "dates": "2019-02-01,2019-02-03",
+        "count": "2"
+      },
+      "expected": {
+        "dates": "2019-02-01,2019-02-03"
+      }
+    },
+    {
+      "name": "tzoffset_subminute_offset_supported",
+      "version": "0.5",
+      "capability": "timezone.subminute-offset",
+      "replay": "tzoffset_seconds",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset_seconds: expected 91, got 90",
+      "actual": {
+        "offset_seconds": "90",
+        "offset": "+00:01"
+      },
+      "expected": {
+        "offset_seconds": 90
+      }
+    },
+    {
+      "name": "isoparse_time_comma_decimal_separator",
+      "version": "0.5",
+      "capability": "parser.isoparse.comma-time",
+      "replay": "isoparse",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "datetime: expected 2019-02-04T12:34:56.789000__mutant__, got 2019-02-04T12:34:56.789000",
+      "actual": {
+        "date": "2019-02-04",
+        "time": "12:34:56.789000",
+        "datetime": "2019-02-04T12:34:56.789000",
+        "microsecond": "789000"
+      },
+      "expected": {
+        "datetime": "2019-02-04T12:34:56.789000"
+      }
+    },
+    {
+      "name": "isoparse_t24_rolls_to_following_day",
+      "version": "0.5",
+      "capability": "parser.isoparse.24-hour",
+      "replay": "isoparse",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "datetime: expected 2019-02-05T00:00:00__mutant__, got 2019-02-05T00:00:00",
+      "actual": {
+        "date": "2019-02-05",
+        "time": "00:00:00",
+        "datetime": "2019-02-05T00:00:00",
+        "microsecond": "0"
+      },
+      "expected": {
+        "datetime": "2019-02-05T00:00:00"
+      }
+    },
+    {
+      "name": "isoparse_more_than_6_fraction_digits_truncates",
+      "version": "0.5",
+      "capability": "parser.isoparse.long-fraction",
+      "replay": "isoparse",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "microsecond: expected 123457, got 123456",
+      "actual": {
+        "date": "2019-02-04",
+        "time": "12:34:56.123456",
+        "datetime": "2019-02-04T12:34:56.123456",
+        "microsecond": "123456"
+      },
+      "expected": {
+        "microsecond": 123456
+      }
+    },
+    {
+      "name": "isoparse_lower_z_is_utc",
+      "version": "0.5",
+      "capability": "parser.isoparse.lower-z",
+      "replay": "isoparse",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "date": "2019-02-04",
+        "time": "12:00:00",
+        "datetime": "2019-02-04T12:00:00",
+        "microsecond": "0",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "offset": "+00:00"
+      }
+    },
+    {
+      "name": "parse_error_raises_parsererror_subclass",
+      "version": "2.8.1",
+      "capability": "parser.error-type",
+      "replay": "parse_error_type",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "class: expected ParserError__mutant__, got ParserError",
+      "actual": {
+        "class": "ParserError",
+        "is_value_error": "true"
+      },
+      "expected": {
+        "class": "ParserError",
+        "is_value_error": true
+      }
+    },
+    {
+      "name": "parser_tzinfos_invalid_type_raises_type_error",
+      "version": "2.8.1",
+      "capability": "parser.tzinfos-type",
+      "replay": "parse_tzinfos_type_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw type, got type",
+      "mutant_reason": "expected throw __no_throw_expected__, got type",
+      "actual": {
+        "throws": "type",
+        "message": "argument of type 'object' is not iterable"
+      },
+      "expected": {
+        "throws": "type"
+      }
+    },
+    {
+      "name": "tz_utc_constant_is_tzutc",
+      "version": "2.8.1",
+      "capability": "timezone.utc-constant",
+      "replay": "tz_utc_constant",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "offset: expected +00:00__mutant__, got +00:00",
+      "actual": {
+        "offset": "+00:00",
+        "name": "UTC"
+      },
+      "expected": {
+        "offset": "+00:00",
+        "name": "UTC"
+      }
+    },
+    {
+      "name": "isoparse_inconsistent_colon_offset_raises",
+      "version": "2.8.2",
+      "capability": "parser.isoparse.validation",
+      "replay": "isoparse_error",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "expected throw parse, got parse",
+      "mutant_reason": "expected throw __no_throw_expected__, got parse",
+      "actual": {
+        "throws": "parse",
+        "message": "Time zone offset must be 1, 3, 5 or 6 characters"
+      },
+      "expected": {
+        "throws": "parse"
+      }
+    },
+    {
+      "name": "gettz_empty_string_returns_local_zone",
+      "version": "2.8.2",
+      "capability": "timezone.gettz-empty",
+      "replay": "gettz_named",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "has_tzinfo: expected False, got true",
+      "actual": {
+        "has_tzinfo": "true"
+      },
+      "expected": {
+        "has_tzinfo": true
+      }
+    },
+    {
+      "name": "dateutil_root_lazily_imports_tz_submodule",
+      "version": "2.9.0",
+      "capability": "module.lazy-import",
+      "replay": "lazy_import",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "has_tzinfo: expected False, got true",
+      "actual": {
+        "has_tzinfo": "true"
+      },
+      "expected": {
+        "has_tzinfo": true
+      }
+    },
+    {
+      "name": "relativedelta_missing_day_returns_last_day_when_needed",
+      "version": "2.9.0",
+      "capability": "relativedelta.month-end-doc",
+      "replay": "relativedelta_apply",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2024-02-29__mutant__, got 2024-02-29",
+      "actual": {
+        "date": "2024-02-29",
+        "datetime": "2024-02-29T00:00:00"
+      },
+      "expected": {
+        "date": "2024-02-29"
+      }
+    },
+    {
+      "name": "easter_western_2020",
+      "version": "0.9",
+      "capability": "easter.algorithm",
+      "replay": "easter_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-04-12__mutant__, got 2020-04-12",
+      "actual": {
+        "date": "2020-04-12"
+      },
+      "expected": {
+        "date": "2020-04-12"
+      }
+    },
+    {
+      "name": "easter_orthodox_2020",
+      "version": "0.9",
+      "capability": "easter.algorithm",
+      "replay": "easter_date",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-04-19__mutant__, got 2020-04-19",
+      "actual": {
+        "date": "2020-04-19"
+      },
+      "expected": {
+        "date": "2020-04-19"
+      }
+    },
+    {
+      "name": "rrule_after_excludes_equal_when_inc_false",
+      "version": "2.5.0",
+      "capability": "rrule.after",
+      "replay": "rrule_after",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-01-03__mutant__, got 2020-01-03",
+      "actual": {
+        "date": "2020-01-03"
+      },
+      "expected": {
+        "date": "2020-01-03"
+      }
+    },
+    {
+      "name": "rrule_after_includes_equal_when_inc_true",
+      "version": "2.5.0",
+      "capability": "rrule.after",
+      "replay": "rrule_after",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-01-02__mutant__, got 2020-01-02",
+      "actual": {
+        "date": "2020-01-02"
+      },
+      "expected": {
+        "date": "2020-01-02"
+      }
+    },
+    {
+      "name": "rrule_before_excludes_equal_when_inc_false",
+      "version": "2.5.0",
+      "capability": "rrule.before",
+      "replay": "rrule_before",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-01-01__mutant__, got 2020-01-01",
+      "actual": {
+        "date": "2020-01-01"
+      },
+      "expected": {
+        "date": "2020-01-01"
+      }
+    },
+    {
+      "name": "rrule_before_includes_equal_when_inc_true",
+      "version": "2.5.0",
+      "capability": "rrule.before",
+      "replay": "rrule_before",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "date: expected 2020-01-02__mutant__, got 2020-01-02",
+      "actual": {
+        "date": "2020-01-02"
+      },
+      "expected": {
+        "date": "2020-01-02"
+      }
+    },
+    {
+      "name": "tz_enfold_sets_fold_one",
+      "version": "2.6.0",
+      "capability": "timezone.fold",
+      "replay": "tz_enfold",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "fold: expected 2, got 1",
+      "actual": {
+        "fold": "1",
+        "offset": "-05:00"
+      },
+      "expected": {
+        "fold": 1,
+        "offset": "-05:00"
+      }
+    },
+    {
+      "name": "tz_datetime_exists_true_for_normal_time",
+      "version": "2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "datetime_exists",
+      "replay_passed": true,
+      "mutant_rejected": true,
+      "verified": true,
+      "reason": "ok",
+      "mutant_reason": "exists: expected False, got true",
+      "actual": {
+        "exists": "true"
+      },
+      "expected": {
+        "exists": true
+      }
+    }
+  ]
+}

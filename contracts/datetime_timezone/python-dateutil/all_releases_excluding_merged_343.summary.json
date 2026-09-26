@@ -1,0 +1,1503 @@
+{
+  "domain": "date-time-timezone",
+  "project": "python-dateutil",
+  "source_release_sections": 32,
+  "exclusion_basis": "Semantic overlap with the merged Date/Time/Timezone 343 candidate set was excluded.",
+  "contracts_total": 85,
+  "contracts": [
+    {
+      "name": "two_digit_zero_year_parses_as_2000",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.two-digit-year.zero",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "31-Dec-00"
+      },
+      "expected": {
+        "date": "2000-12-31"
+      },
+      "mutant": "parse_00_as_1900",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: fter” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsing (such as 31-Dec-00), as reported by Jim Abramson, and included test case for this.    Sort exdate and rdate before iterating over them, so that it’s not necessary to sort them before adding to the rruleset, as reported by Nicholas P"
+    },
+    {
+      "name": "rruleset_rdate_iteration_is_sorted",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "rruleset.ordering",
+      "replay": "rruleset_dates",
+      "params": {
+        "rdates": [
+          "2020-01-03T00:00:00",
+          "2020-01-01T00:00:00"
+        ]
+      },
+      "expected": {
+        "dates": "2020-01-01,2020-01-03"
+      },
+      "mutant": "preserve_insertion_order",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: as 31-Dec-00), as reported by Jim Abramson, and included test case for this.    Sort exdate and rdate before iterating over them, so that it’s not necessary to sort them before adding to the rruleset, as reported by Nicholas Piper.                 Previous   Next            © Copyright 2019, dateutil.  Revision db9d0189 .       Built with"
+    },
+    {
+      "name": "rruleset_exdate_is_applied_before_iteration",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "rruleset.exdate",
+      "replay": "rruleset_dates",
+      "params": {
+        "rdates": [
+          "2020-01-01T00:00:00",
+          "2020-01-02T00:00:00"
+        ],
+        "exdates": [
+          "2020-01-02T00:00:00"
+        ]
+      },
+      "expected": {
+        "dates": "2020-01-01"
+      },
+      "mutant": "ignore_exdate",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: as 31-Dec-00), as reported by Jim Abramson, and included test case for this.    Sort exdate and rdate before iterating over them, so that it’s not necessary to sort them before adding to the rruleset, as reported by Nicholas Piper.                 Previous   Next            © Copyright 2019, dateutil.  Revision db9d0189 .       Built with"
+    },
+    {
+      "name": "rrule_between_empty_before_start_is_empty",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "rrule.between",
+      "replay": "rrule_between",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-10T00:00:00",
+        "before": "2020-01-01T00:00:00",
+        "after": "2020-01-05T00:00:00"
+      },
+      "expected": {
+        "count": 0
+      },
+      "mutant": "include_future_before_start",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: y constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsing (such as 31-Dec-00), as reported by Jim Abramson, and included test case for this.    Sort exdate and rdate before ite"
+    },
+    {
+      "name": "parserinfo_instance_controls_month_names",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "parser.parserinfo",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "15 Foo 2020",
+        "parserinfo_month": "Foo"
+      },
+      "expected": {
+        "date": "2020-01-15"
+      },
+      "mutant": "ignore_parserinfo",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: s (contributed by Jeffrey Harris).    Fixed parsing of unicode date strings.    Accept parserinfo instances as the parser constructor parameter, besides parserinfo (sub)classes.    Changed weekday to spell the not-set n value as None instead of 0.    Fixed other reported bugs."
+    },
+    {
+      "name": "weekday_without_n_reports_none",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "weekday.n",
+      "replay": "weekday_n",
+      "params": {
+        "weekday": "MO"
+      },
+      "expected": {
+        "n_is_none": true
+      },
+      "mutant": "use_zero_for_unspecified_n",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: s the parser constructor parameter, besides parserinfo (sub)classes.    Changed weekday to spell the not-set n value as None instead of 0.    Fixed other reported bugs."
+    },
+    {
+      "name": "tzoffset_pickles_roundtrip_offset",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "timezone.pickle",
+      "replay": "tz_pickle_roundtrip",
+      "params": {
+        "offset_seconds": 19800
+      },
+      "expected": {
+        "offset_seconds": 19800
+      },
+      "mutant": "drop_timezone_state",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: Fixed pickling of timezone types, as reported by Andreas Köhler.    Implemented internal timezone information with binary timezone files. datautil.tz.gettz() function will now try to use the system timezone files, and fallback to the internal versions. It’s al"
+    },
+    {
+      "name": "zoneinfo_gettz_returns_internal_zone",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "timezone.zoneinfo-internal",
+      "replay": "zoneinfo_gettz",
+      "params": {
+        "zone": "UTC"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant": "ignore_internal_zoneinfo",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: versions. It’s also possible to ask for the internal versions directly by using dateutil.zoneinfo.gettz().    New tzwin timezone type, allowing access to Windows internal timezones (contributed by Jeffrey Harris).    Fixed parsing of unicode date strings.    Accept parserinfo instances as the parser constructor parameter, besides parserin"
+    },
+    {
+      "name": "parser_parses_xxhxxm_time_after_date",
+      "origin_project": "python-dateutil",
+      "version": "1.0",
+      "release_title": "Version 1.0",
+      "capability": "parser.hms-token",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2003-09-25 10h36m"
+      },
+      "expected": {
+        "date": "2003-09-25",
+        "time": "10:36:00"
+      },
+      "mutant": "ignore_hms_token",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.0: Fixed parsing of XXhXXm formatted time after day/month/year has been parsed.    Added patch by Jeffrey Harris optimizing rrule.__contains__."
+    },
+    {
+      "name": "rrule_contains_finds_generated_occurrence",
+      "origin_project": "python-dateutil",
+      "version": "1.0",
+      "release_title": "Version 1.0",
+      "capability": "rrule.contains",
+      "replay": "rrule_contains",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2003-09-25T00:00:00",
+        "count": 3,
+        "candidate": "2003-09-26T00:00:00"
+      },
+      "expected": {
+        "contains": true
+      },
+      "mutant": "contains_false",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.0: ted time after day/month/year has been parsed.    Added patch by Jeffrey Harris optimizing rrule.__contains__."
+    },
+    {
+      "name": "rrule_byyearday_negative_selects_last_day",
+      "origin_project": "python-dateutil",
+      "version": "1.1",
+      "release_title": "Version 1.1",
+      "capability": "rrule.byyearday",
+      "replay": "rrule_dates",
+      "params": {
+        "freq": "YEARLY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 1,
+        "byyearday": -1
+      },
+      "expected": {
+        "dates": "2020-12-31"
+      },
+      "mutant": "ignore_negative_byyearday",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.1: Fixed rrule byyearday handling. Abramo Bagnara pointed out that RFC2445 allows negative numbers.    Fixed –prefix handling in setup.py (by Sidnei da Silva).    Now tz.gettz() returns a tzlocal instance when not given any arguments and no other timezone information is foun"
+    },
+    {
+      "name": "gettz_without_argument_returns_local_zone",
+      "origin_project": "python-dateutil",
+      "version": "1.1",
+      "release_title": "Version 1.1",
+      "capability": "timezone.local-default",
+      "replay": "gettz_default",
+      "params": {},
+      "expected": {
+        "has_tzinfo": true
+      },
+      "mutant": "return_none_for_local",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.1: ive numbers.    Fixed –prefix handling in setup.py (by Sidnei da Silva).    Now tz.gettz() returns a tzlocal instance when not given any arguments and no other timezone information is found.    Updating timezone information to version 2005q."
+    },
+    {
+      "name": "tzoffset_subminute_rounds_to_full_minute_legacy_surface",
+      "origin_project": "python-dateutil",
+      "version": "1.2",
+      "release_title": "Version 1.2",
+      "capability": "timezone.subminute-legacy",
+      "replay": "tzoffset_seconds",
+      "params": {
+        "seconds": 90
+      },
+      "expected": {
+        "offset_seconds": 90
+      },
+      "mutant": "truncate_subminute_offset",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.2: Now tzfile will round timezones to full-minutes if necessary, since Python’s datetime doesn’t support sub-minute offsets. Thanks to Ilpo Nyyssönen for reporting the issue.    Removed bare string exceptions, as reported and fixed by Wilfredo Sánchez Vega.    Fix bug in leap co"
+    },
+    {
+      "name": "parser_decimal_seconds_preserve_microseconds",
+      "origin_project": "python-dateutil",
+      "version": "1.3",
+      "release_title": "Version 1.3",
+      "capability": "parser.fractional-second",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2003-09-25 10:36:28.123456"
+      },
+      "expected": {
+        "microsecond": 123456
+      },
+      "mutant": "float_round_fraction",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.3: Fixed precision problem on conversion of decimal seconds to microseconds, as reported by Skip Montanaro.    Fixed bug in constructor of parser, and converted parser classes to new-style classes. Original report and patch by Michael Elsdörfer.    Initialize tzid and comps in tz.py, to prevent the code"
+    },
+    {
+      "name": "module_exposes_version_string",
+      "origin_project": "python-dateutil",
+      "version": "1.3",
+      "release_title": "Version 1.3",
+      "capability": "module.version",
+      "replay": "module_version",
+      "params": {},
+      "expected": {
+        "matches": "2\\\\.9\\\\.0.*"
+      },
+      "mutant": "hide_version",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.3: n Dahlin suggested the fix after a pyflakes run.    Version is now published in dateutil.__version__, as requested by Darren Dale.    All code is compatible with new-style division."
+    },
+    {
+      "name": "gettz_gmt_plus_3_uses_human_sign",
+      "origin_project": "python-dateutil",
+      "version": "1.4",
+      "release_title": "Version 1.4",
+      "capability": "timezone.gmt-offset-name",
+      "replay": "gettz_offset",
+      "params": {
+        "name": "GMT+3",
+        "instant": "2020-01-01T00:00:00"
+      },
+      "expected": {
+        "offset": "+03:00"
+      },
+      "mutant": "invert_gmt_sign",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.4: gs that didn’t specify them (reported by Lennart Regebro).    Calls like gettz(“GMT+3”) and gettz(“UTC-2”) will now return the expected values, instead of the TZ variable behavior.    Fixed DST signal handling in zoneinfo files. Reported by Nicholas F. Fabry and John-Mark Gurney."
+    },
+    {
+      "name": "gettz_utc_minus_2_uses_human_sign",
+      "origin_project": "python-dateutil",
+      "version": "1.4",
+      "release_title": "Version 1.4",
+      "capability": "timezone.gmt-offset-name",
+      "replay": "gettz_offset",
+      "params": {
+        "name": "UTC-2",
+        "instant": "2020-01-01T00:00:00"
+      },
+      "expected": {
+        "offset": "-02:00"
+      },
+      "mutant": "invert_utc_sign",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.4: ify them (reported by Lennart Regebro).    Calls like gettz(“GMT+3”) and gettz(“UTC-2”) will now return the expected values, instead of the TZ variable behavior.    Fixed DST signal handling in zoneinfo files. Reported by Nicholas F. Fabry and John-Mark Gurney."
+    },
+    {
+      "name": "tzstr_without_dst_rules_stays_fixed",
+      "origin_project": "python-dateutil",
+      "version": "1.4",
+      "release_title": "Version 1.4",
+      "capability": "timezone.tzstr-no-dst",
+      "replay": "tzstr_offset_pair",
+      "params": {
+        "spec": "EST5",
+        "winter": "2020-01-01T00:00:00",
+        "summer": "2020-07-01T00:00:00"
+      },
+      "expected": {
+        "winter_offset": "-05:00",
+        "summer_offset": "-05:00"
+      },
+      "mutant": "invent_dst_rules",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 1.4: used where a datetime was expected (reported and fixed by Lennart Regebro).    Prevent tzstr from introducing daylight timings in strings that didn’t specify them (reported by Lennart Regebro).    Calls like gettz(“GMT+3”) and gettz(“UTC-2”) will now return the expected values, instead of the TZ variable behavior.    Fixed DST signal han"
+    },
+    {
+      "name": "fuzzy_with_tokens_returns_ignored_tokens",
+      "origin_project": "python-dateutil",
+      "version": "2.2",
+      "release_title": "Version 2.2",
+      "capability": "parser.fuzzy-tokens",
+      "replay": "parse_fuzzy_tokens",
+      "params": {
+        "text": "Today is January 1, 2047 at 8:21:00AM"
+      },
+      "expected": {
+        "date": "2047-01-01",
+        "ignored_contains": "Today is "
+      },
+      "mutant": "drop_ignored_tokens",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.2: Updated zoneinfo to 2013h    fuzzy_with_tokens parse addon from Christopher Corley    Bug with LANG=C fixed by Mike Gilbert"
+    },
+    {
+      "name": "rrule_monthly_byweekday_terminates",
+      "origin_project": "python-dateutil",
+      "version": "2.4.0",
+      "release_title": "Version 2.4.0",
+      "capability": "rrule.termination",
+      "replay": "rrule_dates",
+      "params": {
+        "freq": "MONTHLY",
+        "dtstart": "2015-01-01T00:00:00",
+        "count": 3,
+        "byweekday": "MO"
+      },
+      "expected": {
+        "count": 3
+      },
+      "mutant": "loop_forever",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.0: rule changes and fixes by @pganssle (gh pull requests #13 #14 #17),   including defusing some infinite loops (gh #4)"
+    },
+    {
+      "name": "parser_rejects_13_pm",
+      "origin_project": "python-dateutil",
+      "version": "2.4.1",
+      "release_title": "Version 2.4.1",
+      "capability": "parser.validation.hour-ampm",
+      "replay": "parse_error",
+      "params": {
+        "text": "2015-01-01 13 PM"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_13_pm",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.1: Added explicit check for valid hours if AM/PM is specified in parser. (gh pr #22, issue #21)    Fix bug in rrule introduced in 2.4.0 where byweekday parameter was not handled properly. (gh pr #35, issue #34)    Fix error where parser allowed some invalid dates, overwriting existing ho"
+    },
+    {
+      "name": "rrule_byweekday_parameter_is_honored",
+      "origin_project": "python-dateutil",
+      "version": "2.4.1",
+      "release_title": "Version 2.4.1",
+      "capability": "rrule.byweekday",
+      "replay": "rrule_dates",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2015-01-01T00:00:00",
+        "count": 2,
+        "byweekday": "MO"
+      },
+      "expected": {
+        "dates": "2015-01-05,2015-01-12"
+      },
+      "mutant": "ignore_byweekday",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.1: in parser. (gh pr #22, issue #21)    Fix bug in rrule introduced in 2.4.0 where byweekday parameter was not handled properly. (gh pr #35, issue #34)    Fix error where parser allowed some invalid dates, overwriting existing hours with the last 2-digit number in the string. (gh pr #32, issue #31)    Fix and add test for Python 2.x compatib"
+    },
+    {
+      "name": "relativedelta_zero_is_false",
+      "origin_project": "python-dateutil",
+      "version": "2.4.1",
+      "release_title": "Version 2.4.1",
+      "capability": "relativedelta.bool",
+      "replay": "relativedelta_bool",
+      "params": {},
+      "expected": {
+        "value": false
+      },
+      "mutant": "zero_is_true",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.1: g. (gh pr #32, issue #31)    Fix and add test for Python 2.x compatibility with boolean checking of relativedelta objects. Implemented by @nimasmi (gh pr #43) and Cédric Krier (lp: 1035038)    Replaced parse() calls with explicit datetime objects in unit tests unrelated to parser. (gh pr #36)    Changed private _byxxx from sets to sorted"
+    },
+    {
+      "name": "fuzzy_parse_keeps_skipped_ampm_like_token",
+      "origin_project": "python-dateutil",
+      "version": "2.4.2",
+      "release_title": "Version 2.4.2",
+      "capability": "parser.fuzzy-ampm",
+      "replay": "parse_fuzzy_tokens",
+      "params": {
+        "text": "Meet me at the ham place on 2015-01-01"
+      },
+      "expected": {
+        "date": "2015-01-01",
+        "ignored_contains": "ham"
+      },
+      "mutant": "treat_ham_as_ampm",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.4.2: not a unicode type. gh #51 (lp:1331576), gh pr #55.    Fix a parser issue where AM and PM tokens were showing up in fuzzy date stamps, triggering inappropriate errors. gh #56 (lp: 1428895), gh pr #63.    Missing function “setcachesize” removed from zoneinfo __all__ list by @ryanss, fixing an issue with wildcard imports of dateutil.zoneinf"
+    },
+    {
+      "name": "rrule_xafter_returns_multiple_after_date",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "rrule.xafter",
+      "replay": "rrule_xafter",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 5,
+        "after": "2020-01-02T00:00:00",
+        "take": 2
+      },
+      "expected": {
+        "dates": "2020-01-03,2020-01-04"
+      },
+      "mutant": "include_after_in_xafter",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: ht has been corrected. Contributed by @elprans (gh pr #113)    rrule now has an xafter() method for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule) now returns an RFC2445-compliant rrule string, contributed by @schinckel and @armicron (lp:1406305, gh issue #47, prs #50, #62 and #160)    rrule performance"
+    },
+    {
+      "name": "rrule_string_is_rfc_compliant",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "rrule.format",
+      "replay": "rrule_to_string",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 2
+      },
+      "expected": {
+        "contains": "FREQ=DAILY"
+      },
+      "mutant": "non_rfc_rrule_string",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: thod for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule) now returns an RFC2445-compliant rrule string, contributed by @schinckel and @armicron (lp:1406305, gh issue #47, prs #50, #62 and #160)    rrule performance under certain conditions has been significantly improved thanks to a patch contributed by @"
+    },
+    {
+      "name": "relativedelta_weeks_property_roundtrips",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "relativedelta.weeks",
+      "replay": "relativedelta_weeks",
+      "params": {
+        "weeks": 2
+      },
+      "expected": {
+        "weeks": 2,
+        "days": 14
+      },
+      "mutant": "drop_weeks_property",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: Updated zoneinfo to 2016a    zoneinfo_metadata file version increased to 2.0 - the updated updatezinfo.py script will work with older zoneinfo_metadata.json files, but new metadata files will not work with older updatezinfo.py versions. Additionally, we have s"
+    },
+    {
+      "name": "relativedelta_fractional_days_are_supported",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "relativedelta.fractional",
+      "replay": "relativedelta_apply",
+      "params": {
+        "base": "2020-01-01T00:00:00",
+        "days": 1.5
+      },
+      "expected": {
+        "datetime": "2020-01-02T12:00:00"
+      },
+      "mutant": "truncate_fractional_days",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: es. (lp: 727525, gh issue #45, pr #49)    relativedelta now explicitly supports fractional relative weeks, days, hours, minutes and seconds. Fractional values in absolute parameters (year, day, etc) are now deprecated. (gh issue #40, pr #190)    relativedelta objects previously did not use microseconds to determine of two relativedelta ob"
+    },
+    {
+      "name": "relativedelta_equality_includes_microseconds",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "relativedelta.equality",
+      "replay": "relativedelta_equal",
+      "params": {
+        "left": {
+          "seconds": 1,
+          "microseconds": 1
+        },
+        "right": {
+          "seconds": 1,
+          "microseconds": 2
+        }
+      },
+      "expected": {
+        "equals": false
+      },
+      "mutant": "ignore_microseconds",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: ecated. (gh issue #40, pr #190)    relativedelta objects previously did not use microseconds to determine of two relativedelta objects were equal. This oversight has been corrected. Contributed by @elprans (gh pr #113)    rrule now has an xafter() method for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule)"
+    },
+    {
+      "name": "parser_empty_string_raises_value_error",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "parser.empty",
+      "replay": "parse_error",
+      "params": {
+        "text": ""
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "return_default_on_empty",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: parameters is now deprecated as inconsistent with RFC2445 (gh pr #62, #185)    Parsing an empty string will now raise a ValueError, rather than returning the datetime passed to the ‘default’ parameter. (gh issue #78, pr #187)    tzwinlocal objects now have a meaningful repr() and str() implementation (gh issue #148, prs #184 and #186)"
+    },
+    {
+      "name": "parser_missing_day_uses_month_end_when_default_day_too_large",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "parser.default-eom",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "Feb 2015",
+        "default": "2015-01-31T00:00:00"
+      },
+      "expected": {
+        "date": "2015-02-28"
+      },
+      "mutant": "overflow_default_day",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: (gh issue #60, #74, pr #75)    Parser issue where calling parse() on dates with no day specified when the day of the month in the default datetime (which is “today” if unspecified) is greater than the number of days in the parsed month was fixed (this issue tended to crop up between the 29th and 31st of the month, for obvious reasons) (ca"
+    },
+    {
+      "name": "parser_iso_comma_fraction_parses",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "parser.comma-fraction",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2015-01-01T12:00:00,5"
+      },
+      "expected": {
+        "microsecond": 500000
+      },
+      "mutant": "reject_comma_fraction",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: y parsed. Contributed by @Bachmann1234 (gh pr #130)    Fixed parser issue where commas were not a valid separator between seconds and microseconds, preventing parsing of ISO 8601 dates. Contributed by @ryanss (gh issue #28, pr #106)    Fixed issue with tzwin encoding in locales with non-Latin alphabets (gh issue #92, pr #98)    Fixed an i"
+    },
+    {
+      "name": "rrulestr_missing_byday_raises_error",
+      "origin_project": "python-dateutil",
+      "version": "2.5.1",
+      "release_title": "Version 2.5.1",
+      "capability": "rrule.parse.validation",
+      "replay": "rrulestr_error",
+      "params": {
+        "text": "RRULE:FREQ=WEEKLY;BYDAY="
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_missing_byday",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.1: #104, pr #207)    Changed to an explicit error when rrulestr strings contain a missing BYDAY (gh issue #162, pr #211)    tzfile now correctly handles files containing leapcnt (although the leapcnt information is not actually used). Contributed by @hjoukl (gh issue #146, pr #147)    Fixed recursive import issue with tz module (gh pr #204)"
+    },
+    {
+      "name": "rruleset_cache_respects_exdate",
+      "origin_project": "python-dateutil",
+      "version": "2.5.1",
+      "release_title": "Version 2.5.1",
+      "capability": "rruleset.cache",
+      "replay": "rruleset_dates",
+      "params": {
+        "rrule": {
+          "freq": "DAILY",
+          "dtstart": "2020-01-01T00:00:00",
+          "count": 3
+        },
+        "exdates": [
+          "2020-01-02T00:00:00"
+        ]
+      },
+      "expected": {
+        "dates": "2020-01-01,2020-01-03"
+      },
+      "mutant": "stale_cache_ignores_exdate",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.1: or the NEWS file, on a per-repository basis (gh pr #218)    Fixed an issue with improper caching behavior in rruleset objects (gh issue #104, pr #207)    Changed to an explicit error when rrulestr strings contain a missing BYDAY (gh issue #162, pr #211)    tzfile now correctly handles files containing leapcnt (although the leapcnt informa"
+    },
+    {
+      "name": "parser_no_separator_respects_yearfirst",
+      "origin_project": "python-dateutil",
+      "version": "2.5.2",
+      "release_title": "Version 2.5.2",
+      "capability": "parser.no-separator-order",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "20160304",
+        "yearfirst": true
+      },
+      "expected": {
+        "date": "2016-03-04"
+      },
+      "mutant": "ignore_yearfirst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.2: Updated zoneinfo to 2016c    Fixed parser bug where yearfirst and dayfirst parameters were not being respected when no separator was present. (gh issue #81 and #217, pr #229)"
+    },
+    {
+      "name": "parser_no_separator_respects_dayfirst",
+      "origin_project": "python-dateutil",
+      "version": "2.5.2",
+      "release_title": "Version 2.5.2",
+      "capability": "parser.no-separator-order",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "20160403",
+        "dayfirst": true
+      },
+      "expected": {
+        "date": "2016-03-04"
+      },
+      "mutant": "ignore_dayfirst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.2: Updated zoneinfo to 2016c    Fixed parser bug where yearfirst and dayfirst parameters were not being respected when no separator was present. (gh issue #81 and #217, pr #229)"
+    },
+    {
+      "name": "datetime_ambiguous_detects_fall_back",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.ambiguous",
+      "replay": "datetime_ambiguous",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-11-05T01:30:00"
+      },
+      "expected": {
+        "ambiguous": true
+      },
+      "mutant": "miss_ambiguous",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: ed new methods for working with ambiguous and imaginary dates to the tz module. datetime_ambiguous() determines if a datetime is ambiguous for a given zone and datetime_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixe"
+    },
+    {
+      "name": "datetime_exists_detects_spring_gap",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "datetime_exists",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-03-12T02:30:00"
+      },
+      "expected": {
+        "exists": false
+      },
+      "mutant": "miss_imaginary",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: datetime_ambiguous() determines if a datetime is ambiguous for a given zone and datetime_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixed an issue where dst() in Portugal in 1996 was returning the wrong value in tz.t"
+    },
+    {
+      "name": "resolve_imaginary_moves_gap_forward",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "resolve_imaginary",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-03-12T02:30:00"
+      },
+      "expected": {
+        "local": "2017-03-12T03:30:00",
+        "offset": "-04:00"
+      },
+      "mutant": "wrong_gap_resolution",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: Added PEP-495-compatible methods to address ambiguous and imaginary dates in time zones in a backwards-compatible way. Ambiguous dates and times can now be safely represented by all dateutil time zones. Many thanks to Alexander Belopolski (@abalkin) and Tim Peters @tim-one for their inputs on how to address this. Ori"
+    },
+    {
+      "name": "tzrange_transitions_returns_start_and_end",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.tzrange.transitions",
+      "replay": "tzrange_transitions",
+      "params": {
+        "spec": "EST5EDT",
+        "year": 2020
+      },
+      "expected": {
+        "start": "2020-04-05T02:00:00",
+        "end": "2020-10-25T01:00:00"
+      },
+      "mutant": "wrong_transitions",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: erlapping functionality. As part of this change, tzrange and tzstr now expose a transitions() function, which returns the DST on and off transitions for a given year. (gh issue #260, pr #302)    Deprecated zoneinfo.gettz() due to confusion with tz.gettz(), in favor of get() method of zoneinfo.ZoneInfoFile objects. (gh issue #11, pr #310)"
+    },
+    {
+      "name": "tzoffset_accepts_timedelta",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.tzoffset.timedelta",
+      "replay": "tzoffset_seconds",
+      "params": {
+        "timedelta_seconds": 5400
+      },
+      "expected": {
+        "offset_seconds": 5400
+      },
+      "mutant": "reject_timedelta_offset",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: 307)    tzoffset and tzrange objects now accept either a number of seconds or a datetime.timedelta() object wherever previously only a number of seconds was allowed. (gh pr #264, #277)    datetime.timedelta objects can now be added to relativedelta objects. Reported and added by Alec Nikolas Reiter (@justanr) (gh issue #282, pr #283    Re"
+    },
+    {
+      "name": "timedelta_adds_to_relativedelta",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "relativedelta.timedelta-add",
+      "replay": "relativedelta_plus_timedelta",
+      "params": {
+        "relativedelta_days": 1,
+        "timedelta_seconds": 3600
+      },
+      "expected": {
+        "days": 1,
+        "hours": 1
+      },
+      "mutant": "reject_timedelta_add",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: wherever previously only a number of seconds was allowed. (gh pr #264, #277)    datetime.timedelta objects can now be added to relativedelta objects. Reported and added by Alec Nikolas Reiter (@justanr) (gh issue #282, pr #283    Refactored relativedelta.weekday and rrule.weekday into a common base class to reduce code duplication. (gh is"
+    },
+    {
+      "name": "rrule_replace_changes_count",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "rrule.replace",
+      "replay": "rrule_replace",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 3,
+        "new_count": 1
+      },
+      "expected": {
+        "count": 1,
+        "dates": "2020-01-01"
+      },
+      "mutant": "mutate_original_or_ignore",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: reported and fixed by Daniel LePage (@dplepage). (gh issue #262, pr #263)    A replace() method has been added to rrule objects by @jendas1, which creates new rrule with modified attributes, analogous to datetime.replace (gh pr #167)    Made some significant performance improvements to rrule objects in Python 2.x (gh pr #245)    All clas"
+    },
+    {
+      "name": "rrule_string_includes_wkst",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "rrule.format.wkst",
+      "replay": "rrule_to_string",
+      "params": {
+        "freq": "WEEKLY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 1,
+        "wkst": "SU"
+      },
+      "expected": {
+        "contains": "WKST=SU"
+      },
+      "mutant": "omit_wkst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: lass to reduce code duplication. (gh issue #140, pr #311)    An issue where the WKST parameter was improperly rendering in str(rrule) was reported and fixed by Daniel LePage (@dplepage). (gh issue #262, pr #263)    A replace() method has been added to rrule objects by @jendas1, which creates new rrule with modified attributes, analogous t"
+    },
+    {
+      "name": "parser_non_string_argument_raises_type_error",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "parser.input-type",
+      "replay": "parse_non_string_error",
+      "params": {
+        "value": 123
+      },
+      "expected": {
+        "throws": "type"
+      },
+      "mutant": "attribute_error_on_non_string",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: f get() method of zoneinfo.ZoneInfoFile objects. (gh issue #11, pr #310)    For non-character, non-stream arguments, parser.parse now raises TypeError instead of AttributeError. (gh issues #171, #269, pr #247)    Fixed an issue where tzfile objects were not properly handling dst() and tzname() when attached to datetime.time objects. Repor"
+    },
+    {
+      "name": "tzfile_time_object_has_name",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.time-object",
+      "replay": "tzname_for_time",
+      "params": {
+        "zone": "UTC",
+        "time": "12:00:00"
+      },
+      "expected": {
+        "name": "UTC"
+      },
+      "mutant": "fail_time_object_tzname",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: e tzfile objects were not properly handling dst() and tzname() when attached to datetime.time objects. Reported by @ovacephaloid. (gh issue #292, pr #309)    /usr/share/lib/zoneinfo was added to TZPATHS for compatibility with Solaris systems. Reported by @dhduvall (gh issue #276, pr #307)    tzoffset and tzrange objects now accept either"
+    },
+    {
+      "name": "rrule_count_zero_yields_empty",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "rrule.count-zero",
+      "replay": "rrule_dates",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2017-01-01T00:00:00",
+        "count": 0
+      },
+      "expected": {
+        "count": 0
+      },
+      "mutant": "treat_count_zero_as_infinite",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: ported and fixed by @kootenpv (gh issue #346, pr #347)    Fixed issue where the COUNT parameter of rrules was ignored if 0. Fixed by @mshenfield (gh pr #330), reported by @vaultah (gh issue #329).    Updated documentation to include the new tz methods. (gh pr #324)    Update documentation to reflect that the parser can raise TypeError, re"
+    },
+    {
+      "name": "parser_short_weekday_parses",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "parser.short-weekday",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "M 2017-01-02"
+      },
+      "expected": {
+        "date": "2017-01-02"
+      },
+      "mutant": "reject_short_weekday",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: Reported by @jbrockmendel. (gh issue #333, pr #393)    Added support for parser weekdays with less than 3 characters. Reported by @arcadefoam (gh issue #343), fixed by @jonemo (gh pr #382)    Fixed issue with the addition and subtraction of certain relativedeltas. Reported and fixed by @kootenpv (gh issue #346, pr #347)    Fixed issue whe"
+    },
+    {
+      "name": "fuzzy_tokens_preserve_ampm_like_skipped_token",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "parser.fuzzy-tokens",
+      "replay": "parse_fuzzy_tokens",
+      "params": {
+        "text": "Meet at ham 2017-01-02"
+      },
+      "expected": {
+        "date": "2017-01-02",
+        "ignored_contains": "ham"
+      },
+      "mutant": "drop_ampm_like_skipped",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: issue #321, pr #390)    Fixed issue with fuzzy parsing where tokens similar to AM/PM that are in the end skipped were dropped in the fuzzy_with_tokens list. Reported and fixed by @jbrockmendel (gh pr #332).    Fixed issue with parsing dates of the form X m YY. Reported by @jbrockmendel. (gh issue #333, pr #393)    Added support for parse"
+    },
+    {
+      "name": "relativedelta_abs_makes_components_positive",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "relativedelta.abs",
+      "replay": "relativedelta_abs",
+      "params": {
+        "days": -2,
+        "hours": -3
+      },
+      "expected": {
+        "repr_contains": "days=+2"
+      },
+      "mutant": "keep_negative_abs",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: Updated zoneinfo file to 2017b. (gh pr #395)    Added Python 3.6 to CI testing (gh pr #365)    Removed duplicate test name that was preventing a test from being run. Reported and fixed by @jdufresne (gh pr #371)    Fixed testing of folds and gaps, particularly"
+    },
+    {
+      "name": "relativedelta_hash_equal_for_equal_values",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "relativedelta.hash",
+      "replay": "relativedelta_hash_equal",
+      "params": {
+        "left": {
+          "days": 1
+        },
+        "right": {
+          "days": 1
+        }
+      },
+      "expected": {
+        "same_hash": true
+      },
+      "mutant": "unstable_hash",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: Updated zoneinfo file to 2017b. (gh pr #395)    Added Python 3.6 to CI testing (gh pr #365)    Removed duplicate test name that was preventing a test from being run. Reported and fixed by @jdufresne (gh pr #371)    Fixed testing of folds and gaps, particularly"
+    },
+    {
+      "name": "relativedelta_weeks_getter_handles_negative_days",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "relativedelta.weeks",
+      "replay": "relativedelta_weeks_from_days",
+      "params": {
+        "days": -10
+      },
+      "expected": {
+        "weeks": -1
+      },
+      "mutant": "wrong_negative_weeks",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: Updated zoneinfo file to 2017b. (gh pr #395)    Added Python 3.6 to CI testing (gh pr #365)    Removed duplicate test name that was preventing a test from being run. Reported and fixed by @jdufresne (gh pr #371)    Fixed testing of folds and gaps, particularly"
+    },
+    {
+      "name": "london_zero_standard_offset_dst_transition_has_dst",
+      "origin_project": "python-dateutil",
+      "version": "2.6.1",
+      "release_title": "Version 2.6.1",
+      "capability": "timezone.zero-standard-dst",
+      "replay": "datetime_ambiguous",
+      "params": {
+        "zone": "Europe/London",
+        "local": "2017-10-29T01:30:00"
+      },
+      "expected": {
+        "ambiguous": true
+      },
+      "mutant": "wrong_zero_standard_dst",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.1: d issue with several time zone classes around DST transitions in any zones with +0 standard offset (e.g. Europe/London) (gh issue #321, pr #390)    Fixed issue with fuzzy parsing where tokens similar to AM/PM that are in the end skipped were dropped in the fuzzy_with_tokens list. Reported and fixed by @jbrockmendel (gh pr #332).    Fixed"
+    },
+    {
+      "name": "utils_default_tzinfo_attaches_missing_zone",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "utils.default_tzinfo",
+      "replay": "utils_default_tzinfo",
+      "params": {
+        "datetime": "2020-01-01T00:00:00",
+        "offset": "+00:00"
+      },
+      "expected": {
+        "has_tzinfo": true,
+        "offset": "+00:00"
+      },
+      "mutant": "leave_naive",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: issue #432, gh pr #437)    Added today function to utils (gh pr #474)    Added default_tzinfo function to utils (gh pr #475), solving an issue reported by @nealmcb (gh issue #94)    Added dedicated ISO 8601 parsing function isoparse (gh issue #424). Initial implementation by @pganssle in gh pr #489 and #622, with a pre-release fix by @ki"
+    },
+    {
+      "name": "utils_within_delta_accepts_close_datetimes",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "utils.within_delta",
+      "replay": "utils_within_delta",
+      "params": {
+        "left": "2020-01-01T00:00:00",
+        "right": "2020-01-01T00:00:02",
+        "delta_seconds": 3
+      },
+      "expected": {
+        "within": true
+      },
+      "mutant": "strict_delta",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: 7, pr #552)    Added the utils submodule, for miscellaneous utilities.    Added within_delta function to utils - added by @justanr (gh issue #432, gh pr #437)    Added today function to utils (gh pr #474)    Added default_tzinfo function to utils (gh pr #475), solving an issue reported by @nealmcb (gh issue #94)    Added dedicated ISO 860"
+    },
+    {
+      "name": "isoparse_parses_calendar_date",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.isoparse",
+      "replay": "isoparse",
+      "params": {
+        "text": "2018-03-24"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      },
+      "mutant": "reject_iso_date",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: eported by @nealmcb (gh issue #94)    Added dedicated ISO 8601 parsing function isoparse (gh issue #424). Initial implementation by @pganssle in gh pr #489 and #622, with a pre-release fix by @kirit93 (gh issue #546, gh pr #573).    Moved parser module into parser/_parser.py and officially deprecated the use of several private functions a"
+    },
+    {
+      "name": "isoparse_parses_week_date",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.isoparse.week-date",
+      "replay": "isoparse",
+      "params": {
+        "text": "2018-W12-6"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      },
+      "mutant": "reject_week_date",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: eported by @nealmcb (gh issue #94)    Added dedicated ISO 8601 parsing function isoparse (gh issue #424). Initial implementation by @pganssle in gh pr #489 and #622, with a pre-release fix by @kirit93 (gh issue #546, gh pr #573).    Moved parser module into parser/_parser.py and officially deprecated the use of several private functions a"
+    },
+    {
+      "name": "parser_bytearray_input_parses",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.bytearray",
+      "replay": "parse_datetime",
+      "params": {
+        "text_type": "bytearray",
+        "text": "2018-03-24"
+      },
+      "expected": {
+        "date": "2018-03-24"
+      },
+      "mutant": "reject_bytearray",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: Dropped support for Python 2.6 (gh pr #362 by @jdufresne)    Dropped support for Python 3.2 (gh pr #626)    Updated zoneinfo file to 2018c (gh pr #616)    Changed licensing scheme so all new contributions are dual licensed under Apache 2.0 and BSD. (gh pr #542"
+    },
+    {
+      "name": "unknown_timezone_emits_warning",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.unknown-tz-warning",
+      "replay": "parse_warning",
+      "params": {
+        "text": "2018-03-24 12:00 XYZ"
+      },
+      "expected": {
+        "warning": true
+      },
+      "mutant": "silent_unknown_tz",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: and @pganssle (gh pr #514)    Started raising a warning when the parser finds a timezone string that it cannot construct a tzinfo instance for (rather than succeeding with no indication of an error). Reported and fixed by @jbrockmendel (gh pr #540)    Dropped the use of assert in the parser. Fixed by @jbrockmendel (gh pr #502)    Fixed to"
+    },
+    {
+      "name": "parser_invalid_hour_rejected",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.validation.hour",
+      "replay": "parse_error",
+      "params": {
+        "text": "2018-03-24 25:00"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_invalid_hour",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: ing colons, reported and fixed by @jbrockmendel (gh pr #420)    Fixed bug where hours were not validated, leading to improper parse. Reported by @heappro (gh pr #353), fixed by @jbrockmendel (gh pr #482)    Fixed problem parsing strings in %b-%Y-%d format. Reported and fixed by @jbrockmendel (gh pr #481)    Fixed problem parsing strings i"
+    },
+    {
+      "name": "parser_trailing_colon_rejected_as_value_error",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.validation.trailing-colon",
+      "replay": "parse_error",
+      "params": {
+        "text": "2018-03-24 12:"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "index_error_trailing_colon",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: fixed by @jbrockmendel (gh pr #409)    Fixed IndexError in parser on dates with trailing colons, reported and fixed by @jbrockmendel (gh pr #420)    Fixed bug where hours were not validated, leading to improper parse. Reported by @heappro (gh pr #353), fixed by @jbrockmendel (gh pr #482)    Fixed problem parsing strings in %b-%Y-%d format"
+    },
+    {
+      "name": "parser_fractional_components_round_correctly",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.fractional-rounding",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2018-03-24T12:00:00.9999995"
+      },
+      "expected": {
+        "microsecond": 999999
+      },
+      "mutant": "round_up_overflow",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: donPhillips and @pganssle (gh issue #318, #320, gh pr #517)    Fixed issue with improper rounding of fractional components. Reported by @dddmello (gh issue #427), fixed by @m-dz (gh pr #570)    Performance improvement to parser from removing certain min() calls. Reported and fixed by @jbrockmendel (gh pr #589)    Significantly refactored"
+    },
+    {
+      "name": "parser_unambiguous_fold_sets_fold_value",
+      "origin_project": "python-dateutil",
+      "version": "2.7.0",
+      "release_title": "Version 2.7.0",
+      "capability": "parser.fold",
+      "replay": "parse_datetime",
+      "params": {
+        "text": "2011-11-06 01:30 EST",
+        "tzinfos": {
+          "EST": "America/New_York"
+        }
+      },
+      "expected": {
+        "fold": 1
+      },
+      "mutant": "ignore_fold",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.0: iguous string representation of an ambiguous datetime such that if possible the correct value for fold is set. Fixes issue reported by @JordonPhillips and @pganssle (gh issue #318, #320, gh pr #517)    Fixed issue with improper rounding of fractional components. Reported by @dddmello (gh issue #427), fixed by @m-dz (gh pr #570)    Perform"
+    },
+    {
+      "name": "rrule_dtstart_until_mismatch_raises_clear_error",
+      "origin_project": "python-dateutil",
+      "version": "2.7.1",
+      "release_title": "Version 2.7.1 (2018-03-24)",
+      "capability": "rrule.validation.aware-until",
+      "replay": "rrule_error",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2018-01-01T00:00:00",
+        "until": "2018-01-02T00:00:00+00:00"
+      },
+      "expected": {
+        "throws": "invalid"
+      },
+      "mutant": "allow_mismatch",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.7.1 (2018-03-24): e #632). Fixed by @pganssle (gh pr #636).    Improve error message when rrule’s dtstart and until are not both naive or both aware. Reported and fixed by @ryanpetrello (gh issue #633, gh pr #634)         Misc      GH #644, GH #648"
+    },
+    {
+      "name": "rrulestr_exdate_parameter_excludes_date",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "rrule.parse.exdate",
+      "replay": "rrulestr_dates",
+      "params": {
+        "text": "DTSTART:20190201T000000\nRRULE:FREQ=DAILY;COUNT=3\nEXDATE:20190202T000000"
+      },
+      "expected": {
+        "dates": "2019-02-01,2019-02-03"
+      },
+      "mutant": "ignore_exdate",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: -Dec-00), as reported by Jim Abramson, and included test case for this.    Sort exdate and rdate before iterating over them, so that it’s not necessary to sort them before adding to the rruleset, as reported by Nicholas Piper.                 Previous   Next            © Copyright 2019, dateutil.  Revision db9d0189 .       Built with Sphi"
+    },
+    {
+      "name": "tzoffset_subminute_offset_supported",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "timezone.subminute-offset",
+      "replay": "tzoffset_seconds",
+      "params": {
+        "seconds": 90
+      },
+      "expected": {
+        "offset_seconds": 90
+      },
+      "mutant": "truncate_to_minute",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin"
+    },
+    {
+      "name": "isoparse_time_comma_decimal_separator",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.isoparse.comma-time",
+      "replay": "isoparse",
+      "params": {
+        "text": "2019-02-04T12:34:56,789"
+      },
+      "expected": {
+        "datetime": "2019-02-04T12:34:56.789000"
+      },
+      "mutant": "reject_comma_time",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin"
+    },
+    {
+      "name": "isoparse_t24_rolls_to_following_day",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.isoparse.24-hour",
+      "replay": "isoparse",
+      "params": {
+        "text": "2019-02-04T24:00"
+      },
+      "expected": {
+        "datetime": "2019-02-05T00:00:00"
+      },
+      "mutant": "keep_same_day_24",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin"
+    },
+    {
+      "name": "isoparse_more_than_6_fraction_digits_truncates",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.isoparse.long-fraction",
+      "replay": "isoparse",
+      "params": {
+        "text": "2019-02-04T12:34:56.123456789"
+      },
+      "expected": {
+        "microsecond": 123456
+      },
+      "mutant": "reject_long_fraction",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin"
+    },
+    {
+      "name": "isoparse_lower_z_is_utc",
+      "origin_project": "python-dateutil",
+      "version": "0.5",
+      "release_title": "Version 0.5",
+      "capability": "parser.isoparse.lower-z",
+      "replay": "isoparse",
+      "params": {
+        "text": "2019-02-04T12:00:00z"
+      },
+      "expected": {
+        "offset": "+00:00"
+      },
+      "mutant": "reject_lower_z",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.5: Removed FREQ_ prefix from rrule frequency constants WARNING: this breaks compatibility with previous versions.    Fixed rrule.between() for cases where “after” is achieved before even starting, as reported by Andreas Köhler.    Fixed two digit zero-year parsin"
+    },
+    {
+      "name": "parse_error_raises_parsererror_subclass",
+      "origin_project": "python-dateutil",
+      "version": "2.8.1",
+      "release_title": "Version 2.8.1 (2019-11-03)",
+      "capability": "parser.error-type",
+      "replay": "parse_error_type",
+      "params": {
+        "text": "not a date"
+      },
+      "expected": {
+        "class": "ParserError",
+        "is_value_error": true
+      },
+      "mutant": "raise_plain_valueerror",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.1 (2019-11-03): hon 2.7. Reported by @kainjow (gh issue #901).    Parsing errors will now raise ParserError , a subclass of ValueError , which has a nicer string representation. Patch by @gfyoung (gh pr #881).     parser.parse will now raise TypeError when tzinfos is passed a type that cannot be interpreted as a time zone. Prior to this change, it would"
+    },
+    {
+      "name": "parser_tzinfos_invalid_type_raises_type_error",
+      "origin_project": "python-dateutil",
+      "version": "2.8.1",
+      "release_title": "Version 2.8.1 (2019-11-03)",
+      "capability": "parser.tzinfos-type",
+      "replay": "parse_tzinfos_type_error",
+      "params": {
+        "text": "2019-11-03 12:00 UTC"
+      },
+      "expected": {
+        "throws": "type"
+      },
+      "mutant": "unboundlocalerror",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.1 (2019-11-03): Patch by @gfyoung (gh pr #881).     parser.parse will now raise TypeError when tzinfos is passed a type that cannot be interpreted as a time zone. Prior to this change, it would raise an UnboundLocalError instead. Patch by @jbrockmendel (gh pr #891).    Changed error message raised when when passing a bytes object as the time zone name t"
+    },
+    {
+      "name": "tz_utc_constant_is_tzutc",
+      "origin_project": "python-dateutil",
+      "version": "2.8.1",
+      "release_title": "Version 2.8.1 (2019-11-03)",
+      "capability": "timezone.utc-constant",
+      "replay": "tz_utc_constant",
+      "params": {},
+      "expected": {
+        "offset": "+00:00",
+        "name": "UTC"
+      },
+      "mutant": "wrong_utc_constant",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.1 (2019-11-03): elease. Patch by Hugo van Kemenade (gh pr #950).    Updated many modules to use tz.UTC in favor of tz.tzutc() internally, to avoid an unnecessary function call. (gh pr #910).    Fixed issue where dateutil.tz was using a backported version of  contextlib.nullcontext even in Python 3.7 due to a malformed import statement. (gh pr #963)."
+    },
+    {
+      "name": "isoparse_inconsistent_colon_offset_raises",
+      "origin_project": "python-dateutil",
+      "version": "2.8.2",
+      "release_title": "Version 2.8.2 (2021-07-08)",
+      "capability": "parser.isoparse.validation",
+      "replay": "isoparse_error",
+      "params": {
+        "text": "2021-01-01T12:30:45+01:00:00"
+      },
+      "expected": {
+        "throws": "parse"
+      },
+      "mutant": "accept_inconsistent_colon",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.2 (2021-07-08): Data updates      Updated tzdata version to 2021a. (gh pr #1128)         Bugfixes      Fixed a bug in the parser where non- ValueError exceptions would be raised during exception handling; this would happen, for example, if an  IllegalMonthError was raised in"
+    },
+    {
+      "name": "gettz_empty_string_returns_local_zone",
+      "origin_project": "python-dateutil",
+      "version": "2.8.2",
+      "release_title": "Version 2.8.2 (2021-07-08)",
+      "capability": "timezone.gettz-empty",
+      "replay": "gettz_named",
+      "params": {
+        "name": ""
+      },
+      "expected": {
+        "has_tzinfo": true
+      },
+      "mutant": "return_none_empty",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.8.2 (2021-07-08): cj89 (gh pr #1125).    Fixed tz.gettz() not returning local time when passed an empty string. Reported by @labrys (gh issues #925, #926). Fixed by @ffe4 (gh pr #1024)         Documentation changes      Rearranged parser documentation into “Functions”, “Classes” and “Warnings and Exceptions” categories. (gh issue #992, pr #994).    Updated"
+    },
+    {
+      "name": "dateutil_root_lazily_imports_tz_submodule",
+      "origin_project": "python-dateutil",
+      "version": "2.9.0",
+      "release_title": "Version 2.9.0 (2024-02-29)",
+      "capability": "module.lazy-import",
+      "replay": "lazy_import",
+      "params": {
+        "submodule": "tz",
+        "zone": "UTC"
+      },
+      "expected": {
+        "has_tzinfo": true
+      },
+      "mutant": "no_lazy_import",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.9.0 (2024-02-29): sion to 2024a. (gh pr #1342)         Features      Made all dateutil submodules lazily imported using PEP 562 . On Python 3.7+, things like  import dateutil; dateutil.tz.gettz(\"America/New_York\") will now work without explicitly importing dateutil.tz , with the import occurring behind the scenes on first use. The old behavior remains on P"
+    },
+    {
+      "name": "relativedelta_missing_day_returns_last_day_when_needed",
+      "origin_project": "python-dateutil",
+      "version": "2.9.0",
+      "release_title": "Version 2.9.0 (2024-02-29)",
+      "capability": "relativedelta.month-end-doc",
+      "replay": "relativedelta_apply",
+      "params": {
+        "base": "2024-01-31T00:00:00",
+        "months": 1
+      },
+      "expected": {
+        "date": "2024-02-29"
+      },
+      "mutant": "overflow_month_end",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.9.0 (2024-02-29): on changes      Added note into docs and tests where relativedelta would return last day of the month only if the same day on a different month resolves to a date that doesn’t exist. Reported by @hawkEye-01 (gh issue #1167). Fixed by @Mifrill (gh pr #1168)"
+    },
+    {
+      "name": "easter_western_2020",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "easter.algorithm",
+      "replay": "easter_date",
+      "params": {
+        "year": 2020,
+        "method": "western"
+      },
+      "expected": {
+        "date": "2020-04-12"
+      },
+      "mutant": "wrong_easter",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: versions. It’s also possible to ask for the internal versions directly by using dateutil.zoneinfo.gettz().    New tzwin timezone type, allowing access to Windows internal timezones (contributed by Jeffrey Harris).    Fixed parsing of unicode date strings.    Accept parserinfo instances as the parser constructor parameter, besides parserin"
+    },
+    {
+      "name": "easter_orthodox_2020",
+      "origin_project": "python-dateutil",
+      "version": "0.9",
+      "release_title": "Version 0.9",
+      "capability": "easter.algorithm",
+      "replay": "easter_date",
+      "params": {
+        "year": 2020,
+        "method": "orthodox"
+      },
+      "expected": {
+        "date": "2020-04-19"
+      },
+      "mutant": "wrong_easter",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 0.9: versions. It’s also possible to ask for the internal versions directly by using dateutil.zoneinfo.gettz().    New tzwin timezone type, allowing access to Windows internal timezones (contributed by Jeffrey Harris).    Fixed parsing of unicode date strings.    Accept parserinfo instances as the parser constructor parameter, besides parserin"
+    },
+    {
+      "name": "rrule_after_excludes_equal_when_inc_false",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "rrule.after",
+      "replay": "rrule_after",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 3,
+        "after": "2020-01-02T00:00:00",
+        "inc": false
+      },
+      "expected": {
+        "date": "2020-01-03"
+      },
+      "mutant": "include_equal_when_false",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: ual. This oversight has been corrected. Contributed by @elprans (gh pr #113)    rrule now has an xafter() method for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule) now returns an RFC2445-compliant rrule string, contributed by @schinckel and @armicron (lp:1406305, gh issue #47, prs #50, #62 and #160)    r"
+    },
+    {
+      "name": "rrule_after_includes_equal_when_inc_true",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "rrule.after",
+      "replay": "rrule_after",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 3,
+        "after": "2020-01-02T00:00:00",
+        "inc": true
+      },
+      "expected": {
+        "date": "2020-01-02"
+      },
+      "mutant": "exclude_equal_when_true",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: ual. This oversight has been corrected. Contributed by @elprans (gh pr #113)    rrule now has an xafter() method for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule) now returns an RFC2445-compliant rrule string, contributed by @schinckel and @armicron (lp:1406305, gh issue #47, prs #50, #62 and #160)    r"
+    },
+    {
+      "name": "rrule_before_excludes_equal_when_inc_false",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "rrule.before",
+      "replay": "rrule_before",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 3,
+        "before": "2020-01-02T00:00:00",
+        "inc": false
+      },
+      "expected": {
+        "date": "2020-01-01"
+      },
+      "mutant": "include_equal_when_false",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: ual. This oversight has been corrected. Contributed by @elprans (gh pr #113)    rrule now has an xafter() method for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule) now returns an RFC2445-compliant rrule string, contributed by @schinckel and @armicron (lp:1406305, gh issue #47, prs #50, #62 and #160)    r"
+    },
+    {
+      "name": "rrule_before_includes_equal_when_inc_true",
+      "origin_project": "python-dateutil",
+      "version": "2.5.0",
+      "release_title": "Version 2.5.0",
+      "capability": "rrule.before",
+      "replay": "rrule_before",
+      "params": {
+        "freq": "DAILY",
+        "dtstart": "2020-01-01T00:00:00",
+        "count": 3,
+        "before": "2020-01-02T00:00:00",
+        "inc": true
+      },
+      "expected": {
+        "date": "2020-01-02"
+      },
+      "mutant": "exclude_equal_when_true",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.5.0: ual. This oversight has been corrected. Contributed by @elprans (gh pr #113)    rrule now has an xafter() method for retrieving multiple recurrences after a specified date. (gh pr #38)    str(rrule) now returns an RFC2445-compliant rrule string, contributed by @schinckel and @armicron (lp:1406305, gh issue #47, prs #50, #62 and #160)    r"
+    },
+    {
+      "name": "tz_enfold_sets_fold_one",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.fold",
+      "replay": "tz_enfold",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-11-05T01:30:00"
+      },
+      "expected": {
+        "fold": 1,
+        "offset": "-05:00"
+      },
+      "mutant": "ignore_enfold",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: me_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixed an issue where dst() in Portugal in 1996 was returning the wrong value in tz.tzfile objects. Reported by @abalkin (gh issue #128, pr #225)    Fixed an issue where z"
+    },
+    {
+      "name": "tz_datetime_exists_true_for_normal_time",
+      "origin_project": "python-dateutil",
+      "version": "2.6.0",
+      "release_title": "Version 2.6.0",
+      "capability": "timezone.imaginary",
+      "replay": "datetime_exists",
+      "params": {
+        "zone": "America/New_York",
+        "local": "2017-03-12T03:30:00"
+      },
+      "expected": {
+        "exists": true
+      },
+      "mutant": "mark_normal_imaginary",
+      "evidence": "dateutil.readthedocs.io/changelog:Version 2.6.0: datetime_ambiguous() determines if a datetime is ambiguous for a given zone and datetime_exists() determines if a datetime exists in a given zone. This works for all fold-aware datetimes, not just those provided by dateutil. (gh issue #253, gh pr #302)    Fixed an issue where dst() in Portugal in 1996 was returning the wrong value in tz.t"
+    }
+  ],
+  "release_counts": {
+    "Version 0.5": 10,
+    "Version 0.9": 6,
+    "Version 1.0": 2,
+    "Version 1.1": 2,
+    "Version 1.2": 1,
+    "Version 1.3": 2,
+    "Version 1.4": 3,
+    "Version 2.2": 1,
+    "Version 2.4.0": 1,
+    "Version 2.4.1": 3,
+    "Version 2.4.2": 1,
+    "Version 2.5.0": 12,
+    "Version 2.5.1": 2,
+    "Version 2.5.2": 2,
+    "Version 2.6.0": 12,
+    "Version 2.6.1": 7,
+    "Version 2.7.0": 10,
+    "Version 2.7.1 (2018-03-24)": 1,
+    "Version 2.8.1 (2019-11-03)": 3,
+    "Version 2.8.2 (2021-07-08)": 2,
+    "Version 2.9.0 (2024-02-29)": 2
+  }
+}

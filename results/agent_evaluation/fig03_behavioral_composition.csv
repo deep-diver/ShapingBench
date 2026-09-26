@@ -1,0 +1,46 @@
+support,support_display,family,family_display,count,support_total,percent_within_support,color
+1/5,1/5   isolated,Primary functional semantics,Primary semantics,400,4138,9.666505558240695,#4285F4
+1/5,1/5   isolated,Input validation and error behavior,Input validation & errors,228,4138,5.509908168197197,#7BAAF7
+1/5,1/5   isolated,"Standards, interoperability, and compatibility edges",Standards & compatibility,398,4138,9.618173030449492,#46BDC6
+1/5,1/5   isolated,Security and safety enforcement,Security & safety,620,4138,14.98308361527308,#D9655B
+1/5,1/5   isolated,"Stateful, temporal, and policy semantics",Stateful & policy,642,4138,15.514741420976318,#34A853
+1/5,1/5   isolated,Normalization and canonicalization,Normalization,326,4138,7.878202029966167,#A36AC7
+1/5,1/5   isolated,"Representation, formatting, and round-trip",Representation & round-trip,686,4138,16.578057032382794,#FDD663
+1/5,1/5   isolated,"Resource, recovery, and lifecycle control",Resource & lifecycle,273,4138,6.597390043499275,#F29900
+1/5,1/5   isolated,"Extensions, diagnostics, and convenience surface",Extensions & convenience,565,4138,13.653939101014982,#7A869A
+2/5,2/5   limited recurrence,Primary functional semantics,Primary semantics,134,1223,10.956663941128372,#4285F4
+2/5,2/5   limited recurrence,Input validation and error behavior,Input validation & errors,171,1223,13.982011447260835,#7BAAF7
+2/5,2/5   limited recurrence,"Standards, interoperability, and compatibility edges",Standards & compatibility,223,1223,18.233851185609158,#46BDC6
+2/5,2/5   limited recurrence,Security and safety enforcement,Security & safety,224,1223,18.31561733442355,#D9655B
+2/5,2/5   limited recurrence,"Stateful, temporal, and policy semantics",Stateful & policy,165,1223,13.491414554374488,#34A853
+2/5,2/5   limited recurrence,Normalization and canonicalization,Normalization,36,1223,2.9435813573180702,#A36AC7
+2/5,2/5   limited recurrence,"Representation, formatting, and round-trip",Representation & round-trip,121,1223,9.893704006541292,#FDD663
+2/5,2/5   limited recurrence,"Resource, recovery, and lifecycle control",Resource & lifecycle,31,1223,2.534750613246116,#F29900
+2/5,2/5   limited recurrence,"Extensions, diagnostics, and convenience surface",Extensions & convenience,118,1223,9.64840556009812,#7A869A
+3/5,3/5   recurring,Primary functional semantics,Primary semantics,173,1618,10.69221260815822,#4285F4
+3/5,3/5   recurring,Input validation and error behavior,Input validation & errors,179,1618,11.063040791100123,#7BAAF7
+3/5,3/5   recurring,"Standards, interoperability, and compatibility edges",Standards & compatibility,697,1618,43.0778739184178,#46BDC6
+3/5,3/5   recurring,Security and safety enforcement,Security & safety,149,1618,9.208899876390605,#D9655B
+3/5,3/5   recurring,"Stateful, temporal, and policy semantics",Stateful & policy,155,1618,9.57972805933251,#34A853
+3/5,3/5   recurring,Normalization and canonicalization,Normalization,22,1618,1.3597033374536465,#A36AC7
+3/5,3/5   recurring,"Representation, formatting, and round-trip",Representation & round-trip,125,1618,7.725587144622992,#FDD663
+3/5,3/5   recurring,"Resource, recovery, and lifecycle control",Resource & lifecycle,35,1618,2.1631644004944377,#F29900
+3/5,3/5   recurring,"Extensions, diagnostics, and convenience surface",Extensions & convenience,83,1618,5.129789864029666,#7A869A
+4/5,4/5   near-consensus,Primary functional semantics,Primary semantics,135,2804,4.814550641940086,#4285F4
+4/5,4/5   near-consensus,Input validation and error behavior,Input validation & errors,1255,2804,44.75748930099857,#7BAAF7
+4/5,4/5   near-consensus,"Standards, interoperability, and compatibility edges",Standards & compatibility,698,2804,24.893009985734665,#46BDC6
+4/5,4/5   near-consensus,Security and safety enforcement,Security & safety,257,2804,9.165477888730384,#D9655B
+4/5,4/5   near-consensus,"Stateful, temporal, and policy semantics",Stateful & policy,124,2804,4.422253922967189,#34A853
+4/5,4/5   near-consensus,Normalization and canonicalization,Normalization,48,2804,1.7118402282453637,#A36AC7
+4/5,4/5   near-consensus,"Representation, formatting, and round-trip",Representation & round-trip,140,2804,4.992867332382311,#FDD663
+4/5,4/5   near-consensus,"Resource, recovery, and lifecycle control",Resource & lifecycle,14,2804,0.4992867332382311,#F29900
+4/5,4/5   near-consensus,"Extensions, diagnostics, and convenience surface",Extensions & convenience,133,2804,4.743223965763195,#7A869A
+5/5,5/5   Core,Primary functional semantics,Primary semantics,822,4754,17.29070256625999,#4285F4
+5/5,5/5   Core,Input validation and error behavior,Input validation & errors,928,4754,19.520403870424904,#7BAAF7
+5/5,5/5   Core,"Standards, interoperability, and compatibility edges",Standards & compatibility,1398,4754,29.406815313420278,#46BDC6
+5/5,5/5   Core,Security and safety enforcement,Security & safety,139,4754,2.923853596970972,#D9655B
+5/5,5/5   Core,"Stateful, temporal, and policy semantics",Stateful & policy,97,4754,2.040387042490534,#34A853
+5/5,5/5   Core,Normalization and canonicalization,Normalization,72,4754,1.5145140933950358,#A36AC7
+5/5,5/5   Core,"Representation, formatting, and round-trip",Representation & round-trip,862,4754,18.13209928481279,#FDD663
+5/5,5/5   Core,"Resource, recovery, and lifecycle control",Resource & lifecycle,149,4754,3.1342027766091713,#F29900
+5/5,5/5   Core,"Extensions, diagnostics, and convenience surface",Extensions & convenience,287,4754,6.0370214556163235,#7A869A

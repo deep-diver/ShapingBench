@@ -1,0 +1,363 @@
+{
+  "project": "pallets-eco/croniter",
+  "latest_release_tested": "6.2.4",
+  "pypi_releases_seen": 106,
+  "git_tags_seen": 95,
+  "changelog_releases_seen": 86,
+  "releases_with_extracted_contracts": 30,
+  "candidate_contracts_before_latest_filter": 287,
+  "filled": 287,
+  "viable_after_latest_fill": 274,
+  "rejected_at_fill": 13,
+  "replay_passed_and_mutant_killed": 274,
+  "failed_after_fill": 0,
+  "failed_examples": [],
+  "rejected_examples": [
+    {
+      "name": "croniter_0_3_32_croniter_seconds_sixth_field_bb41dd189f00",
+      "version": "0.3.32",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.seconds.sixth-field",
+      "op": "next_dates",
+      "params": {
+        "expression": "0 1 8 1,15,l wed 15,45",
+        "start": "2012-04-06T13:26:10",
+        "count": 5
+      },
+      "evidence": "0.3.32 implements match(), seconds repeats documentation, and DST previous boundary fix",
+      "human": "0 1 8 1,15,l wed 15,45 yields next 5 dates from 2012-04-06T13:26:10",
+      "expected": {
+        "error": true,
+        "messageContains": "[0 1 8 1,15,l wed 15,45] is not acceptable"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "[0 1 8 1,15,l wed 15,45] is not acceptable"
+      }
+    },
+    {
+      "name": "croniter_1_0_7_croniter_validation_invalid_syntax_hardening_99b9a17a4f64",
+      "version": "1.0.7",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.validation.invalid-syntax-hardening",
+      "op": "parse_error",
+      "params": {
+        "expression": "0 0 10-L * *",
+        "use_expand": true
+      },
+      "evidence": "1.0.3/1.0.6/1.0.7 harden invalid syntax handling",
+      "human": "0 0 10-L * * is rejected",
+      "expected": {
+        "error": false
+      },
+      "mutant": {
+        "error": true
+      }
+    },
+    {
+      "name": "croniter_1_0_11_croniter_expand_nth_and_last_dow_ad0a2a2be29d",
+      "version": "1.0.11",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.expand.nth-and-last-dow",
+      "op": "expand",
+      "params": {
+        "expression": "0 0 * * 5#3,L5"
+      },
+      "evidence": "1.0.11 adds L in day-of-week and unsupported-syntax rejection for mixed nth/last DOW",
+      "human": "0 0 * * 5#3,L5 expands deterministically",
+      "expected": {
+        "error": true,
+        "messageContains": "'<' not supported between instances of 'int' and 'str'"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "'<' not supported between instances of 'int' and 'str'"
+      }
+    },
+    {
+      "name": "croniter_1_3_13_croniter_validation_range_begin_end_7a269bb56b8c",
+      "version": "1.3.13",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.validation.range-begin-end",
+      "op": "parse_error",
+      "params": {
+        "expression": "10-5 * * * *",
+        "use_expand": true,
+        "hash_id": "hello"
+      },
+      "evidence": "1.3.10/1.3.13 fix DOW hash parsing and range begin/end checks",
+      "human": "10-5 * * * * is rejected",
+      "expected": {
+        "error": false
+      },
+      "mutant": {
+        "error": true
+      }
+    },
+    {
+      "name": "croniter_2_0_2_croniter_leap_year_prev_bb76340a37f6",
+      "version": "2.0.2",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.leap-year-prev",
+      "op": "prev_dates",
+      "params": {
+        "expression": "0 0 29 2 * 0 2020/4",
+        "start": "2025-01-01T00:00:00",
+        "count": 3
+      },
+      "evidence": "2.0.2 fixes leap year and 2.0.3 adds match_range",
+      "human": "0 0 29 2 * 0 2020/4 yields previous 3 dates from 2025-01-01T00:00:00",
+      "expected": {
+        "error": true,
+        "messageContains": "failed to find prev date"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "failed to find prev date"
+      }
+    },
+    {
+      "name": "croniter_2_0_6_croniter_question_mark_wildcard_ce9277e22cb1",
+      "version": "2.0.6",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.question-mark-wildcard",
+      "op": "next_dates",
+      "params": {
+        "expression": "? * * * *",
+        "start": "2024-01-01T00:00:00",
+        "count": 4
+      },
+      "evidence": "2.0.6 implements second_at_beginning, question mark wildcard, and expand_from_start_time",
+      "human": "? * * * * yields next 4 dates from 2024-01-01T00:00:00",
+      "expected": {
+        "error": true,
+        "messageContains": "[? * * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "[? * * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      }
+    },
+    {
+      "name": "croniter_2_0_6_croniter_expand_question_mark_wildcard_82eb11c30909",
+      "version": "2.0.6",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.expand.question-mark-wildcard",
+      "op": "expand",
+      "params": {
+        "expression": "? * * * *"
+      },
+      "evidence": "2.0.6 implements second_at_beginning, question mark wildcard, and expand_from_start_time",
+      "human": "? * * * * expands deterministically",
+      "expected": {
+        "error": true,
+        "messageContains": "[? * * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "[? * * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      }
+    },
+    {
+      "name": "croniter_2_0_6_croniter_question_mark_wildcard_232e87b77732",
+      "version": "2.0.6",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.question-mark-wildcard",
+      "op": "next_dates",
+      "params": {
+        "expression": "0 ? * * *",
+        "start": "2024-01-01T00:00:00",
+        "count": 4
+      },
+      "evidence": "2.0.6 implements second_at_beginning, question mark wildcard, and expand_from_start_time",
+      "human": "0 ? * * * yields next 4 dates from 2024-01-01T00:00:00",
+      "expected": {
+        "error": true,
+        "messageContains": "[0 ? * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "[0 ? * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      }
+    },
+    {
+      "name": "croniter_2_0_6_croniter_expand_question_mark_wildcard_837b4219ea46",
+      "version": "2.0.6",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.expand.question-mark-wildcard",
+      "op": "expand",
+      "params": {
+        "expression": "0 ? * * *"
+      },
+      "evidence": "2.0.6 implements second_at_beginning, question mark wildcard, and expand_from_start_time",
+      "human": "0 ? * * * expands deterministically",
+      "expected": {
+        "error": true,
+        "messageContains": "[0 ? * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "[0 ? * * *] is not acceptable. Question mark can only used in day_of_month or day_of_week"
+      }
+    },
+    {
+      "name": "croniter_2_0_6_croniter_expand_from_start_time_next_7b672058d7a4",
+      "version": "2.0.6",
+      "project": "pallets-eco/croniter",
+      "domain": "cron_schedule_expression",
+      "capability": "croniter.expand-from-start-time.next",
+      "op": "next_dates",
+      "params": {
+        "expression": "* * * * * */15",
+        "start": "2024-07-11T10:07:13",
+        "count": 6,
+        "expand_from_start_time": true
+      },
+      "evidence": "2.0.6 implements second_at_beginning, question mark wildcard, and expand_from_start_time",
+      "human": "* * * * * */15 yields next 6 dates from 2024-07-11T10:07:13",
+      "expected": {
+        "error": true,
+        "messageContains": "Can't get current date number for index larger than 4"
+      },
+      "mutant": {
+        "error": false,
+        "messageContains": "Can't get current date number for index larger than 4"
+      }
+    }
+  ],
+  "latest_surviving_contracts": 274,
+  "survivors_by_release": {
+    "0.3.18": 4,
+    "0.3.3": 19,
+    "0.3.32": 8,
+    "0.3.33": 3,
+    "0.3.34": 4,
+    "0.3.35": 7,
+    "1.0.11": 9,
+    "1.0.12": 29,
+    "1.0.2": 3,
+    "1.0.7": 6,
+    "1.0.8": 8,
+    "1.2.0": 4,
+    "1.3.10": 8,
+    "1.3.13": 2,
+    "1.3.15": 9,
+    "1.3.7": 3,
+    "1.4.1": 4,
+    "2.0.2": 5,
+    "2.0.3": 4,
+    "2.0.4": 6,
+    "2.0.6": 12,
+    "3.0.0": 10,
+    "3.0.1": 4,
+    "3.0.2": 1,
+    "5.0.1": 10,
+    "6.1.0": 8,
+    "6.2.0": 65,
+    "6.2.1": 2,
+    "6.2.3": 9,
+    "6.2.4": 8
+  },
+  "survivors_by_capability": {
+    "croniter.all-next.start-time-respected": 1,
+    "croniter.alpha-and-last-case.next": 4,
+    "croniter.core.calendar-edge-cases": 4,
+    "croniter.core.next": 5,
+    "croniter.core.prev": 1,
+    "croniter.core.prev-edge-cases": 7,
+    "croniter.day-or.default-or": 1,
+    "croniter.day-or.false-and": 1,
+    "croniter.day-or.first-weekday-and": 2,
+    "croniter.dow.nth-and-last": 4,
+    "croniter.expand-from-start-time.expanded": 3,
+    "croniter.expand-from-start-time.month-low-bound": 3,
+    "croniter.expand-from-start-time.month-low-bound-next": 3,
+    "croniter.expand-from-start-time.next": 3,
+    "croniter.expand-from-start-time.sunday-dow-low-bound": 4,
+    "croniter.expand-from-start-time.sunday-dow-next": 4,
+    "croniter.expand.alpha-and-last-case": 4,
+    "croniter.expand.nearest-weekday-w": 5,
+    "croniter.expand.nth-and-last-dow": 3,
+    "croniter.expand.question-mark-wildcard": 1,
+    "croniter.expand.sunday-seven-and-ranges": 5,
+    "croniter.expand.year-field": 4,
+    "croniter.hash.day-of-week": 4,
+    "croniter.hash.day-of-week-expand": 4,
+    "croniter.hash.deterministic": 6,
+    "croniter.hash.expand": 6,
+    "croniter.hash.expand-no-overoptimization": 3,
+    "croniter.hash.range-division": 3,
+    "croniter.hash.range-division-expand": 3,
+    "croniter.keyword.jenkins-hash": 7,
+    "croniter.keyword.vixie": 7,
+    "croniter.leap-year": 3,
+    "croniter.leap-year-prev": 2,
+    "croniter.match-range": 3,
+    "croniter.match-range.day-or-false": 1,
+    "croniter.match-range.precision-in-seconds": 4,
+    "croniter.match.basic-and-day-or": 5,
+    "croniter.match.day-or-false": 1,
+    "croniter.match.false-when-unavailable": 1,
+    "croniter.match.microseconds": 3,
+    "croniter.match.precision-in-seconds": 4,
+    "croniter.match.six-field-precision": 3,
+    "croniter.nearest-weekday-w": 5,
+    "croniter.nearest-weekday-w-prev": 5,
+    "croniter.prev.leap-day": 2,
+    "croniter.question-mark-wildcard": 1,
+    "croniter.random.instance-invariant": 3,
+    "croniter.range.exclude-ends": 1,
+    "croniter.range.first-saturday": 1,
+    "croniter.range.inclusive": 1,
+    "croniter.range.no-infinite-loop": 3,
+    "croniter.range.reverse": 1,
+    "croniter.range.second-at-beginning": 2,
+    "croniter.range.sparse-and-last-day": 3,
+    "croniter.range.zoneinfo-dst": 4,
+    "croniter.seconds.second-at-beginning": 2,
+    "croniter.seconds.sixth-field": 2,
+    "croniter.sparse-and-last-day": 3,
+    "croniter.sparse.max-years-error": 1,
+    "croniter.sunday-seven-and-ranges": 5,
+    "croniter.timezone.aware-datetime": 1,
+    "croniter.timezone.zoneinfo-dst": 4,
+    "croniter.update-current-option": 2,
+    "croniter.update-current-option-prev": 2,
+    "croniter.validation.hash-id-string": 3,
+    "croniter.validation.invalid-syntax-hardening": 6,
+    "croniter.validation.is-valid": 4,
+    "croniter.validation.nearest-weekday-w-singleton": 6,
+    "croniter.validation.nearest-weekday-w-singleton-error": 6,
+    "croniter.validation.range-begin-end": 2,
+    "croniter.validation.strict-day-month": 30,
+    "croniter.validation.unsupported-mixed-dow": 2,
+    "croniter.validation.year-range": 2,
+    "croniter.validation.zero-day-month": 4,
+    "croniter.validation.zero-step-ranges": 3,
+    "croniter.vixie-cron-bug-compat": 2,
+    "croniter.vixie-cron-bug-match": 2,
+    "croniter.year-field": 3
+  },
+  "survivors_by_op": {
+    "all_next_dates": 1,
+    "expand": 38,
+    "expanded_instance": 10,
+    "is_valid": 43,
+    "match": 19,
+    "match_range": 8,
+    "next_dates": 91,
+    "parse_error": 26,
+    "prev_dates": 19,
+    "random_invariant": 3,
+    "range_dates": 16
+  }
+}
