@@ -85,9 +85,6 @@ contracts, evaluator code, reference-support matrix, compact final results, and
 validation summaries are retained. The private development tree used to build
 the release is not modified by this export.
 
-## License and citation
+## License
 
-The source project did not contain a project-level license or finalized paper
-citation at export time, so this release does not invent either one. Add the
-authors' chosen license and citation metadata before relying on the repository
-for redistribution terms or a formal citation.
+ShapingBench is released under the Apache License 2.0. See [LICENSE](LICENSE).
