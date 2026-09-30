@@ -1,5 +1,7 @@
 # ShapingBench
 
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/d125ded3-83f1-4d42-988d-9543162bf0b1" />
+
 ShapingBench is an executable behavioral benchmark for evaluating coding-agent
 implementations against behaviors recovered from mature open-source software.
 The public release contains the frozen scoring inventory, the contract payloads,
